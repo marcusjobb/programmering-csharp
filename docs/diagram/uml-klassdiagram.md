@@ -79,6 +79,24 @@ classDiagram
     class Customer
 ```
 
+I C# syns associationen som en egenskap — `Order` håller en referens till ett `Customer`-objekt:
+
+```csharp
+public class Order
+{
+    public int Id { get; set; }
+    public Customer Customer { get; set; }  // referens till en annan klass
+}
+
+public class Customer
+{
+    public string Name { get; set; }
+    public string Email { get; set; }
+}
+```
+
+Typen och egenskapsnamnet heter ofta samma sak (`Customer Customer`) — typen är klassen, namnet är vad du kallar den i `Order`.
+
 ### Komposition — äger (stark)
 
 Motorn existerar bara som del av bilen. Om bilen försvinner försvinner motorn. Fylld romb på ägarens sida.
