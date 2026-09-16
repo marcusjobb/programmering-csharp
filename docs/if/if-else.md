@@ -1,7 +1,14 @@
 ---
-title: "if/else (kurs)"
+title: "if / else"
+layout: default
+author: Marcus Ackre Medina
+author_github: marcusjobb
+author_url: "https://github.com/marcusjobb"
+school: Nion Education
+date: "2026-09-16"
+updated: "2026-09-16"
 parent: "If"
-nav_order: 15
+nav_order: 5
 ---
 
 # Lästext — if / else

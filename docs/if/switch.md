@@ -8,81 +8,97 @@ school: Nion Education
 date: "2026-09-16"
 updated: "2026-09-16"
 parent: If
-nav_order: 35
+nav_order: 20
 ---
 # Switch
 
-`switch` jämför ett värde mot flera möjliga fall. Det är ett renare alternativ till långa kedjor av `if / else if` när du testar samma variabel mot fasta värden.
+Ibland behöver du jämföra ett och samma värde mot många möjliga alternativ. Du kan göra det med en lång kedja av `if / else if / else` — men efter tre–fyra grenar börjar det bli svårläst. Då är `switch` ett tydligare alternativ.
+
+`switch` tar ett värde, jämför det mot en lista av `case`-etiketter, och hoppar direkt till det som matchar.
 
 ## När du läst detta ska du kunna
 
-- Skriva en `switch`-sats med `case` och `default`
-- Använda `switch expression` (C# 8) för kortare syntax
+- Skriva en `switch`-sats med `case`, `break` och `default`
+- Stapla case-etiketter för gemensam kod
+- Använda switch expression (C# 8) för kortare syntax
 - Välja mellan `switch` och `if/else`
 
 ## Switch-sats — klassisk syntax
 
 ```csharp
-int dag = 3;
+int betyg = 4;
 
-switch (dag)
+switch (betyg)
 {
-    case 1:
-        Console.WriteLine("Måndag");
+    case 5:
+        Console.WriteLine("Utmärkt!");
         break;
-    case 2:
-        Console.WriteLine("Tisdag");
+    case 4:
+        Console.WriteLine("Bra jobbat!");
         break;
     case 3:
-        Console.WriteLine("Onsdag");
+        Console.WriteLine("Godkänt.");
+        break;
+    case 1:
+    case 2:
+        Console.WriteLine("Ej godkänt.");
         break;
     default:
-        Console.WriteLine("Okänd dag");
+        Console.WriteLine("Ogiltigt betyg.");
         break;
 }
 ```
 
-### Output
-
-```
-Onsdag
-```
-
 - `case` matchar ett specifikt värde
-- `break` avslutar det aktuella fallet — utan det faller koden igenom till nästa case
-- `default` körs om inget case matchade (som `else`)
+- `break` avslutar det aktuella fallet
+- `default` körs om inget case matchade — som `else` i en if-kedja
 
-## Flera case — samma kod
+`case 1:` och `case 2:` staplade ovanpå varandra utan `break` emellan är ett avsiktligt fall-through — båda leder till samma utskrift.
+
+## Flera case — gemensam kod
 
 Du kan stapla case-etiketter om de ska göra samma sak.
 
 ```csharp
-int dag = 6;
+string dag = "Lördag";
 
 switch (dag)
 {
-    case 6:
-    case 7:
-        Console.WriteLine("Helg");
+    case "Måndag":
+    case "Tisdag":
+    case "Onsdag":
+    case "Torsdag":
+    case "Fredag":
+        Console.WriteLine("Det är en vardag.");
         break;
     default:
-        Console.WriteLine("Vardag");
+        Console.WriteLine("Det är helg!");
         break;
 }
 ```
 
-### Output
+Om `dag` innehåller ett oväntat värde fångas det av `default` istället för att tyst ignoreras.
 
+```mermaid
+flowchart TD
+    A[Starta med betyg] --> B{betyg == 5?}
+    B -->|Ja| C[Utmärkt!]
+    B -->|Nej| D{betyg == 4?}
+    D -->|Ja| E[Bra jobbat!]
+    D -->|Nej| F{betyg == 3?}
+    F -->|Ja| G[Godkänt.]
+    F -->|Nej| H{betyg == 1 eller 2?}
+    H -->|Ja| I[Ej godkänt.]
+    H -->|Nej| J[default: Ogiltigt betyg.]
+    C & E & G & I & J --> K[Slut]
 ```
-Helg
-```
 
-## Switch expression — C# 8 ✨
+## Switch expression — C# 8
 
-Switch expression är en kortare variant som returnerar ett värde direkt. Används ofta med tilldelning.
+Switch expression är en kortare variant som returnerar ett värde direkt. Jämför gammalt och nytt:
 
 ```csharp
-// Gammalt sätt
+// Klassisk switch
 string dagnamn;
 switch (dag)
 {
@@ -91,7 +107,7 @@ switch (dag)
     default: dagnamn = "Okänd"; break;
 }
 
-// ✨ C# 8 — switch expression
+// Switch expression — C# 8
 string dagnamn = dag switch
 {
     1 => "Måndag",
@@ -105,15 +121,11 @@ string dagnamn = dag switch
 Console.WriteLine(dagnamn);
 ```
 
-### Output
+`_` är wildcard och spelar samma roll som `default`.
 
-```
-Onsdag
-```
+Switch expression passar bäst när du omvandlar ett värde till ett annat. Om du behöver köra mer komplex kod — flera satser, metodanrop, loopar — är klassisk switch tydligare.
 
-`_` är discard-mönstret — matchar allt (som `default`).
-
-## Switch med string
+## Switch med string och enum
 
 `switch` fungerar på strängar, heltal, char, enum och mer.
 
@@ -128,13 +140,7 @@ string hex = färg switch
     _      => "#000000"
 };
 
-Console.WriteLine(hex);
-```
-
-### Output
-
-```
-#FF0000
+Console.WriteLine(hex);  // #FF0000
 ```
 
 ## Switch vs if/else — när väljer du vad?
@@ -142,12 +148,30 @@ Console.WriteLine(hex);
 | Situation | Använd |
 |-----------|--------|
 | Samma variabel mot fasta värden | `switch` |
-| Komplexa villkor (`&&`, `||`, ranges) | `if/else` |
-| Tilldela ett värde beroende på ett uttryck | Switch expression |
-| Bara 2–3 fall | `if/else` är ofta enklare |
+| Villkor med intervall (`>`, `<`, `>=`) | `if / else if` |
+| Kombinerade villkor (`&&`, `\|\|`) | `if / else if` |
+| Mer än fyra–fem fasta alternativ | `switch` (lättare att läsa) |
+| Tilldela ett värde baserat på ett uttryck | Switch expression |
 
-> **✨ C# 8 — switch expression:** Kortare och mer läsbar än klassisk switch. Returnerar ett värde direkt — perfekt för tilldelning och returvärden.
+## Fallgrop: glömt break
+
+I den klassiska `switch`-satsen **måste** varje `case` avslutas med `break` (eller `return`, eller `throw`). Glömmer du det faller exekveringen rakt igenom till nästa `case`.
+
+```csharp
+// Fel — koden faller igenom
+switch (betyg)
+{
+    case 5:
+        Console.WriteLine("Utmärkt!");
+        // saknas break — faller igenom till case 4!
+    case 4:
+        Console.WriteLine("Bra jobbat!");
+        break;
+}
+```
+
+Om `betyg` är `5` skrivs båda raderna ut. C# tillåter inte oavsiktlig fall-through — kompilatorn ger ett fel om du glömmer `break` i ett `case` som har kod i sig.
 
 ## TL;DR
 
-`switch` matchar ett värde mot flera `case`. Switch expression (C# 8) är en kortare variant som returnerar ett värde. Bättre än långa `if/else if`-kedjor när du testar en och samma variabel.
+`switch` matchar ett värde mot flera `case`. Tydligare än långa `if/else if`-kedjor när du testar en och samma variabel mot fasta värden. Switch expression (C# 8) är en kompakt variant som returnerar ett värde direkt.
