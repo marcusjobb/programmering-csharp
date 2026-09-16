@@ -44,7 +44,7 @@ var hälsning = "Hej världen!";
 
 ## Kursstruktur
 
-Boken följer läroplanen för CLO26 (C# och objektorienterad programmering) vid Nion Education.
+Boken följer läroplanen för CLO26 (C# och objektorienterad programmering) vid YRGO, genom Nion Education.
 
 ## Kontakt
 
