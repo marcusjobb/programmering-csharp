@@ -1,7 +1,7 @@
 ---
 title: "Git — grunder"
-parent: "Verktyg"
-nav_order: 20
+parent: Git
+nav_order: 10
 ---
 
 # Git — Versionshantering

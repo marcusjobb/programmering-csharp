@@ -1,7 +1,7 @@
 ---
 title: "Git — konflikter"
-parent: "Verktyg"
-nav_order: 30
+parent: Git
+nav_order: 20
 ---
 
 # Git-konflikter
