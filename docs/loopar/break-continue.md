@@ -79,12 +79,12 @@ Alla jämna tal hoppades över — `continue` skickade loopen vidare innan `Writ
 `break` fungerar likadant i `while` och `foreach`.
 
 ```csharp
-var sökord = "Björn";
+var sokord = "Björn";
 var lista  = new List<string> { "Anna", "Björn", "Clara", "David" };
 
 foreach (var namn in lista)
 {
-    if (namn == sökord)
+    if (namn == sokord)
     {
         Console.WriteLine($"Hittade {namn}!");
         break;
