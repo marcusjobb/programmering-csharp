@@ -8,7 +8,7 @@ school: Nion Education
 date: "2026-09-16"
 updated: "2026-09-16"
 parent: C# bok
-nav_order: 15
+nav_order: 150
 has_children: true
 ---
 # AI — Artificiell intelligens för utvecklare

@@ -1,0 +1,23 @@
+---
+title: Diagram
+layout: default
+author: Marcus Ackre Medina
+author_github: marcusjobb
+author_url: "https://github.com/marcusjobb"
+school: Nion Education
+date: "2026-09-16"
+updated: "2026-09-16"
+parent: C# bok
+nav_order: 40
+has_children: true
+---
+# Diagram
+
+Bra programmerare planerar innan de kodar. Diagram hjälper dig att tänka igenom ett problem, kommunicera lösningar till andra och dokumentera hur ett system är uppbyggt.
+
+## Sidor i detta avsnitt
+
+| Sida | Innehåll |
+|------|----------|
+| [Flödesscheman](flodesscheman) | Rita logiken innan du kodar — beslut, loopar, pseudokod |
+| [UML-klassdiagram](uml-klassdiagram) | Visualisera klasser, fält, metoder och relationer |

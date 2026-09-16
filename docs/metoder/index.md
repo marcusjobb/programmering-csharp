@@ -8,7 +8,7 @@ school: Nion Education
 date: "2026-09-16"
 updated: "2026-09-16"
 parent: C# bok
-nav_order: 6
+nav_order: 60
 has_children: true
 ---
 # Metoder
