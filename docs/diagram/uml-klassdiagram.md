@@ -108,6 +108,20 @@ classDiagram
     class Engine
 ```
 
+I C# skapar ägaren objektet själv — `Engine` föds och dör med `Car`:
+
+```csharp
+public class Car
+{
+    private Engine _engine = new Engine();  // Car äger och skapar Engine
+}
+
+public class Engine
+{
+    public int HorsePower { get; set; }
+}
+```
+
 ### Aggregation — har (svag)
 
 Spellistan innehåller låtar, men låtarna existerar även utan spellistan. Öppen romb.
@@ -119,6 +133,21 @@ classDiagram
     class Song
 ```
 
+I C# tar ägaren emot objekt utifrån — `Song` existerar oberoende och läggs bara till i listan:
+
+```csharp
+public class Playlist
+{
+    public List<Song> Songs { get; set; } = new();  // Songs skapas utanför
+}
+
+public class Song
+{
+    public string Title { get; set; }
+    public string Artist { get; set; }
+}
+```
+
 ### Arv — är en
 
 `Dog` ärver från `Animal`. Pil med öppen triangel mot basklassen.
@@ -128,6 +157,26 @@ classDiagram
     Animal <|-- Dog
     class Animal
     class Dog
+```
+
+I C# skrivs arv med `:` — `Dog` får alla medlemmar från `Animal` och kan lägga till egna:
+
+```csharp
+public class Animal
+{
+    public string Name { get; set; }
+    public void Eat() { Console.WriteLine($"{Name} äter."); }
+}
+
+public class Dog : Animal  // Dog är en Animal
+{
+    public void Bark() { Console.WriteLine("Voff!"); }
+}
+
+// Användning
+var hund = new Dog { Name = "Fido" };
+hund.Eat();   // ärvd från Animal
+hund.Bark();  // Dogs egen
 ```
 
 ## Multiplicitet
