@@ -146,6 +146,42 @@ Console.WriteLine($"{a.Gata}, {a.Stad}, {a.Land}");
 // Storgatan 1, Göteborg, Sverige
 ```
 
+## init vs readonly — vad är skillnaden?
+
+Båda ger oföränderlighet, men på olika sätt:
+
+```csharp
+class MedReadonly
+{
+    private readonly string _namn;
+
+    public MedReadonly(string namn)
+    {
+        _namn = namn;  // readonly — sätts bara i konstruktor
+    }
+}
+
+class MedInit
+{
+    public string Namn { get; init; }  // init — sätts i konstruktor ELLER object initializer
+}
+
+// Med readonly måste du ha en konstruktor med parametrar
+var a = new MedReadonly("Marcus");
+
+// Med init kan du använda object initializer
+var b = new MedInit { Namn = "Marcus" };
+```
+
+| | `readonly` (fält) | `{ get; }` (property) | `{ get; init; }` (C# 9) |
+|-|-------------------|------------------------|--------------------------|
+| Sätts i konstruktor | ✓ | ✓ | ✓ |
+| Sätts i object initializer | ✗ | ✗ | ✓ |
+| Sätts efter skapande | ✗ | ✗ | ✗ |
+| Kan ha validering | Via konstruktor | Via konstruktor | Via konstruktor |
+
+`init` är flexiblare — du behöver inte en konstruktor med alla parametrar för att skapa oföränderliga objekt.
+
 ## TL;DR
 
 | Variant | Syntax | När |
