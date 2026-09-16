@@ -1,7 +1,7 @@
 ---
 title: "Variabler (kurs)"
 parent: "Variabler"
-nav_order: 15
+nav_order: 5
 ---
 
 # Variabler

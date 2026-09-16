@@ -1,7 +1,7 @@
 ---
 title: "Datatyper"
 parent: "Variabler"
-nav_order: 12
+nav_order: 10
 ---
 
 # Data Types
