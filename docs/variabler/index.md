@@ -15,11 +15,9 @@ has_children: True
 
 En variabel är en behållare som används för att lagra data. I C# måste alla variabler deklareras innan de kan användas. Detta innebär att du måste ange vilken typ av data som variabeln kommer att lagra.
 
-```mermaid
-graph LR
-A[Variabel] --> B[Deklarera]
-B --> C[Initiera]
-```
+![Diagram](diagrams/index_1.png)
+
+<!-- mermaid: diagrams/index_1.mmd -->
 
 ## Exempel
 
