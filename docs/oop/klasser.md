@@ -164,6 +164,47 @@ book.DisplayInfo();
 member.DisplayInfo();
 ```
 
+---
+
+## Skapa objekt — gamla och nya sätt
+
+Det finns flera sätt att skapa ett objekt i C#. Alla fungerar, men nyare versioner av C# har kortare syntax.
+
+```csharp
+// Klassiskt (alltid giltigt)
+Book b1 = new Book();
+b1.Title = "Dune";
+
+// Med var — typen bestäms av höger sida (alltid giltigt)
+var b2 = new Book();
+b2.Title = "Dune";
+
+// Object initializer — sätt properties direkt vid skapandet (alltid giltigt)
+Book b3 = new Book { Title = "Dune", Author = "Herbert", Year = 1965 };
+
+// Target-typed new (C# 9) — typen bestäms av vänster sida
+// ✨ Modernast — kortast när typen redan är deklarerad
+Book b4 = new() { Title = "Dune", Author = "Herbert", Year = 1965 };
+```
+
+> **✨ C# 9 — target-typed `new()`:** När kompilatorn redan vet vilken typ det är (från vänster sida av `=`) kan du skriva `new()` utan att upprepa typnamnet. Samma sak gäller i metodparametrar och returvärden.
+
+### Samlingar — gammal och ny stil
+
+```csharp
+// Gammalt
+List<Book> böcker = new List<Book>();
+
+// Med var
+var böcker = new List<Book>();
+
+// Target-typed new (C# 9)
+List<Book> böcker = new();
+
+// Collection expression (C# 12) — ✨ Modernast
+List<Book> böcker = [b1, b2, b3];
+```
+
 ### Output
 
 ```text

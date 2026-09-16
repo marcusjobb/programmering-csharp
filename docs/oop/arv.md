@@ -73,9 +73,7 @@ För att bättre förstå arv kan vi titta på ett kodexempel som illustrerar an
 Anta att vi bygger ett spel där vi har olika typer av karaktärer, inklusive fiender och hjältar. Vi kan använda arv för att skapa en hierarki av karaktärsklasser.
 
 ```csharp
-// Definiera
-
- överordnad klass Karaktär
+// Definiera överordnad klass Karaktär
 public class Karaktär
 {
     public string Namn { get; set; }
@@ -87,7 +85,7 @@ public class Fiende : Karaktär
 {
     public void Attackera()
     {
-        // Implementera attacklogik för fiender
+        Console.WriteLine($"{Namn} attackerar!");
     }
 }
 
@@ -96,11 +94,11 @@ public class Hjälte : Karaktär
 {
     public void Försvara()
     {
-        // Implementera försvarlogik för hjältar
+        Console.WriteLine($"{Namn} försvarar!");
     }
 }
 
-// Användning av arv i spellogik
+// Skapa objekt och sätt egenskaper
 var fiende = new Fiende();
 fiende.Namn = "Ond skurk";
 fiende.Hälsa = 100;
@@ -112,16 +110,81 @@ hjälte.Hälsa = 100;
 hjälte.Försvara();
 ```
 
-I detta kodexempel har vi en överordnad klass `Karaktär` som innehåller gemensamma egenskaper för både fiender och hjältar. Genom att ärva från `Karaktär` kan vi definiera specialiserad funktionalitet för fiender och hjältar i deras respektive nedärvande klasser `Fiende` och `Hjälte`. Vi kan sedan skapa instanser av dessa klasser och använda deras unika funktioner, som `Attackera()` för fiender och `Försvara()` för hjältar.
+I detta kodexempel har vi en överordnad klass `Karaktär` som innehåller gemensamma egenskaper för både fiender och hjältar. Genom att ärva från `Karaktär` kan vi definiera specialiserad funktionalitet för fiender och hjältar i deras respektive nedärvande klasser.
 
 ### Output
 
 ```
-(fiende.Attackera() skriver ut något här)
-(hjälte.Försvara() skriver ut något här)
+Ond skurk attackerar!
+Modig hjälte försvarar!
 ```
 
-Detta är bara ett enkelt exempel som visar hur arv kan användas för att skapa hierarkier av klasser och dela funktionalitet mellan dem. I praktiken kan arv vara mycket mer kraftfullt och komplex i sina tillämpningar.
+---
+
+## Konstruktorer och arv — gamla och nya sätt
+
+### Konstruktor med `: base()` (alltid giltigt)
+
+```csharp
+public class Karaktär
+{
+    public string Namn { get; set; }
+    public int Hälsa { get; set; }
+
+    // Konstruktor i basklassen
+    public Karaktär(string namn, int hälsa)
+    {
+        Namn  = namn;
+        Hälsa = hälsa;
+    }
+}
+
+public class Fiende : Karaktär
+{
+    // : base(...) skickar argumenten upp till Karaktärs konstruktor
+    public Fiende(string namn, int hälsa) : base(namn, hälsa) { }
+
+    public void Attackera() => Console.WriteLine($"{Namn} attackerar!");
+}
+
+var fiende = new Fiende("Ond skurk", 100);
+fiende.Attackera();
+```
+
+### Primärkonstruktor (C# 12) — ✨ Modernast
+
+```csharp
+// Parametrarna deklareras direkt på klassen — ingen separat konstruktorkropp
+public class Karaktär(string namn, int hälsa)
+{
+    public string Namn  { get; } = namn;
+    public int    Hälsa { get; } = hälsa;
+}
+
+public class Fiende(string namn, int hälsa) : Karaktär(namn, hälsa)
+{
+    public void Attackera() => Console.WriteLine($"{Namn} attackerar!");
+}
+
+var fiende = new Fiende("Ond skurk", 100);
+```
+
+> **✨ C# 12 — Primary constructors:** Parametrarna skrivs direkt på klassrubriken. Kortare och tydligare när konstruktorn bara sätter properties. Fungerar på vanliga klasser, inte bara records.
+
+### Fil-scoped namespace (C# 10)
+
+```csharp
+// Gammalt — hela filen indenteras ett steg
+namespace Spel
+{
+    public class Karaktär { ... }
+}
+
+// Modernt (C# 10) — ✨ en rad, hela filen tillhör namespacet
+namespace Spel;
+
+public class Karaktär { ... }
+```
 
 ## Slutsats
 

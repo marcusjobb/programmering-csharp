@@ -106,6 +106,107 @@ I detta exempel definierar vi en klass `BankAccount` med en privat medlem `balan
 
 Inkapsling är en viktig princip inom objektorienterad programmering, och det är särskilt relevant inom C#-programmering. Genom att använda inkapsling kan vi organisera och strukturera vår kod på ett effektivt sätt, skydda data och erbjuda tydliga gränssnitt för användare av våra klasser. Det är viktigt att förstå fördelarna och begränsningarna med inkapsling för att använda den på rätt sätt och undvika oönskade bieffekter.
 
+## Moderna alternativ (C# 9–12)
+
+Nedanstående visar moderna sätt att skriva samma sak. Den gamla stilen fungerar fortfarande — koden ovan är inte fel. Det här är tillägg, inte ersättningar.
+
+---
+
+### Instansiering
+
+```csharp
+// Klassisk (alltid giltigt)
+BankAccount account = new BankAccount();
+
+// Med var — typen härleds från höger sida
+var account = new BankAccount();
+
+// Target-typed new (C# 9) — typen härleds från vänster sida
+BankAccount account = new();
+```
+
+> **✨ Modernast (C# 9+):** `BankAccount account = new();` — du slipper upprepa typnamnet när det redan framgår av deklarationen.
+
+---
+
+### Properties — init-only (C# 9)
+
+```csharp
+// Gammalt — set tillåter ändring när som helst
+public string Owner { get; set; }
+
+// Modernt — init tillåter bara sättning vid skapandet
+public string Owner { get; init; }
+
+// Med init kan du använda object initializer men inte ändra efteråt
+BankAccount account = new() { Owner = "Marcus" };
+account.Owner = "Anna";  // ❌ Kompileringsfel — init-only
+```
+
+> **✨ Modernt (C# 9+):** `init` ger dig fördelarna med `set` vid skapandet men skyddar värdet efter det — bra för oföränderliga dataklasser.
+
+---
+
+### Required members (C# 11)
+
+```csharp
+public class BankAccount
+{
+    required public string Owner { get; set; }  // Måste sättas vid skapandet
+    private decimal balance;
+    // ...
+}
+
+// Kompileringsfel om Owner saknas
+BankAccount account = new();               // ❌ 'Owner' is required
+BankAccount account = new() { Owner = "Marcus" };  // ✅
+```
+
+> **✨ Modernt (C# 11+):** `required` ersätter konstruktörskontroller för obligatoriska fält — kompilatorn fångar misstaget direkt.
+
+---
+
+### Object initializer med target-typed new
+
+```csharp
+// Gammalt
+BankAccount account = new BankAccount { Owner = "Marcus" };
+
+// Modernt (C# 9)
+BankAccount account = new() { Owner = "Marcus" };
+```
+
+> **✨ Modernt (C# 9+):** Kortare och lättare att läsa, särskilt när typnamnet är långt.
+
+---
+
+### Records som dataklasser (C# 9)
+
+När en klass bara håller data utan logik kan en `record` vara bättre:
+
+```csharp
+// Klass — kräver manuell equals, ToString, etc.
+public class Transaktion
+{
+    public string Typ { get; set; }
+    public decimal Belopp { get; set; }
+}
+
+// Record (C# 9) — immutable, ==, ToString() och with-uttryck gratis
+public record Transaktion(string Typ, decimal Belopp);
+
+// Användning
+var t = new Transaktion("Insättning", 500);
+Console.WriteLine(t);  // Transaktion { Typ = Insättning, Belopp = 500 }
+
+// with skapar en kopia med ändrat värde
+var t2 = t with { Belopp = 1000 };
+```
+
+> **✨ Modernt (C# 9+):** Använd `record` för rena dataklasser — du får automatisk jämförelse, utskrift och kopiering utan att skriva en rad extra kod.
+
+---
+
 ## TL;DR
 
 Inkapsling är en viktig princip inom C#-programmering som handlar om att kombinera data och metoder inom en klass och kontrollera åtkomsten till dem. Det främjar säkerhet, moduläritet, återanvändbarhet och kodunderhåll. Inkapsling kan tillämpas i dataklasser, API-design och användas tillsammans med arv och polymorfism.
