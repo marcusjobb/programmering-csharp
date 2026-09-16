@@ -8,7 +8,7 @@ school: Campus Mölndal
 date: "2025-08-18 15:37:40"
 updated: "2025-09-06 23:35:21"
 parent: Objektorienterad programmering (OOP)
-nav_order: 20
+nav_order: 5
 ---
 # Klasskomposition
 
