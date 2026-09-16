@@ -1,0 +1,123 @@
+---
+title: Foreach
+layout: default
+author: Marcus Ackre Medina
+author_github: marcusjobb
+author_url: "https://github.com/marcusjobb"
+school: Nion Education
+date: "2026-09-16"
+updated: "2026-09-16"
+parent: Loopar
+nav_order: 25
+---
+# Foreach
+
+`foreach` är den vanligaste loopen i C# när du jobbar med samlingar. Den går igenom varje element ett i taget — du behöver aldrig hantera ett index.
+
+## När du läst detta ska du kunna
+
+- Förklara vad `foreach` gör och varför den passar för samlingar
+- Skriva en `foreach`-loop över lista, array och dictionary
+- Jämföra `foreach` med `for` och välja rätt
+
+## Grundsyntax
+
+```csharp
+foreach (var element in samling)
+{
+    // körs för varje element
+}
+```
+
+`var element` är en ny variabel som får värdet av ett element åt gången. `samling` är det du loopar över — en lista, array, eller vad som helst som implementerar `IEnumerable`.
+
+## Exempel — lista
+
+```csharp
+var namn = new List<string> { "Anna", "Björn", "Clara" };
+
+foreach (var n in namn)
+{
+    Console.WriteLine(n);
+}
+```
+
+### Output
+
+```
+Anna
+Björn
+Clara
+```
+
+## Exempel — array
+
+```csharp
+int[] tal = { 10, 20, 30, 40 };
+
+foreach (var t in tal)
+{
+    Console.WriteLine(t);
+}
+```
+
+### Output
+
+```
+10
+20
+30
+40
+```
+
+## Exempel — dictionary
+
+När du loopar över ett `Dictionary` får du ett `KeyValuePair` per iteration.
+
+```csharp
+var betyg = new Dictionary<string, int>
+{
+    { "Anna",  5 },
+    { "Björn", 4 },
+    { "Clara", 5 }
+};
+
+foreach (var post in betyg)
+{
+    Console.WriteLine($"{post.Key}: {post.Value}");
+}
+```
+
+### Output
+
+```
+Anna: 5
+Björn: 4
+Clara: 5
+```
+
+## Foreach vs for — när väljer du vad?
+
+| Situation | Använd |
+|-----------|--------|
+| Loopa igenom alla element, inget index behövs | `foreach` |
+| Du behöver index (`i`) för att komma åt position | `for` |
+| Du ska modifiera samlingen under loopen | `for` (foreach tillåter inte det) |
+| Kod som ska läsas lätt och snabbt | `foreach` |
+
+## Modern syntax — utan `var`
+
+Du kan skriva ut typen explicit om du vill vara tydlig:
+
+```csharp
+foreach (string n in namn)
+{
+    Console.WriteLine(n);
+}
+```
+
+Båda fungerar — `var` är kortare och vanligast i modern C#.
+
+## TL;DR
+
+`foreach` loopar igenom varje element i en samling. Inget index, inget `i++` — bara elementet direkt. Förstahandsvalet för listor och arrayer när du inte behöver positionen.
