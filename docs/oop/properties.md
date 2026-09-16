@@ -16,12 +16,42 @@ En property är ett kontrollerat fönster in till ett objekts data. Istället f�
 
 ## När du läst detta ska du kunna
 
+- Förklara varför vi gick från Get/Set-metoder till properties
 - Förklara skillnaden mellan ett fält och en property
 - Skriva auto-properties med get/set
 - Begränsa skrivåtkomst med `private set`
 - Använda `init` för egenskaper som bara sätts vid skapandet
 - Skriva beräknade properties (expression-bodied)
 - Använda `required` (C# 11)
+
+## Historik — hur det såg ut förr
+
+Innan C# hade properties fick man skriva `Get`- och `Set`-metoder för hand — precis som i Java.
+
+```csharp
+public class Person
+{
+    private string _namn;  // backing field
+
+    public string GetNamn()
+    {
+        return _namn;
+    }
+
+    public void SetNamn(string namn)
+    {
+        _namn = namn;
+    }
+}
+
+// Användning
+var p = new Person();
+p.SetNamn("Marcus");
+Console.WriteLine(p.GetNamn());  // Marcus
+```
+
+Det fungerar — men det är ordigt, och felstavningar i metodnamnet (`GetNamnn`) ger inget kompileringsfel.
+C# löste det med properties: samma kontroll, halva koden.
 
 ## Fält vs property
 
