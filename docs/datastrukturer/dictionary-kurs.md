@@ -78,7 +78,7 @@ Console.WriteLine(annasNummer);   // 070-123 45 67
 
 Det viktiga att veta: om nyckeln _inte finns_ kraschar programmet med ett `KeyNotFoundException`. Det är precis som att söka i en telefonbok efter ett namn som inte finns där — men istället för ett tomt svar får du ett fel.
 
-<details>
+<details markdown="block">
 <summary>Säker hämtning med TryGetValue</summary>
 
 När du inte är säker på om nyckeln finns är `TryGetValue` det säkra alternativet. Den returnerar `true` om nyckeln hittades och lägger värdet i en `out`-variabel — annars returnerar den `false` utan att krascha.

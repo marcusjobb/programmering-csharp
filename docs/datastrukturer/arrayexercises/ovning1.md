@@ -43,7 +43,7 @@ Console.WriteLine(sum);
 
 #### Facit
 
-<details><summary>Klicka här för att se facit</summary>
+<details markdown="block"><summary>Klicka här för att se facit</summary>
 
 ```csharp
 public static int SumArray(int[] numbers)

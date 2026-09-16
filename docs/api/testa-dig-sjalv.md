@@ -8,7 +8,7 @@ nav_order: 99
 
 1. Vad är skillnaden mellan OpenAPI-specen och Scalar UI?
 
-<details>
+<details markdown="block">
 <summary>Visa svar</summary>
 
 OpenAPI-specen är en JSON- eller YAML-fil som beskriver API:et maskinläsbart (`/openapi/v1.json`). Scalar UI är en webbsida som läser den filen och renderar den som en interaktiv dokumentationssida för människor. Specen är rådata — Scalar är visualiseringen.
@@ -17,7 +17,7 @@ OpenAPI-specen är en JSON- eller YAML-fil som beskriver API:et maskinläsbart (
 
 2. Varför ska man använda `.Produces<Produkt>(200)` istället för bara `.Produces(200)`?
 
-<details>
+<details markdown="block">
 <summary>Visa svar</summary>
 
 `.Produces<T>(200)` berättar för Scalar vilket schema response-objektet har — alla fält, typer och struktur visas i dokumentationen. `.Produces(200)` säger bara att statuskoden 200 kan komma, utan information om vad som returneras. Den generiska varianten ger konsumenten av API:et full information.
@@ -26,7 +26,7 @@ OpenAPI-specen är en JSON- eller YAML-fil som beskriver API:et maskinläsbart (
 
 3. Du vill att Scalar bara visas när appen körs lokalt, inte i produktion. Hur gör du det?
 
-<details>
+<details markdown="block">
 <summary>Visa svar</summary>
 
 ```csharp
@@ -43,7 +43,7 @@ I produktion med miljövariabeln `ASPNETCORE_ENVIRONMENT=Production` är `IsDeve
 
 4. Vad är skillnaden mellan Swashbuckle och Scalar — och när väljer du vilket?
 
-<details>
+<details markdown="block">
 <summary>Visa svar</summary>
 
 Swashbuckle (Swagger UI) var standardverktyget i .NET 8 och äldre och är fortfarande vanligt i befintliga projekt. Scalar är Microsofts rekommendation från .NET 9 — enklare setup, modernare utseende och aktivt underhållet.
@@ -54,7 +54,7 @@ Tumregel: Scalar för ny kod, Swashbuckle för att förstå och underhålla äld
 
 5. Du har en endpoint `GET /api/order/{id}` som kan returnera 200, 404 och 401. Hur dokumenterar du alla tre statuskoderna?
 
-<details>
+<details markdown="block">
 <summary>Visa svar</summary>
 
 ```csharp
@@ -72,7 +72,7 @@ app.MapGet("/api/order/{id}", (int id) => ...)
 
 6. Var hittar du OpenAPI-specen som JSON, och vad kan du göra med den?
 
-<details>
+<details markdown="block">
 <summary>Visa svar</summary>
 
 Med Scalar: `/openapi/v1.json`  

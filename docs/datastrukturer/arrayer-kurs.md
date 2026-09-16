@@ -92,7 +92,7 @@ foreach (string dag in veckodagar)
 
 `foreach` kan inte ändra elementen och ger dig inget index. Men när du bara vill _läsa_ varje värde är det det rakaste sättet.
 
-<details>
+<details markdown="block">
 <summary>Vilken loop ska jag välja?</summary>
 
 | Situation | Loop |
@@ -158,7 +158,7 @@ foreach (string vara in shoppinglista)
 
 Lägg märke till att listor använder `Count`, inte `Length`. Det är en av de detaljer som är lätta att blanda ihop när man använder båda.
 
-<details>
+<details markdown="block">
 <summary>Mer om Remove</summary>
 
 `Remove()` tar bort den _första_ förekomsten av värdet. Om värdet inte finns händer ingenting — inget fel kastas.

@@ -43,7 +43,7 @@ Capybara, Kanin, Hund, Katt
 
 #### Facit
 
-<details><summary>Klicka här för att se facit</summary>
+<details markdown="block"><summary>Klicka här för att se facit</summary>
 
 ```csharp
 public static string[] ReverseArray(string[] words)

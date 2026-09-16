@@ -42,7 +42,7 @@ Console.WriteLine(largest);
 
 #### Facit
 
-<details><summary>Klicka här för att se facit</summary>
+<details markdown="block"><summary>Klicka här för att se facit</summary>
 
 ```csharp
 public static int FindLargestElement(int[] numbers)

@@ -69,7 +69,7 @@ Kom ihåg att det här bara är ett exempel på hur du kan lösa uppgiften. Det 
 
 ### Facit
 
-<details>
+<details markdown="block">
     <summary>Klicka här för att se facit</summary>
 
 ```csharp

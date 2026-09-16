@@ -99,7 +99,7 @@ De tre delarna i parentes:
 
 `i++` är kortform för `i = i + 1`. Du kan lika gärna skriva `i += 2` om du vill hoppa varannan, eller `i--` om du räknar nedåt.
 
-<details>
+<details markdown="block">
 <summary>Djupare: variabeln i utanför loopen</summary>
 
 Variabeln `i` skapas inuti `for`-satsen och finns bara där. Den försvinner när loopen är klar. Om du behöver värdet utanför loopen — till exempel för att veta var loopen stannade — måste du deklarera variabeln före `for`:

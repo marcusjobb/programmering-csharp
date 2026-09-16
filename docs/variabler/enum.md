@@ -100,7 +100,7 @@ Onsdag
 2
 ```
 
-<details>
+<details markdown="block">
 <summary>Vad är enum egentligen under huven?</summary>
 
 En enum är i grunden ett heltal. Varje värde mappas till ett nummer som börjar på 0:

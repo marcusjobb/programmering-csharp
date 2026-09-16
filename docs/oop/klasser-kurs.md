@@ -337,7 +337,7 @@ Tecknen framför namnen har en betydelse:
 
 Det du ser i diagrammet är precis samma klass som vi har kodat — bara ritad istället för skriven. UML hjälper dig planera och kommunicera design innan du börjar koda.
 
-<details>
+<details markdown="block">
 <summary>Djupare: vad händer i minnet när new anropas?</summary>
 
 När du skriver `new BankAccount("Alex", 1000)` händer det här bakom kulisserna:

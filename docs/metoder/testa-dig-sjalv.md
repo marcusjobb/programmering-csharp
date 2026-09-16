@@ -10,7 +10,7 @@ Utan att kolla:
 
 1. Vad är skillnaden mellan `void` och en metod med returvärde?
 
-<details>
+<details markdown="block">
 <summary>Visa svar</summary>
 
 `void` betyder att metoden *gör* något men inte skickar tillbaka något värde. En metod med returvärde (t.ex. `int`, `string`, `bool`) beräknar något och skickar resultatet tillbaka med `return`. Anroparen kan sedan använda det värdet.
@@ -19,7 +19,7 @@ Utan att kolla:
 
 2. Vad är skillnaden mellan en *parameter* och ett *argument*?
 
-<details>
+<details markdown="block">
 <summary>Visa svar</summary>
 
 **Parameter** är platshållarvariabeln i metoddefinitionen: `void HälsaPå(string namn)` — `namn` är parametern. **Argument** är det faktiska värdet du skickar in när du anropar metoden: `HälsaPå("Anna")` — `"Anna"` är argumentet.
@@ -28,7 +28,7 @@ Utan att kolla:
 
 3. Vad gör `return` inuti en metod?
 
-<details>
+<details markdown="block">
 <summary>Visa svar</summary>
 
 `return` avslutar metoden direkt och skickar tillbaka ett värde till anroparen. I en `void`-metod kan `return;` (utan värde) användas för att avsluta tidigt.
@@ -37,7 +37,7 @@ Utan att kolla:
 
 4. Varför är det bra att dela upp kod i metoder?
 
-<details>
+<details markdown="block">
 <summary>Visa svar</summary>
 
 - **Återanvändning** — skriv en gång, anropa flera gånger
@@ -49,7 +49,7 @@ Utan att kolla:
 
 5. Vad händer om du anropar en metod som tar `int` men skickar in en `string`?
 
-<details>
+<details markdown="block">
 <summary>Visa svar</summary>
 
 Kompilatorn kastar ett fel direkt — koden kompilerar inte ens. C# är ett statiskt typat språk: typen på argumentet måste matcha parametern vid kompileringstillfället, inte bara i körtid.

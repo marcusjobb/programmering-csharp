@@ -285,7 +285,7 @@ DRY handlar inte om att spara rader — det handlar om att ha **ett enda ställe
 
 ---
 
-<details>
+<details markdown="block">
 <summary><strong>Djupare: Metodöverlagring (method overloading)</strong></summary>
 
 C# tillåter att du definierar flera metoder med **samma namn** om de har olika parameterlistor. Det kallas metodöverlagring (*method overloading*).

@@ -89,8 +89,21 @@ const int MaxAntal = 50;       // C#-stil
 const int MAX_ANTAL = 50;      // Java-stil — undvik i C#
 ```
 
+## Vad är `final`?
+
+`final` finns inte i C#. Det är ett nyckelord från Java och finns i många andra språk. I C# ersätts det av:
+
+| Java | C# |
+|------|----|
+| `final` fält | `readonly` |
+| `final` klass (kan inte ärvas) | `sealed class` |
+| `final` metod (kan inte overridas) | `sealed override` |
+
+Om du läser Java-kod eller dokumentation och ser `final` — tänk `readonly` för fält, `sealed` för klasser och metoder.
+
 ## TL;DR
 
 `const` = känt vid kompilering, kan aldrig ändras.  
 `readonly` = sätts i konstruktorn, kan aldrig ändras efter det.  
+`final` finns inte i C# — använd `readonly` (fält) eller `sealed` (klass/metod).  
 Använd `const` för matematiska konstanter och fasta konfigurationsvärden. Använd `readonly` när värdet beror på körtid.
