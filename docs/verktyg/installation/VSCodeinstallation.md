@@ -1,5 +1,5 @@
 ---
-title: VS Code installation
+title: VS Code
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

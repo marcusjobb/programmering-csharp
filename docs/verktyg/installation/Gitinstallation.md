@@ -1,5 +1,5 @@
 ---
-title: Git installation
+title: Git
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

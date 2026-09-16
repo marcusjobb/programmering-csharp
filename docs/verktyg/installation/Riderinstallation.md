@@ -1,5 +1,5 @@
 ---
-title: Rider installation
+title: Rider
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

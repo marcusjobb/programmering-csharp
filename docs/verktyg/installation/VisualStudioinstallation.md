@@ -1,5 +1,5 @@
 ---
-title: Visual Studio installation
+title: Visual Studio
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation
