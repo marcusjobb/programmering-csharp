@@ -14,6 +14,8 @@ nav_order: 20
 
 UML (Unified Modeling Language) är ett gemensamt språk för att rita klasser och relationer — utan att skriva kod. Det används för att planera design och kommunicera med andra utvecklare.
 
+> **Testa själv:** [mermaid.live](https://mermaid.live) — klistra in valfritt diagram och redigera i realtid.
+
 ## När du läst detta ska du kunna
 
 - Rita ett UML-klassdiagram för en enkel klass
@@ -23,26 +25,23 @@ UML (Unified Modeling Language) är ett gemensamt språk för att rita klasser o
 
 ## En klass i UML
 
-En klass ritas som en ruta med tre sektioner:
+En klass ritas som en ruta med tre sektioner: klassnamn, fält och metoder.
 
-```
-┌─────────────────────────┐
-│        BankAccount      │  ← klassnamn
-├─────────────────────────┤
-│ - owner : string        │  ← fält (privata/publika)
-│ - balance : double      │
-│ - isActive : bool       │
-├─────────────────────────┤
-│ + BankAccount(owner,    │  ← metoder / konstruktor
-│     startBalance)       │
-│ + Deposit(amount)       │
-│ + Withdraw(amount) bool │
-│ + Display()             │
-└─────────────────────────┘
+```mermaid
+classDiagram
+    class BankAccount {
+        -String owner
+        -double balance
+        -bool isActive
+        +BankAccount(owner, startBalance)
+        +Deposit(amount)
+        +Withdraw(amount) bool
+        +Display()
+    }
 ```
 
-| Tecken | Betekening |
-|--------|-----------|
+| Tecken | Meaning |
+|--------|---------|
 | `-` | `private` — bara klassen kan nå det |
 | `+` | `public` — synligt utifrån |
 | `#` | `protected` — synligt i subklasser |
@@ -71,48 +70,47 @@ Rita UML-diagrammet INNAN du öppnar VS Code. Det tvingar dig att tänka igenom 
 
 ### Association — använder
 
-```
-┌────────────┐         ┌────────────┐
-│   Order    │────────►│  Customer  │
-└────────────┘         └────────────┘
-```
-
 En `Order` känner till en `Customer`. Pilen pekar mot den klass som används.
+
+```mermaid
+classDiagram
+    Order --> Customer : använder
+    class Order
+    class Customer
+```
 
 ### Komposition — äger (stark)
 
-```
-┌────────────┐  ◆──── ┌────────────┐
-│    Car     │        │   Engine   │
-└────────────┘        └────────────┘
-```
+Motorn existerar bara som del av bilen. Om bilen försvinner försvinner motorn. Fylld romb på ägarens sida.
 
-Motorn existerar bara som del av bilen — om bilen försvinner försvinner motorn. Fylld romb på ägarens sida.
+```mermaid
+classDiagram
+    Car *-- Engine
+    class Car
+    class Engine
+```
 
 ### Aggregation — har (svag)
 
-```
-┌────────────┐  ◇──── ┌────────────┐
-│  Playlist  │        │    Song    │
-└────────────┘        └────────────┘
-```
-
 Spellistan innehåller låtar, men låtarna existerar även utan spellistan. Öppen romb.
+
+```mermaid
+classDiagram
+    Playlist o-- Song
+    class Playlist
+    class Song
+```
 
 ### Arv — är en
 
-```
-┌────────────┐
-│   Animal   │
-└──────┬─────┘
-       △
-       │
-┌──────┴─────┐
-│    Dog     │
-└────────────┘
-```
-
 `Dog` ärver från `Animal`. Pil med öppen triangel mot basklassen.
+
+```mermaid
+classDiagram
+    Animal <|-- Dog
+    class Animal
+    class Dog
+```
 
 ## Multiplicitet
 
@@ -127,14 +125,24 @@ Multiplicitet beskriver hur många objekt som kan vara inblandade i en relation:
 
 ### Exempel — Bibliotek
 
-```
-┌────────────┐ 1        * ┌────────────┐ *      1 ┌────────────┐
-│   Member   │────────────│    Loan    │──────────│    Book    │
-├────────────┤            ├────────────┤          ├────────────┤
-│ - id : int │            │ - loanDate │          │ - title    │
-│ - name     │            │ - returnDate│          │ - isbn     │
-│ + Borrow() │            └────────────┘          │ + GetInfo()│
-└────────────┘                                    └────────────┘
+```mermaid
+classDiagram
+    Member "1" --> "*" Loan : lånar
+    Loan "*" --> "1" Book : refererar
+    class Member {
+        -int id
+        -String name
+        +Borrow()
+    }
+    class Loan {
+        -Date loanDate
+        -Date returnDate
+    }
+    class Book {
+        -String title
+        -String isbn
+        +GetInfo()
+    }
 ```
 
 - En `Member` kan ha noll till många `Loan`
@@ -145,41 +153,41 @@ Multiplicitet beskriver hur många objekt som kan vara inblandade i en relation:
 
 | Verktyg | Typ | Pris |
 |---------|-----|------|
+| [Mermaid Live](https://mermaid.live) | I webbläsaren, kod → diagram | Gratis |
 | draw.io | Online / offline | Gratis |
 | PlantUML | Kod-baserad (text → diagram) | Gratis |
-| Mermaid | I Markdown (GitHub, Obsidian) | Gratis |
 | Lucidchart | Online | Freemium |
 | Visual Studio | Class Designer (inbyggt) | Ingår i VS |
 
-### Mermaid — diagram direkt i Markdown
+### Mermaid i Markdown
 
-```
+Mermaid renderas automatiskt på GitHub, i Obsidian och på den här sidan. Skriv ett block med ` ```mermaid ` och diagrammet ritas upp direkt.
+
+```mermaid
 classDiagram
     class BankAccount {
-        -string owner
+        -String owner
         -double balance
         +Deposit(amount)
         +Withdraw(amount) bool
     }
     class Customer {
-        +string name
-        +string email
+        +String name
+        +String email
     }
-    BankAccount --> Customer
+    BankAccount --> Customer : ägs av
 ```
-
-Mermaid renderas automatiskt på GitHub och i Obsidian.
 
 ## TL;DR
 
 UML-klassdiagram = ritning av klasser. Rita den innan du kodar — inte efter.
 
-| Symbol | Betyder |
-|--------|---------|
-| `-` | private |
-| `+` | public |
-| `────►` | association (använder) |
-| `──◆──` | komposition (äger, stark) |
-| `──◇──` | aggregation (har, svag) |
-| `──△──` | arv (är en) |
-| `1..*` | multiplicitet |
+| Symbol i Mermaid | Betyder |
+|------------------|---------|
+| `-` i klass | private |
+| `+` i klass | public |
+| `-->` | association (använder) |
+| `*--` | komposition (äger, stark) |
+| `o--` | aggregation (har, svag) |
+| `<\|--` | arv (är en) |
+| `"1" --> "*"` | multiplicitet |
