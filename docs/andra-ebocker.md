@@ -7,5 +7,6 @@ nav_order: 990
 Fler kostnadsfria studieböcker i samma format:
 
 - **[Azure och moln i C#](https://marcusjobb.github.io/azure-studiebok/)** — administrera molnlösningar, Bicep/IaC, CI/CD och API-dokumentation (Scalar/Swagger).
+- **[Projektmetodik](https://marcusjobb.github.io/projektmetodik-bok/)** — Scrum, Kanban, vattenfallsmodellen och begreppen bakom hur team faktiskt jobbar.
 
 Samma licens gäller för alla böckerna — se [Licens](licens.md).
