@@ -35,7 +35,7 @@ public int Fakultet(int n) => n <= 1 ? 1 : n * Fakultet(n - 1);
 
 3. Börja koda — förslagen dyker upp automatiskt (grått text)
 
-**Prissättning:** Gratis för studenter via GitHub Student Developer Pack. Betalt för övriga (~10 USD/mån).
+**Prissättning:** Gratis för studerande via GitHub Student Developer Pack. Betalt för övriga (~10 USD/mån).
 
 ## Vad Copilot kan
 
@@ -118,7 +118,7 @@ Granska alltid:
 |--|----------------|-------------|
 | Var | I IDE:n | I terminalen |
 | Styrka | Realtids-komplettering | Hela projektet, filer, git |
-| Pris | ~10 USD/mån (gratis för studenter) | Per API-token |
+| Pris | ~10 USD/mån (gratis för studerande) | Per API-token |
 | Ser hela projektet | Delvis | Ja |
 | Kör kommandon | Nej | Ja |
 

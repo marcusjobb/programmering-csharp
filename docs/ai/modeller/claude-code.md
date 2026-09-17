@@ -55,6 +55,6 @@ Claude Code: [skapar IRepository.cs och EfRepository.cs, uppdaterar Program.cs]
 | Kör kommandon | Ja | Nej |
 | Pris | Per API-token | Prenumeration |
 
-## För studenter
+## För studerande
 
 Claude Code är ett kraftfullt verktyg — men kom ihåg: du ansvarar för koden. Förstå vad det genererar innan du accepterar det.
