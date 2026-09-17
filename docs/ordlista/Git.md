@@ -30,5 +30,10 @@ nav_order: 10
 | Remote | En koppling till ett annat repo. |
 | Origin | Det vanligaste namnet på en remote. |
 | Upstream | Det vanligaste namnet på en remote som inte är din. |
-| Fork | Att kopiera ett repo till din github. |
-| Pull request | Att be servern merga två brancher. |
+| Working Directory | Mappen där du faktiskt kodar och redigerar filer. |
+| Staging Area | Förberedelseplatsen mellan Working Directory och Repository — `git add` flyttar en fil hit. |
+| git status | Visar vad som ändrats sedan senaste commit. Körs innan `git add`. |
+| git add | Flyttar en ändring från Working Directory till Staging Area, redo för nästa commit. |
+| git init | Förvandlar en vanlig mapp till ett Git-repo. |
+| .gitignore | En fil som talar om för Git vilka filer som aldrig ska sparas i historiken, t.ex. `bin/`, `obj/` och hemligheter. |
+| SSH-nyckel | Ett nyckelpar (privat + publik) som låter dig ansluta till GitHub utan att skriva lösenord varje gång. |
