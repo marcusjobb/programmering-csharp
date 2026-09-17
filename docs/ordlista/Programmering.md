@@ -29,8 +29,8 @@ nav_order: 20
 | Fält | En privat variabel som lagrar data inuti ett objekt, normalt exponerad utåt via en property. |
 | Get | En metod som returnerar en variabel. |
 | Git Bash | Terminalen som följer med Git-installationen — fungerar likadant på Windows, Mac och Linux. |
-| Identifierare | Det tekniska namnet på något du döper själv i koden — variabler, metoder, klasser. |
 | IDE | Integrated Development Environment — programmet du skriver, kör och felsöker kod i. |
+| Identifierare | Det tekniska namnet på något du döper själv i koden — variabler, metoder, klasser. |
 | Inkapsling | Att skydda ett objekts inre data genom att exponera den kontrollerat via properties och metoder, istället för direkt. |
 | Initialisering | Att ge en variabel dess första värde. |
 | Instansvariabel | En variabel som tillhör ett objekt. |
