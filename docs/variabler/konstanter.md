@@ -28,11 +28,11 @@ En konstant är ett värde som aldrig ändras under programmets körning. I C# f
 
 ```csharp
 const double Pi        = 3.14159265358979;
-const int    MaxPoäng  = 100;
+const int    MaxScore  = 100;
 const string Version   = "1.0.0";
 
 Console.WriteLine($"Pi = {Pi}");
-Console.WriteLine($"Max poäng: {MaxPoäng}");
+Console.WriteLine($"Max poäng: {MaxScore}");
 ```
 
 ### Output
@@ -49,15 +49,15 @@ Max poäng: 100
 `readonly` används när värdet inte är känt vid kompilering — till exempel ett värde som läses från en fil, databas eller beräknas i konstruktorn. Det kan bara tilldelas i deklarationen eller i konstruktorn.
 
 ```csharp
-public class Konfiguration
+public class Configuration
 {
-    public readonly string Anslutningssträng;
-    public readonly DateTime StartTid;
+    public readonly string ConnectionString;
+    public readonly DateTime StartTime;
 
-    public Konfiguration(string anslutningssträng)
+    public Configuration(string connectionString)
     {
-        Anslutningssträng = anslutningssträng;
-        StartTid          = DateTime.Now;
+        ConnectionString = connectionString;
+        StartTime          = DateTime.Now;
     }
 }
 
@@ -86,8 +86,8 @@ Console.WriteLine(config.StartTid);
 Konstanter skrivs ofta med PascalCase i C# (inte SCREAMING_SNAKE_CASE som i Java/C):
 
 ```csharp
-const int MaxAntal = 50;       // C#-stil
-const int MAX_ANTAL = 50;      // Java-stil — undvik i C#
+const int MaxCount = 50;       // C#-stil
+const int MAX_COUNT = 50;      // Java-stil — undvik i C#
 ```
 
 ## Vad är `final`?

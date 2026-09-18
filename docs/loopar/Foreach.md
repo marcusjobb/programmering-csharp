@@ -24,22 +24,22 @@ nav_order: 25
 ## Grundsyntax
 
 ```csharp
-foreach (var element in samling)
+foreach (var element in collection)
 {
     // körs för varje element
 }
 ```
 
-`var element` är en ny variabel som får värdet av ett element åt gången. `samling` är det du loopar över — en lista, array, eller vad som helst som implementerar `IEnumerable`.
+`var element` är en ny variabel som får värdet av ett element åt gången. `collection` är det du loopar över — en lista, array, eller vad som helst som implementerar `IEnumerable`.
 
 ## Exempel — lista
 
 ```csharp
-var namn = new List<string> { "Anna", "Björn", "Clara" };
+var names = new List<string> { "Anna", "Björn", "Clara" };
 
-foreach (var n in namn)
+foreach (var name in names)
 {
-    Console.WriteLine(n);
+    Console.WriteLine(name);
 }
 ```
 
@@ -54,11 +54,11 @@ Clara
 ## Exempel — array
 
 ```csharp
-int[] tal = { 10, 20, 30, 40 };
+int[] numbers = { 10, 20, 30, 40 };
 
-foreach (var t in tal)
+foreach (var number in numbers)
 {
-    Console.WriteLine(t);
+    Console.WriteLine(number);
 }
 ```
 
@@ -76,16 +76,16 @@ foreach (var t in tal)
 När du loopar över ett `Dictionary` får du ett `KeyValuePair` per iteration.
 
 ```csharp
-var betyg = new Dictionary<string, int>
+var grades = new Dictionary<string, int>
 {
     { "Anna",  5 },
     { "Björn", 4 },
     { "Clara", 5 }
 };
 
-foreach (var post in betyg)
+foreach (var entry in grades)
 {
-    Console.WriteLine($"{post.Key}: {post.Value}");
+    Console.WriteLine($"{entry.Key}: {entry.Value}");
 }
 ```
 
@@ -111,9 +111,9 @@ Clara: 5
 Du kan skriva ut typen explicit om du vill vara tydlig:
 
 ```csharp
-foreach (string n in namn)
+foreach (string name in names)
 {
-    Console.WriteLine(n);
+    Console.WriteLine(name);
 }
 ```
 

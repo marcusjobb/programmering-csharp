@@ -20,24 +20,24 @@ En loop låter dig köra samma kodblock upprepade gånger, med ett variabelt vä
 `while` är den enklaste loopen. Innan varje varv kontrolleras ett villkor. Är det sant körs blocket. Är det falskt stannar loopen.
 
 ```csharp
-int nedräkning = 5;
+int countdown = 5;
 
-while (nedräkning > 0)
+while (countdown > 0)
 {
-    Console.WriteLine("T minus " + nedräkning + "...");
-    nedräkning--;
+    Console.WriteLine("T minus " + countdown + "...");
+    countdown--;
 }
 
 Console.WriteLine("Liftoff!");
 ```
 
-Loopen fortsätter så länge `nedräkning > 0` är sant. För varje varv minskar `nedräkning--` värdet med ett. När det når noll är villkoret falskt och loopen stannar.
+Loopen fortsätter så länge `countdown > 0` är sant. För varje varv minskar `countdown--` värdet med ett. När det når noll är villkoret falskt och loopen stannar.
 
 ```mermaid
 flowchart TD
-    A[nedräkning = 5] --> B{nedräkning > 0?}
-    B -->|Ja| C[Skriv ut nedräkning]
-    C --> D[nedräkning--]
+    A[countdown = 5] --> B{countdown > 0?}
+    B -->|Ja| C[Skriv ut countdown]
+    C --> D[countdown--]
     D --> B
     B -->|Nej| E[Skriv: Liftoff!]
     E --> F[Slut]
@@ -51,12 +51,12 @@ Vad händer om du glömmer `nedräkning--`? Villkoret är alltid sant — loopen
 
 ```csharp
 // Varning: detta är ett exempel på ett fel
-int nedräkning = 5;
+int countdown = 5;
 
-while (nedräkning > 0)
+while (countdown > 0)
 {
-    Console.WriteLine("T minus " + nedräkning + "...");
-    // nedräkning-- saknas — loopen stannar aldrig
+    Console.WriteLine("T minus " + countdown + "...");
+    // countdown-- saknas — loopen stannar aldrig
 }
 ```
 
@@ -125,15 +125,15 @@ Det är ovanligt att behöva göra så, men bra att veta.
 När du har en samling — till exempel en array — och vill besöka varje element är `foreach` det renaste valet. Du slipper hålla koll på index och risken för att råka gå utanför samlingens gränser.
 
 ```csharp
-string[] veckodagar = { "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag" };
+string[] weekdays = { "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag" };
 
-foreach (string dag in veckodagar)
+foreach (string day in weekdays)
 {
-    Console.WriteLine("Dag: " + dag);
+    Console.WriteLine("Dag: " + day);
 }
 ```
 
-Läs det som: "för varje `dag` i `veckodagar`, gör det här". Variabeln `dag` får automatiskt värdet av nästa element i samlingen för varje varv.
+Läs det som: "för varje `day` i `weekdays`, gör det här". Variabeln `day` får automatiskt värdet av nästa element i samlingen för varje varv.
 
 `foreach` går alltid framåt och kan inte hoppa över eller ändra element. Det är just det som gör den säker och enkel att läsa.
 
@@ -157,14 +157,14 @@ Om du är osäker: börja med `foreach` om du har en samling, annars `for`. `whi
 `do-while` liknar `while`, men med en avgörande skillnad: villkoret kontrolleras **efter** blocket, inte innan. Det innebär att koden inuti alltid körs minst en gång — oavsett om villkoret är sant eller falskt från start.
 
 ```csharp
-string svar;
+string answer;
 
 do
 {
     Console.Write("Skriv 'ja' för att fortsätta: ");
-    svar = Console.ReadLine();
+    answer = Console.ReadLine();
 }
-while (svar != "ja");
+while (answer != "ja");
 
 Console.WriteLine("Bra! Du fortsätter.");
 ```
@@ -179,18 +179,18 @@ Skillnaden mot `while` är ordningen:
 Det gör `do-while` till ett naturligt val för menyval och inmatningsvalidering — du vill alltid visa frågan minst en gång innan du vet vad användaren svarat.
 
 ```csharp
-int val;
+int choice;
 
 do
 {
     Console.WriteLine("1 - Starta spelet");
     Console.WriteLine("2 - Avsluta");
     Console.Write("Ditt val: ");
-    val = int.Parse(Console.ReadLine());
+    choice = int.Parse(Console.ReadLine());
 }
-while (val != 1 && val != 2);
+while (choice != 1 && choice != 2);
 
-Console.WriteLine("Du valde: " + val);
+Console.WriteLine("Du valde: " + choice);
 ```
 
 ---

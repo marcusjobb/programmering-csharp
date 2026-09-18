@@ -27,9 +27,9 @@ I C# bygger alla villkor på ett **bool-uttryck**: ett uttryck som antingen är 
 `if` är det enklaste sättet att ställa en fråga i kod. Om villkoret är sant körs blocket inuti klamrarna. Om det är falskt händer ingenting och programmet fortsätter vidare.
 
 ```csharp
-int ålder = 20;
+int age = 20;
 
-if (ålder >= 18)
+if (age >= 18)
 {
     Console.WriteLine("Du är myndig.");
 }
@@ -44,9 +44,9 @@ Lägg märke till att klamrarna `{ }` inte är obligatoriska om blocket bara har
 Ibland vill du göra något också när villkoret är falskt. Då lägger du till en `else`-gren. Det är ett "antingen-eller" — exakt en av grenarna körs alltid.
 
 ```csharp
-int ålder = 15;
+int age = 15;
 
-if (ålder >= 18)
+if (age >= 18)
 {
     Console.WriteLine("Du är myndig.");
 }
@@ -65,13 +65,13 @@ Tänk på det som en vägkorsning: du tar antingen vänster eller höger, men al
 När du har fler än två möjliga utfall kan du kedja ihop villkor med `else if`. Villkoren testas uppifrån och ner, och **det första** som är sant vinner. Resten hoppas över.
 
 ```csharp
-int poäng = 72;
+int score = 72;
 
-if (poäng >= 90)
+if (score >= 90)
 {
     Console.WriteLine("Du fick A — Utmärkt!");
 }
-else if (poäng >= 70)
+else if (score >= 70)
 {
     Console.WriteLine("Du fick B — Bra jobbat!");
 }
@@ -85,9 +85,9 @@ Ordningen spelar roll. Om du vänder på de två första raderna och skriver `>=
 
 ```mermaid
 flowchart TD
-    A[Starta] --> B{poäng >= 90?}
+    A[Starta] --> B{score >= 90?}
     B -->|Ja| C[Skriv: Du fick A]
-    B -->|Nej| D{poäng >= 70?}
+    B -->|Nej| D{score >= 70?}
     D -->|Ja| E[Skriv: Du fick B]
     D -->|Nej| F[Skriv: Du fick F]
     C --> G[Slut]
@@ -103,12 +103,12 @@ För att bygga villkor behöver du jämföra värden. Här är de operatorer du 
 
 | Operator | Betydelse | Exempel |
 |----------|-----------|---------|
-| `==` | Lika med | `poäng == 100` |
-| `!=` | Inte lika med | `namn != "Admin"` |
-| `<` | Mindre än | `ålder < 18` |
-| `>` | Större än | `poäng > 90` |
-| `<=` | Mindre än eller lika med | `temperatur <= 0` |
-| `>=` | Större än eller lika med | `poäng >= 70` |
+| `==` | Lika med | `score == 100` |
+| `!=` | Inte lika med | `name != "Admin"` |
+| `<` | Mindre än | `age < 18` |
+| `>` | Större än | `score > 90` |
+| `<=` | Mindre än eller lika med | `temperature <= 0` |
+| `>=` | Större än eller lika med | `score >= 70` |
 
 En vanlig nybörjarfälla: `=` tilldelar ett värde, `==` jämför två värden. Det är en liten skillnad som ger stora fel.
 
@@ -121,10 +121,10 @@ Du kan kombinera flera villkor i ett enda uttryck med logiska operatorer.
 **`&&` — och:** Båda villkoren måste vara sanna.
 
 ```csharp
-int ålder = 22;
-bool harKörkort = true;
+int age = 22;
+bool hasDriversLicence = true;
 
-if (ålder >= 18 && harKörkort)
+if (age >= 18 && hasDriversLicence)
 {
     Console.WriteLine("Du får hyra bil.");
 }
@@ -133,10 +133,10 @@ if (ålder >= 18 && harKörkort)
 **`||` — eller:** Minst ett av villkoren måste vara sant.
 
 ```csharp
-bool ärAdmin = false;
-bool ärLärare = true;
+bool isAdmin = false;
+bool isTeacher = true;
 
-if (ärAdmin || ärLärare)
+if (isAdmin || isTeacher)
 {
     Console.WriteLine("Du har tillgång till materialet.");
 }
@@ -145,9 +145,9 @@ if (ärAdmin || ärLärare)
 **`!` — inte:** Vänder på sanningsvärdet. `true` blir `false`, och tvärtom.
 
 ```csharp
-bool ärInloggad = false;
+bool isLoggedIn = false;
 
-if (!ärInloggad)
+if (!isLoggedIn)
 {
     Console.WriteLine("Du måste logga in först.");
 }
@@ -160,12 +160,12 @@ if (!ärInloggad)
 Det är möjligt att placera ett `if`-block inuti ett annat. Det kallas nästling.
 
 ```csharp
-int ålder = 20;
-bool harBiljett = true;
+int age = 20;
+bool hasTicket = true;
 
-if (ålder >= 18)
+if (age >= 18)
 {
-    if (harBiljett)
+    if (hasTicket)
     {
         Console.WriteLine("Välkommen in!");
     }
@@ -195,14 +195,14 @@ Det fungerar för att `!(!x)` är samma som `x`. Lögnarens svar är `!sanning`,
 I kod:
 
 ```csharp
-bool vaktenTalarSanning = false; // vi vet inte om detta är sant
-bool dörrenÄrRätt = true;
+bool guardTellsTruth = false; // vi vet inte om detta är sant
+bool doorIsRight = true;
 
 // Vaktens svar om den ljuger:
-bool svar = vaktenTalarSanning ? dörrenÄrRätt : !dörrenÄrRätt;
+bool answer = guardTellsTruth ? doorIsRight : !doorIsRight;
 
 // Välj alltid motsatsen till vad den tillfrågade vakten säger:
-bool rättVal = !svar;
+bool rightChoice = !answer;
 ```
 
 Se scenen: [youtu.be/ReFhu8KYbmU](https://www.youtube.com/watch?v=ReFhu8KYbmU)

@@ -23,7 +23,7 @@ Inget av blocken körs. Programmet fortsätter bara på raden efter hela if-kedj
 <details markdown="block">
 <summary>Visa svar</summary>
 
-`=` är *tilldelning* — du ger en variabel ett värde: `ålder = 25`. `==` är *jämförelse* — du kontrollerar om två värden är lika: `if (ålder == 18)`. Att blanda ihop dem är ett klassiskt nybörjarfel.
+`=` är *tilldelning* — du ger en variabel ett värde: `age = 25`. `==` är *jämförelse* — du kontrollerar om två värden är lika: `if (age == 18)`. Att blanda ihop dem är ett klassiskt nybörjarfel.
 
 </details>
 
@@ -32,7 +32,7 @@ Inget av blocken körs. Programmet fortsätter bara på raden efter hela if-kedj
 <details markdown="block">
 <summary>Visa svar</summary>
 
-`&&` är logiskt *och*. Uttrycket är sant **bara om båda sidorna är sanna**. `if (ålder >= 18 && harBiljett)` kräver att båda villkoren uppfylls.
+`&&` är logiskt *och*. Uttrycket är sant **bara om båda sidorna är sanna**. `if (age >= 18 && hasTicket)` kräver att båda villkoren uppfylls.
 
 </details>
 
@@ -41,7 +41,7 @@ Inget av blocken körs. Programmet fortsätter bara på raden efter hela if-kedj
 <details markdown="block">
 <summary>Visa svar</summary>
 
-`||` är logiskt *eller* — sant om **minst ett** av villkoren är sant. `&&` är logiskt *och* — sant bara om **båda** är sanna. Exempel: `if (ärMedlem || harRabattkod)` kräver bara ett av villkoren.
+`||` är logiskt *eller* — sant om **minst ett** av villkoren är sant. `&&` är logiskt *och* — sant bara om **båda** är sanna. Exempel: `if (isMember || hasDiscountCode)` kräver bara ett av villkoren.
 
 </details>
 

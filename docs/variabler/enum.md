@@ -16,7 +16,7 @@ nav_order: 25
 Föreställ dig att du skriver ett program som hanterar årstider. Du behöver lagra vilken årstid det är. Du _kan_ använda strängar:
 
 ```csharp
-string årstid = "Sommar";
+string season = "Sommar";
 ```
 
 Men strängar är oprecisa. Ingenting hindrar att du råkar skriva `"sommar"` (liten bokstav), `"SOMMAR"`, eller `"Sommmar"` med ett extra m. Kompilatorn ser ingenting fel — men programmet beter sig fel.
@@ -24,16 +24,16 @@ Men strängar är oprecisa. Ingenting hindrar att du råkar skriva `"sommar"` (l
 Det finns ett bättre verktyg: **enum**. En enum (uppräkning) är en namngiven uppsättning av fasta heltalsvärden. Du definierar en begränsad uppsättning tillåtna värden, och kompilatorn ser till att du bara kan använda dem.
 
 ```csharp
-enum Säsong
+enum Season
 {
-    Vår,
-    Sommar,
-    Höst,
-    Vinter
+    Spring,
+    Summer,
+    Autumn,
+    Winter
 }
 ```
 
-Nu är `Säsong.Sommar` ett giltigt värde. `Säsong.Sommmar` är ett kompileringsfel. Det felet hittar du direkt — inte en timme in i felsökning.
+Nu är `Season.Summer` ett giltigt värde. `Season.Sommmar` är ett kompileringsfel. Det felet hittar du direkt — inte en timme in i felsökning.
 
 ## När du läst detta ska du kunna
 
@@ -54,50 +54,50 @@ Det är en rimlig fråga. Strängar är flexibla och lätta att förstå. Men fl
 **Enum:**
 - Kompilatorn kontrollerar varje användning — ogiltiga värden ger kompileringsfel
 - IntelliSense listar alla tillåtna värden åt dig
-- Omöjligt att stava fel — du skriver `Säsong.Sommar`, inte en fri sträng
+- Omöjligt att stava fel — du skriver `Season.Summer`, inte en fri sträng
 
 ```csharp
 // Med sträng — kompilatorn ser inget fel, men programmet kanske beter sig fel
-string väder = "regnigt";          // Korrekt är "Regnigt" med stor bokstav
+string weather = "regnigt";          // Korrekt är "Regnigt" med stor bokstav
 
 // Med enum — kompilatorn stoppar dig direkt om du skriver fel
-Väderlek väder = Väderlek.Regnigt; // Enda möjliga stavningen
+Weather weather = Weather.Rainy; // Enda möjliga stavningen
 ```
 
-Enums är också tydligare att läsa. `Väderlek.Soligt` berättar mer än `"soligt"` — du vet direkt att det tillhör en definierad kategori.
+Enums är också tydligare att läsa. `Weather.Sunny` berättar mer än `"soligt"` — du vet direkt att det tillhör en definierad kategori.
 
 ## Grundsyntax
 
 Du definierar en enum utanför klassen, på samma nivå som `class`. Konventionen är PascalCase för både enum-namnet och varje värde.
 
 ```csharp
-enum Veckodag
+enum Weekday
 {
-    Måndag,
-    Tisdag,
-    Onsdag,
-    Torsdag,
-    Fredag,
-    Lördag,
-    Söndag
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+    Sunday
 }
 ```
 
-Standardvärdet börjar på 0 och ökar med 1. `Måndag = 0`, `Tisdag = 1`, osv.
+Standardvärdet börjar på 0 och ökar med 1. `Monday = 0`, `Tuesday = 1`, osv.
 
 ## Använda en enum
 
 ```csharp
-Veckodag idag = Veckodag.Onsdag;
+Weekday today = Weekday.Wednesday;
 
-Console.WriteLine(idag);       // Onsdag
-Console.WriteLine((int)idag);  // 2
+Console.WriteLine(today);       // Wednesday
+Console.WriteLine((int)today);  // 2
 ```
 
 ### Output
 
 ```
-Onsdag
+Wednesday
 2
 ```
 
@@ -108,18 +108,18 @@ En enum är i grunden ett heltal. Varje värde mappas till ett nummer som börja
 
 ```csharp
 // Implicit:
-// Måndag  = 0
-// Tisdag  = 1
-// Onsdag  = 2
-// Torsdag = 3
+// Monday    = 0
+// Tuesday   = 1
+// Wednesday = 2
+// Thursday  = 3
 // ...
 ```
 
 Det betyder att du kan casta mellan enum och int:
 
 ```csharp
-int nummer = (int)Veckodag.Onsdag;  // 2
-Veckodag dag = (Veckodag)4;          // Fredag
+int number = (int)Weekday.Wednesday;  // 2
+Weekday day = (Weekday)4;              // Friday
 ```
 
 I praktiken gör du sällan det här. Det är mer en förklaring till varför enums finns och fungerar som de gör — de är ett säkert lager ovanpå tal.
@@ -133,20 +133,20 @@ Enums och `switch` är gjorda för varandra. När du har en begränsad uppsättn
 Klassisk switch:
 
 ```csharp
-Väderlek dagensVäder = Väderlek.Regnigt;
+Weather todaysWeather = Weather.Rainy;
 
-switch (dagensVäder)
+switch (todaysWeather)
 {
-    case Väderlek.Soligt:
+    case Weather.Sunny:
         Console.WriteLine("Ta med solglasögon!");
         break;
-    case Väderlek.Molnigt:
+    case Weather.Cloudy:
         Console.WriteLine("Det är grått ute, men torrt.");
         break;
-    case Väderlek.Regnigt:
+    case Weather.Rainy:
         Console.WriteLine("Ta med ett paraply!");
         break;
-    case Väderlek.Snöigt:
+    case Weather.Snowy:
         Console.WriteLine("Klä dig varmt och ta på vinterskorna!");
         break;
 }
@@ -155,16 +155,16 @@ switch (dagensVäder)
 Switch-uttryck (modern C#):
 
 ```csharp
-Veckodag dag = Veckodag.Lördag;
+Weekday day = Weekday.Saturday;
 
-string typ = dag switch
+string type = day switch
 {
-    Veckodag.Lördag => "Helg",
-    Veckodag.Söndag => "Helg",
+    Weekday.Saturday => "Helg",
+    Weekday.Sunday => "Helg",
     _               => "Vardag"
 };
 
-Console.WriteLine(typ);
+Console.WriteLine(type);
 ```
 
 ### Output
@@ -187,8 +187,8 @@ enum HttpStatus
     ServerError = 500
 }
 
-HttpStatus svar = HttpStatus.NotFound;
-Console.WriteLine((int)svar);  // 404
+HttpStatus response = HttpStatus.NotFound;
+Console.WriteLine((int)response);  // 404
 ```
 
 ### Output
@@ -201,12 +201,12 @@ Console.WriteLine((int)svar);  // 404
 
 ```csharp
 // int → enum
-Veckodag dag = (Veckodag)3;
-Console.WriteLine(dag);    // Torsdag
+Weekday day = (Weekday)3;
+Console.WriteLine(day);    // Thursday
 
 // string → enum
-Veckodag parsed = Enum.Parse<Veckodag>("Fredag");
-Console.WriteLine(parsed); // Fredag
+Weekday parsed = Enum.Parse<Weekday>("Friday");
+Console.WriteLine(parsed); // Friday
 ```
 
 ## [Flags] — kombinerbara värden
@@ -215,25 +215,25 @@ Med attributet `[Flags]` kan du kombinera enum-värden med `|` (bitvis eller). V
 
 ```csharp
 [Flags]
-enum Behörighet
+enum Permission
 {
-    Ingen   = 0,
-    Läsa    = 1,
-    Skriva  = 2,
-    Radera  = 4,
-    Admin   = Läsa | Skriva | Radera
+    None   = 0,
+    Read   = 1,
+    Write  = 2,
+    Delete = 4,
+    Admin  = Read | Write | Delete
 }
 
-Behörighet roll = Behörighet.Läsa | Behörighet.Skriva;
-Console.WriteLine(roll);                             // Läsa, Skriva
-Console.WriteLine(roll.HasFlag(Behörighet.Läsa));    // True
-Console.WriteLine(roll.HasFlag(Behörighet.Radera));  // False
+Permission role = Permission.Read | Permission.Write;
+Console.WriteLine(role);                             // Read, Write
+Console.WriteLine(role.HasFlag(Permission.Read));    // True
+Console.WriteLine(role.HasFlag(Permission.Delete));  // False
 ```
 
 ### Output
 
 ```
-Läsa, Skriva
+Read, Write
 True
 False
 ```
@@ -243,28 +243,28 @@ False
 Enums dyker upp naturligt när ett värde tillhör en känd, begränsad uppsättning alternativ.
 
 ```csharp
-enum Säsong { Vår, Sommar, Höst, Vinter }
+enum Season { Spring, Summer, Autumn, Winter }
 
 class Program
 {
     static void Main()
     {
-        Säsong säsong = Säsong.Vinter;
+        Season season = Season.Winter;
 
-        Console.WriteLine("Aktuell säsong: " + säsong);  // Vinter
+        Console.WriteLine("Aktuell säsong: " + season);  // Winter
 
-        switch (säsong)
+        switch (season)
         {
-            case Säsong.Vår:
+            case Season.Spring:
                 Console.WriteLine("Det börjar bli varmt igen.");
                 break;
-            case Säsong.Sommar:
+            case Season.Summer:
                 Console.WriteLine("Semester!");
                 break;
-            case Säsong.Höst:
+            case Season.Autumn:
                 Console.WriteLine("Löven faller.");
                 break;
-            case Säsong.Vinter:
+            case Season.Winter:
                 Console.WriteLine("Plocka fram vinterkläderna.");
                 break;
         }
@@ -274,9 +274,9 @@ class Program
 
 Vanliga användningsfall för enum:
 
-- **Riktningar** — `Norr`, `Söder`, `Öster`, `Väster`
-- **Status** — `Aktiv`, `Inaktiv`, `Väntande`
-- **Kortfärger** — `Hjärter`, `Ruter`, `Spader`, `Klöver`
+- **Riktningar** — `North`, `South`, `East`, `West`
+- **Status** — `Active`, `Inactive`, `Pending`
+- **Kortfärger** — `Hearts`, `Diamonds`, `Spades`, `Clubs`
 - **Svårighetsgrad** — `Lätt`, `Medel`, `Svår`
 
 Varje gång du ser dig själv skriva en sträng som ett av ett begränsat antal alternativ — fundera på om det är ett enum i förklädnad.

@@ -27,9 +27,9 @@ Ibland behöver du jämföra ett och samma värde mot många möjliga alternativ
 ## Switch-sats — klassisk syntax
 
 ```csharp
-int betyg = 4;
+int grade = 4;
 
-switch (betyg)
+switch (grade)
 {
     case 5:
         Console.WriteLine("Utmärkt!");
@@ -61,9 +61,9 @@ switch (betyg)
 Du kan stapla case-etiketter om de ska göra samma sak.
 
 ```csharp
-string dag = "Lördag";
+string day = "Lördag";
 
-switch (dag)
+switch (day)
 {
     case "Måndag":
     case "Tisdag":
@@ -78,17 +78,17 @@ switch (dag)
 }
 ```
 
-Om `dag` innehåller ett oväntat värde fångas det av `default` istället för att tyst ignoreras.
+Om `day` innehåller ett oväntat värde fångas det av `default` istället för att tyst ignoreras.
 
 ```mermaid
 flowchart TD
-    A[Starta med betyg] --> B{betyg == 5?}
+    A[Starta med betyg] --> B{grade == 5?}
     B -->|Ja| C[Utmärkt!]
-    B -->|Nej| D{betyg == 4?}
+    B -->|Nej| D{grade == 4?}
     D -->|Ja| E[Bra jobbat!]
-    D -->|Nej| F{betyg == 3?}
+    D -->|Nej| F{grade == 3?}
     F -->|Ja| G[Godkänt.]
-    F -->|Nej| H{betyg == 1 eller 2?}
+    F -->|Nej| H{grade == 1 eller 2?}
     H -->|Ja| I[Ej godkänt.]
     H -->|Nej| J[default: Ogiltigt betyg.]
     C & E & G & I & J --> K[Slut]
@@ -100,16 +100,16 @@ Switch expression är en kortare variant som returnerar ett värde direkt. Jämf
 
 ```csharp
 // Klassisk switch
-string dagnamn;
-switch (dag)
+string dayName;
+switch (dayNumber)
 {
-    case 1: dagnamn = "Måndag"; break;
-    case 2: dagnamn = "Tisdag"; break;
-    default: dagnamn = "Okänd"; break;
+    case 1: dayName = "Måndag"; break;
+    case 2: dayName = "Tisdag"; break;
+    default: dayName = "Okänd"; break;
 }
 
 // Switch expression — C# 8
-string dagnamn = dag switch
+string dayName = dayNumber switch
 {
     1 => "Måndag",
     2 => "Tisdag",
@@ -119,7 +119,7 @@ string dagnamn = dag switch
     _ => "Helg eller okänd"
 };
 
-Console.WriteLine(dagnamn);
+Console.WriteLine(dayName);
 ```
 
 `_` är wildcard och spelar samma roll som `default`.
@@ -131,9 +131,9 @@ Switch expression passar bäst när du omvandlar ett värde till ett annat. Om d
 `switch` fungerar på strängar, heltal, char, enum och mer.
 
 ```csharp
-string färg = "röd";
+string color = "röd";
 
-string hex = färg switch
+string hex = color switch
 {
     "röd"  => "#FF0000",
     "grön" => "#00FF00",
@@ -160,7 +160,7 @@ I den klassiska `switch`-satsen **måste** varje `case` avslutas med `break` (el
 
 ```csharp
 // Fel — koden faller igenom
-switch (betyg)
+switch (grade)
 {
     case 5:
         Console.WriteLine("Utmärkt!");
@@ -171,7 +171,7 @@ switch (betyg)
 }
 ```
 
-Om `betyg` är `5` skrivs båda raderna ut. C# tillåter inte oavsiktlig fall-through — kompilatorn ger ett fel om du glömmer `break` i ett `case` som har kod i sig.
+Om `grade` är `5` skrivs båda raderna ut. C# tillåter inte oavsiktlig fall-through — kompilatorn ger ett fel om du glömmer `break` i ett `case` som har kod i sig.
 
 ## TL;DR
 

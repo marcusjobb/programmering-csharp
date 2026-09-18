@@ -30,10 +30,10 @@ Vanliga värdetyper (`int`, `bool`, `DateTime`) kan aldrig vara `null`. Lägger 
 int  a = null;   // Kompileringsfel!
 int? b = null;   // OK
 
-int? ålder = null;
+int? age = null;
 
-if (ålder.HasValue)
-    Console.WriteLine($"Ålder: {ålder.Value}");
+if (age.HasValue)
+    Console.WriteLine($"Ålder: {age.Value}");
 else
     Console.WriteLine("Ålder okänd");
 ```
@@ -54,14 +54,14 @@ Aktiveras med `<Nullable>enable</Nullable>` i `.csproj` (standardvärde i nya .N
 string  a = null;   // ⚠️ Varning — string ska inte vara null
 string? b = null;   // OK — explicit nullable
 
-void Hälsa(string namn)        // namn får inte vara null
+void Greet(string name)        // name får inte vara null
 {
-    Console.WriteLine($"Hej {namn}!");
+    Console.WriteLine($"Hej {name}!");
 }
 
-void HälsaKanske(string? namn) // namn kan vara null
+void GreetMaybe(string? name) // name kan vara null
 {
-    Console.WriteLine($"Hej {namn ?? "okänd"}!");
+    Console.WriteLine($"Hej {name ?? "okänd"}!");
 }
 ```
 
@@ -74,8 +74,8 @@ Anropar bara om objektet inte är null. Returnerar `null` annars.
 ```csharp
 string? text = null;
 
-int? längd = text?.Length;    // null — inget NullReferenceException
-Console.WriteLine(längd);     // (tomt)
+int? length = text?.Length;    // null — inget NullReferenceException
+Console.WriteLine(length);     // (tomt)
 
 text = "Hej";
 Console.WriteLine(text?.Length);  // 3
@@ -86,10 +86,10 @@ Console.WriteLine(text?.Length);  // 3
 Returnerar höger sida om vänster är `null`.
 
 ```csharp
-string? namn = null;
-string visningsnamn = namn ?? "Gäst";
+string? name = null;
+string displayName = name ?? "Gäst";
 
-Console.WriteLine(visningsnamn);  // Gäst
+Console.WriteLine(displayName);  // Gäst
 ```
 
 ### `??=` — null-coalescing assignment (C# 8)
@@ -108,14 +108,14 @@ Console.WriteLine(cache);  // standardvärde
 Säger till kompilatorn "jag vet att detta inte är null". Använd sparsamt.
 
 ```csharp
-string? text = HämtaText();
-int längd = text!.Length;  // Du garanterar att text inte är null
+string? text = GetText();
+int length = text!.Length;  // Du garanterar att text inte är null
 ```
 
 ## Kedja null-operatorer
 
 ```csharp
-var stad = person?.Adress?.Stad ?? "Okänd stad";
+var city = person?.Address?.City ?? "Okänd stad";
 ```
 
 Läser: hämta `person.Adress.Stad` — om något längs vägen är null, använd `"Okänd stad"`.

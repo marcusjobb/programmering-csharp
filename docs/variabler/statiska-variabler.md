@@ -16,24 +16,24 @@ nav_order: 30
 Vanliga variabler tillhör ett objekt. Varje instans av en klass har sin egen kopia. En statisk variabel tillhör klassen själv — alla instanser delar på samma värde.
 
 ```csharp
-class Räknare
+class Counter
 {
-    public static int AntalSkapade = 0;
+    public static int TotalCreated = 0;
 
-    public Räknare()
+    public Counter()
     {
-        AntalSkapade++;
+        TotalCreated++;
     }
 }
 
-new Räknare();
-new Räknare();
-new Räknare();
+new Counter();
+new Counter();
+new Counter();
 
-Console.WriteLine(Räknare.AntalSkapade);  // 3
+Console.WriteLine(Counter.TotalCreated);  // 3
 ```
 
-Notera att du når den via klassnamnet (`Räknare.AntalSkapade`), inte via ett objekt.
+Notera att du når den via klassnamnet (`Counter.TotalCreated`), inte via ett objekt.
 
 ## När du läst detta ska du kunna
 
@@ -45,10 +45,10 @@ Notera att du når den via klassnamnet (`Räknare.AntalSkapade`), inte via ett o
 ## Grundsyntax
 
 ```csharp
-class Klass
+class Example
 {
-    public static int DeladVariabel = 0;       // Statisk variabel
-    public int EgenVariabel = 0;               // Instansvariabel
+    public static int SharedVariable = 0;       // Statisk variabel
+    public int InstanceVariable = 0;             // Instansvariabel
 }
 ```
 
@@ -61,10 +61,10 @@ Instansvariabler är unika per objekt. Statiska variabler är gemensamma för al
 ```csharp
 class Config
 {
-    public const string AppNamn = "MittProgram";              // Känt vid kompilering
-    public static readonly string Version = HämtaVersion();  // Beräknas vid start
+    public const string AppName = "MittProgram";              // Känt vid kompilering
+    public static readonly string Version = GetVersion();  // Beräknas vid start
 
-    static string HämtaVersion() => "1.0.0";
+    static string GetVersion() => "1.0.0";
 }
 ```
 
@@ -77,12 +77,12 @@ En statisk klass kan inte instansieras — den är en samling hjälpmetoder och/
 ```csharp
 static class MathUtils
 {
-    public static double Kvadrat(double x) => x * x;
-    public static double Kub(double x) => x * x * x;
+    public static double Square(double x) => x * x;
+    public static double Cube(double x) => x * x * x;
 }
 
-Console.WriteLine(MathUtils.Kvadrat(4));  // 16
-Console.WriteLine(MathUtils.Kub(3));      // 27
+Console.WriteLine(MathUtils.Square(4));  // 16
+Console.WriteLine(MathUtils.Cube(3));      // 27
 ```
 
 `Console`, `Math`, `File` i .NET är alla statiska klasser.
@@ -92,27 +92,27 @@ Console.WriteLine(MathUtils.Kub(3));      // 27
 En vanlig och legitim användning: räkna hur många objekt som skapats.
 
 ```csharp
-class Produkt
+class Product
 {
-    private static int _nästaId = 1;
+    private static int _nextId = 1;
 
     public int Id { get; }
-    public string Namn { get; }
+    public string Name { get; }
 
-    public Produkt(string namn)
+    public Product(string name)
     {
-        Id = _nästaId++;
-        Namn = namn;
+        Id = _nextId++;
+        Name = name;
     }
 }
 
-var p1 = new Produkt("Kaffe");
-var p2 = new Produkt("Te");
-var p3 = new Produkt("Juice");
+var p1 = new Product("Kaffe");
+var p2 = new Product("Te");
+var p3 = new Product("Juice");
 
-Console.WriteLine($"{p1.Id}: {p1.Namn}");  // 1: Kaffe
-Console.WriteLine($"{p2.Id}: {p2.Namn}");  // 2: Te
-Console.WriteLine($"{p3.Id}: {p3.Namn}");  // 3: Juice
+Console.WriteLine($"{p1.Id}: {p1.Name}");  // 1: Kaffe
+Console.WriteLine($"{p2.Id}: {p2.Name}");  // 2: Te
+Console.WriteLine($"{p3.Id}: {p3.Name}");  // 3: Juice
 ```
 
 ## Fallgropar
@@ -120,9 +120,9 @@ Console.WriteLine($"{p3.Id}: {p3.Namn}");  // 3: Juice
 **Delat tillstånd kan ge oväntade bieffekter.** Om två delar av koden läser och skriver till samma statiska variabel kan de störa varandra.
 
 ```csharp
-class Kalkylator
+class Calculator
 {
-    public static double Resultat = 0;  // Dålig idé — alla delar delar resultatet
+    public static double Result = 0;  // Dålig idé — alla delar delar resultatet
 }
 ```
 

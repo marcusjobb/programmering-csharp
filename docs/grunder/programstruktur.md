@@ -36,14 +36,14 @@ Tänk på det som en mapp i filsystemet. Två klasser med samma namn kan samexis
 ligger i olika namespaces.
 
 ```csharp
-namespace Fakturering
+namespace Invoicing
 {
-    class Kund { }
+    class Customer { }
 }
 
-namespace Lager
+namespace Warehouse
 {
-    class Kund { }  // Ingen krock — de bor i olika namespaces
+    class Customer { }  // Ingen krock — de bor i olika namespaces
 }
 ```
 

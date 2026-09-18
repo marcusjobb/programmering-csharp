@@ -29,8 +29,8 @@ I de flesta program är det precis vad du behöver.
 Sedan .NET 6 finns `Random.Shared` — en trådsäker delad instans som du kan använda direkt utan att skapa ett eget objekt.
 
 ```csharp
-int tärning = Random.Shared.Next(1, 7);  // 1–6
-Console.WriteLine(tärning);
+int diceRoll = Random.Shared.Next(1, 7);  // 1–6
+Console.WriteLine(diceRoll);
 ```
 
 Använd `Random.Shared` som förstaval i nya program.
@@ -40,9 +40,9 @@ Använd `Random.Shared` som förstaval i nya program.
 ```csharp
 var rng = new Random();
 
-int heltal = rng.Next(1, 101);       // 1–100 (övre gränsen exkluderas)
-double decimal = rng.NextDouble();   // 0.0 – 0.9999...
-bool sant = rng.NextBool();          // true eller false (50/50)
+int wholeNumber = rng.Next(1, 101);       // 1–100 (övre gränsen exkluderas)
+double randomDecimal = rng.NextDouble();   // 0.0 – 0.9999...
+bool truthy = rng.NextBool();              // true eller false (50/50)
 ```
 
 ## Vanliga metoder
@@ -84,26 +84,26 @@ Utan seed används systemklockan som startvärde, vilket ger en annan sekvens va
 ## Blanda en lista
 
 ```csharp
-var kortlek = new List<string> { "Hjärter A", "Spader K", "Ruter Q", "Klöver J" };
+var deck = new List<string> { "Hjärter A", "Spader K", "Ruter Q", "Klöver J" };
 
 // Fisher-Yates shuffle
-for (int i = kortlek.Count - 1; i > 0; i--)
+for (int i = deck.Count - 1; i > 0; i--)
 {
     int j = Random.Shared.Next(i + 1);
-    (kortlek[i], kortlek[j]) = (kortlek[j], kortlek[i]);
+    (deck[i], deck[j]) = (deck[j], deck[i]);
 }
 
-foreach (var kort in kortlek)
-    Console.WriteLine(kort);
+foreach (var card in deck)
+    Console.WriteLine(card);
 ```
 
 ## Plocka ett slumpmässigt element
 
 ```csharp
-string[] svar = { "Ja", "Nej", "Kanske", "Fråga igen" };
+string[] answers = { "Ja", "Nej", "Kanske", "Fråga igen" };
 
-int index = Random.Shared.Next(svar.Length);
-Console.WriteLine(svar[index]);  // Ett av de fyra svaren
+int index = Random.Shared.Next(answers.Length);
+Console.WriteLine(answers[index]);  // Ett av de fyra svaren
 ```
 
 ## Fallgropar

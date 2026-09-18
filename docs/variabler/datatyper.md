@@ -49,18 +49,18 @@ Varje typ finns av en anledning. Väljer du fel typ funkar koden ändå — men 
 
 ```csharp
 // Inte bra: du förlorar decimaldelen
-int pris = 29; // 29.90 avrundas till 29 — pengarna försvinner
+int price = 29; // 29.90 avrundas till 29 — pengarna försvinner
 
 // Bättre
-decimal pris = 29.90m;
+decimal price = 29.90m;
 
 // Inte bra: string kan inte räkna
-string antal = "5";
-int summa = antal + 3; // Fungerar inte — du kan inte addera text och siffror
+string count = "5";
+int sum = count + 3; // Fungerar inte — du kan inte addera text och siffror
 
 // Bättre
-int antal = 5;
-int summa = antal + 3; // = 8
+int count = 5;
+int sum = count + 3; // = 8
 ```
 
 ## double vs decimal
@@ -72,7 +72,7 @@ Båda lagrar decimaltal — men de är inte samma sak.
 
 ```csharp
 double pi = 3.14159;      // Tillräckligt exakt för koordinater
-decimal pris = 149.95m;   // Exakt — inget avrundningsfel
+decimal price = 149.95m;   // Exakt — inget avrundningsfel
 ```
 
 `m` efter ett tal (`149.95m`) talar om för C# att det är en `decimal`, inte en `double`.
