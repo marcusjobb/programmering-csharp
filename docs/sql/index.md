@@ -13,6 +13,17 @@ has_children: True
 ---
 # SQL
 
+## Resurser
+
+| Resurs | Vad det är |
+|--------|-----------|
+| [W3Schools SQL](https://www.w3schools.com/sql/) | Snabbreferens för SQL-syntax — bra att ha uppe när man glömt hur JOIN eller GROUP BY fungerar. |
+| [SQLZoo](https://sqlzoo.net/) | Interaktiva SQL-övningar direkt i webbläsaren — bra för att träna SELECT, JOIN och aggregat. |
+| [Mockaroo](https://www.mockaroo.com/) | Generera testdata — välj kolumntyper och format, ladda ner som SQL, CSV eller JSON. |
+| [ConnectionStrings.com](https://www.connectionstrings.com/) | Rätt connection string för exakt din databas och driver — SQL Server, SQLite, MySQL m.fl. |
+
+---
+
 SQL erbjuder många fler avancerade funktioner och kommandon för att hantera och manipulera data i databaser. Genom att lära dig SQL kan du få en djupare förståelse för databaser och hur man effektivt hanterar och analyserar data.
 
 ## Exempel
