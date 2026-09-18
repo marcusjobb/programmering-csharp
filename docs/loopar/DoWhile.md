@@ -1,5 +1,6 @@
 ---
 title: Do While
+description: "Do While i Loopar — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

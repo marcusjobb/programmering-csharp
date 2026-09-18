@@ -1,5 +1,6 @@
 ---
 title: Asp.Net Core Hangman
+description: "Asp.Net Core Hangman i ASP.net Core — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

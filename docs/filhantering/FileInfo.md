@@ -1,5 +1,6 @@
 ---
 title: FileInfo
+description: "FileInfo i Filhantering — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

@@ -1,5 +1,6 @@
 ---
 title: File klassen
+description: "File klassen i Filhantering — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

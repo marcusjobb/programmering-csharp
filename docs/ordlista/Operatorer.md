@@ -1,5 +1,6 @@
 ---
 title: Operatorer
+description: "Operatorer i Ordlista — C#-boken av Marcus Ackre Medina"
 layout: default
 parent: Ordlista
 nav_order: 25

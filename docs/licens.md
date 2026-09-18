@@ -1,5 +1,6 @@
 ---
 title: Licens
+description: "Licens — C#-boken av Marcus Ackre Medina"
 nav_order: 999
 ---
 

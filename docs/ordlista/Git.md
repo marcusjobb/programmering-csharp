@@ -1,5 +1,6 @@
 ---
 title: Git Ordlista
+description: "Git Ordlista i Ordlista — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

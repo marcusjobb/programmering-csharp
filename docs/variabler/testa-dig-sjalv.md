@@ -1,5 +1,6 @@
 ---
 title: Testa dig själv
+description: "Testa dig själv i Variabler — C#-boken av Marcus Ackre Medina"
 parent: Variabler
 nav_order: 99
 ---

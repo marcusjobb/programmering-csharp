@@ -1,5 +1,6 @@
 ---
 title: AI
+description: "AI i C# bok — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

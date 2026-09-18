@@ -1,5 +1,6 @@
 ---
 title: Claude Code
+description: "Claude Code i AI-modeller — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

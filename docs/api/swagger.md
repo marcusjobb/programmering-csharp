@@ -1,5 +1,6 @@
 ---
 title: Swagger och Swashbuckle
+description: "Swagger och Swashbuckle i APIer — C#-boken av Marcus Ackre Medina"
 parent: APIer
 nav_order: 20
 ---

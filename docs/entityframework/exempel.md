@@ -1,5 +1,6 @@
 ---
 title: Code-First Dagbok med Entity Framework
+description: "Code-First Dagbok med Entity Framework i Entity Framework — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

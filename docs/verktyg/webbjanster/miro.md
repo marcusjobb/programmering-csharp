@@ -1,5 +1,6 @@
 ---
 title: Miro
+description: "Miro i Webbtjänster — C#-boken av Marcus Ackre Medina"
 parent: Webbtjänster
 nav_order: 20
 ---

@@ -1,5 +1,6 @@
 ---
 title: AI-exempel
+description: "AI-exempel i AI — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

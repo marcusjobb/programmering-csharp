@@ -1,5 +1,6 @@
 ---
 title: "Överlagring (kurs)"
+description: "Överlagring (kurs) i Metoder — C#-boken av Marcus Ackre Medina"
 parent: "Metoder"
 nav_order: 25
 ---

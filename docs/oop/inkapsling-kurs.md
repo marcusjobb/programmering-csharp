@@ -1,5 +1,6 @@
 ---
 title: "Inkapsling (kurs)"
+description: "Inkapsling (kurs) i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
 parent: "Objektorienterad programmering (OOP)"
 nav_order: 18
 ---

@@ -1,5 +1,6 @@
 ---
 title: "if / else"
+description: "if / else i If — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

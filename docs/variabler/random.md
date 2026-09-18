@@ -1,5 +1,6 @@
 ---
 title: Random
+description: "Random i Variabler — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

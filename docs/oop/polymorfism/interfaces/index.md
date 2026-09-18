@@ -1,5 +1,6 @@
 ---
 title: Interfaces
+description: "Interfaces i Polymorfism — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

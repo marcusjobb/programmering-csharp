@@ -1,5 +1,6 @@
 ---
 title: "Git — konflikter"
+description: "Git — konflikter i Git — C#-boken av Marcus Ackre Medina"
 parent: Git
 nav_order: 20
 ---

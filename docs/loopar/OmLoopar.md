@@ -1,5 +1,6 @@
 ---
 title: Loopar i C#
+description: "Loopar i C# i Loopar — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

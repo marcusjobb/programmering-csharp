@@ -1,5 +1,6 @@
 ---
 title: Om C# boken
+description: "Om C# boken i C# bok — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

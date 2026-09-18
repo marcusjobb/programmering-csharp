@@ -1,5 +1,6 @@
 ---
 title: Git
+description: "Git i Verktyg — C#-boken av Marcus Ackre Medina"
 parent: Verktyg
 nav_order: 20
 has_children: true

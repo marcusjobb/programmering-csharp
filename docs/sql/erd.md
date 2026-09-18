@@ -1,5 +1,6 @@
 ---
 title: ER-diagram
+description: "ER-diagram i SQL — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

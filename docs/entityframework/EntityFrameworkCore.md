@@ -1,5 +1,6 @@
 ---
 title: Entity Framework Core
+description: "Entity Framework Core i Entity Framework — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

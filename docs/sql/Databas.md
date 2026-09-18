@@ -1,5 +1,6 @@
 ---
 title: Databas
+description: "Databas i SQL — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

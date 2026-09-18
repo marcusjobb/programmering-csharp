@@ -1,5 +1,6 @@
 ---
 title: Scalar och OpenAPI
+description: "Scalar och OpenAPI i APIer — C#-boken av Marcus Ackre Medina"
 parent: APIer
 nav_order: 10
 ---

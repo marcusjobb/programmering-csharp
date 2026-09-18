@@ -1,5 +1,6 @@
 ---
 title: Hitta det största elementet i en array
+description: "Hitta det största elementet i en array i Array övningar — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

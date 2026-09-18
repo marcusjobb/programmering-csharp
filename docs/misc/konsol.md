@@ -1,5 +1,6 @@
 ---
 title: "Konsol-I/O"
+description: "Konsol-I/O i Övrigt — C#-boken av Marcus Ackre Medina"
 parent: "Övrigt"
 nav_order: 10
 ---

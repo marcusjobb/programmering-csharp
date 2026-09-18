@@ -1,5 +1,6 @@
 ---
 title: Samlingar
+description: "Samlingar i Ordlista — C#-boken av Marcus Ackre Medina"
 layout: default
 parent: Ordlista
 nav_order: 23

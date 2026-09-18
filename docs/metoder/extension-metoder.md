@@ -1,5 +1,6 @@
 ---
 title: Extension-metoder
+description: "Extension-metoder i Metoder — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

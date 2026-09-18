@@ -1,5 +1,6 @@
 ---
 title: "Loopar (kurs)"
+description: "Loopar (kurs) i Loopar — C#-boken av Marcus Ackre Medina"
 parent: "Loopar"
 nav_order: 15
 ---

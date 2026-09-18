@@ -1,5 +1,6 @@
 ---
 title: Cookies
+description: "Cookies i ASP.net Core — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

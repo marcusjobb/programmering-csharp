@@ -1,5 +1,6 @@
 ---
 title: Promptingtekniker
+description: "Promptingtekniker i Prompting — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,5 +1,6 @@
 ---
 title: VS Code
+description: "VS Code i Installation — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

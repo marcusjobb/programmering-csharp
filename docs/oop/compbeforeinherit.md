@@ -1,5 +1,6 @@
 ---
 title: Komposition över Arv
+description: "Komposition över Arv i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

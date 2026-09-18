@@ -1,5 +1,6 @@
 ---
 title: Anthropic API (Claude)
+description: "Anthropic API (Claude) i AI-API — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

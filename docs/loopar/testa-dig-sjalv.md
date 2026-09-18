@@ -1,5 +1,6 @@
 ---
 title: Testa dig själv
+description: "Testa dig själv i Loopar — C#-boken av Marcus Ackre Medina"
 parent: Loopar
 nav_order: 99
 ---

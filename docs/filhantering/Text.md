@@ -1,5 +1,6 @@
 ---
 title: Textfiler
+description: "Textfiler i Filhantering — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

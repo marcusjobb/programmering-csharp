@@ -1,5 +1,6 @@
 ---
 title: "Variabler (kurs)"
+description: "Variabler (kurs) i Variabler — C#-boken av Marcus Ackre Medina"
 parent: "Variabler"
 nav_order: 5
 ---

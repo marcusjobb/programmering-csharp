@@ -1,5 +1,6 @@
 ---
 title: Skapa
+description: "Skapa i Cookies — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

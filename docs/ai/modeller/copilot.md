@@ -1,5 +1,6 @@
 ---
 title: GitHub Copilot
+description: "GitHub Copilot i AI-modeller — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

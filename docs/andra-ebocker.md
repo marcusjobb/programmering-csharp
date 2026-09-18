@@ -1,5 +1,6 @@
 ---
 title: Andra e-böcker av Marcus
+description: "Andra e-böcker av Marcus — C#-boken av Marcus Ackre Medina"
 nav_order: 990
 ---
 # Andra e-böcker av Marcus

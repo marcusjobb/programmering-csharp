@@ -1,5 +1,6 @@
 ---
 title: Klasser och Objekt inom programmering
+description: "Klasser och Objekt inom programmering i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation

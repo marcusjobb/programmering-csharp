@@ -1,5 +1,6 @@
 ---
 title: Kontext
+description: "Kontext i Entity Framework — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation
