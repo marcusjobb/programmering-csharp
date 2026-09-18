@@ -36,6 +36,8 @@ Använd sökfunktionen (överst till höger) eller menyn till vänster.
 
 Boken skapades för att ge studerande ett ställe att gå tillbaka till — när något från lektionen inte satt, när man glömt syntaxen, eller när man vill förstå konceptet lite djupare än vad genomgången hann med.
 
-Den uppdateras löpande i takt med undervisningen. Hittar du ett fel, saknar en förklaring, eller har ett bättre kodexempel? Hör av dig — på Discord, via skolans mail, eller öppna ett issue direkt på [GitHub](https://github.com/marcusjobb/programmering-csharp).
+Den uppdateras löpande i takt med undervisningen, och tanken är att den så småningom ska publiceras som en riktig bok — när jag anser att innehållet är tillräckligt komplett.
+
+Saknar du ett ämne, en förklaring, eller ett kodexempel? Hör av dig — det är precis den typen av feedback som formar vad som kommer härnäst. Du hittar mig på Discord, via skolans mail, eller via ett issue på [GitHub](https://github.com/marcusjobb/programmering-csharp).
 
 /Marcus
