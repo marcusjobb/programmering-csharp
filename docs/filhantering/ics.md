@@ -1,6 +1,6 @@
 ---
-title: ICS-filer i C\#
-description: "ICS-filer i C\# i Filhantering — C#-boken av Marcus Ackre Medina"
+title: "ICS-filer i C#"
+description: "ICS-filer i C# — Filhantering i C#-boken av Marcus Ackre Medina"
 layout: default
 author: Campus Mölndal
 author_github: CampusMolndalEducation
