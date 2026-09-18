@@ -8,8 +8,10 @@ has_children: true
 
 # C# bok av Marcus A.M.
 
-En praktisk referens i C# — från grunder till avancerade koncept.  
-Skriven för studerande på Yrkeshögskola men användbar för alla som lär sig C#.
+{: .important }
+**Det här är inte en kurs.** Det är ett uppslagsverk. Du förväntas inte läsa det från början till slut — du använder det när du kör fast, när du glömt syntaxen, eller när du undrar hur en viss del av C# egentligen fungerar.
+
+Hitta det du söker, förstå det, gå tillbaka till koden.
 
 ---
 
@@ -26,4 +28,4 @@ Skriven för studerande på Yrkeshögskola men användbar för alla som lär sig
 | API & ASP.NET | Webb-API och ASP.NET Core |
 | Asynkron | async/await, Task |
 
-Navigera med menyn till vänster — avsnitten är ordnade i inlärningsordning.
+Använd sökfunktionen (överst till höger) eller menyn till vänster.
