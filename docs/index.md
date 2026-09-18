@@ -29,3 +29,13 @@ Hitta det du söker, förstå det, gå tillbaka till koden.
 | Asynkron | async/await, Task |
 
 Använd sökfunktionen (överst till höger) eller menyn till vänster.
+
+---
+
+## Om boken
+
+Boken skapades för att ge studerande ett ställe att gå tillbaka till — när något från lektionen inte satt, när man glömt syntaxen, eller när man vill förstå konceptet lite djupare än vad genomgången hann med.
+
+Den uppdateras löpande i takt med undervisningen. Hittar du ett fel, saknar en förklaring, eller har ett bättre kodexempel? Hör av dig — på Discord, via skolans mail, eller öppna ett issue direkt på [GitHub](https://github.com/marcusjobb/programmering-csharp).
+
+/Marcus
