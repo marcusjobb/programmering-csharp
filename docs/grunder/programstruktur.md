@@ -50,6 +50,56 @@ namespace Lager
 I små projekt spelar namespace-namnet sällan någon roll. I större projekt håller det ordning
 på vad som hör ihop.
 
+### Undermappar blir namespaces
+
+I .NET följer namespaces mappstrukturen automatiskt. Varje undermapp lägger till ett
+lager till projektets grundnamespace:
+
+```
+MyProject/
+├── Utils/          →  namespace MyProject.Utils
+├── Helpers/        →  namespace MyProject.Helpers
+│   └── Strings/    →  namespace MyProject.Helpers.Strings
+└── Models/         →  namespace MyProject.Models
+```
+
+En klass i `Utils/`-mappen deklarerar sig själv så här:
+
+```csharp
+namespace MyProject.Utils
+{
+    class DataParser { }
+}
+```
+
+Punkten är en separator — `MyProject.Utils` läses som "Utils-delen av MyProject".
+
+### Vanliga namespaces du kommer att se
+
+Det finns inga hårda regler för namngivning, men vissa mönster är så vanliga att de
+i praktiken är standard:
+
+| Namespace | Innehåller vanligtvis |
+|-----------|----------------------|
+| `Helpers` | Hjälpklasser för återkommande uppgifter |
+| `Extensions` | Extension methods (mer om det i OOP-kapitlet) |
+| `Models` | Dataklasser som representerar information |
+| `POCOs` | Plain Old C# Objects — enkla dataklasser utan logik |
+| `Services` | Klasser som hanterar affärslogik |
+| `Repositories` | Klasser som pratar med databasen |
+
+I ASP.NET-projekt ser du dessutom:
+
+| Namespace | Innehåller vanligtvis |
+|-----------|----------------------|
+| `Controllers` | Klasser som tar emot HTTP-förfrågningar |
+| `Views` | Mallar för vad användaren ser |
+| `Data` | Databaskontext och konfiguration |
+
+Det ser ut som mycket — och det är det — men du lär dig dem ett i taget allteftersom
+du behöver dem. Varje avsnitt i den här boken tar upp sina egna namespaces när de
+blir relevanta.
+
 ---
 
 ## class Program
