@@ -1,0 +1,31 @@
+# C# — öppen lärobok av Marcus Ackre Medina
+
+> En praktisk guide till programmering i C# för YH-studerande.
+> Skriven på svenska. Fokus på Clean Code och yrkesförberedande programmering.
+
+## Om boken
+
+Denna bok täcker C#-programmering från grunderna till objektorienterad programmering och mönster.
+Målgrupp: programmeringsstuderande på YH-nivå (nybörjare till junior).
+Licens: CC BY 4.0 — fri att använda och dela.
+Källa: https://github.com/marcusjobb/programmering-csharp
+Publicerad: https://marcusjobb.github.io/programmering-csharp/
+
+## Ämnen som täcks
+
+- Grunderna i C# och .NET
+- Variabler, datatyper och operatorer
+- Villkor och loopar
+- Metoder och funktioner
+- Klasser och objektorientering
+- Arv, polymorfism och gränssnitt
+- Samlingar: List, Dictionary, LINQ
+- Felhantering med exceptions
+- Clean Code-principer
+- Introduktion till designmönster
+
+## Författare
+
+Marcus Ackre Medina — lärare i mjukvaruutveckling, NionIT / YRGO
+Kontakt: marcus.medina@nionit.com
+LinkedIn: https://www.linkedin.com/in/marcusmedina/
