@@ -1,9 +1,9 @@
 ---
 title: MVC och API
-description: "MVC och API i API — C#-boken av Marcus Ackre Medina"
+description: "MVC och API i APIer — C#-boken av Marcus Ackre Medina"
 layout: default
-parent: API
-nav_order: 40
+parent: APIer
+nav_order: 6
 ---
 # MVC och API
 

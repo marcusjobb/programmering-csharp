@@ -35,7 +35,7 @@ classDiagram
     }
 ```
 
-| Tecken | Meaning |
+| Tecken | Betydelse |
 |--------|---------|
 | `-` | `private` — bara klassen kan nå det |
 | `+` | `public` — synligt utifrån |

@@ -95,9 +95,7 @@ Klasser och Objekt kan tillämpas i en mängd olika scenarier inom programmering
 
 2. **Spelutveckling**: Inom spelutveckling används Klasser och Objekt för att skapa olika spelobjekt, karaktärer, världar och mycket mer. Genom att använda objektorienterad programmering kan spelutvecklare skapa komplexa och interaktiva spelvärldar.
 
-3. **Simuleringar**: Simuleringsprogram och modelleringsverktyg kan dra nytta av Klasser och Objekt för att representera och simulera olika entiteter och processer. Genom att använda objekt för att modellera olika aspekter av system
-
-et kan simuleringar bli mer realistiska och flexibla.
+3. **Simuleringar**: Simuleringsprogram och modelleringsverktyg kan dra nytta av Klasser och Objekt för att representera och simulera olika entiteter och processer. Genom att använda objekt för att modellera olika aspekter av systemet kan simuleringar bli mer realistiska och flexibla.
 
 4. **Databashantering**: Vid databashantering används ofta objektorienterade koncept för att modellera och hantera data. Objekt kan representera tabeller, rader och kolumner i en databas och möjliggöra en mer flexibel och hanterbar databasstruktur.
 

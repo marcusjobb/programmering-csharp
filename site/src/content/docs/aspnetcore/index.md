@@ -34,9 +34,7 @@ ASP.net Core är en modernisering av det äldre ASP.net MVC-ramverket. Det är b
 
 ASP.net Core erbjuder en rad fördelar för webbutveckling. Här är några av de skäl varför utvecklare älskar att använda ASP.net Core:
 
-- **Plattformsoberoende**: Med ASP.net Core kan du bygga applikationer som kan köras på olika plattformar som Windows, Linux och macOS. Det ger en flexibilitet och möjlighet att nå en bred
-
-are publik.
+- **Plattformsoberoende**: Med ASP.net Core kan du bygga applikationer som kan köras på olika plattformar som Windows, Linux och macOS. Det ger en flexibilitet och möjlighet att nå en bredare publik.
 - **Prestanda och skalbarhet**: ASP.net Core är optimerat för att leverera snabba och responsiva webbapplikationer. Det har inbyggda funktioner för att hantera hög belastning och skalbarhet, vilket gör det till ett kraftfullt val för applikationer av alla storlekar.
 - **Modularitet och flexibilitet**: Ramverket är uppdelat i mindre komponenter, vilket gör det möjligt att använda endast de funktioner du behöver. Det ger en ökad flexibilitet och möjliggör skräddarsydd utveckling baserat på dina specifika behov.
 - **Stöd för moderna webbtekniker**: ASP.net Core har stöd för moderna webbtekniker som WebSockets, SignalR och Razor Pages. Det möjliggör utveckling av realtidsapplikationer och interaktiva gränssnitt.

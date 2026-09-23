@@ -1,6 +1,6 @@
 ---
-title: "Dictionary (kurs)"
-description: "Dictionary (kurs) i Datastrukturer — C#-boken av Marcus Ackre Medina"
+title: "Lästext — Dictionary"
+description: "Lästext — Dictionary i Datastrukturer — C#-boken av Marcus Ackre Medina"
 parent: "Datastrukturer"
 nav_order: 25
 ---

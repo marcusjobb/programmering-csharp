@@ -58,15 +58,15 @@ else
 ### Output (lyckat)
 
 ```
-Provide ett integer: 42
-Du provided: 42
+Ange ett heltal: 42
+Du angav: 42
 ```
 
 ### Output (misslyckat)
 
 ```
-Provide ett integer: hej
-It there var not ett integer.
+Ange ett heltal: hej
+Det där var inte ett heltal.
 ```
 
 Andra `Try`-metoder i .NET som följer samma mönster: `double.TryParse`, `DateTime.TryParse`, `Guid.TryParse`, `Dictionary.TryGetValue`.

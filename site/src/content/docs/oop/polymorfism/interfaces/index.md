@@ -22,7 +22,7 @@ interface IAnimal
     string Name { get; set; }
     void Eat();
     void Sleep();
-    void Shit();
+    void Poop();
 }
 ```
 
@@ -47,13 +47,13 @@ class Cat : IAnimal
         Console.WriteLine($"{Name} is sleeping.");
     }
 
-    public void Shit()
+    public void Poop()
     {
-        Console.WriteLine($"{Name} is taking a shit.");
+        Console.WriteLine($"{Name} is pooping.");
     }
 }
 ```
 
-I den här koden har vi skapat en klass Cat som implementerar IAnimal-gränssnittet. Klassen har en egenskap Name som kan sättas och hämtas. Vi har också implementerat de tre metoderna Eat(), Sleep() och Shit() enligt gränssnittets krav.
+I den här koden har vi skapat en klass Cat som implementerar IAnimal-gränssnittet. Klassen har en egenskap Name som kan sättas och hämtas. Vi har också implementerat de tre metoderna Eat(), Sleep() och Poop() enligt gränssnittets krav.
 
 Om någon av metoderna saknas eller har en annan metodhuvud kommer programmet inte att kompileras då den inte uppfyller kontraktet.

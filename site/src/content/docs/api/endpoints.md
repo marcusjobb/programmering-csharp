@@ -1,9 +1,9 @@
 ---
 title: Endpoints
-description: "Endpoints i API — C#-boken av Marcus Ackre Medina"
+description: "Endpoints i APIer — C#-boken av Marcus Ackre Medina"
 layout: default
-parent: API
-nav_order: 30
+parent: APIer
+nav_order: 4
 ---
 # Endpoints
 

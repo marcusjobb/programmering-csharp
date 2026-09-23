@@ -370,9 +370,7 @@ int result = Fibonacci(6);
 Console.WriteLine(result); // Resultatet blir 8
 ```
 
-Rekursion kan vara kraftfullt, men det är viktigt att se till att det finns ett stoppvill
-
-kor för att undvika oändlig rekursion.
+Rekursion kan vara kraftfullt, men det är viktigt att se till att det finns ett stoppvillkor för att undvika oändlig rekursion.
 
 Det var några avancerade koncept och tekniker relaterade till loopar. Fortsätt att utforska och experimentera med dessa idéer för att utöka dina programmeringskunskaper!
 

@@ -1,6 +1,6 @@
 ---
-title: "Metoder (kurs)"
-description: "Metoder (kurs) i Metoder — C#-boken av Marcus Ackre Medina"
+title: "Lästext — Metoder"
+description: "Lästext — Metoder i Metoder — C#-boken av Marcus Ackre Medina"
 parent: "Metoder"
 nav_order: 15
 ---

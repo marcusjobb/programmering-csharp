@@ -1,6 +1,6 @@
 ---
-title: "Arrayer och listor (kurs)"
-description: "Arrayer och listor (kurs) i Datastrukturer — C#-boken av Marcus Ackre Medina"
+title: "Lästext — Arrayer och listor"
+description: "Lästext — Arrayer och listor i Datastrukturer — C#-boken av Marcus Ackre Medina"
 parent: "Datastrukturer"
 nav_order: 15
 ---

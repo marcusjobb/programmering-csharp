@@ -1,9 +1,9 @@
 ---
 title: Cors
-description: "Cors i API — C#-boken av Marcus Ackre Medina"
+description: "Cors i APIer — C#-boken av Marcus Ackre Medina"
 layout: default
-parent: API
-nav_order: 20
+parent: APIer
+nav_order: 5
 ---
 # Cors
 

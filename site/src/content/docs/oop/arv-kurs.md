@@ -1,11 +1,11 @@
 ---
-title: "Arv (kurs)"
-description: "Arv (kurs) i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+title: "Lästext — Arv"
+description: "Lästext — Arv i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
 parent: "Objektorienterad programmering (OOP)"
 nav_order: 22
 ---
 
-# Arv
+# Lästext — Arv
 
 Arv (inheritance) är ett av de viktigaste koncepten i objektorienterad programmering. Det låter dig bygga nya klasser som återanvänder kod från befintliga klasser — utan att kopiera den.
 
@@ -154,22 +154,23 @@ class Dog : Animal
 
 ```
 ┌──────────────────────────────┐
-│           Animal               │  ← baseClass
+│            Animal            │  ← baseClass
 ├──────────────────────────────┤
-│ + Name : string              │
+│ + Name : string               │
 ├──────────────────────────────┤
-│ + Animal(name)                 │
-│ + Present()               │
+│ + Animal(name)                │
+│ + Present()                   │
 │ + virtual PlaySound()         │
 └──────────────────────────────┘
-         ▲           ▲
-         │           │
-┌────────────┐  ┌────────────┐
-│    Dog    │  │    Cat    │  ← subclasses
-├────────────┤  ├────────────┤
-│ override   │  │ override   │
-│ PlaySound   │  │ PlaySound   │
-└────────────┘  └────────────┘
+
+        ▲                 ▲
+        │                 │
+┌──────────────┐  ┌──────────────┐
+│     Dog      │  │     Cat      │  ← subclasses
+├──────────────┤  ├──────────────┤
+│ override     │  │ override     │
+│ PlaySound    │  │ PlaySound    │
+└──────────────┘  └──────────────┘
 ```
 
 Pilen pekar uppåt — subklassen ärver från basklassen.

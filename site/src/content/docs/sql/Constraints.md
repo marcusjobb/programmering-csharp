@@ -50,9 +50,7 @@ Några viktiga begränsningar att vara medveten om när man använder constraint
 - Varje tabell kan ha endast en primary key och flera foreign keys.
 - Primary key och foreign key kan inte vara null.
 - Om en tabell refererar till en annan tabell med en foreign key, måste värdet i foreign key-kolumnen finnas som en primary key i den andra tabellen.
-- Vid användning av sammansatta nycklar måste kombinationen
-
- av värden vara unik för varje rad i tabellen.
+- Vid användning av sammansatta nycklar måste kombinationen av värden vara unik för varje rad i tabellen.
 
 ## Användningsområden
 

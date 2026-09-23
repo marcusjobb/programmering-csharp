@@ -1,6 +1,6 @@
 ---
-title: Metoder
-description: "Metoder i Metoder — C#-boken av Marcus Ackre Medina"
+title: Om metoder
+description: "Om metoder i Metoder — C#-boken av Marcus Ackre Medina"
 layout: default
 parent: Metoder
 nav_order: 10

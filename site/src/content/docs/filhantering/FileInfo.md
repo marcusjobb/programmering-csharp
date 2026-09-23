@@ -37,9 +37,7 @@ FileInfo-klassen är verkligen en vänlig och hjälpsam kompanjon i vår resa ge
 
 FileInfo-klassen kan användas i en mängd olika scenarier där vi behöver få tillgång till och hantera filinformation. Här är några användningsområden för FileInfo-klassen:
 
-- **Filövervakning**: Vi kan använda FileInfo för att övervaka en
-
- fil och automatiskt utföra åtgärder baserat på filens egenskaper eller ändringar.
+- **Filövervakning**: Vi kan använda FileInfo för att övervaka en fil och automatiskt utföra åtgärder baserat på filens egenskaper eller ändringar.
 
 - **Filhantering och manipulation**: FileInfo är perfekt för att hantera filer i våra applikationer. Vi kan använda den för att skapa, läsa, uppdatera, flytta, kopiera eller radera filer.
 

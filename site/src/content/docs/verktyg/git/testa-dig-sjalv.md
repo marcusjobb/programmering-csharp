@@ -1,8 +1,8 @@
 ---
 title: Testa dig själv
-description: "Testa dig själv i Verktyg — C#-boken av Marcus Ackre Medina"
-parent: Verktyg
-nav_order: 99
+description: "Testa dig själv i Git — C#-boken av Marcus Ackre Medina"
+parent: Git
+nav_order: 30
 ---
 
 # Testa dig själv — Git

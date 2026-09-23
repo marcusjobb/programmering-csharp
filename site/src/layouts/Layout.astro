@@ -152,24 +152,39 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   // Expressive Code syntax-highlightar ```mermaid-block innan mermaid.js ser dem
   // (radbryter källkoden i massor av <span>, döper inte om till class="mermaid").
-  // Vi plockar ut rå text rad för rad ur dess markup och bygger ett rent
-  // <div class="mermaid"> som mermaid.run() faktiskt känner igen.
-  function unwrapExpressiveCodeMermaidBlocks() {
-    document.querySelectorAll('pre[data-language="mermaid"]').forEach((pre) => {
+  // Vi plockar ut rå text rad för rad ur dess markup och renderar varje diagram
+  // FÖR SIG med mermaid.render() + eget try/catch — mermaid.run() bearbetar alla
+  // diagram på sidan som en batch, så ett enda diagram med syntaxfel kan stoppa
+  // resten. Med individuell rendering blir ett trasigt diagram isolerat.
+  let renderCounter = 0;
+
+  async function renderMermaidDiagrams() {
+    const blocks = document.querySelectorAll('pre[data-language="mermaid"]');
+    for (const pre of Array.from(blocks)) {
       const lines = Array.from(pre.querySelectorAll('.ec-line')).map(l => l.textContent ?? '');
-      const code = lines.length ? lines.join('\n') : (pre.textContent ?? '');
+      const code = (lines.length ? lines.join('\n') : (pre.textContent ?? '')).trim();
+
       const container = document.createElement('div');
       container.className = 'mermaid';
-      container.textContent = code;
       const frame = pre.closest('.expressive-code') ?? pre;
       frame.replaceWith(container);
-    });
+
+      if (!code) continue;
+
+      try {
+        const { svg, bindFunctions } = await mermaid.render(`mermaid-diagram-${renderCounter++}`, code);
+        container.innerHTML = svg;
+        bindFunctions?.(container);
+      } catch (err) {
+        console.error('Mermaid-diagrammet gick inte att rendera:', err, code);
+        container.classList.remove('mermaid');
+        container.classList.add('mermaid-error');
+        container.textContent = code;
+      }
+    }
   }
 
-  document.addEventListener('astro:page-load', () => {
-    unwrapExpressiveCodeMermaidBlocks();
-    mermaid.run({ querySelector: '.mermaid' });
-  });
+  document.addEventListener('astro:page-load', () => { renderMermaidDiagrams(); });
 </script>
 
 <!-- Search modal + TOC + bionic re-apply -->

@@ -38,20 +38,20 @@ Det är mycket lättare att rätta till en plan på papper än att rätta till k
          └──────┬──────┘
                 │
          ┌──────▼──────┐
-         │  Rains it? │
-         └──┬───────┬───┘
-           Ja      No
+         │ Regnar det? │
+         └──┬───────┬──┘
+           Ja      Nej
             │       │
-    ┌───────▼──┐  ┌──▼────────────┐
-    │Ta umbrella│  │Leave umbrella │
-    └───────┬──┘  └──┬────────────┘
-            │        │
-         ┌──▼────────▼──┐
-         │    Go ut     │
-         └──────┬───────┘
+    ┌───────▼───┐ ┌─▼──────────────┐
+    │ Ta paraply│ │ Lämna paraply  │
+    └───────┬───┘ └─┬──────────────┘
+            │       │
+         ┌──▼───────▼──┐
+         │    Gå ut    │
+         └──────┬──────┘
                 │
          ┌──────▼──────┐
-         │    END     │
+         │     SLUT    │
          └─────────────┘
 ```
 
@@ -61,13 +61,13 @@ Pseudokod är ett mellansteg — varken kod eller vanlig text. Skriv logiken på
 
 ```
 START
-  If it rains
-    Ta med umbrella
-  Otherwise
-    Leave umbrella home
-  End if
-  Go ut
-END
+  Om det regnar
+    Ta med paraply
+  Annars
+    Lämna paraplyet hemma
+  Slut om
+  Gå ut
+SLUT
 ```
 
 Ingen kompilator kan läsa det — men du kan resonera om det utan att fastna i detaljer.

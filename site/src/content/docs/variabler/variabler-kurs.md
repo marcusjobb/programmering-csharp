@@ -1,11 +1,11 @@
 ---
-title: "Variabler (kurs)"
-description: "Variabler (kurs) i Variabler — C#-boken av Marcus Ackre Medina"
+title: "Lästext — Variabler"
+description: "Lästext — Variabler i Variabler — C#-boken av Marcus Ackre Medina"
 parent: "Variabler"
 nav_order: 5
 ---
 
-# Variabler
+# Lästext — Variabler
 
 En variabel är en behållare som används för att lagra data. I C# måste alla variabler deklareras innan de kan användas. Detta innebär att du måste ange vilken typ av data som variabeln kommer att lagra.
 

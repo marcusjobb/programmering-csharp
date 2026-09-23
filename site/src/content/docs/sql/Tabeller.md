@@ -39,4 +39,72 @@ Tabeller används i en rad olika tillämpningar och branscher där datahantering
 
 ### Kodexempel
 
-Här är några exempel på
+Här är några exempel på hur du skapar och arbetar med en tabell i SQL.
+
+**Skapa en tabell:**
+
+```sql
+CREATE TABLE Student (
+    Id INT PRIMARY KEY,
+    Namn VARCHAR(100) NOT NULL,
+    Epost VARCHAR(255) UNIQUE,
+    Fodelsedatum DATE
+);
+```
+
+Varje kolumn har ett namn och en datatyp (`INT`, `VARCHAR`, `DATE` osv.), och kan ha begränsningar (`PRIMARY KEY`, `NOT NULL`, `UNIQUE`) som styr vilka värden som tillåts. Se [Constraints](Constraints.md) för en genomgång av dessa.
+
+**Lägga till en rad:**
+
+```sql
+INSERT INTO Student (Id, Namn, Epost, Fodelsedatum)
+VALUES (1, 'Kim Andersson', 'kim@example.com', '2001-04-12');
+```
+
+**Hämta data:**
+
+```sql
+SELECT Namn, Epost FROM Student
+WHERE Fodelsedatum > '2000-01-01';
+```
+
+**Ändra en tabells struktur:**
+
+```sql
+ALTER TABLE Student ADD COLUMN Program VARCHAR(100);
+```
+
+**Ta bort en tabell:**
+
+```sql
+DROP TABLE Student;
+```
+
+En tabell hänvisar ofta till en annan tabell via en **främmande nyckel** (foreign key) — det är så relationer mellan tabeller byggs upp:
+
+```sql
+CREATE TABLE Kurs (
+    Id INT PRIMARY KEY,
+    Namn VARCHAR(100) NOT NULL,
+    StudentId INT,
+    FOREIGN KEY (StudentId) REFERENCES Student(Id)
+);
+```
+
+`StudentId` i `Kurs` pekar på `Id` i `Student` — varje kursrad hör ihop med en specifik student, utan att studentens data behöver dupliceras i kurs-tabellen.
+
+### Slutsats
+
+Tabeller är byggstenen i en relationsdatabas. Genom att strukturera data i rader och kolumner, koppla ihop tabeller med främmande nycklar och styra vilka värden som tillåts med constraints, får du data som är både organiserad och pålitlig.
+
+### Termer
+
+- **Tabell**: En strukturerad samling data organiserad i rader och kolumner.
+- **Rad (post)**: En enskild post av data i en tabell.
+- **Kolumn**: Ett fält som representerar en specifik typ av data för varje rad.
+- **Primärnyckel**: En kolumn (eller kombination av kolumner) som unikt identifierar varje rad.
+- **Främmande nyckel**: En kolumn som refererar till en primärnyckel i en annan tabell, och som bygger relationen mellan dem.
+
+### TL;DR
+
+En tabell = rader + kolumner. `CREATE TABLE` skapar den, `INSERT` lägger till data, `SELECT` hämtar den, `ALTER TABLE` ändrar strukturen, `DROP TABLE` tar bort den helt. Främmande nycklar kopplar ihop tabeller utan att du behöver duplicera data.

@@ -519,6 +519,18 @@ div.highlight pre.highlight,
   max-width: 100%;
 }
 
+/* Fallback när ett enskilt diagram inte gick att rendera — visa som kod istället för att lämna en tom lucka */
+.mermaid-error {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  color: var(--text-muted);
+}
+
 /* ── Bionic reading mode ── */
 .bionic-word strong { font-weight: 800; }
 

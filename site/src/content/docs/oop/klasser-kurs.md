@@ -1,6 +1,6 @@
 ---
-title: "Klasser och OOP (kurs)"
-description: "Klasser och OOP (kurs) i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+title: "Lästext — Klasser och objekt"
+description: "Lästext — Klasser och objekt i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
 parent: "Objektorienterad programmering (OOP)"
 nav_order: 15
 ---
@@ -267,11 +267,11 @@ Enkelt: konstruktorn sätter fälten direkt. Properties ger kontrollerad läsnin
 Nu när klassen är definierad kan du skapa objekt ur den. Det gör du med nyckelordet `new`.
 
 ```csharp
-BankAccount account = new BankAccount("Alex", 1000);
-BankAccount account = new BankAccount("Sam", 500);
+BankAccount alex = new BankAccount("Alex", 1000);
+BankAccount sam = new BankAccount("Sam", 500);
 ```
 
-Varje `new`-anrop skapar ett **eget objekt** med egna värden. `account` och `account` är oberoende av varandra — ändrar du `account.Balance` påverkar det inte `account`.
+Varje `new`-anrop skapar ett **eget objekt** med egna värden. `alex` och `sam` är oberoende av varandra — ändrar du `alex.Balance` påverkar det inte `sam`.
 
 Variabeltypen till vänster (`BankAccount`) berättar vad för slags objekt variabeln pekar på. Det är viktigt: du kan bara använda det som klassen erbjuder via sitt publika gränssnitt.
 
@@ -282,30 +282,30 @@ Variabeltypen till vänster (`BankAccount`) berättar vad för slags objekt vari
 När du har ett objekt kallar du dess metoder med punktnotation: `object.Method(argument)`.
 
 ```csharp
-BankAccount account = new BankAccount("Alex", 1000);
-BankAccount account = new BankAccount("Sam", 500);
+BankAccount alex = new BankAccount("Alex", 1000);
+BankAccount sam = new BankAccount("Sam", 500);
 
-account.Present();
-account.Present();
+alex.Present();
+sam.Present();
 
-account.Deposit(500);
-account.Withdraw(200);
-account.Withdraw(600);   // misslyckas — otillräckligt saldo
+alex.Deposit(500);
+alex.Withdraw(200);
+alex.Withdraw(5000);   // misslyckas — otillräckligt saldo
 
-account.Present();
-account.Present();
+alex.Present();
+sam.Present();
 ```
 
 Utskrift:
 
 ```
-Account: Alex | Balance: 1000 kr | Status: Active
-Account: Sam | Balance: 500 kr | Status: Active
-Alex set in 500 kr. New balance: 1500 kr.
-Alex tog ut 200 kr. New balance: 1300 kr.
-Withdrawal denied — insufficient balance.
-Account: Alex | Balance: 1300 kr | Status: Active
-Account: Sam | Balance: 500 kr | Status: Active
+Konto: Alex | Saldo: 1000 kr | Status: Aktivt
+Konto: Sam | Saldo: 500 kr | Status: Aktivt
+Alex satte in 500 kr. Nytt saldo: 1500 kr.
+Alex tog ut 200 kr. Nytt saldo: 1300 kr.
+Uttag nekat — otillräckligt saldo.
+Konto: Alex | Saldo: 1300 kr | Status: Aktivt
+Konto: Sam | Saldo: 500 kr | Status: Aktivt
 ```
 
 Punkten är inte bara syntax — den är en signal om ägande. `account.Deposit(500)` betyder: "be objektet `account` att utföra sin `Deposit`-metod med argumentet 500". Objektet vet vem det är och arbetar med sin egen data.
