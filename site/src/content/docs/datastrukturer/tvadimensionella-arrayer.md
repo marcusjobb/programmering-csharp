@@ -1,12 +1,6 @@
 ---
 title: Tvådimensionella arrayer
 layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-23"
-updated: "2026-09-23"
 parent: Datastrukturer
 nav_order: 21
 ---

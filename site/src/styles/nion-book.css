@@ -580,6 +580,15 @@ div.highlight pre.highlight,
   margin: 0;
 }
 
+.byline {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0 0 1.5rem 0;
+}
+
+.byline a { color: var(--text-muted); text-decoration: underline; }
+.byline a:hover { color: var(--brand); }
+
 .hero-actions {
   display: flex;
   gap: 0.75rem;

@@ -1,12 +1,6 @@
 ---
 title: Formatering och utskrift
 layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-23"
-updated: "2026-09-23"
 parent: Variabler
 nav_order: 41
 ---

@@ -2,12 +2,6 @@
 title: Cors
 description: "Cors i API — C#-boken av Marcus Ackre Medina"
 layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2026-09-16"
 parent: API
 nav_order: 20
 ---
