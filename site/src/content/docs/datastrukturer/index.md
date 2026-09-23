@@ -7,16 +7,6 @@ has_children: True
 ---
 # Datastrukturer
 
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## Beskrivning
 

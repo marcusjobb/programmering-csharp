@@ -8,16 +8,6 @@ nav_order: 70
 # Skapa
 
 Hur skapar man cookies? Det ska jag visa dig!
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## TL;DR
 

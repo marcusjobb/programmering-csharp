@@ -8,16 +8,6 @@ nav_order: 120
 # XML
 
 XML (Extensible Markup Language) är ett filformat som används för att lagra data i en strukturerad form.
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## Beskrivning
 

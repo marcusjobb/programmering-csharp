@@ -8,16 +8,6 @@ nav_order: 30
 # Protected
 
 Protected är en åtkomstmoderator som gör att en klass, metod eller egenskap är tillgänglig för klassen den är deklarerad i och alla klasser som ärver från den.
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## Beskrivning
 

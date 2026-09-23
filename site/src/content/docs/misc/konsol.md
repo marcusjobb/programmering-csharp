@@ -7,9 +7,6 @@ nav_order: 10
 
 # Enkla utskrifter
 
-🟢
-
-
 ## 🧠 Syfte
 
 Det här kapitlet är din introduktion till att prata med datorn!  Vi ska lära oss hur man får C-Sharp att

@@ -111,6 +111,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         </div>
       </section>
     )}
+    <div class="prose">
+      <slot />
+    </div>
     {!isHome && (
       <p class="byline">
         Skriven av <a href={AUTHOR.linkedinUrl} target="_blank" rel="noopener">{AUTHOR.name}</a>
@@ -118,9 +121,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         {' · '}{AUTHOR.school}
       </p>
     )}
-    <div class="prose">
-      <slot />
-    </div>
     {(prevUrl || nextUrl) && (
       <nav class="page-nav" aria-label="Sidnavigering">
         {prevUrl ? (
@@ -149,7 +149,27 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 <script>
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: false, theme: 'neutral' });
-  document.addEventListener('astro:page-load', () => mermaid.run());
+
+  // Expressive Code syntax-highlightar ```mermaid-block innan mermaid.js ser dem
+  // (radbryter källkoden i massor av <span>, döper inte om till class="mermaid").
+  // Vi plockar ut rå text rad för rad ur dess markup och bygger ett rent
+  // <div class="mermaid"> som mermaid.run() faktiskt känner igen.
+  function unwrapExpressiveCodeMermaidBlocks() {
+    document.querySelectorAll('pre[data-language="mermaid"]').forEach((pre) => {
+      const lines = Array.from(pre.querySelectorAll('.ec-line')).map(l => l.textContent ?? '');
+      const code = lines.length ? lines.join('\n') : (pre.textContent ?? '');
+      const container = document.createElement('div');
+      container.className = 'mermaid';
+      container.textContent = code;
+      const frame = pre.closest('.expressive-code') ?? pre;
+      frame.replaceWith(container);
+    });
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    unwrapExpressiveCodeMermaidBlocks();
+    mermaid.run({ querySelector: '.mermaid' });
+  });
 </script>
 
 <!-- Search modal + TOC + bionic re-apply -->

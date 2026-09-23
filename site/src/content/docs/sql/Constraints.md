@@ -7,16 +7,6 @@ nav_order: 10
 ---
 # Constraints
 
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## TL;DR
 

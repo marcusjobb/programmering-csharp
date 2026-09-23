@@ -9,16 +9,6 @@ nav_order: 10
 
 Vi ska nu utforska hur man skapar och läser binära filer i C#. Det är faktiskt ganska coolt!
 
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## Beskrivning
 

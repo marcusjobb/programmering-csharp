@@ -8,16 +8,6 @@ nav_order: 110
 # Textfiler
 
 Textfiler är en vanlig filtyp som används för att lagra text. Det är ett textbaserat filformat som används för att lagra data rent allmänt.
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## Skapa en textfil
 

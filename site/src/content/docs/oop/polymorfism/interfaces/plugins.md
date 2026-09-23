@@ -11,16 +11,6 @@ Jag har skapat en artikel baserad på den givna mallen. Här är den:
 
 Ett pluginsystem för att lägga till nya funktioner till en applikation.
 
-<details open markdown="block">
- <summary>
- Innehållsförteckning
- </summary>
- {: .text-delta }
-
-1. TOC
-   {:toc}
-
-</details>
 
 ## Introduktion
 

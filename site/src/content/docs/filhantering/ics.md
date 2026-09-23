@@ -6,14 +6,6 @@ parent: Filhantering
 nav_order: 60
 ---
 # ICS-filer i C\#
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
 
 ## TL;DR
 

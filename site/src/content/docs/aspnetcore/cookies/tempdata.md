@@ -9,16 +9,6 @@ nav_order: 20
 
 Tempdata används i ASP.NET Core för att överföra data mellan olika sidor.
 
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## TL;DR
 

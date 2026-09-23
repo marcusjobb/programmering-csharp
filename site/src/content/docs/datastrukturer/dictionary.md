@@ -7,16 +7,6 @@ nav_order: 30
 ---
 # Dictionary
 
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## Beskrivning
 

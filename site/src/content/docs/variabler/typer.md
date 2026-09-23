@@ -14,7 +14,7 @@ En typ är en klassificering av data som används för att bestämma vilken typ 
 Här är en lista över några vanliga värdetyper i C# tillsammans med deras beskrivning, minsta värde, högsta värde, datalagring och storlek i minnet:
 
 | Kategori    | Typ     | Beskrivning                            | Minsta                         | Högsta                        | Lagrar         | Storlek                                                |
-| ----------- | ------- | -------------------------------------- | ------------------------------ | ----------------------------- | -------------- | ------------------------------------------------------ | -------- |
+| ----------- | ------- | -------------------------------------- | ------------------------------ | ----------------------------- | -------------- | ------------------------------------------------------ |
 | Primitiv    | bool    | Booleskt värde                         | False                          | True                          | Booleskt värde | 1 byte                                                 |
 | Primitiv    | char    | 16-bitars Unicode-tecken               | '\0'                           | '\uFFFF'                      | Unicode-tecken | 2 byte                                                 |
 | Primitiv    | byte    | 8-bitars heltal                        | 0                              | 255                           | Heltal         | 1 byte                                                 |
@@ -30,7 +30,7 @@ Här är en lista över några vanliga värdetyper i C# tillsammans med deras be
 | Primitiv    | decimal | 128-bitars decimaltal                  | -79228162514264337593543950335 | 79228162514264337593543950335 | Decimaltal     | 16 byte                                                |
 | Abstrakt    | enum    | Uppräkningsvärde                       | -                              | -                             | Heltal         | Varierar                                               |
 | Referenstyp | string  | Textsträng                             | -                              | -                             | Textsträng     | Varierar                                               |
-| Referenstyp | object  | Basobjekt för                          | Alla andra objekt              | -                             | -              | Alla objekt                                            | Varierar |
+| Referenstyp | object  | Basobjekt för alla andra objekt        | -                               | -                              | Alla objekt    | Varierar                                                |
 | Pekare      | -       | Pekare till minnesadresser             | -                              | -                             | Minnesadresser | 4 byte på 32-bitars system, 8 byte på 64-bitars system |
 
 Observera att...

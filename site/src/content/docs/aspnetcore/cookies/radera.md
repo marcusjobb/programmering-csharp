@@ -9,16 +9,6 @@ nav_order: 50
 
 Man kan radera cookien när användaren loggar ut eller när användaren har varit inaktiv under en viss tid.
 
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-
 ## TL;DR
 
 För att radera en cookie i ASP.NET Core kan vi använda `Response.Cookies.Remove("CookieName");`-metoden. Detta är användbart när användaren loggar ut eller vid inaktivitet under en viss tid.

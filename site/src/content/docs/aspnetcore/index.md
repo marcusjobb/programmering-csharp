@@ -9,16 +9,6 @@ has_children: True
 
 Välkommen till en spännande resa in i ASP.net Core, ett fantastiskt ramverk för att bygga webbapplikationer. Det är som en glittrande regnbåge som sträcker sig över Windows, Linux och macOS, vilket gör det tillgängligt för alla äventyrliga utvecklare där ute. Och det bästa av allt? Det är öppen källkod, vilket innebär att du kan vara en del av dess magiska utveckling.
 
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## TL;DR
 

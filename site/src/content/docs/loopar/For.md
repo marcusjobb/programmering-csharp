@@ -9,16 +9,6 @@ nav_order: 20
 
 Det finns tre olika typer av for-loopar i C#: vanlig for-loop, foreach-loop och inline for-each-loop.
 
-<details open markdown="block">
- <summary>
- Innehållsförteckning
- </summary>
- {: .text-delta }
-
-1. TOC
-   {:toc}
-
-</details>
 
 ## Beskrivning
 

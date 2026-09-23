@@ -8,16 +8,6 @@ nav_order: 10
 # Internal
 
 Internal är en åtkomstmoderator som gör att en klass, metod eller egenskap är tillgänglig för alla klasser i samma projekt.
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## Beskrivning
 

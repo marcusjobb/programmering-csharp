@@ -9,16 +9,6 @@ nav_order: 30
 
 Välkommen till en fantastisk artikel om Directory-klassen i C#! Vi kommer att utforska denna kraftfulla klass och lära oss hur den kan hjälpa oss att hantera kataloger och filer på ett smidigt sätt. Häng med, det här blir superkul!
 
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## TL;DR
 

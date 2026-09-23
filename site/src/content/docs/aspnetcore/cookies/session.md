@@ -9,16 +9,6 @@ nav_order: 60
 
 En session är en tillfällig lagring av data som är kopplad till en användare. Sessionen lagras på servern och är inte tillgänglig för andra användare. Sessionen lagras som en cookie på användarens dator och kan användas för att spara användarinställningar eller temporära värden som används under en session, till exempel varukorgsinformation eller aktuell sida i ett forum.
 
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## TL;DR
 

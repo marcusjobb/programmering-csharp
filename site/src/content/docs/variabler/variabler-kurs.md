@@ -7,9 +7,6 @@ nav_order: 5
 
 # Variabler
 
-🟢
-
-
 En variabel är en behållare som används för att lagra data. I C# måste alla variabler deklareras innan de kan användas. Detta innebär att du måste ange vilken typ av data som variabeln kommer att lagra.
 
 ```mermaid

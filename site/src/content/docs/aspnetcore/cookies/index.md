@@ -10,16 +10,6 @@ has_children: True
 
 Cookies är en liten fil som sparas på en användares dator.
 
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 
 ## TL;DR

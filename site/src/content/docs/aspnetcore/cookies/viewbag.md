@@ -9,16 +9,6 @@ nav_order: 30
 
 En ViewBag finns i ASP.NET Core MVC och används för att överföra data mellan olika sidor.
 
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## TL;DR
 

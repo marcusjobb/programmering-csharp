@@ -8,16 +8,6 @@ nav_order: 60
 # Static
 
 Static är inte en åtkomstmoderator utan en modifierare. Det gör att en klass, metod eller egenskap är tillgänglig för alla klasser i samma projekt.
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## Beskrivning
 

@@ -9,16 +9,6 @@ has_children: True
 # Abstrakta klasser
 
 Abstrakta klasser är klasser som innehåller både kod och abstrakta metoder. Som en slags mellanting mellan en interface och en klass.
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## Beskrivning
 

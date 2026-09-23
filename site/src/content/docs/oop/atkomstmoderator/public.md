@@ -8,16 +8,6 @@ nav_order: 40
 # Public
 
 Public är en åtkomstmoderator som gör att en klass, metod eller egenskap är tillgänglig för alla klasser.
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## Beskrivning
 

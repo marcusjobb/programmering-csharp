@@ -9,16 +9,6 @@ has_children: True
 # Polymorfism
 
 Polymorfism kommer från grekiskans poly = många och morphe = form. Det är en av de viktigaste egenskaperna i objektorienterad programmering.
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## Beskrivning
 
