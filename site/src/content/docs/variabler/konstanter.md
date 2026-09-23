@@ -38,6 +38,8 @@ Max score: 100
 
 `const` är implicit `static` — den tillhör klassen, inte ett objekt.
 
+Apropå Pi, om du vill memorisera siffrorna kolla den här [videon](https://www.youtube.com/watch?v=XanjZw5hPvE).
+
 ## readonly — sätts en gång vid körning
 
 `readonly` används när värdet inte är känt vid kompilering — till exempel ett värde som läses från en fil, databas eller beräknas i konstruktorn. Det kan bara tilldelas i deklarationen eller i konstruktorn.

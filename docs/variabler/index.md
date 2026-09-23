@@ -38,4 +38,10 @@ double pi = 3.14;
 char letter = 'J';
 ```
 
-I detta exempel har vi deklarerat fem variabler. Den första är en int, vilket innebär att den kan lagra heltal. Den andra är en sträng, vilket innebär att den kan lagra text. Den tredje är en bool, vilket innebär att den kan lagra sant eller falskt. Den fjärde är en double, vilket innebär att den kan lagra decimaltal. Den femte är en char, vilket innebär att den kan lagra ett tecken.
+I detta exempel har vi deklarerat fem variabler. 
+
+1. Den första är en int, vilket innebär att den kan lagra heltal. 
+2. Den andra är en sträng, vilket innebär att den kan lagra text. 
+3. Den tredje är en bool, vilket innebär att den kan lagra sant eller falskt. 
+4. Den fjärde är en double, vilket innebär att den kan lagra decimaltal. 
+5. Den femte är en char, vilket innebär att den kan lagra ett tecken.
