@@ -2,10 +2,10 @@
 title: MVC och API
 description: "MVC och API i API — C#-boken av Marcus Ackre Medina"
 layout: default
-author: Campus Mölndal
-author_github: CampusMolndalEducation
-author_url: "https://github.com/CampusMolndalEducation"
-school: Campus Mölndal
+author: Marcus Ackre Medina
+author_github: marcusjobb
+author_url: "https://github.com/marcusjobb/"
+school: Nion Education
 date: "2025-08-18 15:37:40"
 updated: "2026-09-16"
 parent: API

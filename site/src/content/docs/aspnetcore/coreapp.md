@@ -2,10 +2,10 @@
 title: Asp.Net Core Hangman
 description: "Asp.Net Core Hangman i ASP.net Core — C#-boken av Marcus Ackre Medina"
 layout: default
-author: Campus Mölndal
-author_github: CampusMolndalEducation
-author_url: "https://github.com/CampusMolndalEducation"
-school: Campus Mölndal
+author: Marcus Ackre Medina
+author_github: marcusjobb
+author_url: "https://github.com/marcusjobb/"
+school: Nion Education
 date: "2025-08-18 15:37:40"
 updated: "2025-09-06 23:35:21"
 parent: ASP.net Core
