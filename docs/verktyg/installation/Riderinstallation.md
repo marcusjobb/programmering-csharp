@@ -1,5 +1,6 @@
 ---
 title: Rider
+description: "Rider i Installation — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

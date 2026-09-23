@@ -1,5 +1,6 @@
 ---
 title: Ternary if
+description: "Ternary if i If — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb
@@ -26,19 +27,19 @@ villkor ? värde_om_sant : värde_om_falskt
 ## Grundexempel
 
 ```csharp
-int ålder = 20;
-string besked = ålder >= 18 ? "Myndig" : "Inte myndig";
-Console.WriteLine(besked);  // Myndig
+int age = 20;
+string message = age >= 18 ? "Myndig" : "Inte myndig";
+Console.WriteLine(message);  // Myndig
 ```
 
 Utan ternary:
 
 ```csharp
-string besked;
-if (ålder >= 18)
-    besked = "Myndig";
+string message;
+if (age >= 18)
+    message = "Myndig";
 else
-    besked = "Inte myndig";
+    message = "Inte myndig";
 ```
 
 Samma resultat, men ternary sparar fyra rader.
@@ -46,15 +47,15 @@ Samma resultat, men ternary sparar fyra rader.
 ## Fler exempel
 
 ```csharp
-bool harKörkort = true;
-string status = harKörkort ? "Får köra" : "Får inte köra";
+bool hasDriversLicence = true;
+string status = hasDriversLicence ? "Får köra" : "Får inte köra";
 Console.WriteLine(status);
 ```
 
 ```csharp
-int poäng = 72;
-string betyg = poäng >= 70 ? "G" : "IG";
-Console.WriteLine(betyg);  // G
+int score = 72;
+string grade = score >= 70 ? "G" : "IG";
+Console.WriteLine(grade);  // G
 ```
 
 ## I interpolerade strängar
@@ -62,8 +63,8 @@ Console.WriteLine(betyg);  // G
 Ternary fungerar bra inuti `$"..."`:
 
 ```csharp
-int antal = 1;
-Console.WriteLine($"Du har {antal} {(antal == 1 ? "meddelande" : "meddelanden")}");
+int count = 1;
+Console.WriteLine($"Du har {count} {(count == 1 ? "meddelande" : "meddelanden")}");
 // Du har 1 meddelande
 ```
 
@@ -73,13 +74,13 @@ Ternary är tydlig när logiken är enkel. Nästlad ternary är alltid fel val �
 
 ```csharp
 // Dåligt — omöjligt att läsa
-string resultat = x > 10 ? "stort" : x > 5 ? "medel" : "litet";
+string result = x > 10 ? "stort" : x > 5 ? "medel" : "litet";
 
 // Bra — tydligt
-string resultat;
-if (x > 10)      resultat = "stort";
-else if (x > 5)  resultat = "medel";
-else             resultat = "litet";
+string result;
+if (x > 10)      result = "stort";
+else if (x > 5)  result = "medel";
+else             result = "litet";
 ```
 
 ## TL;DR

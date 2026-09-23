@@ -1,5 +1,6 @@
 ---
 title: Testa dig själv
+description: "Testa dig själv i APIer — C#-boken av Marcus Ackre Medina"
 parent: APIer
 nav_order: 99
 ---

@@ -26,7 +26,7 @@ Det finns flera typer av loopar som används i C#. Vi kommer att titta närmare 
 En for-loop används när vi vill upprepa en uppsättning instruktioner ett känt antal gånger. Syntaxen för en for-loop är följande:
 
 ```csharp
-for (initialisering; villkor; iteration)
+for (initialization; condition; iteration)
 {
     // Kod som ska upprepas
 }
@@ -34,8 +34,8 @@ for (initialisering; villkor; iteration)
 
 Här är en förklaring av de olika delarna i en for-loop:
 
-- `initialisering`: Här initieras en räknare eller en variabel som används för att kontrollera antalet iterationer. Detta görs vanligtvis genom att tilldela ett startvärde till räknaren.
-- `villkor`: Här definieras villkoret som kontrollerar om loopen ska fortsätta att upprepas eller avslutas. Om villkoret är sant, fortsätter loopen att köras. Om villkoret är falskt, avslutas loopen och programmet fortsätter med koden efter loopen.
+- `initialization`: Här initieras en räknare eller en variabel som används för att kontrollera antalet iterationer. Detta görs vanligtvis genom att tilldela ett startvärde till räknaren.
+- `condition`: Här definieras villkoret som kontrollerar om loopen ska fortsätta att upprepas eller avslutas. Om villkoret är sant, fortsätter loopen att köras. Om villkoret är falskt, avslutas loopen och programmet fortsätter med koden efter loopen.
 - `iteration`: Här specificeras hur räknaren eller variabeln ska ändras vid varje iteration. Vanligtvis ökar eller minskar man värdet på räknaren med ett visst steg.
 
 Här är ett exempel på en for-loop som skriver ut talen 1 till 5:
@@ -62,7 +62,7 @@ Resultatet av koden ovan kommer att vara:
 En while-loop används när vi vill upprepa en uppsättning instruktioner så länge ett visst villkor är sant. Syntaxen för en while-loop är följande:
 
 ```csharp
-while (villkor)
+while (condition)
 {
     // Kod som ska upprepas
 }
@@ -70,7 +70,7 @@ while (villkor)
 
 Här är en förklaring av de olika delarna i en while-loop:
 
-- `villkor`: Här definieras villkoret som kontrollerar om loopen ska fortsätta att upprepas eller avslutas. Om villkoret är sant, fortsätter loopen att köras. Om villkoret är falskt, avslutas loopen och programmet fortsätter med koden efter loopen.
+- `condition`: Här definieras villkoret som kontrollerar om loopen ska fortsätta att upprepas eller avslutas. Om villkoret är sant, fortsätter loopen att köras. Om villkoret är falskt, avslutas loopen och programmet fortsätter med koden efter loopen.
 
 Här är ett exempel på en while-loop som skedan skriver ut talen 1 till 5:
 
@@ -103,12 +103,12 @@ En do-while-loop används när vi vill upprepa en uppsättning instruktioner min
 do
 {
     // Kod som ska upprepas
-} while (villkor);
+} while (condition);
 ```
 
 Här är en förklaring av de olika delarna i en do-while-loop:
 
-- `villkor`: Här definieras villkoret som kontrollerar om loopen ska fortsätta att upprepas eller avslutas. Om villkoret är sant, fortsätter loopen att köras. Om villkoret är falskt, avslutas loopen och programmet fortsätter med koden efter loopen.
+- `condition`: Här definieras villkoret som kontrollerar om loopen ska fortsätta att upprepas eller avslutas. Om villkoret är sant, fortsätter loopen att köras. Om villkoret är falskt, avslutas loopen och programmet fortsätter med koden efter loopen.
 
 Här är ett exempel på en do-while-loop som skriver ut talen 1 till 5:
 
@@ -142,7 +142,7 @@ Det var en översikt över några vanliga loopar i C#. Det finns flera andra loo
 En foreach-loop används för att iterera över en samling av objekt eller värden och utföra en handling för varje element i samlingen. Syntaxen för en foreach-loop är följande:
 
 ```csharp
-foreach (var element in samling)
+foreach (var element in collection)
 {
     // Kod som ska utföras för varje element
 }
@@ -151,7 +151,7 @@ foreach (var element in samling)
 Här är en förklaring av de olika delarna i en foreach-loop:
 
 - `element`: En variabel som används för att representera varje element i samlingen när loopen itererar över den.
-- `samling`: Den samling av objekt eller värden som ska itereras över, t.ex. en lista, ett fält eller en array.
+- `collection`: Den samling av objekt eller värden som ska itereras över, t.ex. en lista, ett fält eller en array.
 
 Här är ett exempel på en foreach-loop som skriver ut varje element i en lista:
 
@@ -215,7 +215,7 @@ Loopar är kraftfulla verktyg som hjälper till att automatisera upprepningsuppg
 En while-loop används när du vill upprepa en viss kodblock så länge som ett villkor är sant. Syntaxen för en while-loop är följande:
 
 ```csharp
-while (villkor)
+while (condition)
 {
     // Kod som ska upprepas så länge villkoret är sant
 }
@@ -253,7 +253,7 @@ En do-while-loop är en variation av while-loopen där kodblocket körs minst en
 do
 {
     // Kod som ska upprepas
-} while (villkor);
+} while (condition);
 ```
 
 Här är ett exempel på en do-while-loop som ber användaren att mata in ett positivt tal:
@@ -299,7 +299,7 @@ Det finns många andra avancerade koncept och tekniker som kan användas i samba
 En näringsloop, även känd som en foreach-loop, används för att iterera över elementen i en samling eller en array. Den är användbar när du vill bearbeta varje element i en samling utan att behöva hantera indexer eller loopvariabler. Syntaxen för en näringsloop är följande:
 
 ```csharp
-foreach (var element in samling)
+foreach (var element in collection)
 {
     // Kod som bearbetar varje element
 }

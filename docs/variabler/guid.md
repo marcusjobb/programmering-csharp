@@ -1,5 +1,6 @@
 ---
 title: Guid
+description: "Guid i Variabler — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb
@@ -90,9 +91,9 @@ Console.WriteLine(id == Guid.Empty);    // True
 Kontrollera om ett Guid är tomt:
 
 ```csharp
-Guid kundId = Guid.Empty;
+Guid customerId = Guid.Empty;
 
-if (kundId == Guid.Empty)
+if (customerId == Guid.Empty)
     Console.WriteLine("Ingen kund tilldelad ännu");
 ```
 
@@ -102,15 +103,15 @@ if (kundId == Guid.Empty)
 class Order
 {
     public Guid Id { get; } = Guid.NewGuid();
-    public string Produkt { get; set; }
-    public decimal Pris { get; set; }
+    public string Product { get; set; }
+    public decimal Price { get; set; }
 }
 
-var order1 = new Order { Produkt = "Kaffe", Pris = 49.90m };
-var order2 = new Order { Produkt = "Te", Pris = 39.90m };
+var order1 = new Order { Product = "Kaffe", Price = 49.90m };
+var order2 = new Order { Product = "Te", Price = 39.90m };
 
-Console.WriteLine($"Order {order1.Id}: {order1.Produkt}");
-Console.WriteLine($"Order {order2.Id}: {order2.Produkt}");
+Console.WriteLine($"Order {order1.Id}: {order1.Product}");
+Console.WriteLine($"Order {order2.Id}: {order2.Product}");
 ```
 
 ### Output
@@ -131,8 +132,8 @@ Order 0c08add9-7a9e-4b30-9e1d-3c7cc2c5c6a7: Te
 
 ```csharp
 // Unikt filnamn
-string filnamn = $"export_{Guid.NewGuid()}.csv";
-Console.WriteLine(filnamn);  // export_7c9e6679-7425-40de-944b-e07fc1f90ae7.csv
+string fileName = $"export_{Guid.NewGuid()}.csv";
+Console.WriteLine(fileName);  // export_7c9e6679-7425-40de-944b-e07fc1f90ae7.csv
 ```
 
 ## TL;DR

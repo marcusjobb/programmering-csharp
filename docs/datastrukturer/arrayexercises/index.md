@@ -1,5 +1,6 @@
 ---
 title: Array övningar
+description: "Array övningar i Datastrukturer — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

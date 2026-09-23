@@ -1,5 +1,6 @@
 ---
 title: "Överlagring (kurs)"
+description: "Överlagring (kurs) i Metoder — C#-boken av Marcus Ackre Medina"
 parent: "Metoder"
 nav_order: 25
 ---
@@ -13,19 +14,19 @@ Det här är en fördjupning av arv-konceptet med fokus på metodöverlagring, k
 En metod kan ha samma namn men ta emot olika saker. C# väljer rätt version baserat på vad du skickar in:
 
 ```csharp
-class Hälsning
+class Greeting
 {
-    public string Hälsa(string namn)
+    public string Greet(string name)
     {
-        return $"Hej, {namn}!";
+        return $"Hej, {name}!";
     }
 
-    public string Hälsa(string namn, string titel)
+    public string Greet(string name, string title)
     {
-        return $"God dag, {titel} {namn}!";
+        return $"God dag, {title} {name}!";
     }
 
-    public string Hälsa()
+    public string Greet()
     {
         return "Hej på dig!";
     }
@@ -33,10 +34,10 @@ class Hälsning
 ```
 
 ```csharp
-Hälsning h = new Hälsning();
-Console.WriteLine(h.Hälsa("Alex"));
-Console.WriteLine(h.Hälsa("Medina", "doktor"));
-Console.WriteLine(h.Hälsa());
+Greeting g = new Greeting();
+Console.WriteLine(g.Greet("Alex"));
+Console.WriteLine(g.Greet("Medina", "doktor"));
+Console.WriteLine(g.Greet());
 ```
 
 Output:

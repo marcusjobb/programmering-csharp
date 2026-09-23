@@ -1,5 +1,6 @@
 ---
 title: Endpoints
+description: "Endpoints i API — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

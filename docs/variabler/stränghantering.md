@@ -1,5 +1,6 @@
 ---
 title: Stränghantering
+description: "Stränghantering i Variabler — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb
@@ -24,16 +25,16 @@ Strängar i C# är objekt av typen `string` (alias för `System.String`). De är
 ## Skapa strängar
 
 ```csharp
-string hälsning  = "Hej världen";
-string namn      = "Marcus";
+string greeting  = "Hej världen";
+string name      = "Marcus";
 
 // Konkatenering
-string meddelande = hälsning + ", " + namn + "!";
-Console.WriteLine(meddelande);
+string message = greeting + ", " + name + "!";
+Console.WriteLine(message);
 
 // Interpolation — föredras i modern C#
-string modern = $"{hälsning}, {namn}!";
-Console.WriteLine(modern);
+string interpolated = $"{greeting}, {name}!";
+Console.WriteLine(interpolated);
 ```
 
 ### Output
@@ -79,18 +80,18 @@ Console.WriteLine(text.IndexOf("ett"));           // 6
 ## Ersätta och dela
 
 ```csharp
-string mening = "katten satt på mattan";
+string sentence = "katten satt på mattan";
 
 // Ersätt
-string ny = mening.Replace("katten", "hunden");
-Console.WriteLine(ny);    // hunden satt på mattan
+string replaced = sentence.Replace("katten", "hunden");
+Console.WriteLine(replaced);    // hunden satt på mattan
 
 // Dela upp
 string csv  = "Anna,Björn,Clara";
-string[] delar = csv.Split(',');
+string[] parts = csv.Split(',');
 
-foreach (var del in delar)
-    Console.WriteLine(del);
+foreach (var part in parts)
+    Console.WriteLine(part);
 ```
 
 ### Output

@@ -1,5 +1,6 @@
 ---
 title: Testa dig själv
+description: "Testa dig själv i Variabler — C#-boken av Marcus Ackre Medina"
 parent: Variabler
 nav_order: 99
 ---
@@ -13,7 +14,7 @@ Utan att kolla:
 <details markdown="block">
 <summary>Visa svar</summary>
 
-**Deklarera** betyder att du skapar variabeln och berättar vilken typ den ska ha: `int ålder;`. **Tilldela** betyder att du ger den ett värde: `ålder = 25;`. Du kan göra båda på en gång: `int ålder = 25;`
+**Deklarera** betyder att du skapar variabeln och berättar vilken typ den ska ha: `int age;`. **Tilldela** betyder att du ger den ett värde: `age = 25;`. Du kan göra båda på en gång: `int age = 25;`
 
 </details>
 

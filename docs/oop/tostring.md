@@ -1,5 +1,6 @@
 ---
 title: ToString-override
+description: "ToString-override i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

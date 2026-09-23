@@ -24,8 +24,8 @@ If är ett kommando som används inom C# för att ställa logiska frågor. Svare
 Här är ett exempel på hur man använder if i C#:
 
 ```csharp
-int ålder = 18;
-if (ålder >= 18)
+int age = 18;
+if (age >= 18)
 {
     Console.WriteLine("Du är myndig");
 }

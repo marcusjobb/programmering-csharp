@@ -1,5 +1,6 @@
 ---
 title: Break och Continue
+description: "Break och Continue i Loopar — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb
@@ -79,14 +80,14 @@ Alla jämna tal hoppades över — `continue` skickade loopen vidare innan `Writ
 `break` fungerar likadant i `while` och `foreach`.
 
 ```csharp
-var sokord = "Björn";
-var lista  = new List<string> { "Anna", "Björn", "Clara", "David" };
+var searchWord = "Björn";
+var list  = new List<string> { "Anna", "Björn", "Clara", "David" };
 
-foreach (var namn in lista)
+foreach (var name in list)
 {
-    if (namn == sokord)
+    if (name == searchWord)
     {
-        Console.WriteLine($"Hittade {namn}!");
+        Console.WriteLine($"Hittade {name}!");
         break;
     }
 }

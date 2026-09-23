@@ -1,5 +1,6 @@
 ---
 title: Olika typer av cookies i webbläsaren
+description: "Olika typer av cookies i webbläsaren i Cookies — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,5 +1,6 @@
 ---
 title: "Git — grunder"
+description: "Git — grunder i Git — C#-boken av Marcus Ackre Medina"
 parent: Git
 nav_order: 10
 ---

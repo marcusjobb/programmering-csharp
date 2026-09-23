@@ -1,5 +1,6 @@
 ---
 title: Directory-klassen
+description: "Directory-klassen i Filhantering — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

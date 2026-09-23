@@ -1,5 +1,6 @@
 ---
 title: Testa dig själv
+description: "Testa dig själv i Datastrukturer — C#-boken av Marcus Ackre Medina"
 parent: Datastrukturer
 nav_order: 99
 ---

@@ -1,5 +1,6 @@
 ---
 title: Statiska klasser och metoder
+description: "Statiska klasser och metoder i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,5 +1,6 @@
 ---
 title: Mappar
+description: "Mappar i Filhantering — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

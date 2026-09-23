@@ -1,5 +1,6 @@
 ---
 title: Decision helper
+description: "Decision helper i AI-exempel — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

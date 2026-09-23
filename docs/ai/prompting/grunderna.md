@@ -1,5 +1,6 @@
 ---
 title: Promptens grunder
+description: "Promptens grunder i Prompting — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

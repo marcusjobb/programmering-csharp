@@ -1,5 +1,6 @@
 ---
 title: "Klasser och OOP (kurs)"
+description: "Klasser och OOP (kurs) i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
 parent: "Objektorienterad programmering (OOP)"
 nav_order: 15
 ---

@@ -1,5 +1,6 @@
 ---
 title: Testa dig själv
+description: "Testa dig själv i Metoder — C#-boken av Marcus Ackre Medina"
 parent: Metoder
 nav_order: 99
 ---

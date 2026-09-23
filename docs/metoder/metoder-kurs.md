@@ -1,5 +1,6 @@
 ---
 title: "Metoder (kurs)"
+description: "Metoder (kurs) i Metoder — C#-boken av Marcus Ackre Medina"
 parent: "Metoder"
 nav_order: 15
 ---
@@ -74,7 +75,7 @@ Ibland räcker det inte att metoden bara gör något. Du vill ha ett **svar** ti
 Då byter du `void` mot den typ du vill returnera — `int`, `string`, `bool`, eller vad som passar.
 
 ```csharp
-static int Addera(int a, int b)
+static int Add(int a, int b)
 {
     return a + b;
 }
@@ -87,7 +88,7 @@ Du anropar metoden och tar emot svaret i en variabel:
 ```csharp
 static void Main()
 {
-    int result = Addera(8, 3);
+    int result = Add(8, 3);
     Console.WriteLine("8 + 3 = " + result);   // Utskrift: 8 + 3 = 11
 }
 ```
@@ -96,7 +97,7 @@ Tänk på det som en **miniräknare**. Du matar in siffror, du får ett svar til
 
 ```mermaid
 flowchart LR
-    A[Main anropar Addera 8 3] --> B[Addera tar emot a=8, b=3]
+    A[Main anropar Add 8 3] --> B[Add tar emot a=8, b=3]
     B --> C[Beräknar: 8 + 3 = 11]
     C --> D[return 11]
     D --> E[result = 11 i Main]
@@ -120,13 +121,13 @@ static void PrintGreeting(string name)
 }
 
 // Två parametrar — separera med komma
-static int Addera(int a, int b)
+static int Add(int a, int b)
 {
     return a + b;
 }
 
 // Ingen parameter
-static void SkrivDatum()
+static void WriteDate()
 {
     Console.WriteLine("Datum: " + DateTime.Now.ToShortDateString());
 }
@@ -138,7 +139,7 @@ Parametrarna inuti metoddefinitionen kallas **formella parametrar** — de är p
 static void Main()
 {
     PrintGreeting("Sara");      // "Sara" är argumentet
-    int summa = Addera(5, 7);   // 5 och 7 är argumenten
+    int sum = Add(5, 7);   // 5 och 7 är argumenten
 }
 ```
 
@@ -152,7 +153,7 @@ Metodnamn i C# skrivs med **PascalCase** — varje ord börjar med stor bokstav:
 
 ```csharp
 static void PrintGreeting(string name)     { }
-static int  Addera(int a, int b)           { }
+static int  Add(int a, int b)              { }
 static bool IsEven(int number)             { }
 static string GetDayName(int dayNumber)    { }
 ```
@@ -161,12 +162,12 @@ Välj **verb-baserade namn** som beskriver vad metoden gör:
 
 | Prefix | Exempel | Förklaring |
 |--------|---------|------------|
-| `Print` / `Skriv` | `PrintGreeting` | Skriver ut något |
-| `Get` / `Hämta` | `GetDayName` | Hämtar eller beräknar ett värde |
-| `Is` / `Är` | `IsEven` | Kontrollerar ett villkor, returnerar bool |
-| `Beräkna` | `BeräknaMoms` | Räknar ut ett resultat |
+| `Print` / `Write` | `PrintGreeting` | Skriver ut något |
+| `Get` / `Fetch` | `GetDayName` | Hämtar eller beräknar ett värde |
+| `Is` / `Has` | `IsEven` | Kontrollerar ett villkor, returnerar bool |
+| `Calculate` | `CalculateVAT` | Räknar ut ett resultat |
 
-Ett bra metodnamn berättar vad metoden gör — inte hur. `GetDayName` är tydligare än `DagLogik` eller `Method1`.
+Ett bra metodnamn berättar vad metoden gör — inte hur. `GetDayName` är tydligare än `DayLogic` eller `Method1`.
 
 ---
 
@@ -182,7 +183,7 @@ class MethodExamples
         Console.WriteLine("Hej, " + name + "! Välkommen till kursen.");
     }
 
-    static int Addera(int a, int b)
+    static int Add(int a, int b)
     {
         return a + b;
     }
@@ -198,7 +199,7 @@ class MethodExamples
         PrintGreeting("Anna");
 
         // Metod med returvärde — spara i variabel
-        int result = Addera(8, 3);
+        int result = Add(8, 3);
         Console.WriteLine("8 + 3 = " + result);
 
         // Bool-returvärde — använd direkt i if-sats
@@ -247,20 +248,20 @@ Nu finns rubriklayouten på två ställen. Om du vill ändra `===` till `---` m�
 **Med metod:**
 
 ```csharp
-static void SkrivRubrik(string projektnamn)
+static void WriteHeader(string projectName)
 {
     Console.WriteLine("=== RAPPORT ===");
-    Console.WriteLine("Projekt: " + projektnamn);
+    Console.WriteLine("Projekt: " + projectName);
     Console.WriteLine("===============");
 }
 
 static void Main()
 {
-    SkrivRubrik("Webbshop");
+    WriteHeader("Webbshop");
 
     // ... 50 rader kod ...
 
-    SkrivRubrik("Mobilapp");
+    WriteHeader("Mobilapp");
 }
 ```
 
@@ -274,8 +275,8 @@ flowchart LR
     end
 
     subgraph Med metod
-        A2[SkrivRubrik] --> B2[... mer kod ...]
-        B2 --> C2[SkrivRubrik]
+        A2[WriteHeader] --> B2[... mer kod ...]
+        B2 --> C2[WriteHeader]
         A2 -.->|definierad en gång| D2[Metoddefinition]
         C2 -.-> D2
     end
@@ -334,28 +335,28 @@ int result = Add(3, 4);   // fungerar utan new
 En **objektmetod** (icke-statisk) tillhör en instans. Den har automatiskt tillgång till objektets egna data — du behöver inte skicka in det som parameter.
 
 ```csharp
-class Räknare
+class Counter
 {
-    private int _värde = 0;
+    private int _value = 0;
 
-    public void Öka(int steg)
+    public void Increment(int step)
     {
-        _värde += steg;   // _värde tillhör det här specifika objektet
+        _value += step;   // _value tillhör det här specifika objektet
     }
 
-    public int HämtaVärde()
+    public int GetValue()
     {
-        return _värde;
+        return _value;
     }
 }
 
-Räknare r = new Räknare();
-r.Öka(5);
-r.Öka(3);
-Console.WriteLine(r.HämtaVärde());   // 8
+Counter r = new Counter();
+r.Increment(5);
+r.Increment(3);
+Console.WriteLine(r.GetValue());   // 8
 ```
 
-`Main` är `static`. Fristående verktygsmetoder som `Add`, `IsEven` och `CalculateTotal` är `static` — de behöver ingen objektdata för att göra sitt jobb. Men metoderna på ett `BankAccount` — `SättIn`, `TaUt`, `Presentera` — är objektmetoder, för de måste veta vilket konto de arbetar med.
+`Main` är `static`. Fristående verktygsmetoder som `Add`, `IsEven` och `CalculateTotal` är `static` — de behöver ingen objektdata för att göra sitt jobb. Men metoderna på en `BankAccount` — `Deposit`, `Withdraw`, `Introduce` — är objektmetoder, för de måste veta vilket konto de arbetar med.
 
 När du börjar bygga klasser nästa vecka gäller objektmetoder. Tills dess kör vi `static`.
 

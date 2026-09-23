@@ -1,5 +1,6 @@
 ---
 title: While
+description: "While i Loopar — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

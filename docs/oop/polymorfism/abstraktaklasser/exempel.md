@@ -1,5 +1,6 @@
 ---
 title: Exempel - Webscraping
+description: "Exempel - Webscraping i Abstrakta klasser — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

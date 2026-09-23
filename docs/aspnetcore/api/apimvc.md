@@ -1,5 +1,6 @@
 ---
 title: MVC och API
+description: "MVC och API i API — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

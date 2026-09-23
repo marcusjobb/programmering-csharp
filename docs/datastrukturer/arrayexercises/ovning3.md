@@ -1,5 +1,6 @@
 ---
 title: Invertera en array
+description: "Invertera en array i Array övningar — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,5 +1,6 @@
 ---
 title: UML-klassdiagram
+description: "UML-klassdiagram i Diagram — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

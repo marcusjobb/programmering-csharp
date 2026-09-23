@@ -1,5 +1,6 @@
 ---
 title: StringBuilder
+description: "StringBuilder i Variabler — C#-boken av Marcus Ackre Medina"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb
@@ -15,10 +16,10 @@ nav_order: 42
 Strängar i C# är oföränderliga. Varje gång du lägger ihop strängar med `+` skapas ett nytt strängobjekt i minnet. Gör du det hundra gånger skapas hundra objekt.
 
 ```csharp
-string resultat = "";
+string result = "";
 for (int i = 0; i < 100; i++)
 {
-    resultat += "rad " + i + "\n";  // Skapar ett nytt strängobjekt varje varv
+    result += "rad " + i + "\n";  // Skapar ett nytt strängobjekt varje varv
 }
 ```
 
@@ -79,11 +80,11 @@ Här är `StringBuilder` som tydligast motiverat:
 ```csharp
 var sb = new StringBuilder();
 
-string[] produkter = { "Kaffe", "Te", "Juice", "Mjölk" };
+string[] products = { "Kaffe", "Te", "Juice", "Mjölk" };
 
-foreach (var produkt in produkter)
+foreach (var product in products)
 {
-    sb.AppendLine($"- {produkt}");
+    sb.AppendLine($"- {product}");
 }
 
 Console.Write(sb.ToString());
@@ -102,7 +103,7 @@ Console.Write(sb.ToString());
 
 | Situation | Använd |
 |-----------|--------|
-| Enstaka sammanslagning | `$"Hej {namn}"` eller `+` |
+| Enstaka sammanslagning | `$"Hej {name}"` eller `+` |
 | Loopa och bygga en sträng | `StringBuilder` |
 | Kombinera några fasta delar | `string.Join()` |
 | Tusentals sammanslagningar | `StringBuilder` |
@@ -114,9 +115,9 @@ Console.Write(sb.ToString());
 För enkla fall räcker ofta `string.Join`:
 
 ```csharp
-string[] ord = { "ett", "två", "tre" };
-string resultat = string.Join(", ", ord);
-Console.WriteLine(resultat);  // ett, två, tre
+string[] words = { "ett", "två", "tre" };
+string joined = string.Join(", ", words);
+Console.WriteLine(joined);  // ett, två, tre
 ```
 
 ## TL;DR
