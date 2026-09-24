@@ -1,12 +1,7 @@
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-vendor/
-Gemfile.lock
-docs/vendor/
-docs/.bundle/
 node_modules/
 site/dist/
 site/.astro/
 
+# Kvarleva från Jekyll-eran — inte helt raderbar (fil-ägarskap), men ofarlig och ignorerad
+docs/vendor/
+docs/.bundle/
