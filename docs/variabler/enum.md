@@ -170,7 +170,7 @@ Console.WriteLine(type);
 ### Output
 
 ```
-Helg
+Weekend
 ```
 
 Fördelen mot att använda strängar i en switch är att du inte kan missa ett case av misstag — om du lägger till ett nytt värde i enum:en och glömmer att lägga till ett case i switch:en kan verktyg varna dig om det.
@@ -277,7 +277,7 @@ Vanliga användningsfall för enum:
 - **Riktningar** — `North`, `South`, `East`, `West`
 - **Status** — `Active`, `Inactive`, `Pending`
 - **Kortfärger** — `Hearts`, `Diamonds`, `Spades`, `Clubs`
-- **Svårighetsgrad** — `Lätt`, `Medel`, `Svår`
+- **Svårighetsgrad** — `Easy`, `Medel`, `Hard`
 
 Varje gång du ser dig själv skriva en sträng som ett av ett begränsat antal alternativ — fundera på om det är ett enum i förklädnad.
 

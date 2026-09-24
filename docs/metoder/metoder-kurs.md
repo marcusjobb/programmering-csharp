@@ -61,9 +61,9 @@ Metodens delar ser ut så här:
 ```
 static   void         PrintGreeting   (string name)
   |        |                |               |
-Tillhör  Returtyp —      Metodens       Parametrar —
-klassen  returnerar       namn           indata
-         ingenting
+Belongs  ReturnType —      Method       Parameters —
+class  returns       name           input
+         nothing
 ```
 
 ---

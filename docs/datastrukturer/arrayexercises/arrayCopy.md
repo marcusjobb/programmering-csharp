@@ -31,15 +31,15 @@ public class MainClass
     public static void Main(string[] args)
     {
         // Skapa en array med 10 heltal
-        int[] heltal = { 5, 2, 7, 1, 9, 3, 8, 4, 6, 10 };
+        int[] integer = { 5, 2, 7, 1, 9, 3, 8, 4, 6, 10 };
 
         // Skriv ut den ursprungliga arrayen
         Console.Write("Siffror: ");
-        PrintArray(heltal);
+        PrintArray(integer);
 
         // Skapa en ny array som innehåller de fem första talen i den första arrayen
         int[] femForsta = new int[5];
-        Array.Copy(heltal, femForsta, 5);
+        Array.Copy(integer, femForsta, 5);
 
         // Skriv ut den nya arrayen
         Console.Write("De fem första talen: ");
@@ -81,15 +81,15 @@ public class MainClass
     public static void Main(string[] args)
     {
         // Skapa en array med 10 heltal
-        int[] heltal = { 5, 2, 7, 1, 9, 3, 8, 4, 6, 10 };
+        int[] integer = { 5, 2, 7, 1, 9, 3, 8, 4, 6, 10 };
 
         // Skriv ut den ursprungliga arrayen
         Console.Write("Siffror: ");
-        PrintArray(heltal);
+        PrintArray(integer);
 
         // Skapa en ny array som innehåller de fem första talen i den första arrayen
         int[] femForsta = new int[5];
-        Array.Copy(heltal, femForsta, 5);
+        Array.Copy(integer, femForsta, 5);
 
         // Skriv ut den nya arrayen
         Console.Write("De fem första talen: ");

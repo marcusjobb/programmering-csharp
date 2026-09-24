@@ -22,15 +22,15 @@ Stack och Queue är specialiserade samlingar med en enkel regel: du kan bara lä
 Det sista som lades på stapeln tas bort först.
 
 ```csharp
-var historia = new Stack<string>();
+var history = new Stack<string>();
 
-historia.Push("Öppnade fil");
-historia.Push("Skrev text");
-historia.Push("Formaterade");
+history.Push("Öppnade fil");
+history.Push("Skrev text");
+history.Push("Formaterade");
 
-historia.Peek();  // "Formaterade" — kika utan att ta bort
-historia.Pop();   // "Formaterade" — tas bort och returneras
-historia.Pop();   // "Skrev text"
+history.Peek();  // "Formaterade" — kika utan att ta bort
+history.Pop();   // "Formaterade" — tas bort och returneras
+history.Pop();   // "Skrev text"
 ```
 
 ### Viktiga metoder
@@ -60,14 +60,14 @@ Stack är standardvalet för undo-funktionalitet:
 var undo = new Stack<ICommand>();
 var redo = new Stack<ICommand>();
 
-void Kör(ICommand cmd)
+void Run(ICommand cmd)
 {
     cmd.Execute();
     undo.Push(cmd);
     redo.Clear(); // ny action rensar redo
 }
 
-void Ångra()
+void Undo()
 {
     if (undo.TryPop(out var cmd))
     {
@@ -76,7 +76,7 @@ void Ångra()
     }
 }
 
-void Gör_om()
+void do_if()
 {
     if (redo.TryPop(out var cmd))
     {
@@ -89,17 +89,17 @@ void Gör_om()
 ### Parenteser-matchning
 
 ```csharp
-bool ÄrBalanserad(string uttryck)
+bool IsBalanced(string expression)
 {
     var stack = new Stack<char>();
-    foreach (char c in uttryck)
+    foreach (char c in expression)
     {
         if (c is '(' or '[' or '{')
             stack.Push(c);
         else if (c is ')' or ']' or '}')
         {
-            if (!stack.TryPop(out char öppen)) return false;
-            if (!ÄrPar(öppen, c)) return false;
+            if (!stack.TryPop(out char open)) return false;
+            if (!ÄrPar(open, c)) return false;
         }
     }
     return stack.Count == 0;
@@ -151,16 +151,16 @@ if (queue.TryPeek(out int t)) { /* t är fronten */ }
 ### Jobbschemaläggning
 
 ```csharp
-var jobbko = new Queue<string>();
+var jobCop = new Queue<string>();
 
-jobbko.Enqueue("Backup");
-jobbko.Enqueue("Skicka e-post");
-jobbko.Enqueue("Generera rapport");
+jobCop.Enqueue("Backup");
+jobCop.Enqueue("Skicka e-post");
+jobCop.Enqueue("Generera rapport");
 
-while (jobbko.Count > 0)
+while (jobCop.Count > 0)
 {
-    string jobb = jobbko.Dequeue();
-    Console.WriteLine($"Bearbetar: {jobb}");
+    string job = jobCop.Dequeue();
+    Console.WriteLine($"Bearbetar: {job}");
 }
 ```
 

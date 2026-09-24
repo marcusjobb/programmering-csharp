@@ -21,18 +21,18 @@ nav_order: 50
 ## Grundläggande användning
 
 ```csharp
-var unikaFarger = new HashSet<string>();
+var uniqueColours = new HashSet<string>();
 
-bool tillagd1 = unikaFarger.Add("Röd");    // true
-bool tillagd2 = unikaFarger.Add("Blå");    // true
-bool tillagd3 = unikaFarger.Add("Röd");    // false — finns redan
+bool added = uniqueColours.Add("Röd");    // true
+bool added = uniqueColours.Add("Blå");    // true
+bool added = uniqueColours.Add("Röd");    // false — finns redan
 
-Console.WriteLine(unikaFarger.Count); // 2
+Console.WriteLine(uniqueColours.Count); // 2
 
 // Skapa från array — dubletter faller bort automatiskt
 string[] arr = { "Röd", "Blå", "Grön", "Röd", "Blå", "Gul" };
-var unika = new HashSet<string>(arr);
-Console.WriteLine(unika.Count); // 4
+var unique = new HashSet<string>(arr);
+Console.WriteLine(unique.Count); // 4
 ```
 
 ---
@@ -40,22 +40,22 @@ Console.WriteLine(unika.Count); // 4
 ## Vanliga metoder
 
 ```csharp
-var tal = new HashSet<int> { 1, 2, 3, 4, 5 };
+var number = new HashSet<int> { 1, 2, 3, 4, 5 };
 
-tal.Add(6);              // true — lades till
-tal.Add(3);              // false — finns redan
-tal.Contains(3);         // true  — O(1)
-tal.Remove(5);           // true — borttaget
-tal.Count;               // antal element
+number.Add(6);              // true — lades till
+number.Add(3);              // false — finns redan
+number.Contains(3);         // true  — O(1)
+number.Remove(5);           // true — borttaget
+number.Count;               // antal element
 
 // Jämförelse
-var annan = new HashSet<int> { 4, 3, 2, 1, 6 };
-tal.SetEquals(annan);            // true — samma element, ordning spelar ingen roll
+var another = new HashSet<int> { 4, 3, 2, 1, 6 };
+number.SetEquals(another);            // true — samma element, ordning spelar ingen roll
 
-var delmangd = new HashSet<int> { 1, 2, 3 };
-delmangd.IsSubsetOf(tal);        // true
-tal.IsSupersetOf(delmangd);      // true
-tal.Overlaps(new HashSet<int> { 3, 7, 8 }); // true — delar elementet 3
+var subset = new HashSet<int> { 1, 2, 3 };
+subset.IsSubsetOf(number);        // true
+number.IsSupersetOf(subset);      // true
+number.Overlaps(new HashSet<int> { 3, 7, 8 }); // true — delar elementet 3
 ```
 
 ---
@@ -71,12 +71,12 @@ var union = new HashSet<string>(a);
 union.UnionWith(b); // { Anna, Pelle, Kalle, Sara, Johan }
 
 // Snitt — bara vad som finns i båda
-var snitt = new HashSet<string>(a);
-snitt.IntersectWith(b); // { Pelle }
+var average = new HashSet<string>(a);
+average.IntersectWith(b); // { Pelle }
 
 // Differens — vad som finns i a men inte b
-var differens = new HashSet<string>(a);
-differens.ExceptWith(b); // { Anna, Kalle }
+var difference = new HashSet<string>(a);
+difference.ExceptWith(b); // { Anna, Kalle }
 
 // Symmetrisk differens — vad som finns i exakt ett av dem
 var symDiff = new HashSet<string>(a);
@@ -92,19 +92,19 @@ Metoderna modifierar originalet. Skapa alltid en kopia (`new HashSet<T>(original
 ```csharp
 // Ta bort dubletter från en lista
 List<string> medDubletter = new List<string> { "Anna", "Pelle", "Anna", "Kalle", "Pelle" };
-List<string> unika = new HashSet<string>(medDubletter).ToList();
+List<string> unique = new HashSet<string>(medDubletter).ToList();
 
 // Snabb behörighetskontroll
-var tillatnaAnvandare = new HashSet<string> { "admin", "moderator", "editor" };
-if (tillatnaAnvandare.Contains(inloggadUser)) { /* ... */ }
+var allowedUser = new HashSet<string> { "admin", "moderator", "editor" };
+if (allowedUser.Contains(inloggadUser)) { /* ... */ }
 
 // Spåra besökta noder i en graftraversering
-var besokta = new HashSet<int>();
+var visited = new HashSet<int>();
 void DFS(GraphNode nod)
 {
-    if (!besokta.Add(nod.Id)) return; // Add returnerar false om den redan finns
-    foreach (var granne in nod.Grannar)
-        DFS(granne);
+    if (!visited.Add(nod.Id)) return; // Add returnerar false om den redan finns
+    foreach (var neighbour in nod.Neighbours)
+        DFS(neighbour);
 }
 ```
 
@@ -132,26 +132,26 @@ Om du lagrar egna objekt måste du implementera `Equals` och `GetHashCode`, anna
 ```csharp
 public class Person
 {
-    public string Namn { get; set; }
-    public int Alder { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
 
     public override bool Equals(object? obj) =>
-        obj is Person p && Namn == p.Namn && Alder == p.Alder;
+        obj is Person p && Name == p.Name && Age == p.Age;
 
-    public override int GetHashCode() => HashCode.Combine(Namn, Alder);
+    public override int GetHashCode() => HashCode.Combine(Name, Age);
 }
 
-var personer = new HashSet<Person>();
-personer.Add(new Person { Namn = "Pelle", Alder = 25 });
-personer.Add(new Person { Namn = "Pelle", Alder = 25 }); // ignoreras — lika
+var people = new HashSet<Person>();
+people.Add(new Person { Name = "Pelle", Age = 25 });
+people.Add(new Person { Name = "Pelle", Age = 25 }); // ignoreras — lika
 ```
 
 Case-insensitiv jämförelse för strängar:
 
 ```csharp
-var mailar = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-mailar.Add("pelle@example.com");
-mailar.Add("PELLE@EXAMPLE.COM"); // ignoreras
+var emails = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+emails.Add("pelle@example.com");
+emails.Add("PELLE@EXAMPLE.COM"); // ignoreras
 ```
 
 ---

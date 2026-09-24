@@ -40,8 +40,8 @@ Console.WriteLine(interpolated);
 ### Output
 
 ```
-Hej världen, Marcus!
-Hej världen, Marcus!
+Hej world, Marcus!
+Hej world, Marcus!
 ```
 
 ## Vanliga strängmetoder
@@ -60,9 +60,9 @@ Console.WriteLine(text.Trim().Length);     // 11
 
 ```
 15
-Hej Världen
-  HEJ VÄRLDEN  
-  hej världen  
+Hej World
+  HEJ WORLD  
+  hej world  
 11
 ```
 
@@ -97,7 +97,7 @@ foreach (var part in parts)
 ### Output
 
 ```
-hunden satt på mattan
+dog was on carpet
 Anna
 Björn
 Clara
@@ -150,11 +150,11 @@ Console.Write(sb.ToString());
 ### Output
 
 ```
-Rad 1
-Rad 2
-Rad 3
-Rad 4
-Rad 5
+Row 1
+Row 2
+Row 3
+Row 4
+Row 5
 ```
 
 ## Vanliga metoder — snabbreferens

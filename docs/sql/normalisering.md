@@ -38,21 +38,21 @@ Normalisering löser alla tre.
 
 Dåligt:
 ```
-| StudentId | Namn  | Kurser                    |
+| StudentId | Name  | Courses                    |
 |-----------|-------|---------------------------|
-| 1         | Pelle | Matematik,Fysik,Kemi      |
+| 1         | Pelle | Maths,Physics,Chemistry      |
 ```
 
 Bättre:
 ```sql
-CREATE TABLE Kursregistreringar (
+CREATE TABLE CourseRegistrations (
     StudentId INTEGER,
-    KursId    INTEGER,
-    PRIMARY KEY (StudentId, KursId)
+    CourseId    INTEGER,
+    PRIMARY KEY (StudentId, CourseId)
 );
 ```
 
-Nu kan du fråga på enskilda kurser med `WHERE KursId = 3`.
+Nu kan du fråga på enskilda kurser med `WHERE CourseId = 3`.
 
 ---
 
@@ -60,32 +60,32 @@ Nu kan du fråga på enskilda kurser med `WHERE KursId = 3`.
 
 **Regel:** alla kolumner beror på hela primärnyckeln. Om primärnyckeln är sammansatt (två eller fler kolumner) ska inga kolumner bero på bara en del av den.
 
-Dåligt (primärnyckel är `StudentId + KursId`):
+Dåligt (primärnyckel är `StudentId + CourseId`):
 ```
-| StudentId | KursId | Betyg | StudentNamn | KursNamn      |
+| StudentId | CourseId | Grade | StudentName | CourseName      |
 |-----------|--------|-------|-------------|---------------|
-| 1         | 101    | A     | Pelle       | Matematik     |
+| 1         | 101    | A     | Pelle       | Maths     |
 ```
 
-`StudentNamn` beror bara på `StudentId` — inte på `KursId`. Det är ett partiellt beroende.
+`StudentName` beror bara på `StudentId` — inte på `CourseId`. Det är ett partiellt beroende.
 
 Bättre:
 ```sql
-CREATE TABLE Studenter (
+CREATE TABLE Students (
     StudentId   INTEGER PRIMARY KEY,
-    Namn        TEXT
+    Name        TEXT
 );
 
-CREATE TABLE Kurser (
-    KursId  INTEGER PRIMARY KEY,
-    Namn    TEXT
+CREATE TABLE Courses (
+    CourseId  INTEGER PRIMARY KEY,
+    Name    TEXT
 );
 
-CREATE TABLE Betyg (
-    StudentId INTEGER REFERENCES Studenter,
-    KursId    INTEGER REFERENCES Kurser,
-    Betyg     TEXT,
-    PRIMARY KEY (StudentId, KursId)
+CREATE TABLE Grade (
+    StudentId INTEGER REFERENCES Students,
+    CourseId    INTEGER REFERENCES Courses,
+    Grade     TEXT,
+    PRIMARY KEY (StudentId, CourseId)
 );
 ```
 
@@ -97,24 +97,24 @@ CREATE TABLE Betyg (
 
 Dåligt:
 ```
-| StudentId | AvdelningsId | AvdelningsNamn |
+| StudentId | DepartmentId | DepartmentName |
 |-----------|--------------|----------------|
-| 1         | 10           | Teknik         |
+| 1         | 10           | Technique         |
 ```
 
-`AvdelningsNamn` beror på `AvdelningsId`, inte direkt på `StudentId`. Det är ett transitivt beroende (`StudentId → AvdelningsId → AvdelningsNamn`).
+`DepartmentName` beror på `DepartmentId`, inte direkt på `StudentId`. Det är ett transitivt beroende (`StudentId → DepartmentId → DepartmentName`).
 
 Bättre:
 ```sql
-CREATE TABLE Avdelningar (
-    AvdelningsId   INTEGER PRIMARY KEY,
-    AvdelningsNamn TEXT
+CREATE TABLE Departments (
+    DepartmentId   INTEGER PRIMARY KEY,
+    DepartmentName TEXT
 );
 
-CREATE TABLE Studenter (
+CREATE TABLE Students (
     StudentId    INTEGER PRIMARY KEY,
-    Namn         TEXT,
-    AvdelningsId INTEGER REFERENCES Avdelningar
+    Name         TEXT,
+    DepartmentId INTEGER REFERENCES Departments
 );
 ```
 
@@ -124,31 +124,31 @@ CREATE TABLE Studenter (
 
 Onormaliserad:
 ```
-| OrderId | KundNamn | KundEmail        | Produkt | Pris |
+| OrderId | CustomerName | KundEmail        | Product | Price |
 |---------|----------|------------------|---------|------|
-| 1       | Pelle    | pelle@example.se | Bok     | 199  |
-| 2       | Pelle    | pelle@example.se | Penna   | 25   |
-| 3       | Kalle    | kalle@example.se | Bok     | 199  |
+| 1       | Pelle    | pelle@example.see | Book     | 199  |
+| 2       | Pelle    | pelle@example.see | Pen   | 25   |
+| 3       | Kalle    | kalle@example.see | Book     | 199  |
 ```
 
 Normaliserad (3NF):
 ```sql
-CREATE TABLE Kunder (
-    KundId  INTEGER PRIMARY KEY,
-    Namn    TEXT,
+CREATE TABLE Customers (
+    CustomerId  INTEGER PRIMARY KEY,
+    Name    TEXT,
     Email   TEXT
 );
 
-CREATE TABLE Produkter (
-    ProduktId  INTEGER PRIMARY KEY,
-    Namn       TEXT,
-    Pris       DECIMAL
+CREATE TABLE Products (
+    ProductId  INTEGER PRIMARY KEY,
+    Name       TEXT,
+    Price       DECIMAL
 );
 
-CREATE TABLE Ordrar (
+CREATE TABLE Orders (
     OrderId   INTEGER PRIMARY KEY,
-    KundId    INTEGER REFERENCES Kunder,
-    ProduktId INTEGER REFERENCES Produkter
+    CustomerId    INTEGER REFERENCES Customers,
+    ProductId INTEGER REFERENCES Products
 );
 ```
 

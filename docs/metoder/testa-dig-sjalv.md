@@ -23,7 +23,7 @@ Utan att kolla:
 <details markdown="block">
 <summary>Visa svar</summary>
 
-**Parameter** är platshållarvariabeln i metoddefinitionen: `void HälsaPå(string namn)` — `namn` är parametern. **Argument** är det faktiska värdet du skickar in när du anropar metoden: `HälsaPå("Anna")` — `"Anna"` är argumentet.
+**Parameter** är platshållarvariabeln i metoddefinitionen: `void GreetOn(string name)` — `name` är parametern. **Argument** är det faktiska värdet du skickar in när du anropar metoden: `GreetOn("Anna")` — `"Anna"` är argumentet.
 
 </details>
 

@@ -86,22 +86,22 @@ Låt oss nu gå vidare och titta på hur vi kan serialisera och deserialisera JS
 Först ska vi titta på hur vi kan konvertera C#-objekt till JSON-format (serialisera). Anta att vi har en C#-klass som representerar en Star Wars-karaktär:
 
 ```csharp
-public class Karaktär
+public class Character
 {
-    public string Namn { get; set; }
-    public int Ålder { get; set; }
-    public string Kön { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public string Gender { get; set; }
 }
 ```
 
 Nu kan vi använda Newtonsoft.Json för att serialisera en instans av vår Karaktär-klass till JSON-format:
 
 ```csharp
-Karaktär lukeSkywalker = new Karaktär
+Character lukeSkywalker = new Character
 {
-    Namn = "Luke Skywalker",
-    Ålder = 25,
-    Kön = "Manlig"
+    Name = "Luke Skywalker",
+    Age = 25,
+    Gender = "Manlig"
 };
 
 string json = JsonConvert.SerializeObject(lukeSkywalker);
@@ -126,16 +126,16 @@ Nästa steg är att titta på hur vi kan konvertera JSON-data till C#-objekt (de
 ```csharp
 string json = @"
 {
-  ""namn"":Leia Organa"",
-  ""ålder"": 23,
-  ""kön"":Kvinnlig""
+  ""name"":Leia Organa"",
+  ""age"": 23,
+  ""gender"":Female""
 }";
 ```
 
 Nu kan vi använda Newtonsoft.Json för att deserialisera JSON-strängen till en instans av Karaktär-klassen:
 
 ```csharp
-Karaktär leiaOrgana = JsonConvert.DeserializeObject<Karaktär>(json);
+Character leiaOrgana = JsonConvert.DeserializeObject<Character>(json);
 ```
 
 I det här exemplet använder vi `JsonConvert.DeserializeObject<T>()`-metoden från Newtonsoft.Json för att konvertera JSON-strängen till en instans av Karaktär-klassen.
@@ -170,16 +170,16 @@ Här är ett exempel på hur du kan använda `System.Text.Json` för att läsa a
 ```csharp
 string json = @"
 {
-  ""namn"":Darth Vader"",
-  ""ålder"": 45,
-  ""kön"":Manlig""
+  ""name"":Darth Vader"",
+  ""age"": 45,
+  ""gender"":Male""
 }";
 
 JsonDocument doc = JsonDocument.Parse(json);
 
-string namn = doc.RootElement.GetProperty("namn").GetString();
-int ålder = doc.RootElement.GetProperty("ålder").GetInt32();
-string kön = doc.RootElement.GetProperty("kön").GetString();
+string name = doc.RootElement.GetProperty("namn").GetString();
+int age = doc.RootElement.GetProperty("ålder").GetInt32();
+string gender = doc.RootElement.GetProperty("kön").GetString();
 ```
 
 I det här exemplet använder vi `JsonDocument.Parse()`-metoden från `System.Text.Json` för att analysera JSON-strängen och skapa ett `JsonDocument`-objekt. Sedan använder vi `GetProperty()`-metoden för att få tag på specifika egenskaper från JSON-data.
@@ -190,22 +190,22 @@ Du kan även serialisera klasser med System.Text.Json. Här är ett exempel på 
 using System;
 using System.Text.Json;
 
-public class Karaktär
+public class Character
 {
-    public string Namn { get; set; }
-    public int Ålder { get; set; }
-    public string Kön { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public string Gender { get; set; }
 }
 
 public class Program
 {
     public static void Main()
     {
-        Karaktär lukeSkywalker = new Karaktär
+        Character lukeSkywalker = new Character
         {
-            Namn = "Luke Skywalker",
-            Ålder = 25,
-            Kön = "Manlig"
+            Name = "Luke Skywalker",
+            Age = 25,
+            Gender = "Manlig"
         };
 
         string json = JsonSerializer.Serialize(lukeSkywalker);
@@ -214,7 +214,7 @@ public class Program
 }
 ```
 
-När du kör detta program kommer det att skapa en instans av `Karaktär`-klassen med värdena för Luke Skywalker och sedan serialisera den till en JSON-sträng med `System.Text.Json`. Den genererade JSON-strängen skrivs sedan ut på konsolen.
+När du kör detta program kommer det att skapa en instans av `Character`-klassen med värdena för Luke Skywalker och sedan serialisera den till en JSON-sträng med `System.Text.Json`. Den genererade JSON-strängen skrivs sedan ut på konsolen.
 
 Output:
 

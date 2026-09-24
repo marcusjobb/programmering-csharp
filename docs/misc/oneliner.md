@@ -28,13 +28,13 @@ En lambda är en anonym funktion som du kan skicka som ett argument eller tillde
 
 ```csharp
 // Klassisk metod
-bool ÄrJämnt(int n) => n % 2 == 0;
+bool IsEven(int n) => n % 2 == 0;
 
 // Lambda — samma sak, utan metodnamn
-Func<int, bool> ärJämnt = n => n % 2 == 0;
+Func<int, bool> isEven = n => n % 2 == 0;
 
-Console.WriteLine(ärJämnt(4));   // True
-Console.WriteLine(ärJämnt(7));   // False
+Console.WriteLine(isEven(4));   // True
+Console.WriteLine(isEven(7));   // False
 ```
 
 ### Output
@@ -49,16 +49,16 @@ False
 LINQ låter dig arbeta med samlingar på ett deklarativt sätt. Metoderna kedjas direkt på listan.
 
 ```csharp
-var tal = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+var number = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
 // Imperativt (hur)
-var jämna = new List<int>();
-foreach (var t in tal)
+var even = new List<int>();
+foreach (var t in number)
     if (t % 2 == 0)
-        jämna.Add(t);
+        even.Add(t);
 
 // Funktionellt med LINQ (vad)
-var jämnaLinq = tal.Where(t => t % 2 == 0).ToList();
+var jämnaLinq = number.Where(t => t % 2 == 0).ToList();
 ```
 
 Båda ger samma resultat — LINQ-varianten är kortare och lättare att läsa.
@@ -66,11 +66,11 @@ Båda ger samma resultat — LINQ-varianten är kortare och lättare att läsa.
 ## Where — filtrera
 
 ```csharp
-var tal = new List<int> { 1, 2, 3, 4, 5, 6 };
+var number = new List<int> { 1, 2, 3, 4, 5, 6 };
 
-var stora = tal.Where(t => t > 3).ToList();
+var large = number.Where(t => t > 3).ToList();
 
-foreach (var t in stora)
+foreach (var t in large)
     Console.Write($"{t} ");
 ```
 
@@ -85,11 +85,11 @@ foreach (var t in stora)
 `Select` mappar varje element till något nytt (som `map` i andra språk).
 
 ```csharp
-var namn = new List<string> { "anna", "björn", "clara" };
+var name = new List<string> { "anna", "björn", "clara" };
 
-var stora = namn.Select(n => n.ToUpper()).ToList();
+var large = name.Select(n => n.ToUpper()).ToList();
 
-foreach (var n in stora)
+foreach (var n in large)
     Console.Write($"{n} ");
 ```
 
@@ -102,13 +102,13 @@ ANNA BJÖRN CLARA
 ## Aggregera — Sum, Count, Max, Min, Average
 
 ```csharp
-var tal = new List<int> { 3, 1, 4, 1, 5, 9, 2, 6 };
+var number = new List<int> { 3, 1, 4, 1, 5, 9, 2, 6 };
 
-Console.WriteLine(tal.Sum());      // 31
-Console.WriteLine(tal.Count());    // 8
-Console.WriteLine(tal.Max());      // 9
-Console.WriteLine(tal.Min());      // 1
-Console.WriteLine(tal.Average());  // 3.875
+Console.WriteLine(number.Sum());      // 31
+Console.WriteLine(number.Count());    // 8
+Console.WriteLine(number.Max());      // 9
+Console.WriteLine(number.Min());      // 1
+Console.WriteLine(number.Average());  // 3.875
 ```
 
 ## Method chaining — kedja ihop
@@ -116,14 +116,14 @@ Console.WriteLine(tal.Average());  // 3.875
 Du kan kedja hur många LINQ-metoder som helst:
 
 ```csharp
-var resultat = tal
+var result = number
     .Where(t => t > 2)        // filtrera
     .Select(t => t * t)       // kvadrera
     .OrderByDescending(t => t) // sortera
     .Take(3)                  // ta de tre första
     .ToList();
 
-foreach (var t in resultat)
+foreach (var t in result)
     Console.Write($"{t} ");
 ```
 
@@ -138,27 +138,27 @@ foreach (var t in resultat)
 Methods och properties kan skrivas kortare med `=>` när kroppen är ett enda uttryck.
 
 ```csharp
-public class Cirkel
+public class Circle
 {
-    public double Radie { get; }
+    public double Radius { get; }
 
-    public Cirkel(double radie) => Radie = radie;
+    public Circle(double radius) => Radius = radius;
 
     // Expression-bodied property
-    public double Area => Math.PI * Radie * Radie;
+    public double Area => Math.PI * Radius * Radius;
 
     // Expression-bodied method
-    public string Beskriv() => $"Cirkel med radie {Radie:F2} och area {Area:F2}";
+    public string Describe() => $"Cirkel med radie {Radius:F2} och area {Area:F2}";
 }
 
-var c = new Cirkel(5);
-Console.WriteLine(c.Beskriv());
+var c = new Circle(5);
+Console.WriteLine(c.Describe());
 ```
 
 ### Output
 
 ```
-Cirkel med radie 5.00 och area 78.54
+Circle med radius 5.00 och area 78.54
 ```
 
 ## Func och Action
@@ -170,12 +170,12 @@ Cirkel med radie 5.00 och area 78.54
 | `Predicate<T>` | Tar argument, returnerar `bool` | `Predicate<int>` |
 
 ```csharp
-Func<int, int, int>  addera  = (a, b) => a + b;
-Action<string>       skriv   = s => Console.WriteLine(s);
-Predicate<int>       positiv = n => n > 0;
+Func<int, int, int>  add  = (a, b) => a + b;
+Action<string>       write   = s => Console.WriteLine(s);
+Predicate<int>       positive = n => n > 0;
 
-skriv(addera(3, 4).ToString());   // 7
-Console.WriteLine(positiv(-5));    // False
+write(add(3, 4).ToString());   // 7
+Console.WriteLine(positive(-5));    // False
 ```
 
 ## TL;DR

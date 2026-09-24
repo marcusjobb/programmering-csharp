@@ -14,7 +14,7 @@ Utan att kolla:
 <details markdown="block">
 <summary>Visa svar</summary>
 
-En **klass** är ritningen — den beskriver hur något ska se ut och bete sig. Ett **objekt** är en konkret instans av den ritningen. `class Bil { ... }` är ritningen; `var minBil = new Bil()` skapar ett faktiskt objekt i minnet.
+En **klass** är ritningen — den beskriver hur något ska se ut och bete sig. Ett **objekt** är en konkret instans av den ritningen. `class Car { ... }` är ritningen; `var minCar = new Car()` skapar ett faktiskt objekt i minnet.
 
 </details>
 
@@ -45,7 +45,7 @@ Konstruktorn körs automatiskt när ett objekt skapas med `new`. Den ser till at
 
 </details>
 
-5. Vad gör `: base(namn)` i en subklasses konstruktor?
+5. Vad gör `: base(name)` i en subklasses konstruktor?
 
 <details markdown="block">
 <summary>Visa svar</summary>
@@ -54,12 +54,12 @@ Det anropar basklassens konstruktor och skickar vidare argumentet. Utan det vet 
 
 </details>
 
-6. Vad händer om du skapar `class Orm : Djur` men inte skriver `override LåtaLjud()`?
+6. Vad händer om du skapar `class Orm : Animal` men inte skriver `override PlaySound()`?
 
 <details markdown="block">
 <summary>Visa svar</summary>
 
-Ormen ärver basklassens version av `LåtaLjud()` — alltså standardbeteendet från `Djur`. Inget kompileringsfel. Men polymorfism fungerar inte som du kanske vill: `orm.LåtaLjud()` kör `Djur`-versionen, inte en orm-specifik.
+Ormen ärver basklassens version av `PlaySound()` — alltså standardbeteendet från `Animal`. Inget kompileringsfel. Men polymorfism fungerar inte som du kanske vill: `orm.PlaySound()` kör `Animal`-versionen, inte en orm-specifik.
 
 </details>
 

@@ -18,11 +18,11 @@ En enkel applikation som tar en uppgiftsbeskrivning på svenska och returnerar C
 ## Idén
 
 ```
-Beskrivning: "Skapa en klass Person med namn och ålder, plus en ToString-override"
+Description: "Skapa en klass Person med namn och ålder, plus en ToString-override"
 ↓
-AI genererar C#-kod
+AI generates C#-kod
 ↓
-Koden visas i konsolen (eller sparas till fil)
+Code shown i console (or saved till file)
 ```
 
 ## Fullständigt exempel
@@ -38,15 +38,15 @@ class KodGenerator
     private readonly string     _apiKey;
 
     private const string ApiUrl       = "https://api.anthropic.com/v1/messages";
-    private const string Modell       = "claude-sonnet-4-6";
+    private const string Model       = "claude-sonnet-4-6";
     private const string SystemPrompt = """
-        Du är en C#-kodgenerator. Dina regler:
-        1. Svara ALLTID med fullständig, körbar C#-kod
-        2. Koden ska följa Clean Code-principerna
-        3. Skriv kommentarer på svenska
-        4. Inkludera using-direktiv och namespace
-        5. Inga förklaringar utanför koden — bara koden och korta kommentarer i den
-        6. Använd C# 12-syntax när det passar (primary constructors, collection expressions)
+        Du is en C#-kodgenerator. Dina regler:
+        1. Answer ALWAYS med complete, runnable C#-kod
+        2. Code should follow Clean Code-principles
+        3. Write comments on swedish
+        4. Include using-directive och namespace
+        5. None explanations outside code — bara code och short comments i den
+        6. Use C# 12-syntax när det passar (primary constructors, collection expressions)
         """;
 
     public KodGenerator(string apiKey)
@@ -55,16 +55,16 @@ class KodGenerator
         _http   = new HttpClient();
     }
 
-    public async Task<string> GenereraAsync(string beskrivning)
+    public async Task<string> GenereraAsync(string description)
     {
         var request = new
         {
-            model      = Modell,
+            model      = Model,
             max_tokens = 2048,
             system     = SystemPrompt,
             messages   = new[]
             {
-                new { role = "user", content = $"Generera C#-kod för: {beskrivning}" }
+                new { role = "user", content = $"Generera C#-kod för: {description}" }
             }
         };
 
@@ -85,11 +85,11 @@ class KodGenerator
                   .GetString() ?? "";
     }
 
-    public async Task GenereraOchSparaTillFilAsync(string beskrivning, string filsökväg)
+    public async Task GenereraOchSparaTillFilAsync(string description, string filePath)
     {
-        var kod = await GenereraAsync(beskrivning);
-        await File.WriteAllTextAsync(filsökväg, kod);
-        Console.WriteLine($"Kod sparad till {filsökväg}");
+        var code = await GenereraAsync(description);
+        await File.WriteAllTextAsync(filePath, code);
+        Console.WriteLine($"Kod sparad till {filePath}");
     }
 }
 
@@ -101,54 +101,54 @@ var generator = new KodGenerator(apiKey);
 
 Console.WriteLine("Beskriv vad du vill ha för C#-kod:");
 Console.Write("> ");
-var beskrivning = Console.ReadLine() ?? "";
+var description = Console.ReadLine() ?? "";
 
 Console.WriteLine("\nGenererar kod...\n");
-var kod = await generator.GenereraAsync(beskrivning);
-Console.WriteLine(kod);
+var code = await generator.GenereraAsync(description);
+Console.WriteLine(code);
 
 Console.WriteLine("\nVill du spara till fil? (j/n):");
 if (Console.ReadLine()?.ToLower() == "j")
 {
     Console.Write("Filnamn (utan .cs): ");
-    var filnamn = Console.ReadLine() ?? "GeneradKod";
-    await File.WriteAllTextAsync($"{filnamn}.cs", kod);
-    Console.WriteLine($"Sparad som {filnamn}.cs");
+    var fileName = Console.ReadLine() ?? "GeneradKod";
+    await File.WriteAllTextAsync($"{fileName}.cs", code);
+    Console.WriteLine($"Sparad som {fileName}.cs");
 }
 ```
 
 ## Exempel på körning
 
 ```
-Beskriv vad du vill ha för C#-kod:
-> En klass BankKonto med saldo, insättning och uttag med validering
+Describe what du wants ha for C#-kod:
+> En class BankAccount med balance, deposit och withdrawal med validation
 
-Genererar kod...
+Generates code...
 
 namespace Bank;
 
 // Representerar ett enkelt bankkonto med saldo-hantering
-public class BankKonto(string kontoNummer, decimal startSaldo = 0)
+public class BankAccount(string accountNumber, decimal startBalance = 0)
 {
-    public string  KontoNummer { get; } = kontoNummer;
-    public decimal Saldo       { get; private set; } = startSaldo;
+    public string  AccountNumber { get; } = accountNumber;
+    public decimal Balance       { get; private set; } = startBalance;
 
     // Sätter in pengar — kräver positivt belopp
-    public void Sätt in(decimal belopp)
+    public void Way in(decimal amount)
     {
-        if (belopp <= 0) throw new ArgumentException("Belopp måste vara positivt");
-        Saldo += belopp;
+        if (amount <= 0) throw new ArgumentException("Belopp måste vara positivt");
+        Balance += amount;
     }
 
     // Tar ut pengar — kontrollerar täckning
-    public void TaUt(decimal belopp)
+    public void Withdraw(decimal amount)
     {
-        if (belopp <= 0)     throw new ArgumentException("Belopp måste vara positivt");
-        if (belopp > Saldo)  throw new InvalidOperationException("Otillräckligt saldo");
-        Saldo -= belopp;
+        if (amount <= 0)     throw new ArgumentException("Belopp måste vara positivt");
+        if (amount > Balance)  throw new InvalidOperationException("Otillräckligt saldo");
+        Balance -= amount;
     }
 
-    public override string ToString() => $"Konto {KontoNummer}: {Saldo:C}";
+    public override string ToString() => $"Konto {AccountNumber}: {Balance:C}";
 }
 ```
 

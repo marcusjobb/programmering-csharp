@@ -25,58 +25,58 @@ LINQ är ett av C#:s kraftfullaste verktyg. Det låter dig filtrera, transformer
 ## Grundläggande metoder
 
 ```csharp
-var tal = new List<int> { 5, 2, 8, 1, 9, 3, 7, 4, 6 };
+var number = new List<int> { 5, 2, 8, 1, 9, 3, 7, 4, 6 };
 ```
 
 ### Where — filtrera
 
 ```csharp
-var stora = tal.Where(t => t > 5).ToList();
+var large = number.Where(t => t > 5).ToList();
 // [8, 9, 7, 6]
 ```
 
 ### Select — transformera
 
 ```csharp
-var kvadrater = tal.Select(t => t * t).ToList();
+var squares = number.Select(t => t * t).ToList();
 // [25, 4, 64, 1, 81, 9, 49, 16, 36]
 ```
 
 ### OrderBy / OrderByDescending
 
 ```csharp
-var sorterade   = tal.OrderBy(t => t).ToList();
+var sorted   = number.OrderBy(t => t).ToList();
 // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-var omvända     = tal.OrderByDescending(t => t).ToList();
+var reverse     = number.OrderByDescending(t => t).ToList();
 // [9, 8, 7, 6, 5, 4, 3, 2, 1]
 ```
 
 ### Aggregat
 
 ```csharp
-Console.WriteLine(tal.Sum());      // 45
-Console.WriteLine(tal.Max());      // 9
-Console.WriteLine(tal.Min());      // 1
-Console.WriteLine(tal.Average());  // 5
-Console.WriteLine(tal.Count());    // 9
+Console.WriteLine(number.Sum());      // 45
+Console.WriteLine(number.Max());      // 9
+Console.WriteLine(number.Min());      // 1
+Console.WriteLine(number.Average());  // 5
+Console.WriteLine(number.Count());    // 9
 ```
 
 ### First / Last / Single
 
 ```csharp
-Console.WriteLine(tal.First());               // 5
-Console.WriteLine(tal.First(t => t > 7));     // 8
-Console.WriteLine(tal.Last());                // 6
-Console.WriteLine(tal.FirstOrDefault(t => t > 100));  // 0 (default int)
+Console.WriteLine(number.First());               // 5
+Console.WriteLine(number.First(t => t > 7));     // 8
+Console.WriteLine(number.Load());                // 6
+Console.WriteLine(number.FirstOrDefault(t => t > 100));  // 0 (default int)
 ```
 
 ### Any / All / Contains
 
 ```csharp
-Console.WriteLine(tal.Any(t => t > 8));    // True
-Console.WriteLine(tal.All(t => t > 0));    // True
-Console.WriteLine(tal.Contains(7));         // True
+Console.WriteLine(number.Any(t => t > 8));    // True
+Console.WriteLine(number.All(t => t > 0));    // True
+Console.WriteLine(number.Contains(7));         // True
 ```
 
 ## LINQ mot egna klasser
@@ -84,27 +84,27 @@ Console.WriteLine(tal.Contains(7));         // True
 ```csharp
 public class Student
 {
-    public string Namn  { get; set; }
-    public int    Betyg { get; set; }
+    public string Name  { get; set; }
+    public int    Grade { get; set; }
 }
 
-var studenter = new List<Student>
+var students = new List<Student>
 {
-    new() { Namn = "Anna",  Betyg = 5 },
-    new() { Namn = "Björn", Betyg = 3 },
-    new() { Namn = "Clara", Betyg = 5 },
-    new() { Namn = "David", Betyg = 4 },
+    new() { Name = "Anna",  Grade = 5 },
+    new() { Name = "Björn", Grade = 3 },
+    new() { Name = "Clara", Grade = 5 },
+    new() { Name = "David", Grade = 4 },
 };
 
 // Alla med betyg 5, sorterade på namn
-var topplista = studenter
-    .Where(s => s.Betyg == 5)
-    .OrderBy(s => s.Namn)
-    .Select(s => s.Namn)
+var topList = students
+    .Where(s => s.Grade == 5)
+    .OrderBy(s => s.Name)
+    .Select(s => s.Name)
     .ToList();
 
-foreach (var namn in topplista)
-    Console.WriteLine(namn);
+foreach (var name in topList)
+    Console.WriteLine(name);
 ```
 
 ### Output
@@ -117,37 +117,37 @@ Clara
 ## GroupBy — gruppera
 
 ```csharp
-var grupperadePerBetyg = studenter
-    .GroupBy(s => s.Betyg)
+var grupperadePerBetyg = students
+    .GroupBy(s => s.Grade)
     .OrderByDescending(g => g.Key);
 
-foreach (var grupp in grupperadePerBetyg)
+foreach (var group in grupperadePerBetyg)
 {
-    Console.Write($"Betyg {grupp.Key}: ");
-    Console.WriteLine(string.Join(", ", grupp.Select(s => s.Namn)));
+    Console.Write($"Betyg {group.Key}: ");
+    Console.WriteLine(string.Join(", ", group.Select(s => s.Name)));
 }
 ```
 
 ### Output
 
 ```
-Betyg 5: Anna, Clara
-Betyg 4: David
-Betyg 3: Björn
+Grade 5: Anna, Clara
+Grade 4: David
+Grade 3: Björn
 ```
 
 ## Take och Skip — paginering
 
 ```csharp
-var sida1 = studenter.OrderBy(s => s.Namn).Take(2).ToList();
-var sida2 = studenter.OrderBy(s => s.Namn).Skip(2).Take(2).ToList();
+var page = students.OrderBy(s => s.Name).Take(2).ToList();
+var page = students.OrderBy(s => s.Name).Skip(2).Take(2).ToList();
 ```
 
 ## Distinct och Union
 
 ```csharp
 var med = new List<int> { 1, 2, 2, 3, 3, 3 };
-var unika = med.Distinct().ToList();  // [1, 2, 3]
+var unique = med.Distinct().ToList();  // [1, 2, 3]
 ```
 
 ## Lazy evaluation — viktigt!
@@ -155,11 +155,11 @@ var unika = med.Distinct().ToList();  // [1, 2, 3]
 LINQ-frågor körs **inte** förrän du itererar över resultatet. `ToList()` tvingar exekvering direkt.
 
 ```csharp
-var fråga = tal.Where(t => t > 5);  // ingen beräkning än
+var question = number.Where(t => t > 5);  // ingen beräkning än
 
-tal.Add(99);
+number.Add(99);
 
-var resultat = fråga.ToList();  // körs nu — 99 är med!
+var result = question.ToList();  // körs nu — 99 är med!
 ```
 
 Anropa alltid `ToList()` (eller `ToArray()`, `ToDictionary()`) när du vill ha ett fast resultat.
@@ -172,7 +172,7 @@ Anropa alltid `ToList()` (eller `ToArray()`, `ToDictionary()`) när du vill ha e
 | `Select(x => ...)` | Transformera — ny form på varje element |
 | `OrderBy` / `OrderByDescending` | Sortera |
 | `GroupBy(x => ...)` | Gruppera i nycklar |
-| `First` / `Last` / `Single` | Hämta ett element (kastar om inte hittat) |
+| `First` / `Load` / `Single` | Hämta ett element (kastar om inte hittat) |
 | `FirstOrDefault` | Hämta ett element eller default |
 | `Any` / `All` | Finns något / gäller det alla? |
 | `Count` / `Sum` / `Max` / `Min` / `Average` | Aggregera |

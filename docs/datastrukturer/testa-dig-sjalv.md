@@ -51,7 +51,7 @@ En `List<string>` är en ordnad samling av strängar som du kommer åt med ett n
 <summary>Visa svar</summary>
 
 - **Typsäkerhet** — kompilatorn ser om du skriver ett ogiltigt värde. Med strängar syns stavfelet bara i körtid.
-- **Läsbarhet** — `Riktning.Norr` är tydligare än `"norr"` eller `1`.
+- **Läsbarhet** — `Direction.Norr` är tydligare än `"norr"` eller `1`.
 - **Autocompletion** — IDE:n listar alla giltiga värden automatiskt.
 - **Switch-stöd** — `switch` på enum ger kompilatorvarning om du missar ett fall.
 

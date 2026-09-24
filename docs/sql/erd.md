@@ -89,7 +89,7 @@ N:M löses alltid med en **kopplingstabell**:
 ┌──────────┐   ┌──────────────┐   ┌──────────┐
 │ Student  │───│ Enrollment   │───│  Course  │
 ├──────────┤   ├──────────────┤   ├──────────┤
-│ PK ID    │   │ FK StudentID │   │ PK ID    │
+│ PK ID    │   │ FK StudentId │   │ PK ID    │
 │ Name     │   │ FK CourseID  │   │ Title    │
 └──────────┘   │ EnrolledAt   │   └──────────┘
                └──────────────┘
@@ -100,11 +100,11 @@ N:M löses alltid med en **kopplingstabell**:
 Den vanligaste notationen för att rita kardinalitet:
 
 ```
-─────        exakt en
-────<        en till många  (1:N)
->────<       många till många (N:M)
-────○        noll eller en
-────○<       noll till många
+─────        exact en
+────<        en till many  (1:N)
+>────<       many till many (N:M)
+────○        zero or en
+────○<       zero till many
 ```
 
 ## Fullständigt exempel — webbshop
@@ -120,7 +120,7 @@ Den vanligaste notationen för att rita kardinalitet:
 └──────────────┘         └──────────────┘         └──────────────┘
                                                         ↑
                                           ┌─────────────┘
-                                          │  OrderItem (kopplingstabell)
+                                          │  OrderItem (junctionTable)
                                           ├──────────────┐
                                           │PK ItemID     │
                                           │FK OrderID    │

@@ -49,12 +49,12 @@ I minimal API-stil fungerar samma `.WithSummary()`, `.WithTags()` och `.Produces
 ```csharp
 app.MapGet("/api/produkter/{id}", (int id) =>
 {
-    var p = produkter.FirstOrDefault(p => p.Id == id);
+    var p = products.FirstOrDefault(p => p.Id == id);
     return p is null ? Results.NotFound() : Results.Ok(p);
 })
 .WithTags("Produkter")
 .WithSummary("Hämta en produkt på ID")
-.Produces<Produkt>(200)
+.Produces<Product>(200)
 .Produces(404);
 ```
 
@@ -67,7 +67,7 @@ I controller-stil används XML-kommentarer:
 /// <param name="id">Produktens ID</param>
 /// <returns>Produkten, eller 404 om den inte finns</returns>
 [HttpGet("{id}")]
-[ProducesResponseType(typeof(Produkt), 200)]
+[ProducesResponseType(typeof(Product), 200)]
 [ProducesResponseType(404)]
 public IActionResult Get(int id) { ... }
 ```

@@ -21,8 +21,8 @@ Copilot ser din fil, dina kommentarer och ditt kontext. Baserat på det föresl�
 
 ```csharp
 // Skapa en metod som beräknar fakulteten av n rekursivt
-↓ Copilot föreslår:
-public int Fakultet(int n) => n <= 1 ? 1 : n * Fakultet(n - 1);
+↓ Copilot suggests:
+public int Factorial(int n) => n <= 1 ? 1 : n * Factorial(n - 1);
 ```
 
 ## Komma igång
@@ -45,7 +45,7 @@ public int Fakultet(int n) => n <= 1 ? 1 : n * Fakultet(n - 1);
 Skriver du en metod-signatur föreslår Copilot hela kroppen:
 
 ```csharp
-public List<string> FiltereraLångaNamn(List<string> namn, int minLängd)
+public List<string> FilterLongNames(List<string> name, int minLength)
 // → Copilot fyller i: return namn.Where(n => n.Length >= minLängd).ToList();
 ```
 
@@ -54,7 +54,7 @@ public List<string> FiltereraLångaNamn(List<string> namn, int minLängd)
 ```csharp
 // Validera ett personnummer i format YYYYMMDD-XXXX
 // Returnera true om giltigt, annars false
-public bool ValideraPersonnummer(string pnr)
+public bool ValidateNationalIdentityNumber(string pnr)
 // → Copilot skriver hela metoden
 ```
 
@@ -63,10 +63,10 @@ public bool ValideraPersonnummer(string pnr)
 I VS Code och Visual Studio finns en chattvy:
 
 ```
-Du:     Vad gör den här metoden?
-        [markera koden]
+Du:     What do den here method?
+        [mark code]
 
-Copilot: Metoden tar en lista av heltal och returnerar...
+Copilot: Method tar en list of integer och returns...
 ```
 
 Du kan också:
@@ -80,9 +80,9 @@ Du kan också:
 Markera kod → `Ctrl+I` → skriv instruktion direkt i filen:
 
 ```
-/fix det finns ett null-reference-problem här
-/doc lägg till XML-dokumentation
-/tests skapa enhetstester
+/fix it exists ett null-reference-problem here
+/doc add till XML-documentation
+/tests create unitTests
 ```
 
 ## Copilot i Visual Studio
@@ -98,7 +98,7 @@ Copilot genererar kod som *ser* korrekt ut. Det innebär inte att den *är* korr
 
 ```csharp
 // Copilot kanske genererar:
-public void RaderaBrukare(int id)
+public void DeleteUser(int id)
 {
     _db.Users.Remove(_db.Users.Find(id));
     _db.SaveChanges();

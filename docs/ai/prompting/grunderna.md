@@ -18,11 +18,11 @@ En välskriven prompt är skillnaden mellan ett vagt svar och ett svar du kan an
 ## Anatomin av en bra prompt
 
 ```
-[Roll] Du är en erfaren C#-arkitekt.
-[Kontext] Vi bygger en REST API med .NET 8 och Clean Architecture.
-[Uppgift] Skapa en generisk IRepository<T> med EF Core-implementation.
-[Krav] Inkludera: GetById, GetAll, Add, Update, Delete. Inga externa bibliotek.
-[Format] Svara med fullständig C#-kod och en kort förklaring av designvalet.
+[Role] Du is en experienced C#-arkitekt.
+[Context] Vi builds en REST API med .NET 8 och Clean Architecture.
+[Task] Create en generic IRepository<T> med EF Core-implementation.
+[Requirement] Include: GetById, GetAll, Add, Update, Delete. None external library.
+[Format] Answer med complete C#-kod och en kort förklaring av designvalet.
 ```
 
 Varje del är valfri — men ju mer kontext du ger, desto bättre svar.
@@ -90,10 +90,10 @@ I API-anrop (och Claude Code) kan du skicka en system prompt som gäller för he
 
 ```csharp
 var systemPrompt = """
-    Du är en C#-lärare vid en YH-skola.
-    - Förklara alltid på svenska
-    - Visa alltid kodexempel
-    - Rikta dig till studerande med 3 månaders erfarenhet
-    - Undvik avancerade mönster om de inte är nödvändiga
+    Du is en C#-lärare vid en YH-skola.
+    - Explain always on swedish
+    - Visa always codeExample
+    - Direct dig till students med 3 months experience
+    - Avoid advanced pattern if de not is necessary
     """;
 ```

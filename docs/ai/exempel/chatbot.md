@@ -18,10 +18,10 @@ En chatbot skickar hela konversationshistoriken med varje anrop. Det gör att AI
 ## Hur det fungerar
 
 ```
-Användare:  "Hej, jag heter Anna"
+User:  "Hej, jag heter Anna"
 AI:         "Hej Anna! Vad kan jag hjälpa dig med?"
-Användare:  "Vad heter jag?"
-AI:         "Du heter Anna."   ← AI:t minns — för att vi skickade historiken
+User:  "Vad heter jag?"
+AI:         "Du heter Anna."   ← AI:t remembers — for to vi sent history
 ```
 
 Utan historiken: AI:t vet inte vad du hette.
@@ -35,15 +35,15 @@ using System.Text.Json;
 
 class Chatbot
 {
-    record Meddelande(string Role, string Content);
+    record Message(string Role, string Content);
 
     private readonly HttpClient       _http;
     private readonly string           _apiKey;
-    private readonly List<Meddelande> _historik = new();
+    private readonly List<Message> _history = new();
     private readonly string           _systemPrompt;
 
     private const string ApiUrl = "https://api.anthropic.com/v1/messages";
-    private const string Modell = "claude-haiku-4-5-20251001";  // snabb och billig
+    private const string Model = "claude-haiku-4-5-20251001";  // snabb och billig
 
     public Chatbot(string apiKey, string systemPrompt = "Du är en hjälpsam assistent.")
     {
@@ -52,16 +52,16 @@ class Chatbot
         _http         = new HttpClient();
     }
 
-    public async Task<string> SkickaAsync(string användarens)
+    public async Task<string> SkickaAsync(string user)
     {
-        _historik.Add(new Meddelande("user", användarens));
+        _history.Add(new Message("user", user));
 
         var request = new
         {
-            model      = Modell,
+            model      = Model,
             max_tokens = 1024,
             system     = _systemPrompt,
-            messages   = _historik.Select(m => new { role = m.Role, content = m.Content })
+            messages   = _history.Select(m => new { role = m.Role, content = m.Content })
         };
 
         using var req = new HttpRequestMessage(HttpMethod.Post, ApiUrl);
@@ -74,13 +74,13 @@ class Chatbot
 
         var json  = await response.Content.ReadAsStringAsync();
         var doc   = JsonDocument.Parse(json);
-        var svar  = doc.RootElement
+        var answer  = doc.RootElement
                        .GetProperty("content")[0]
                        .GetProperty("text")
                        .GetString() ?? "";
 
-        _historik.Add(new Meddelande("assistant", svar));
-        return svar;
+        _history.Add(new Message("assistant", answer));
+        return answer;
     }
 }
 
@@ -100,8 +100,8 @@ while (true)
     if (input.ToLower() == "sluta") break;
 
     Console.Write("AI: ");
-    var svar = await bot.SkickaAsync(input);
-    Console.WriteLine(svar);
+    var answer = await bot.SkickaAsync(input);
+    Console.WriteLine(answer);
     Console.WriteLine();
 }
 ```
@@ -109,23 +109,23 @@ while (true)
 ## Exempel på körning
 
 ```
-Chatbot startad. Skriv 'sluta' för att avsluta.
+Chatbot started. Write 'sluta' for to exit.
 
-Du: Hej, jag heter Anna och lär mig C#
-AI: Hej Anna! Kul att du lär dig C#. Vad vill du veta?
+Du: Hej, jag isCalled Anna och teaches mig C#
+AI: Hej Anna! Fun to du teaches dig C#. Vad vill du veta?
 
-Du: Vad heter jag?
-AI: Du heter Anna!
+Du: What isCalled jag?
+AI: Du isCalled Anna!
 
-Du: Förklara vad en lista är
-AI: En lista (List<T>) är en dynamisk samling...
+Du: Explain what en list is
+AI: En list (List<T>) is en dynamic collection...
 
-Du: sluta
+Du: stop
 ```
 
 ## Viktiga detaljer
 
-- `_historik` byggs upp för varje meddelande
+- `_history` byggs upp för varje meddelande
 - Hela historiken skickas med varje API-anrop — kostar tokens
 - Rensa historiken (eller börja nytt objekt) för en ny konversation
 - Claude Haiku är bra för chatbotar — snabb och billig
@@ -135,7 +135,7 @@ Du: sluta
 Om konversationen blir lång, börjar det kosta. Enkel strategi — behåll bara de senaste N meddelandena:
 
 ```csharp
-const int MaxHistorik = 20;
-if (_historik.Count > MaxHistorik)
-    _historik.RemoveRange(0, _historik.Count - MaxHistorik);
+const int MaxHistory = 20;
+if (_history.Count > MaxHistory)
+    _history.RemoveRange(0, _history.Count - MaxHistory);
 ```

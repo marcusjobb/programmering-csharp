@@ -56,7 +56,7 @@ Introduce("Björn", 28);
 ### Output
 
 ```
-Björn är 28 år.
+Björn is 28 year.
 ```
 
 Ordningen på argumenten vid anrop måste matcha ordningen på parametrarna.
@@ -102,7 +102,7 @@ CreateUser(age: 30, name: "Clara", role: "admin");
 ### Output
 
 ```
-Clara, 30 år, roll: admin
+Clara, 30 year, role: admin
 ```
 
 Namngivna argument är extra tydliga när metoden har många parametrar av samma typ.
@@ -126,8 +126,8 @@ Console.WriteLine($"Utanför: {value}");
 ### Output
 
 ```
-Inuti: 10
-Utanför: 5
+Inside: 10
+Outside: 5
 ```
 
 Vill du påverka originalet? Använd `ref` eller `out` — se respektive sida.

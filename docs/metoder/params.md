@@ -78,11 +78,11 @@ PrintAll("Tomt");
 ### Output
 
 ```
-Frukter:
-  - Äpple
-  - Banan
-  - Päron
-Tomt:
+Fruits:
+  - Apple
+  - Banana
+  - Pear
+Empty:
 ```
 
 `params` måste alltid vara sista parametern.

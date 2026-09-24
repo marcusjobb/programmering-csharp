@@ -16,7 +16,7 @@ OpenAPI-specen är en JSON- eller YAML-fil som beskriver API:et maskinläsbart (
 
 </details>
 
-2. Varför ska man använda `.Produces<Produkt>(200)` istället för bara `.Produces(200)`?
+2. Varför ska man använda `.Produces<Product>(200)` istället för bara `.Produces(200)`?
 
 <details markdown="block">
 <summary>Visa svar</summary>

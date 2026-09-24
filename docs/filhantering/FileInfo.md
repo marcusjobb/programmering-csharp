@@ -58,8 +58,8 @@ Här är ett exempel på hur vi kan använda FileInfo-klassen för att få infor
 ```csharp
 public static void Main()
 {
-  var fil = "C:\\Temp\\test.txt";
-  var fileInfo = new FileInfo(fil);
+  var file = "C:\\Temp\\test.txt";
+  var fileInfo = new FileInfo(file);
   // Skriver ut filens namn
   Console.WriteLine(fileInfo.Name);
   // Skriver ut filens storlek

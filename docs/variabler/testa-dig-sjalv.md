@@ -32,7 +32,7 @@ Utan att kolla:
 <details markdown="block">
 <summary>Visa svar</summary>
 
-`+` med en sträng på ena sidan konverterar automatiskt det andra värdet till text och limmar ihop dem. Utskriften blir: `Ålder: 25`.
+`+` med en sträng på ena sidan konverterar automatiskt det andra värdet till text och limmar ihop dem. Utskriften blir: `Age: 25`.
 
 </details>
 

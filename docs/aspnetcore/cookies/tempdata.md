@@ -71,7 +71,7 @@ Och här är hur du kan använda TempData i en view:
     ViewData["Title"] = "Om";
 }
 
-<h2>Om</h2>
+<h2>If</h2>
 
 <p>@TempData["Message"]</p>
 ```

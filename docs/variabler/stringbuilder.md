@@ -67,10 +67,10 @@ Console.WriteLine(sb.ToString());
 ### Output
 
 ```
-RUBRIK
-rad 1
-rad två
-rad tre
+HEADING
+row 1
+row two
+row tre
 ```
 
 ## I en loop
@@ -93,10 +93,10 @@ Console.Write(sb.ToString());
 ### Output
 
 ```
-- Kaffe
+- Coffee
 - Te
 - Juice
-- Mjölk
+- Milk
 ```
 
 ## När ska du använda det?

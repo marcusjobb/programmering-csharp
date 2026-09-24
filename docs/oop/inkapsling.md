@@ -51,7 +51,7 @@ Trots sina fördelar har inkapsling vissa begränsningar:
 
 Inkapsling kan tillämpas i olika scenarier inom C#-programmering:
 
-- **Dataklasser**: Genom att använda inkapsling kan vi definiera dataklasser som innehåller attribut och tillhörande metoder för att hantera dessa attribut. Exempelvis kan vi skapa en `Person`-klass med medlemmar som `Namn`, `Ålder` och `Adress`, samt metoder för att manipulera och hämta dessa data.
+- **Dataklasser**: Genom att använda inkapsling kan vi definiera dataklasser som innehåller attribut och tillhörande metoder för att hantera dessa attribut. Exempelvis kan vi skapa en `Person`-klass med medlemmar som `Name`, `Age` och `Address`, samt metoder för att manipulera och hämta dessa data.
 - **API-design**: När vi skapar offentliga API:er är det viktigt att använda inkapsling för att skydda interna implementationer och erbjuda tydliga och säkra gränssnitt för användare av API:et.
 - **Arv och polymorfism**: Inkapsling används tillsammans med arv och polymorfism för att definiera klasser med olika beteenden och gränssnitt, samtidigt som implementationen göms för användare av klassen.
 
@@ -187,21 +187,21 @@ När en klass bara håller data utan logik kan en `record` vara bättre:
 
 ```csharp
 // Klass — kräver manuell equals, ToString, etc.
-public class Transaktion
+public class Transaction
 {
-    public string Typ { get; set; }
-    public decimal Belopp { get; set; }
+    public string Type { get; set; }
+    public decimal Amount { get; set; }
 }
 
 // Record (C# 9) — immutable, ==, ToString() och with-uttryck gratis
-public record Transaktion(string Typ, decimal Belopp);
+public record Transaction(string Type, decimal Amount);
 
 // Användning
-var t = new Transaktion("Insättning", 500);
+var t = new Transaction("Insättning", 500);
 Console.WriteLine(t);  // Transaktion { Typ = Insättning, Belopp = 500 }
 
 // with skapar en kopia med ändrat värde
-var t2 = t with { Belopp = 1000 };
+var t2 = t with { Amount = 1000 };
 ```
 
 > **✨ Modernt (C# 9+):** Använd `record` för rena dataklasser — du får automatisk jämförelse, utskrift och kopiering utan att skriva en rad extra kod.

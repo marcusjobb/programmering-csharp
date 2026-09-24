@@ -33,10 +33,10 @@ C# använder två minnesutrymmen:
 | **Hastighet** | Snabb — LIFO-stack | Lite långsammare |
 
 ```csharp
-void Metod()
+void Method()
 {
     int x = 42;          // på stacken — frigörs när Metod() returnerar
-    var bil = new Bil(); // "bil"-referensen på stacken, Bil-objektet på heapen
+    var car = new Car(); // "bil"-referensen på stacken, Bil-objektet på heapen
 }
 // bil-objektet på heapen lever kvar tills GC städar
 ```
@@ -46,7 +46,7 @@ void Metod()
 GC letar efter **rötter** — aktiva variabler, statiska fält och anrop på call-stacken. Allt som kan nås från en rot är "levande". Allt som inte kan nås är skräp och kan tas bort.
 
 ```csharp
-var a = new Bil("Volvo");   // a pekar på ett Bil-objekt
+var a = new Car("Volvo");   // a pekar på ett Bil-objekt
 var b = a;                   // b pekar på samma objekt
 a = null;                    // a pekar inte längre dit
                              // men b gör det — objektet lever kvar
@@ -72,7 +72,7 @@ I de allra flesta C#-program behöver du inte tänka på minne alls. GC sköter 
 **Undantag** — när du håller **ohanterade resurser** (filer, databasanslutningar, nätverksanslutningar) behöver du hjälpa till med `IDisposable`:
 
 ```csharp
-using var fil = File.OpenRead("data.txt");  // stängs automatiskt
+using var file = File.OpenRead("data.txt");  // stängs automatiskt
 ```
 
 Se [Destruktor och Finalizer](destruktor.md) för detaljer.
@@ -98,7 +98,7 @@ Trots GC kan du orsaka minnesläckor i C# — vanligast när:
 
 ```csharp
 // Klassisk event-läcka
-knapp.Click += HanteraKlick;   // prenumeration
+knapp.Click += HandleClick;   // prenumeration
 // Om du aldrig skriver: knapp.Click -= HanteraKlick;
 // ... lever objektet kvar så länge knappen finns
 ```

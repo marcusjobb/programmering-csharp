@@ -9,16 +9,16 @@ nav_order: 15
 
 ## Vad är en array?
 
-Ibland räcker det inte med en enda variabel. Tänk dig att du vill lagra fem poäng från ett spel. Du _kan_ skapa fem separata variabler — `poäng1`, `poäng2`, `poäng3` och så vidare — men det blir snabbt opraktiskt. Vad händer när du behöver femtio poäng?
+Ibland räcker det inte med en enda variabel. Tänk dig att du vill lagra fem poäng från ett spel. Du _kan_ skapa fem separata variabler — `score`, `score`, `score` och så vidare — men det blir snabbt opraktiskt. Vad händer när du behöver femtio poäng?
 
 En **array** löser det här. Den är en samling av värden av samma typ, ordnade i en rad. Du bestämmer storleken en gång när du skapar den, och den storleken ändras aldrig.
 
 ```csharp
 // En array med fem veckodagar
-string[] veckodagar = { "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag" };
+string[] weekdays = { "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag" };
 
 // En array med poäng
-int[] poäng = { 42, 17, 88, 56, 73 };
+int[] score = { 42, 17, 88, 56, 73 };
 ```
 
 Tänk på en array som en rad med lådor. Alla lådor är likadana (samma typ), de sitter i ordning, och du kan inte lägga till eller ta bort lådor efteråt.
@@ -30,11 +30,11 @@ Tänk på en array som en rad med lådor. Alla lådor är likadana (samma typ), 
 Varje plats i en array har ett nummer som kallas **index**. Det första elementet har index `0`, inte `1`. Det kan kännas ovant till en början, men det är standard i nästan alla programmeringsspråk.
 
 ```csharp
-string[] veckodagar = { "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag" };
+string[] weekdays = { "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag" };
 
-Console.WriteLine(veckodagar[0]);   // Måndag
-Console.WriteLine(veckodagar[1]);   // Tisdag
-Console.WriteLine(veckodagar[4]);   // Fredag
+Console.WriteLine(weekdays[0]);   // Måndag
+Console.WriteLine(weekdays[1]);   // Tisdag
+Console.WriteLine(weekdays[4]);   // Fredag
 ```
 
 ```mermaid
@@ -47,7 +47,7 @@ flowchart LR
     style E fill:#1a5276,stroke:#154360,color:#fff
 ```
 
-Det sista giltiga indexet är alltid `array.Length - 1`. Försöker du läsa `veckodagar[5]` på en array med fem element kraschar programmet med ett `IndexOutOfRangeException`. Det är ett av de vanligaste nybörjarmisstagen — håll det i bakhuvudet.
+Det sista giltiga indexet är alltid `array.Length - 1`. Försöker du läsa `weekdays[5]` på en array med fem element kraschar programmet med ett `IndexOutOfRangeException`. Det är ett av de vanligaste nybörjarmisstagen — håll det i bakhuvudet.
 
 **Se även:** [programmeringstermer/arrayer.md](../programmeringstermer/arrayer.md)
 
@@ -62,32 +62,32 @@ Att skriva ut varje element för hand fungerar för tre element. För trettio ä
 `for`-loopen är bra när du behöver veta _vilken position_ du befinner dig på.
 
 ```csharp
-int[] poäng = { 42, 17, 88, 56, 73 };
+int[] score = { 42, 17, 88, 56, 73 };
 
 // Beräkna summan av alla poäng
-int summa = 0;
-for (int i = 0; i < poäng.Length; i++)
+int sum = 0;
+for (int i = 0; i < score.Length; i++)
 {
-    summa += poäng[i];
+    sum += score[i];
 }
 
-double medelvärde = (double)summa / poäng.Length;
-Console.WriteLine("Summa: " + summa);
-Console.WriteLine("Medelvärde: " + medelvärde);
+double average = (double)sum / score.Length;
+Console.WriteLine("Summa: " + sum);
+Console.WriteLine("Medelvärde: " + average);
 ```
 
-Observera `i < poäng.Length` — inte `i <= poäng.Length`. Det sista giltiga indexet är `Length - 1`, inte `Length`.
+Observera `i < score.Length` — inte `i <= score.Length`. Det sista giltiga indexet är `Length - 1`, inte `Length`.
 
 ### foreach är renare när du bara vill läsa
 
 När du bara vill gå igenom varje element utan att bry dig om positionen är `foreach` kortare och tydligare.
 
 ```csharp
-string[] veckodagar = { "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag" };
+string[] weekdays = { "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag" };
 
-foreach (string dag in veckodagar)
+foreach (string day in weekdays)
 {
-    Console.WriteLine(dag);
+    Console.WriteLine(day);
 }
 ```
 
@@ -117,7 +117,7 @@ Det är där `List<T>` kommer in. En lista fungerar som en array, men den kan **
 
 ```csharp
 // Skapa en tom lista för strängar
-List<string> shoppinglista = new List<string>();
+List<string> shoppingList = new List<string>();
 ```
 
 `T` i `List<T>` är en platshållare för typen. `List<string>` är en lista med strängar, `List<int>` är en lista med heltal. Du berättar för kompilatorn vilken typ listan ska hålla.
@@ -131,29 +131,29 @@ List<string> shoppinglista = new List<string>();
 De metoder och properties du använder mest med en lista:
 
 ```csharp
-List<string> shoppinglista = new List<string>();
+List<string> shoppingList = new List<string>();
 
 // Lägg till varor
-shoppinglista.Add("Mjölk");
-shoppinglista.Add("Bröd");
-shoppinglista.Add("Ägg");
-shoppinglista.Add("Smör");
-shoppinglista.Add("Ost");
+shoppingList.Add("Mjölk");
+shoppingList.Add("Bröd");
+shoppingList.Add("Ägg");
+shoppingList.Add("Smör");
+shoppingList.Add("Ost");
 
-Console.WriteLine("Antal varor: " + shoppinglista.Count);   // 5
+Console.WriteLine("Antal varor: " + shoppingList.Count);   // 5
 
 // Kolla om en vara finns
-bool harBröd = shoppinglista.Contains("Bröd");
-Console.WriteLine("Har Bröd? " + harBröd);                  // True
+bool hasBread = shoppingList.Contains("Bröd");
+Console.WriteLine("Har Bröd? " + hasBread);                  // True
 
 // Ta bort en vara
-shoppinglista.Remove("Bröd");
-Console.WriteLine("Antal varor kvar: " + shoppinglista.Count);  // 4
+shoppingList.Remove("Bröd");
+Console.WriteLine("Antal varor kvar: " + shoppingList.Count);  // 4
 
 // Skriv ut listan
-foreach (string vara in shoppinglista)
+foreach (string be in shoppingList)
 {
-    Console.WriteLine("- " + vara);
+    Console.WriteLine("- " + be);
 }
 ```
 
@@ -167,8 +167,8 @@ Lägg märke till att listor använder `Count`, inte `Length`. Det är en av de 
 Vill du ta bort ett element på ett visst index (inte ett visst värde) använder du `RemoveAt(int index)`:
 
 ```csharp
-List<string> frukter = new List<string> { "Äpple", "Banan", "Citron" };
-frukter.RemoveAt(1);   // tar bort "Banan"
+List<string> fruits = new List<string> { "Äpple", "Banan", "Citron" };
+fruits.RemoveAt(1);   // tar bort "Banan"
 ```
 
 </details>

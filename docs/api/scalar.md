@@ -77,13 +77,13 @@ Med dokumentation visar Scalar allt — beskrivning, parametrar, response-schema
 ```csharp
 app.MapGet("/api/produkter/{id}", (int id) =>
 {
-    var p = produkter.FirstOrDefault(p => p.Id == id);
+    var p = products.FirstOrDefault(p => p.Id == id);
     return p is null ? Results.NotFound() : Results.Ok(p);
 })
 .WithName("HamtaProdukt")
 .WithTags("Produkter")                // grupperingslabel i UI
 .WithSummary("Hämta en produkt")      // kort beskrivning
-.Produces<Produkt>(200)               // visar response-schemat
+.Produces<Product>(200)               // visar response-schemat
 .Produces(404);                       // dokumenterar felfall
 ```
 
@@ -101,28 +101,28 @@ app.MapGet("/api/produkter/{id}", (int id) =>
 ## Komplett exempel
 
 ```csharp
-var produkter = new List<Produkt>
+var products = new List<Product>
 {
     new(1, "Laptop", 12999),
     new(2, "Mus", 299)
 };
 
-app.MapGet("/api/produkter", () => Results.Ok(produkter))
+app.MapGet("/api/produkter", () => Results.Ok(products))
     .WithTags("Produkter")
     .WithSummary("Hämta alla produkter")
-    .Produces<List<Produkt>>(200);
+    .Produces<List<Product>>(200);
 
 app.MapGet("/api/produkter/{id}", (int id) =>
 {
-    var p = produkter.FirstOrDefault(p => p.Id == id);
+    var p = products.FirstOrDefault(p => p.Id == id);
     return p is null ? Results.NotFound() : Results.Ok(p);
 })
 .WithTags("Produkter")
 .WithSummary("Hämta en produkt på ID")
-.Produces<Produkt>(200)
+.Produces<Product>(200)
 .Produces(404);
 
-record Produkt(int Id, string Namn, decimal Pris);
+record Product(int Id, string Name, decimal Price);
 ```
 
 ## Development eller alltid?

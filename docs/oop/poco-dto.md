@@ -30,11 +30,11 @@ Begreppet kommer från Java's POJO och används i C# för att betona att en klas
 
 ```csharp
 // POCO — en enkel klass utan koppling till databas, nätverk eller UI
-public class Produkt
+public class Product
 {
     public int    Id    { get; set; }
-    public string Namn  { get; set; }
-    public double Pris  { get; set; }
+    public string Name  { get; set; }
+    public double Price  { get; set; }
     public bool   AktivI lager { get; set; }
 }
 ```
@@ -52,10 +52,10 @@ En DTO är:
 
 ```csharp
 // Domänklass — hela modellen i databasen
-public class Användare
+public class User
 {
     public int    Id           { get; set; }
-    public string Användarnamn { get; set; }
+    public string UserName { get; set; }
     public string LösenordHash { get; set; }  // skickas ALDRIG till klienten
     public string Email        { get; set; }
     public DateTime SkapadDatum { get; set; }
@@ -65,7 +65,7 @@ public class Användare
 public class AnvändarDto
 {
     public int    Id           { get; set; }
-    public string Användarnamn { get; set; }
+    public string UserName { get; set; }
     public string Email        { get; set; }
 }
 ```
@@ -85,12 +85,12 @@ Records är ett modernt alternativ som ger dig en kortare och oföränderlig kla
 public class ProduktDto
 {
     public int    Id   { get; init; }
-    public string Namn { get; init; }
-    public double Pris { get; init; }
+    public string Name { get; init; }
+    public double Price { get; init; }
 }
 
 // ✨ C# 9 — record (kortare, inbyggd equality, oföränderlig)
-public record ProduktDto(int Id, string Namn, double Pris);
+public record ProduktDto(int Id, string Name, double Price);
 
 // Används på samma sätt
 var p = new ProduktDto(1, "Kaffemaskin", 499.0);

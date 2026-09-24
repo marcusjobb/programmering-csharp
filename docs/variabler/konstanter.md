@@ -39,7 +39,7 @@ Console.WriteLine($"Max poäng: {MaxScore}");
 
 ```
 Pi = 3.14159265358979
-Max poäng: 100
+Max score: 100
 ```
 
 `const` är implicit `static` — den tillhör klassen, inte ett objekt.
@@ -63,8 +63,8 @@ public class Configuration
     }
 }
 
-var config = new Konfiguration("Server=localhost;Database=Min");
-Console.WriteLine(config.StartTid);
+var config = new Configuration("Server=localhost;Database=Min");
+Console.WriteLine(config.StartTime);
 ```
 
 ### Output
@@ -89,7 +89,7 @@ Konstanter skrivs ofta med PascalCase i C# (inte SCREAMING_SNAKE_CASE som i Java
 
 ```csharp
 const int MaxCount = 50;       // C#-stil
-const int MAX_COUNT = 50;      // Java-stil — undvik i C#
+const int max_count = 50;      // Java-stil — undvik i C#
 ```
 
 ## Vad är `final`?

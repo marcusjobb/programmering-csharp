@@ -47,7 +47,7 @@ Det ser ut som en vanlig instansmetod — men den är faktiskt en statisk metod 
 
 - Klassen måste vara `static`
 - Metoden måste vara `static`
-- Första parametern: `this TypDuUtökar namn`
+- Första parametern: `this TypDuUtökar name`
 - Klassen måste vara i ett tillgängligt namespace (`using`)
 
 ## Utöka inbyggda typer
@@ -101,11 +101,11 @@ Console.WriteLine($"Slumpmässig: {names.RandomItem()}");
 ### Output
 
 ```
-Deltagare:
+Participants:
   Anna
   Björn
   Clara
-Slumpmässig: Björn
+Random: Björn
 ```
 
 ## LINQ är extension-metoder

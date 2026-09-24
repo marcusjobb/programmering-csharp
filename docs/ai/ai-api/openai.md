@@ -32,7 +32,7 @@ public class OpenAiKlient
     private readonly HttpClient _http;
     private readonly string     _apiKey;
     private const    string     ApiUrl  = "https://api.openai.com/v1/chat/completions";
-    private const    string     Modell  = "gpt-4o";
+    private const    string     Model  = "gpt-4o";
 
     public OpenAiKlient(string apiKey)
     {
@@ -41,20 +41,20 @@ public class OpenAiKlient
         _http.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
     }
 
-    public async Task<string> FrågaAsync(string fråga, string systemPrompt = "")
+    public async Task<string> FrågaAsync(string question, string systemPrompt = "")
     {
-        var meddelanden = new List<object>();
+        var messages = new List<object>();
 
         if (!string.IsNullOrEmpty(systemPrompt))
-            meddelanden.Add(new { role = "system", content = systemPrompt });
+            messages.Add(new { role = "system", content = systemPrompt });
 
-        meddelanden.Add(new { role = "user", content = fråga });
+        messages.Add(new { role = "user", content = question });
 
         var request = new
         {
-            model       = Modell,
+            model       = Model,
             max_tokens  = 1024,
-            messages    = meddelanden
+            messages    = messages
         };
 
         var response = await _http.PostAsJsonAsync(ApiUrl, request);
@@ -80,12 +80,12 @@ var apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY")
 
 var gpt = new OpenAiKlient(apiKey);
 
-string svar = await gpt.FrågaAsync(
-    fråga:        "Förklara skillnaden mellan value types och reference types i C#",
+string answer = await gpt.FrågaAsync(
+    question:        "Förklara skillnaden mellan value types och reference types i C#",
     systemPrompt: "Du är en C#-lärare. Svara kortfattat på svenska."
 );
 
-Console.WriteLine(svar);
+Console.WriteLine(answer);
 ```
 
 ## Skillnader mot Anthropic API
@@ -112,9 +112,9 @@ using OpenAI;
 using OpenAI.Chat;
 
 var client = new ChatClient("gpt-4o", apiKey);
-var svar   = await client.CompleteChatAsync("Förklara async/await");
+var answer   = await client.CompleteChatAsync("Förklara async/await");
 
-Console.WriteLine(svar.Value.Content[0].Text);
+Console.WriteLine(answer.Value.Content[0].Text);
 ```
 
 Eget `HttpClient`-anrop är bra för att förstå protokollet — i produktion är paketet bekvämare.

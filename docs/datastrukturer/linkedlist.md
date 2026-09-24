@@ -12,7 +12,7 @@ En `LinkedList<T>` är en samling noder där varje nod håller ett värde och en
 ## TL;DR
 
 - `LinkedList<T>` är bra när du ofta lägger till eller tar bort element mitt i samlingen.
-- Slumpmässig åtkomst (`minLista[5]`) är långsam — `O(n)`. Välj `List<T>` om du indexerar ofta.
+- Slumpmässig åtkomst (`minList[5]`) är långsam — `O(n)`. Välj `List<T>` om du indexerar ofta.
 - .NET:s `LinkedList<T>` är dubbel-länkad — varje nod har både `Next` och `Previous`.
 
 ---

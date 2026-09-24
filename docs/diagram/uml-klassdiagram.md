@@ -175,9 +175,9 @@ public class Dog : Animal  // Dog är en Animal
 }
 
 // Användning
-var hund = new Dog { Name = "Fido" };
-hund.Eat();   // ärvd från Animal
-hund.Bark();  // Dogs egen
+var dog = new Dog { Name = "Fido" };
+dog.Eat();   // ärvd från Animal
+dog.Bark();  // Dogs egen
 ```
 
 ## Multiplicitet

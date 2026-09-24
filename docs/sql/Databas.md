@@ -29,7 +29,7 @@ Databaser
 För att skapa en ny databas kan du använda följande SQL-kod:
 
 ```sql
-CREATE DATABASE databasnamn;
+CREATE DATABASE databaseName;
 ```
 
 ### Skapa en databas om den inte finns
@@ -37,7 +37,7 @@ CREATE DATABASE databasnamn;
 Om du vill skapa en databas bara om den inte redan finns kan du använda följande SQL-kod:
 
 ```sql
-CREATE DATABASE IF NOT EXISTS databasnamn;
+CREATE DATABASE IF NOT EXISTS databaseName;
 ```
 
 ### Ta bort en databas
@@ -45,7 +45,7 @@ CREATE DATABASE IF NOT EXISTS databasnamn;
 Det är viktigt att komma ihåg att ta säkerhetskopior innan du tar bort en databas, eftersom all data kommer att gå förlorad. Här är kodexemplet för att ta bort en databas:
 
 ```sql
-DROP DATABASE databasnamn;
+DROP DATABASE databaseName;
 ```
 
 ### Ändra namn på databasen
@@ -53,7 +53,7 @@ DROP DATABASE databasnamn;
 Att ändra namnet på en databas kan vara riskabelt eftersom det kan skapa problem om du har kopplat dig till databasen med ett program. Om du ändå vill ändra namnet på databasen kan du använda följande SQL-kod:
 
 ```sql
-ALTER DATABASE databasnamn RENAME TO nytt_databasnamn;
+ALTER DATABASE databaseName RENAME TO new_databaseName;
 ```
 
 Det är viktigt att använda försiktighet när du arbetar med databaser för att undvika oavsiktlig dataförlust eller andra problem. Kom ihåg att alltid göra säkerhetskopior och vara medveten om konsekvenserna av dina handlingar.

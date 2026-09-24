@@ -27,22 +27,22 @@ Alla klasser i C# ärver från `object`. Det ger alla objekt en `ToString()`-met
 Utan override returnerar `ToString()` klassens fullständiga typnamn.
 
 ```csharp
-public class Bil
+public class Car
 {
-    public string Märke { get; set; }
-    public int    År    { get; set; }
+    public string Brand { get; set; }
+    public int    Year    { get; set; }
 }
 
-var bil = new Bil { Märke = "Volvo", År = 2020 };
-Console.WriteLine(bil.ToString());  // Bil
-Console.WriteLine(bil);             // Bil (anropar ToString() automatiskt)
+var car = new Car { Brand = "Volvo", Year = 2020 };
+Console.WriteLine(car.ToString());  // Bil
+Console.WriteLine(car);             // Bil (anropar ToString() automatiskt)
 ```
 
 ### Output
 
 ```
-Bil
-Bil
+Car
+Car
 ```
 
 Inte speciellt informativt.
@@ -52,34 +52,34 @@ Inte speciellt informativt.
 Lägg till `override ToString()` för att styra utskriften.
 
 ```csharp
-public class Bil
+public class Car
 {
-    public string Märke { get; set; }
-    public int    År    { get; set; }
+    public string Brand { get; set; }
+    public int    Year    { get; set; }
 
     public override string ToString()
     {
-        return $"{Märke} ({År})";
+        return $"{Brand} ({Year})";
     }
 }
 
-var bil = new Bil { Märke = "Volvo", År = 2020 };
-Console.WriteLine(bil);             // Volvo (2020)
-Console.WriteLine($"Bilen: {bil}"); // Bilen: Volvo (2020)
+var car = new Car { Brand = "Volvo", Year = 2020 };
+Console.WriteLine(car);             // Volvo (2020)
+Console.WriteLine($"Bilen: {car}"); // Bilen: Volvo (2020)
 ```
 
 ### Output
 
 ```
 Volvo (2020)
-Bilen: Volvo (2020)
+Car: Volvo (2020)
 ```
 
 ## Vanliga användningsfall
 
 `ToString()` anropas implicit av:
-- `Console.WriteLine(objekt)`
-- Stränginterpolation `$"... {objekt} ..."`
+- `Console.WriteLine(object)`
+- Stränginterpolation `$"... {object} ..."`
 - Debuggern i Visual Studio / Rider (hover-tooltip visar ToString)
 - `string.Format`, `StringBuilder.Append`, m.fl.
 
@@ -88,25 +88,25 @@ Det gör override av `ToString()` till ett enkelt och kraftfullt verktyg för fe
 ## Exempel: flera klasser
 
 ```csharp
-public class Produkt
+public class Product
 {
-    public string Namn  { get; set; }
-    public double Pris  { get; set; }
+    public string Name  { get; set; }
+    public double Price  { get; set; }
 
-    public override string ToString() => $"{Namn} — {Pris:C}";
+    public override string ToString() => $"{Name} — {Price:C}";
 }
 
 public class Person
 {
-    public string Förnamn { get; set; }
-    public string Efternamn { get; set; }
-    public int    Ålder { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public int    Age { get; set; }
 
-    public override string ToString() => $"{Förnamn} {Efternamn} ({Ålder} år)";
+    public override string ToString() => $"{FirstName} {LastName} ({Age} år)";
 }
 
-var p = new Produkt { Namn = "Kaffemaskin", Pris = 499.0 };
-var u = new Person  { Förnamn = "Anna", Efternamn = "Svensson", Ålder = 32 };
+var p = new Product { Name = "Kaffemaskin", Price = 499.0 };
+var u = new Person  { FirstName = "Anna", LastName = "Svensson", Age = 32 };
 
 Console.WriteLine(p);   // Kaffemaskin — 499,00 kr
 Console.WriteLine(u);   // Anna Svensson (32 år)
@@ -115,8 +115,8 @@ Console.WriteLine(u);   // Anna Svensson (32 år)
 ### Output
 
 ```
-Kaffemaskin — 499,00 kr
-Anna Svensson (32 år)
+CoffeeMachine — 499,00 kr
+Anna Svensson (32 year)
 ```
 
 ## TL;DR

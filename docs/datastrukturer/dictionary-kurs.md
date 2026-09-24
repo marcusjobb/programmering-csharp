@@ -17,7 +17,7 @@ Ett dictionary lagrar värden i **nyckel-värde-par**. Varje värde har en tillh
 
 ```csharp
 // Nyckel: namn (string), Värde: telefonnummer (string)
-Dictionary<string, string> telefonbok = new Dictionary<string, string>();
+Dictionary<string, string> phoneBook = new Dictionary<string, string>();
 ```
 
 Telefonboksanalygin håller hela vägen: precis som ett namn i en telefonbok måste vara unikt (eller åtminstone tydligt), måste nyckeln i ett dictionary vara unik. Två poster kan inte ha samma nyckel.
@@ -31,11 +31,11 @@ Telefonboksanalygin håller hela vägen: precis som ett namn i en telefonbok må
 Du skapar ett tomt dictionary och lägger sedan till par med `Add()`.
 
 ```csharp
-Dictionary<string, string> telefonbok = new Dictionary<string, string>();
+Dictionary<string, string> phoneBook = new Dictionary<string, string>();
 
-telefonbok.Add("Anna", "070-123 45 67");
-telefonbok.Add("Björn", "073-987 65 43");
-telefonbok.Add("Camilla", "076-555 00 11");
+phoneBook.Add("Anna", "070-123 45 67");
+phoneBook.Add("Björn", "073-987 65 43");
+phoneBook.Add("Camilla", "076-555 00 11");
 ```
 
 Varje anrop till `Add()` tar två argument: nyckeln och värdet. Ordningen de läggs till spelar ingen roll — du hämtar dem alltid via nyckeln, inte via position.
@@ -53,11 +53,11 @@ flowchart LR
     style V3 fill:#2e86c1,stroke:#1a5276,color:#fff
 ```
 
-Du kan också använda indexer-syntaxen `dict["nyckel"] = värde` för att lägga till eller uppdatera ett par. Skillnaden mot `Add()` är att indexer-syntaxen _skriver över_ om nyckeln redan finns, medan `Add()` kastar ett undantag.
+Du kan också använda indexer-syntaxen `dict["nyckel"] = value` för att lägga till eller uppdatera ett par. Skillnaden mot `Add()` är att indexer-syntaxen _skriver över_ om nyckeln redan finns, medan `Add()` kastar ett undantag.
 
 ```csharp
 // Indexer — lägger till om nyckeln inte finns, uppdaterar om den finns
-telefonbok["Anna"] = "070-999 00 00";
+phoneBook["Anna"] = "070-999 00 00";
 ```
 
 ---
@@ -67,13 +67,13 @@ telefonbok["Anna"] = "070-999 00 00";
 Du hämtar ett värde med samma hakparentes-syntax som du använder för arrayer — men istället för ett numeriskt index anger du nyckeln.
 
 ```csharp
-Dictionary<string, string> telefonbok = new Dictionary<string, string>
+Dictionary<string, string> phoneBook = new Dictionary<string, string>
 {
     { "Anna", "070-123 45 67" },
     { "Björn", "073-987 65 43" }
 };
 
-string annasNummer = telefonbok["Anna"];
+string annasNummer = phoneBook["Anna"];
 Console.WriteLine(annasNummer);   // 070-123 45 67
 ```
 
@@ -85,10 +85,10 @@ Det viktiga att veta: om nyckeln _inte finns_ kraschar programmet med ett `KeyNo
 När du inte är säker på om nyckeln finns är `TryGetValue` det säkra alternativet. Den returnerar `true` om nyckeln hittades och lägger värdet i en `out`-variabel — annars returnerar den `false` utan att krascha.
 
 ```csharp
-string nummer;
-if (telefonbok.TryGetValue("David", out nummer))
+string number;
+if (phoneBook.TryGetValue("David", out number))
 {
-    Console.WriteLine("Hittade: " + nummer);
+    Console.WriteLine("Hittade: " + number);
 }
 else
 {
@@ -107,19 +107,19 @@ Det är det rekommenderade sättet när du inte kan garantera att nyckeln finns.
 Innan du slår upp ett värde kan du kontrollera om nyckeln existerar med `ContainsKey()`. Du tar bort ett par med `Remove()`.
 
 ```csharp
-Dictionary<string, string> telefonbok = new Dictionary<string, string>
+Dictionary<string, string> phoneBook = new Dictionary<string, string>
 {
     { "Anna", "070-123 45 67" },
     { "Björn", "073-987 65 43" }
 };
 
 // Kolla om en nyckel finns
-Console.WriteLine(telefonbok.ContainsKey("Anna"));    // True
-Console.WriteLine(telefonbok.ContainsKey("David"));   // False
+Console.WriteLine(phoneBook.ContainsKey("Anna"));    // True
+Console.WriteLine(phoneBook.ContainsKey("David"));   // False
 
 // Ta bort ett par
-telefonbok.Remove("Björn");
-Console.WriteLine(telefonbok.ContainsKey("Björn"));   // False
+phoneBook.Remove("Björn");
+Console.WriteLine(phoneBook.ContainsKey("Björn"));   // False
 ```
 
 `Remove()` returnerar `true` om nyckeln hittades och togs bort, och `false` om nyckeln inte fanns. Det kastar inget undantag om nyckeln saknas.
@@ -155,7 +155,7 @@ Välj dictionary när du vill **slå upp** ett värde med ett meningsfullt ID �
 | | List\<T\> | Dictionary\<TKey, TValue\> |
 |---|---|---|
 | Hämta element | Via position: `list[2]` | Via nyckel: `dict["Anna"]` |
-| Kolla om något finns | `Contains(värde)` | `ContainsKey(nyckel)` |
+| Kolla om något finns | `Contains(value)` | `ContainsKey(key)` |
 | Typisk användning | Shoppinglista, highscore-lista | Telefonbok, konfiguration, räknare |
 
 Några vanliga användningsfall för dictionary:

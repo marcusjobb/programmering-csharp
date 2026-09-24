@@ -27,8 +27,8 @@ Med `partial` kan du dela upp definitionen av en klass i **flera filer**. Kompil
 // Fil: Person.cs
 public partial class Person
 {
-    public string Namn  { get; set; }
-    public int    Ålder { get; set; }
+    public string Name  { get; set; }
+    public int    Age { get; set; }
 }
 ```
 
@@ -36,26 +36,26 @@ public partial class Person
 // Fil: Person.Metoder.cs
 public partial class Person
 {
-    public void Presentera()
+    public void Present()
     {
-        Console.WriteLine($"{Namn}, {Ålder} år");
+        Console.WriteLine($"{Name}, {Age} år");
     }
 
-    public bool ÄrVuxen() => Ålder >= 18;
+    public bool IsAdult() => Age >= 18;
 }
 ```
 
 ```csharp
 // Program.cs — klassen beter sig som en enda klass
-var p = new Person { Namn = "Anna", Ålder = 25 };
-p.Presentera();                          // Anna, 25 år
-Console.WriteLine(p.ÄrVuxen());          // True
+var p = new Person { Name = "Anna", Age = 25 };
+p.Present();                          // Anna, 25 år
+Console.WriteLine(p.IsAdult());          // True
 ```
 
 ### Output
 
 ```
-Anna, 25 år
+Anna, 25 year
 True
 ```
 
@@ -83,22 +83,22 @@ Inom en partial class kan du deklarera en **partial metod** — en signatur i en
 // Del 1
 public partial class Logger
 {
-    partial void OnLoggad(string meddelande);  // bara deklaration
+    partial void OnLoggad(string message);  // bara deklaration
 
-    public void Logga(string meddelande)
+    public void Log(string message)
     {
-        Console.WriteLine($"[LOG] {meddelande}");
-        OnLoggad(meddelande);  // anropas om implementerad, annars ignoreras
+        Console.WriteLine($"[LOG] {message}");
+        OnLoggad(message);  // anropas om implementerad, annars ignoreras
     }
 }
 
 // Del 2 (valfri implementation)
 public partial class Logger
 {
-    partial void OnLoggad(string meddelande)
+    partial void OnLoggad(string message)
     {
         // Extra åtgärd om man vill — annars raderas anropet av kompilatorn
-        System.Diagnostics.Debug.WriteLine($"DEBUG: {meddelande}");
+        System.Diagnostics.Debug.WriteLine($"DEBUG: {message}");
     }
 }
 ```

@@ -75,49 +75,49 @@ Anta att vi bygger ett spel där vi har olika typer av karaktärer, inklusive fi
 
 ```csharp
 // Definiera överordnad klass Karaktär
-public class Karaktär
+public class Character
 {
-    public string Namn { get; set; }
-    public int Hälsa { get; set; }
+    public string Name { get; set; }
+    public int Health { get; set; }
 }
 
 // Definiera nedärvande klass Fiende
-public class Fiende : Karaktär
+public class Enemy : Character
 {
-    public void Attackera()
+    public void Attack()
     {
-        Console.WriteLine($"{Namn} attackerar!");
+        Console.WriteLine($"{Name} attackerar!");
     }
 }
 
 // Definiera nedärvande klass Hjälte
-public class Hjälte : Karaktär
+public class Hero : Character
 {
-    public void Försvara()
+    public void Defend()
     {
-        Console.WriteLine($"{Namn} försvarar!");
+        Console.WriteLine($"{Name} försvarar!");
     }
 }
 
 // Skapa objekt och sätt egenskaper
-var fiende = new Fiende();
-fiende.Namn = "Ond skurk";
-fiende.Hälsa = 100;
-fiende.Attackera();
+var enemy = new Enemy();
+enemy.Name = "Ond skurk";
+enemy.Health = 100;
+enemy.Attack();
 
-var hjälte = new Hjälte();
-hjälte.Namn = "Modig hjälte";
-hjälte.Hälsa = 100;
-hjälte.Försvara();
+var hero = new Hero();
+hero.Name = "Modig hjälte";
+hero.Health = 100;
+hero.Defend();
 ```
 
-I detta kodexempel har vi en överordnad klass `Karaktär` som innehåller gemensamma egenskaper för både fiender och hjältar. Genom att ärva från `Karaktär` kan vi definiera specialiserad funktionalitet för fiender och hjältar i deras respektive nedärvande klasser.
+I detta kodexempel har vi en överordnad klass `Character` som innehåller gemensamma egenskaper för både fiender och hjältar. Genom att ärva från `Character` kan vi definiera specialiserad funktionalitet för fiender och hjältar i deras respektive nedärvande klasser.
 
 ### Output
 
 ```
-Ond skurk attackerar!
-Modig hjälte försvarar!
+Evil villain attacks!
+Brave hero defends!
 ```
 
 ---
@@ -127,47 +127,47 @@ Modig hjälte försvarar!
 ### Konstruktor med `: base()` (alltid giltigt)
 
 ```csharp
-public class Karaktär
+public class Character
 {
-    public string Namn { get; set; }
-    public int Hälsa { get; set; }
+    public string Name { get; set; }
+    public int Health { get; set; }
 
     // Konstruktor i basklassen
-    public Karaktär(string namn, int hälsa)
+    public Character(string name, int health)
     {
-        Namn  = namn;
-        Hälsa = hälsa;
+        Name  = name;
+        Health = health;
     }
 }
 
-public class Fiende : Karaktär
+public class Enemy : Character
 {
     // : base(...) skickar argumenten upp till Karaktärs konstruktor
-    public Fiende(string namn, int hälsa) : base(namn, hälsa) { }
+    public Enemy(string name, int health) : base(name, health) { }
 
-    public void Attackera() => Console.WriteLine($"{Namn} attackerar!");
+    public void Attack() => Console.WriteLine($"{Name} attackerar!");
 }
 
-var fiende = new Fiende("Ond skurk", 100);
-fiende.Attackera();
+var enemy = new Enemy("Ond skurk", 100);
+enemy.Attack();
 ```
 
 ### Primärkonstruktor (C# 12) — ✨ Modernast
 
 ```csharp
 // Parametrarna deklareras direkt på klassen — ingen separat konstruktorkropp
-public class Karaktär(string namn, int hälsa)
+public class Character(string name, int health)
 {
-    public string Namn  { get; } = namn;
-    public int    Hälsa { get; } = hälsa;
+    public string Name  { get; } = name;
+    public int    Health { get; } = health;
 }
 
-public class Fiende(string namn, int hälsa) : Karaktär(namn, hälsa)
+public class Enemy(string name, int health) : Character(name, health)
 {
-    public void Attackera() => Console.WriteLine($"{Namn} attackerar!");
+    public void Attack() => Console.WriteLine($"{Name} attackerar!");
 }
 
-var fiende = new Fiende("Ond skurk", 100);
+var enemy = new Enemy("Ond skurk", 100);
 ```
 
 > **✨ C# 12 — Primary constructors:** Parametrarna skrivs direkt på klassrubriken. Kortare och tydligare när konstruktorn bara sätter properties. Fungerar på vanliga klasser, inte bara records.
@@ -176,15 +176,15 @@ var fiende = new Fiende("Ond skurk", 100);
 
 ```csharp
 // Gammalt — hela filen indenteras ett steg
-namespace Spel
+namespace Game
 {
-    public class Karaktär { ... }
+    public class Character { ... }
 }
 
 // Modernt (C# 10) — ✨ en rad, hela filen tillhör namespacet
-namespace Spel;
+namespace Game;
 
-public class Karaktär { ... }
+public class Character { ... }
 ```
 
 ## Slutsats

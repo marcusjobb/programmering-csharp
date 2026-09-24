@@ -16,7 +16,7 @@ se hur koden såg ut igår, förra veckan eller när projektet startade.
 Utan Git slutar det ofta med mappar som ser ut såhär:
 
 ```
-projekt/
+project/
 ├── Program.cs
 ├── Program_gammal.cs
 ├── Program_fungerar.cs
@@ -45,7 +45,7 @@ en permanent ögonblicksbild av alla stagade filer.
 
 ```
 Working Directory  →  git add  →  Staging Area  →  git commit  →  Repository
-(du kodar här)                   (förbereds)                      (sparad historik)
+(du codes here)                   (prepared)                      (saved history)
 ```
 
 GitHub är ett fjärrrepository — en kopia av din historik som ligger online.
@@ -119,7 +119,7 @@ Kopiera hela utskriften (börjar med `ssh-ed25519`). Gå till
 ssh -T git@github.com
 ```
 
-Du ska se: `Hi dittnamn! You've successfully authenticated`
+Du ska se: `Hi yourName! You've successfully authenticated`
 
 ---
 
@@ -129,7 +129,7 @@ Dessa kommandon använder du varje dag:
 
 ```bash
 git status              # Se vad som har ändrats
-git add filnamn.cs      # Förbered en specifik fil
+git add fileName.cs      # Förbered en specifik fil
 git add .               # Förbered alla ändrade filer
 git commit -m "Meddelande som beskriver vad du gjort"
 git push                # Skicka till GitHub
@@ -193,10 +193,10 @@ om de hamnar på GitHub kan missbrukas inom minuter av automatiserade bots.
 
 ```bash
 # Hämta ett befintligt repo från GitHub
-git clone git@github.com:användarnamn/repo-namn.git
+git clone git@github.com:userName/repo-name.git
 
 # Gå in i mappen
-cd repo-namn
+cd repo-name
 ```
 
 SSH-adressen hittar du på GitHub under **Code → SSH**.
@@ -207,14 +207,14 @@ SSH-adressen hittar du på GitHub under **Code → SSH**.
 
 ```bash
 # Gå till din projektmapp i Git Bash
-cd /c/Users/dittnamn/Documents/projekt
+cd /c/Users/yourName/Documents/project
 
 # Initiera Git
 git init
 
 # Skapa repot på GitHub först (github.com → New repository)
 # Lägg sedan till GitHub som remote
-git remote add origin git@github.com:dittnamn/repo-namn.git
+git remote add origin git@github.com:yourName/repo-name.git
 
 # Lägg till alla filer, commit och push
 git add .

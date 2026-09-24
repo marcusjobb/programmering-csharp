@@ -38,48 +38,48 @@ Här är ett komplett exempel på klassen `BankAccount`:
 class BankAccount
 {
     // Properties — lagrar data, skrivbara bara inifrån klassen
-    public double Saldo { get; private set; }
-    public string Ägare { get; private set; }
-    public bool ÄrAktivt { get; private set; }
+    public double Balance { get; private set; }
+    public string Owner { get; private set; }
+    public bool IsActive { get; private set; }
 
     // Konstruktor — körs en gång när objektet skapas
-    public BankAccount(string ägare, double startSaldo)
+    public BankAccount(string owner, double startBalance)
     {
-        Ägare = ägare;
-        Saldo = startSaldo;
-        ÄrAktivt = true;
+        Owner = owner;
+        Balance = startBalance;
+        IsActive = true;
     }
 
     // Metod — sätter in pengar på kontot
-    public void SättIn(double belopp)
+    public void Deposit(double amount)
     {
-        if (belopp <= 0)
+        if (amount <= 0)
         {
             Console.WriteLine("Beloppet måste vara positivt.");
             return;
         }
-        Saldo += belopp;
-        Console.WriteLine($"{Ägare} satte in {belopp} kr. Nytt saldo: {Saldo} kr.");
+        Balance += amount;
+        Console.WriteLine($"{Owner} satte in {amount} kr. Nytt saldo: {Balance} kr.");
     }
 
     // Metod — tar ut pengar, returnerar true om det gick
-    public bool TaUt(double belopp)
+    public bool Withdraw(double amount)
     {
-        if (belopp <= 0 || belopp > Saldo)
+        if (amount <= 0 || amount > Balance)
         {
             Console.WriteLine("Uttag nekat — otillräckligt saldo.");
             return false;
         }
-        Saldo -= belopp;
-        Console.WriteLine($"{Ägare} tog ut {belopp} kr. Nytt saldo: {Saldo} kr.");
+        Balance -= amount;
+        Console.WriteLine($"{Owner} tog ut {amount} kr. Nytt saldo: {Balance} kr.");
         return true;
     }
 
     // Metod — skriver ut en presentation av kontot
-    public void Presentera()
+    public void Present()
     {
-        string status = ÄrAktivt ? "Aktivt" : "Inaktivt";
-        Console.WriteLine($"Konto: {Ägare} | Saldo: {Saldo} kr | Status: {status}");
+        string status = IsActive ? "Aktivt" : "Inaktivt";
+        Console.WriteLine($"Konto: {Owner} | Saldo: {Balance} kr | Status: {status}");
     }
 }
 ```
@@ -92,14 +92,14 @@ Lägg märke till att klassen bara beskriver strukturen. Inget händer förrän 
 
 Konstruktorn är en speciell metod som körs automatiskt när ett objekt skapas. Den har alltid samma namn som klassen och returnerar inget.
 
-**Varför behövs den?** Utan en konstruktor skulle ett nyskapat objekt sakna värden — `Ägare` skulle vara `null` och `Saldo` skulle vara `0`. Konstruktorn är platsen där du garanterar att objektet startar i ett korrekt tillstånd.
+**Varför behövs den?** Utan en konstruktor skulle ett nyskapat objekt sakna värden — `Owner` skulle vara `null` och `Balance` skulle vara `0`. Konstruktorn är platsen där du garanterar att objektet startar i ett korrekt tillstånd.
 
 ```csharp
-public BankAccount(string ägare, double startSaldo)
+public BankAccount(string owner, double startBalance)
 {
-    Ägare = ägare;
-    Saldo = startSaldo;
-    ÄrAktivt = true;
+    Owner = owner;
+    Balance = startBalance;
+    IsActive = true;
 }
 ```
 
@@ -119,16 +119,16 @@ En klass kan hålla på hemligheter. Det är faktiskt meningen.
 
 `public` betyder att något är tillgängligt för alla — kod utanför klassen kan läsa och ändra det. `private` betyder att något bara är tillgängligt inifrån klassen själv.
 
-Varför vill vi dölja något? Tänk på `Saldo`. Om det vore en vanlig `public` variabel skulle vem som helst kunna skriva `konto.Saldo = 999999` direkt — utan att gå via `SättIn` eller `TaUt`. All logik om giltiga belopp och felmeddelanden skulle kringgås helt.
+Varför vill vi dölja något? Tänk på `Balance`. Om det vore en vanlig `public` variabel skulle vem som helst kunna skriva `account.Balance = 999999` direkt — utan att gå via `Deposit` eller `Withdraw`. All logik om giltiga belopp och felmeddelanden skulle kringgås helt.
 
 Det här principen kallas **inkapsling**: du döljer interndetaljer och erbjuder istället ett kontrollerat gränssnitt utåt.
 
 ```csharp
 // Utanför klassen — detta fungerar INTE:
-konto.Saldo = 999999;  // Fel! Saldo har private set
+account.Balance = 999999;  // Fel! Saldo har private set
 
 // Det här fungerar däremot:
-konto.SättIn(999999);  // Går via metoden som validerar beloppet
+account.Deposit(999999);  // Går via metoden som validerar beloppet
 ```
 
 Tumregeln är enkel: **data är privat, beteende är publikt**. Metoder är klassens API mot omvärlden.
@@ -148,18 +148,18 @@ I kod ser det ut så här:
 ```csharp
 class BankAccount
 {
-    private double _saldo;  // ingen utifrån kan röra detta
+    private double _balance;  // ingen utifrån kan röra detta
 
-    public bool TaUt(double belopp)
+    public bool Withdraw(double amount)
     {
-        if (belopp <= 0 || belopp > _saldo) return false;
-        _saldo -= belopp;
+        if (amount <= 0 || amount > _balance) return false;
+        _balance -= amount;
         return true;
     }
 }
 ```
 
-`_saldo` är privat. Ingen kan skriva `konto._saldo = -999` utifrån. Den enda vägen in är via `TaUt()` — som validerar beloppet innan den gör något.
+`_balance` är privat. Ingen kan skriva `account._balance = -999` utifrån. Den enda vägen in är via `Withdraw()` — som validerar beloppet innan den gör något.
 
 > 📖 Se även: [Inkapsling — programmeringstermer](../termer/oop.md#inkapsling)
 
@@ -169,17 +169,17 @@ class BankAccount
 
 I exemplet ovan används `{ get; private set; }` — det kallas en **property**. En property ser ut som en variabel utifrån men beter sig som en kontrollpunkt.
 
-**Varför inte bara en vanlig variabel?** En `public double saldo;` kan läsas och ändras av vem som helst. En property med `private set` låter omvärlden läsa värdet men inte ändra det direkt — bara metoderna inuti klassen kan sätta ett nytt värde.
+**Varför inte bara en vanlig variabel?** En `public double balance;` kan läsas och ändras av vem som helst. En property med `private set` låter omvärlden läsa värdet men inte ändra det direkt — bara metoderna inuti klassen kan sätta ett nytt värde.
 
 ```csharp
 // Property — läsbar utifrån, skrivbar bara inifrån
-public double Saldo { get; private set; }
+public double Balance { get; private set; }
 
 // Utanför klassen kan man göra:
-Console.WriteLine(konto.Saldo);  // Fungerar — läsning är public
+Console.WriteLine(account.Balance);  // Fungerar — läsning är public
 
 // Men inte:
-konto.Saldo = 500;  // Kompileringsfel — set är private
+account.Balance = 500;  // Kompileringsfel — set är private
 ```
 
 Det ger dig en tydlig kontroll: vem får läsa? Vem får skriva?
@@ -195,19 +195,19 @@ Auto-propertyn `{ get; private set; }` räcker i de flesta fall. Men ibland vill
 Konventionen för privata fält i C# är `_camelCase` — understreck som prefix:
 
 ```csharp
-private string _namn;
-private int _nummer;
-private double _saldo;
+private string _name;
+private int _number;
+private double _balance;
 ```
 
 När behöver du det? När du vill validera eller transformera värdet vid tilldelning. Auto-propertyn `{ get; private set; }` ger dig noll koll på vad som skickas in — en full property kan stoppa ogiltiga värden:
 
 ```csharp
-private double _saldo;
+private double _balance;
 
-public double Saldo
+public double Balance
 {
-    get { return _saldo; }
+    get { return _balance; }
     private set
     {
         if (value < 0)
@@ -215,32 +215,32 @@ public double Saldo
             Console.WriteLine("Saldo kan inte bli negativt.");
             return;
         }
-        _saldo = value;
+        _balance = value;
     }
 }
 ```
 
-Propertyn `Saldo` är gränssnittet utåt. `_saldo` är det privata lagret inuti. Ingen utifrån kan röra `_saldo` direkt.
+Propertyn `Balance` är gränssnittet utåt. `_balance` är det privata lagret inuti. Ingen utifrån kan röra `_balance` direkt.
 
 **Drömmatchen-struktur** — exakt det du ska skriva i inlämningen:
 
 ```csharp
-public class Spelare
+public class Player
 {
-    private string _namn;
-    private int _nummer;
+    private string _name;
+    private int _number;
     private string _position;
 
-    public string Namn
+    public string Name
     {
-        get { return _namn; }
-        private set { _namn = value; }
+        get { return _name; }
+        private set { _name = value; }
     }
 
-    public int Nummer
+    public int Number
     {
-        get { return _nummer; }
-        private set { _nummer = value; }
+        get { return _number; }
+        private set { _number = value; }
     }
 
     public string Position
@@ -249,10 +249,10 @@ public class Spelare
         private set { _position = value; }
     }
 
-    public Spelare(string namn, int nummer, string position)
+    public Player(string name, int number, string position)
     {
-        _namn = namn;
-        _nummer = nummer;
+        _name = name;
+        _number = number;
         _position = position;
     }
 }
@@ -267,11 +267,11 @@ Enkelt: konstruktorn sätter fälten direkt. Properties ger kontrollerad läsnin
 Nu när klassen är definierad kan du skapa objekt ur den. Det gör du med nyckelordet `new`.
 
 ```csharp
-BankAccount konto1 = new BankAccount("Alex", 1000);
-BankAccount konto2 = new BankAccount("Sam", 500);
+BankAccount account = new BankAccount("Alex", 1000);
+BankAccount account = new BankAccount("Sam", 500);
 ```
 
-Varje `new`-anrop skapar ett **eget objekt** med egna värden. `konto1` och `konto2` är oberoende av varandra — ändrar du `konto1.Saldo` påverkar det inte `konto2`.
+Varje `new`-anrop skapar ett **eget objekt** med egna värden. `account` och `account` är oberoende av varandra — ändrar du `account.Balance` påverkar det inte `account`.
 
 Variabeltypen till vänster (`BankAccount`) berättar vad för slags objekt variabeln pekar på. Det är viktigt: du kan bara använda det som klassen erbjuder via sitt publika gränssnitt.
 
@@ -279,36 +279,36 @@ Variabeltypen till vänster (`BankAccount`) berättar vad för slags objekt vari
 
 ## Metodanrop på objekt
 
-När du har ett objekt kallar du dess metoder med punktnotation: `objekt.Metod(argument)`.
+När du har ett objekt kallar du dess metoder med punktnotation: `object.Method(argument)`.
 
 ```csharp
-BankAccount konto1 = new BankAccount("Alex", 1000);
-BankAccount konto2 = new BankAccount("Sam", 500);
+BankAccount account = new BankAccount("Alex", 1000);
+BankAccount account = new BankAccount("Sam", 500);
 
-konto1.Presentera();
-konto2.Presentera();
+account.Present();
+account.Present();
 
-konto1.SättIn(500);
-konto1.TaUt(200);
-konto2.TaUt(600);   // misslyckas — otillräckligt saldo
+account.Deposit(500);
+account.Withdraw(200);
+account.Withdraw(600);   // misslyckas — otillräckligt saldo
 
-konto1.Presentera();
-konto2.Presentera();
+account.Present();
+account.Present();
 ```
 
 Utskrift:
 
 ```
-Konto: Alex | Saldo: 1000 kr | Status: Aktivt
-Konto: Sam | Saldo: 500 kr | Status: Aktivt
-Alex satte in 500 kr. Nytt saldo: 1500 kr.
-Alex tog ut 200 kr. Nytt saldo: 1300 kr.
-Uttag nekat — otillräckligt saldo.
-Konto: Alex | Saldo: 1300 kr | Status: Aktivt
-Konto: Sam | Saldo: 500 kr | Status: Aktivt
+Account: Alex | Balance: 1000 kr | Status: Active
+Account: Sam | Balance: 500 kr | Status: Active
+Alex set in 500 kr. New balance: 1500 kr.
+Alex tog ut 200 kr. New balance: 1300 kr.
+Withdrawal denied — insufficient balance.
+Account: Alex | Balance: 1300 kr | Status: Active
+Account: Sam | Balance: 500 kr | Status: Active
 ```
 
-Punkten är inte bara syntax — den är en signal om ägande. `konto1.SättIn(500)` betyder: "be objektet `konto1` att utföra sin `SättIn`-metod med argumentet 500". Objektet vet vem det är och arbetar med sin egen data.
+Punkten är inte bara syntax — den är en signal om ägande. `account.Deposit(500)` betyder: "be objektet `account` att utföra sin `Deposit`-metod med argumentet 500". Objektet vet vem det är och arbetar med sin egen data.
 
 ---
 
@@ -343,23 +343,23 @@ Det du ser i diagrammet är precis samma klass som vi har kodat — bara ritad i
 
 När du skriver `new BankAccount("Alex", 1000)` händer det här bakom kulisserna:
 
-1. **Minne allokeras på heapen.** .NET reserverar ett utrymme i minnet tillräckligt stort för att hålla alla objektets data — `Saldo`, `Ägare` och `ÄrAktivt`.
+1. **Minne allokeras på heapen.** .NET reserverar ett utrymme i minnet tillräckligt stort för att hålla alla objektets data — `Balance`, `Owner` och `IsActive`.
 
 2. **Konstruktorn körs.** Värdena `"Alex"` och `1000` skickas in och tilldelas till objektets properties.
 
-3. **En referens returneras.** Variabeln `konto1` innehåller inte objektet direkt — den innehåller en **referens**, ungefär som en adress, som pekar till var i minnet objektet finns.
+3. **En referens returneras.** Variabeln `account` innehåller inte objektet direkt — den innehåller en **referens**, ungefär som en adress, som pekar till var i minnet objektet finns.
 
 Det har en praktisk konsekvens:
 
 ```csharp
-BankAccount konto1 = new BankAccount("Alex", 1000);
-BankAccount kopia = konto1;  // kopia pekar på SAMMA objekt
+BankAccount account = new BankAccount("Alex", 1000);
+BankAccount copy = account;  // kopia pekar på SAMMA objekt
 
-kopia.SättIn(500);
-konto1.Presentera();  // visar 1500 — inte 1000!
+copy.Deposit(500);
+account.Present();  // visar 1500 — inte 1000!
 ```
 
-`konto1` och `kopia` är två variabler men ett och samma objekt. Det är ett vanligt misstag att tro att man kopierat ett objekt när man egentligen bara kopierat referensen till det. Om du vill ha ett äkta nytt objekt med samma värden måste du skapa det med `new`.
+`account` och `copy` är två variabler men ett och samma objekt. Det är ett vanligt misstag att tro att man kopierat ett objekt när man egentligen bara kopierat referensen till det. Om du vill ha ett äkta nytt objekt med samma värden måste du skapa det med `new`.
 
 </details>
 
@@ -367,29 +367,29 @@ konto1.Presentera();  // visar 1500 — inte 1000!
 
 ## static i klasser
 
-I en klass är metoder **icke-statiska som standard** — de tillhör objektet och har tillgång till dess data. Det är det normala läget när du skriver objektmetoder som `Presentera`, `SättIn` och `TaUt`.
+I en klass är metoder **icke-statiska som standard** — de tillhör objektet och har tillgång till dess data. Det är det normala läget när du skriver objektmetoder som `Present`, `Deposit` och `Withdraw`.
 
 `static` i en klass används för saker som inte beror på ett specifikt objekt — till exempel en räknare som håller koll på hur många instanser som skapats:
 
 ```csharp
 class BankAccount
 {
-    private static int _antalKonton = 0;
+    private static int _count_accounts = 0;
 
-    public static int AntalKonton => _antalKonton;
+    public static int CountAccounts => _count_accounts;
 
-    public BankAccount(string ägare, double startSaldo)
+    public BankAccount(string owner, double startBalance)
     {
         // ... sätt ägare och saldo ...
-        _antalKonton++;   // räknas upp för varje nytt konto
+        _count_accounts++;   // räknas upp för varje nytt konto
     }
 }
 
 // Anropas på klassen, inte ett objekt:
-Console.WriteLine(BankAccount.AntalKonton);   // 0
+Console.WriteLine(BankAccount.CountAccounts);   // 0
 BankAccount k1 = new BankAccount("Alex", 1000);
 BankAccount k2 = new BankAccount("Sam", 500);
-Console.WriteLine(BankAccount.AntalKonton);   // 2
+Console.WriteLine(BankAccount.CountAccounts);   // 2
 ```
 
 För era klasser i den här kursen — inga `static`-metoder i klasserna om ni inte har en specifik anledning. Håll er till objektmetoder.

@@ -194,16 +194,16 @@ Book b4 = new() { Title = "Dune", Author = "Herbert", Year = 1965 };
 
 ```csharp
 // Gammalt
-List<Book> böcker = new List<Book>();
+List<Book> books = new List<Book>();
 
 // Med var
-var böcker = new List<Book>();
+var books = new List<Book>();
 
 // Target-typed new (C# 9)
-List<Book> böcker = new();
+List<Book> books = new();
 
 // Collection expression (C# 12) — ✨ Modernast
-List<Book> böcker = [b1, b2, b3];
+List<Book> books = [b1, b2, b3];
 ```
 
 ### Output

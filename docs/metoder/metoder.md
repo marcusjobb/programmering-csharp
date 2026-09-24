@@ -25,7 +25,7 @@ En metod är ett namngivet block av kod. Du anropar den när du vill köra koden
 ## Syntax
 
 ```csharp
-åtkomstmodifierare returtyp Namn(parametrar)
+accessModifier returnType Name(parameters)
 {
     // kropp
 }
@@ -45,7 +45,7 @@ PrintWelcome(); // anrop
 ### Output
 
 ```
-Välkommen!
+Welcome!
 ```
 
 ## Returvärde
@@ -125,7 +125,7 @@ Hej, Maria!
 
 | | Syntax |
 |--|--------|
-| Ingen retur | `void Namn() { }` |
-| Med retur | `int Namn() { return x; }` |
-| Kort form | `int Namn() => x;` |
-| Anrop | `Namn();` eller `var r = Namn();` |
+| Ingen retur | `void Name() { }` |
+| Med retur | `int Name() { return x; }` |
+| Kort form | `int Name() => x;` |
+| Anrop | `Name();` eller `var r = Name();` |

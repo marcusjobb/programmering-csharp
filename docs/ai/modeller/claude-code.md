@@ -20,8 +20,8 @@ Claude Code är ett CLI-verktyg från Anthropic som kör Claude direkt i din ter
 Vanliga AI-chattar ser inte din kod om du inte klistrar in den. Claude Code ser hela din kodbas, kan redigera filer, köra git-kommandon och förstå projektstrukturen.
 
 ```
-Du: Läs alla cs-filer i src/ och berätta vilka klasser som saknar tester
-Claude Code: [läser 23 filer] Dessa 4 klasser saknar tester: OrderService, ...
+Du: Read all cs-files i src/ och tell which classes as lacks tester
+Claude Code: [reads 23 files] These 4 classes lacks tester: OrderService, ...
 ```
 
 ## Installera
@@ -43,8 +43,8 @@ Kräver Node.js och ett Anthropic-konto med API-nyckel.
 ## Exempel — skapa en klass
 
 ```
-Du: Skapa en IRepository<T> med generisk implementation i EF Core
-Claude Code: [skapar IRepository.cs och EfRepository.cs, uppdaterar Program.cs]
+Du: Create en IRepository<T> med generic implementation i EF Core
+Claude Code: [creates IRepository.cs och EfRepository.cs, updates Program.cs]
 ```
 
 ## Jämförelse med ChatGPT/Claude webb

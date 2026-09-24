@@ -124,7 +124,7 @@ I denna artikel har vi utforskat ämnet "Mappar" och hur de används inom C#-pro
 
 ## Termer
 
-- `Mapp` eller `katalog`: En virtuell behållare som används för att organisera och lagra filer.
+- `Folder` eller `katalog`: En virtuell behållare som används för att organisera och lagra filer.
 - `Environment.GetFolderPath`: En metod som används för att hämta sökvägen till en specialmapp i datorn.
 - `Environment.SpecialFolder`: En enum som innehåller olika specialmappar i datorn.
 - `Path.Combine`: En metod som används för att kombinera flera strängar till en korrekt sökväg.

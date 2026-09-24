@@ -42,10 +42,10 @@ Varje anrop till `NewGuid()` ger ett unikt värde. Kör du det en miljon gånger
 `Guid` är en struct i .NET — en värdetyp, precis som `int` och `DateTime`.
 
 ```csharp
-Guid id1 = Guid.NewGuid();
-Guid id2 = Guid.NewGuid();
+Guid id = Guid.NewGuid();
+Guid id = Guid.NewGuid();
 
-Console.WriteLine(id1 == id2);  // False — alltid unika
+Console.WriteLine(id == id);  // False — alltid unika
 ```
 
 ## Formatera
@@ -72,8 +72,8 @@ Guid id = Guid.Parse(text);
 Console.WriteLine(id);  // 3f2504e0-4f89-11d3-9a0c-0305e82c3301
 
 // Säker parsing
-if (Guid.TryParse("inte-ett-guid", out Guid resultat))
-    Console.WriteLine(resultat);
+if (Guid.TryParse("inte-ett-guid", out Guid result))
+    Console.WriteLine(result);
 else
     Console.WriteLine("Ogiltigt Guid");
 ```
@@ -117,7 +117,7 @@ Console.WriteLine($"Order {order2.Id}: {order2.Product}");
 ### Output
 
 ```
-Order 7c9e6679-7425-40de-944b-e07fc1f90ae7: Kaffe
+Order 7c9e6679-7425-40de-944b-e07fc1f90ae7: Coffee
 Order 0c08add9-7a9e-4b30-9e1d-3c7cc2c5c6a7: Te
 ```
 

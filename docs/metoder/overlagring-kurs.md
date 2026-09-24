@@ -7,7 +7,7 @@ nav_order: 25
 
 # Överlagring och arv — tips och tricks
 
-Det här är en fördjupning av arv-konceptet med fokus på metodöverlagring, konstruktoröverlagring, `base.Metod()` och `ToString()`.
+Det här är en fördjupning av arv-konceptet med fokus på metodöverlagring, konstruktoröverlagring, `base.Method()` och `ToString()`.
 
 ## Metodöverlagring — samma namn, olika parametrar
 
@@ -43,8 +43,8 @@ Console.WriteLine(g.Greet());
 Output:
 ```
 Hej, Alex!
-God dag, doktor Medina!
-Hej på dig!
+God day, doctor Medina!
+Hej on dig!
 ```
 
 Samma metodnamn. Tre varianter. C# väljer rätt automatiskt. Det kallas **överlagring** — overloading.
@@ -54,23 +54,23 @@ Samma metodnamn. Tre varianter. C# väljer rätt automatiskt. Det kallas **över
 En klass kan ha **flera konstruktorer** med olika parametrar:
 
 ```csharp
-class Bil
+class Car
 {
-    public string Märke { get; private set; }
-    public int Dörrar { get; private set; }
+    public string Brand { get; private set; }
+    public int Doors { get; private set; }
 
-    public Bil(string märke, int dörrar)   // full konstruktor
+    public Car(string brand, int doors)   // full konstruktor
     {
-        Märke = märke;
-        Dörrar = dörrar;
+        Brand = brand;
+        Doors = doors;
     }
 
-    public Bil(string märke)               // förenklad — 4 dörrar som standard
-        : this(märke, 4) { }
+    public Car(string brand)               // förenklad — 4 dörrar som standard
+        : this(brand, 4) { }
 }
 ```
 
-`this(märke, 4)` anropar den **fulla konstruktorn i samma klass**. Du slipper skriva samma initiering på två ställen.
+`this(brand, 4)` anropar den **fulla konstruktorn i samma klass**. Du slipper skriva samma initiering på två ställen.
 
 ## `this(...)` vs `base(...)`
 
@@ -80,53 +80,53 @@ class Bil
 | **Används för** | Konstruktoröverlagring | Arv |
 
 ```csharp
-class Bil
+class Car
 {
-    public Bil(string märke, int dörrar) { ... }
-    public Bil(string märke) : this(märke, 4) { }  // this — annan konstruktor i mig
+    public Car(string brand, int doors) { ... }
+    public Car(string brand) : this(brand, 4) { }  // this — annan konstruktor i mig
 }
 
-class Elbil : Bil
+class ElectricCar : Car
 {
-    public Elbil(string märke) : base(märke, 4) { }  // base — basklassens konstruktor
+    public ElectricCar(string brand) : base(brand, 4) { }  // base — basklassens konstruktor
 }
 ```
 
 `this` = annan konstruktor i mig själv  
 `base` = konstruktorn hos min förälder
 
-## `base.MetodNamn()` — bygg vidare istället för att ersätta
+## `base.MethodName()` — bygg vidare istället för att ersätta
 
 Ibland vill du inte **ersätta** basklassens implementation — du vill **utöka** den:
 
 ```csharp
-class Djur
+class Animal
 {
-    public string Namn { get; private set; }
+    public string Name { get; private set; }
 
-    public Djur(string namn) { Namn = namn; }
+    public Animal(string name) { Name = name; }
 
-    public virtual void Presentera()
+    public virtual void Present()
     {
-        Console.WriteLine($"Jag heter {Namn}.");
+        Console.WriteLine($"Jag heter {Name}.");
     }
 }
 
-class Hund : Djur
+class Dog : Animal
 {
-    public Hund(string namn) : base(namn) { }
+    public Dog(string name) : base(name) { }
 
-    public override void Presentera()
+    public override void Present()
     {
-        base.Presentera();                         // kör Djurs version först
+        base.Present();                         // kör Djurs version först
         Console.WriteLine("Och jag är en hund!");  // lägg till mer
     }
 }
 ```
 
-Output: `Jag heter Fido.` → `Och jag är en hund!`
+Output: `Jag isCalled Fido.` → `Och jag is en dog!`
 
-Utan `base.Presentera()` måste du skriva om hela presentationen i varje subklass. Med den håller du logiken på ett ställe och lägger bara till det som är specifikt. Ändrar du basklassen? Alla subklasser uppdateras automatiskt.
+Utan `base.Present()` måste du skriva om hela presentationen i varje subklass. Med den håller du logiken på ett ställe och lägger bara till det som är specifikt. Ändrar du basklassen? Alla subklasser uppdateras automatiskt.
 
 ## Overloading vs override — olika saker
 
@@ -141,34 +141,34 @@ Override = "subklassen gör det annorlunda"
 
 ## `ToString()` — den dolda metoden
 
-Alla klasser i C# ärver från `object` — och `object` har en metod `ToString()`. Som standard skriver den ut klassens namn (t.ex. `CLO26.Hund`), men du kan skriva om den:
+Alla klasser i C# ärver från `object` — och `object` har en metod `ToString()`. Som standard skriver den ut klassens namn (t.ex. `CLO26.Dog`), men du kan skriva om den:
 
 ```csharp
-class Hund : Djur
+class Dog : Animal
 {
-    public Hund(string namn) : base(namn) { }
+    public Dog(string name) : base(name) { }
 
     public override string ToString()
     {
-        return $"Hund({Namn})";
+        return $"Hund({Name})";
     }
 }
 ```
 
 ```csharp
-Hund h = new Hund("Fido");
+Dog h = new Dog("Fido");
 Console.WriteLine(h);               // anropar ToString() automatiskt
 Console.WriteLine($"Djuret: {h}");  // string interpolation gör samma sak
 ```
 
-Output: `Hund(Fido)`
+Output: `Dog(Fido)`
 
-`Console.WriteLine(objekt)` anropar `ToString()` automatiskt. `$"...{objekt}..."` gör samma sak. Det gör `ToString()` väldigt användbart vid debugging och utskrift:
+`Console.WriteLine(object)` anropar `ToString()` automatiskt. `$"...{object}..."` gör samma sak. Det gör `ToString()` väldigt användbart vid debugging och utskrift:
 
 ```csharp
-List<Djur> djur = new List<Djur> { new Hund("Fido"), new Katt("Luna") };
+List<Animal> animal = new List<Animal> { new Dog("Fido"), new Cat("Luna") };
 
-foreach (var d in djur)
+foreach (var d in animal)
 {
     Console.WriteLine(d);  // ToString() på varje objekt
 }
@@ -176,24 +176,24 @@ foreach (var d in djur)
 
 Output:
 ```
-Hund(Fido)
-Katt(Luna)
+Dog(Fido)
+Cat(Luna)
 ```
 
 ## Tre saker att ta med sig
 
 ```csharp
 // 1. base.Metod() — bygg vidare på basklassens implementation
-public override void Presentera()
+public override void Present()
 {
-    base.Presentera();
+    base.Present();
     Console.WriteLine("Extra info här.");
 }
 
 // 2. Overloading — samma namn, olika parametrar
-public void Logga(string text) { ... }
-public void Logga(string text, int nivå) { ... }
+public void Log(string text) { ... }
+public void Log(string text, int level) { ... }
 
 // 3. ToString() override — objekt som skriver ut sig själva
-public override string ToString() => $"Hund({Namn})";
+public override string ToString() => $"Hund({Name})";
 ```

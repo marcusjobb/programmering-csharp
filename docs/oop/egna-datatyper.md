@@ -36,21 +36,21 @@ Ibland räcker inte `int`, `double` och `string`. Du kanske vill ha en typ som r
 ## Grundexemplet — Enhet
 
 ```csharp
-struct Enhet
+struct Unit
 {
     private readonly int _value;
 
-    private Enhet(int value) => _value = value;
+    private Unit(int value) => _value = value;
 
     // int → Enhet automatiskt
-    public static implicit operator Enhet(int value) => new(value);
+    public static implicit operator Unit(int value) => new(value);
 
     // Enhet → int automatiskt
-    public static implicit operator int(Enhet e) => e._value;
+    public static implicit operator int(Unit e) => e._value;
 
     // ++ och --
-    public static Enhet operator ++(Enhet e) => e._value + 1;
-    public static Enhet operator --(Enhet e) => e._value - 1;
+    public static Unit operator ++(Unit e) => e._value + 1;
+    public static Unit operator --(Enhet e) => e._value - 1;
 
     public override string ToString() => $"{_value} enheter";
 }
@@ -59,20 +59,20 @@ struct Enhet
 ### Användning
 
 ```csharp
-Enhet thing = 5;           // implicit int → Enhet
+Unit thing = 5;           // implicit int → Enhet
 thing++;                   // operator++
 Console.WriteLine(thing);  // 6 enheter
 
-Enhet a = 3;
-Enhet b = 4;
+Unit a = 3;
+Unit b = 4;
 Console.WriteLine(a + b);  // 7 enheter  (via implicit int-konvertering)
 ```
 
 ### Output
 
 ```
-6 enheter
-7 enheter
+6 units
+7 units
 ```
 
 ---
@@ -120,7 +120,7 @@ if (total > 300m)
 ### Output
 
 ```
-Pris:  199,90 kr
+Price:  199,90 kr
 Moms:  49,98 kr
 Total: 249,88 kr
 ```
@@ -131,7 +131,7 @@ Total: 249,88 kr
 
 | | `implicit` | `explicit` |
 |--|------------|------------|
-| Konvertering sker | Automatiskt | Kräver cast: `(Typ)värde` |
+| Konvertering sker | Automatiskt | Kräver cast: `(Type)value` |
 | Säkert när | Ingen information förloras | Precision eller värde kan förloras |
 | Exempel | `int` → `double` | `double` → `int` (trunkerar) |
 

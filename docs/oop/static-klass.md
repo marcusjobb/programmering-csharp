@@ -29,13 +29,13 @@ Lägg till `static` på en metod för att göra den tillgänglig direkt via klas
 ```csharp
 public class Matte
 {
-    public static double Kvadrat(double tal) => tal * tal;
-    public static double Absolutvärde(double tal) => tal < 0 ? -tal : tal;
+    public static double Square(double number) => number * number;
+    public static double AbsoluteValue(double number) => number < 0 ? -number : number;
 }
 
 // Anropas via klassnamnet — inget objekt behövs
-Console.WriteLine(Matte.Kvadrat(5));           // 25
-Console.WriteLine(Matte.Absolutvärde(-7.3));   // 7,3
+Console.WriteLine(Matte.Square(5));           // 25
+Console.WriteLine(Matte.AbsoluteValue(-7.3));   // 7,3
 ```
 
 ### Output
@@ -50,20 +50,20 @@ Console.WriteLine(Matte.Absolutvärde(-7.3));   // 7,3
 En klass märkt `static` kan inte instansieras alls — alla medlemmar måste vara statiska.
 
 ```csharp
-public static class Textverktyg
+public static class TextTool
 {
-    public static string Versaler(string text) => text.ToUpper();
-    public static string Gemener(string text)  => text.ToLower();
-    public static bool   ÄrPalindrom(string text)
+    public static string Uppercase(string text) => text.ToUpper();
+    public static string Lowercase(string text)  => text.ToLower();
+    public static bool   IsPalindrome(string text)
     {
-        var ren = text.Replace(" ", "").ToLower();
-        return ren == new string(ren.Reverse().ToArray());
+        var clean = text.Replace(" ", "").ToLower();
+        return clean == new string(clean.Reverse().ToArray());
     }
 }
 
-Console.WriteLine(Textverktyg.Versaler("hej"));        // HEJ
-Console.WriteLine(Textverktyg.Gemener("HELLO"));       // hello
-Console.WriteLine(Textverktyg.ÄrPalindrom("Anna"));   // True
+Console.WriteLine(TextTool.Uppercase("hej"));        // HEJ
+Console.WriteLine(TextTool.Lowercase("HELLO"));       // hello
+Console.WriteLine(TextTool.IsPalindrome("Anna"));   // True
 ```
 
 ### Output
@@ -77,23 +77,23 @@ True
 ## Statisk vs instansmetod
 
 ```csharp
-public class Räknare
+public class Counter
 {
-    private int _antal = 0;
+    private int _count = 0;
 
     // Instansmetod — beror på objektets tillstånd
-    public void Öka()    => _antal++;
-    public int  Värde()  => _antal;
+    public void Increase()    => _count++;
+    public int  Value()  => _count;
 
     // Statisk metod — tillståndslös, beror bara på argumenten
-    public static int Summera(int a, int b) => a + b;
+    public static int Summarise(int a, int b) => a + b;
 }
 
-var r = new Räknare();
-r.Öka();
-r.Öka();
-Console.WriteLine(r.Värde());          // 2
-Console.WriteLine(Räknare.Summera(3, 4));  // 7
+var r = new Counter();
+r.Increase();
+r.Increase();
+Console.WriteLine(r.Value());          // 2
+Console.WriteLine(Counter.Summarise(3, 4));  // 7
 ```
 
 ## När är statisk ett bra val?

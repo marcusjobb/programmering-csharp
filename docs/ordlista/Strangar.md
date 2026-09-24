@@ -21,7 +21,7 @@ nav_order: 24
 | StartsWith() / EndsWith() | Kollar om en sträng börjar eller slutar med en specifik delsträng. |
 | string.Format() | Föregångaren till string interpolation — samma idé men med numrerade platshållare: `{0}`, `{1}`. |
 | string.Join() | Motsatsen till `Split()` — limmar ihop en array av strängar till en enda, med ett valfritt mellantecken. |
-| String interpolation `$"{}"` | Blandar text och variabelvärden direkt i strängen, t.ex. `$"Hej {namn}"`. |
+| String interpolation `$"{}"` | Blandar text och variabelvärden direkt i strängen, t.ex. `$"Hej {name}"`. |
 | Substring() | Plockar ut en bit av en sträng, baserat på startindex och antal tecken. |
 | ToUpper() / ToLower() | Gör om hela strängen till versaler respektive gemener. |
 | Trim() | Tar bort blanksteg i början och slutet av en sträng. |

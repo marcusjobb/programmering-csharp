@@ -16,7 +16,7 @@ nav_order: 30
 Ibland är ett villkor så enkelt att en hel `if/else`-sats känns som overkill. Ternary-operatorn låter dig skriva det på en rad.
 
 ```csharp
-villkor ? värde_om_sant : värde_om_falskt
+condition ? value_if_true : value_if_false
 ```
 
 ## När du läst detta ska du kunna
@@ -64,7 +64,7 @@ Ternary fungerar bra inuti `$"..."`:
 
 ```csharp
 int count = 1;
-Console.WriteLine($"Du har {count} {(count == 1 ? "meddelande" : "meddelanden")}");
+Console.WriteLine($"Du har {count} {(count == 1 ? "message" : "messages")}");
 // Du har 1 meddelande
 ```
 
@@ -85,4 +85,4 @@ else             result = "litet";
 
 ## TL;DR
 
-`villkor ? sant : falskt` — ternary-operatorn. Bra för enkel tilldelning på en rad. Dålig för komplex logik. Nästla aldrig.
+`condition ? true : false` — ternary-operatorn. Bra för enkel tilldelning på en rad. Dålig för komplex logik. Nästla aldrig.

@@ -41,7 +41,7 @@ Claude är Anthropics AI-assistent. Den är känd för lång kontext, noggrant r
 ```csharp
 // Se AI-API → Anthropic för fullständigt exempel
 var client = new AnthropicClient(apiKey);
-var svar = await client.FrågaAsync("Förklara async/await i C#");
+var answer = await client.FrågaAsync("Förklara async/await i C#");
 ```
 
 ## Prissättning (ungefärlig)

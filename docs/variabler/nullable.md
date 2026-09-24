@@ -61,7 +61,7 @@ void Greet(string name)        // name får inte vara null
 
 void GreetMaybe(string? name) // name kan vara null
 {
-    Console.WriteLine($"Hej {name ?? "okänd"}!");
+    Console.WriteLine($"Hej {name ?? "unknown"}!");
 }
 ```
 
@@ -118,7 +118,7 @@ int length = text!.Length;  // Du garanterar att text inte är null
 var city = person?.Address?.City ?? "Okänd stad";
 ```
 
-Läser: hämta `person.Adress.Stad` — om något längs vägen är null, använd `"Okänd stad"`.
+Läser: hämta `person.Address.City` — om något längs vägen är null, använd `"Okänd stad"`.
 
 ## TL;DR
 

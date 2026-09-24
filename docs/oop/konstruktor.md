@@ -28,22 +28,22 @@ En konstruktor är den metod som körs när ett objekt skapas. Den ser till att 
 En konstruktor ser ut som en metod men har alltid **samma namn som klassen** och har **inget returvärde** — inte ens `void`.
 
 ```csharp
-public class Bil
+public class Car
 {
-    public string Märke { get; private set; }
-    public int Årsmodell { get; private set; }
+    public string Brand { get; private set; }
+    public int ModelYear { get; private set; }
 
     // Konstruktor — körs automatiskt när "new Bil(...)" anropas
-    public Bil(string märke, int årsmodell)
+    public Car(string brand, int modelYear)
     {
-        Märke     = märke;
-        Årsmodell = årsmodell;
+        Brand     = brand;
+        ModelYear = modelYear;
     }
 }
 
-var bil = new Bil("Volvo", 2020);
-Console.WriteLine(bil.Märke);      // Volvo
-Console.WriteLine(bil.Årsmodell);  // 2020
+var car = new Car("Volvo", 2020);
+Console.WriteLine(car.Brand);      // Volvo
+Console.WriteLine(car.ModelYear);  // 2020
 ```
 
 ## Standardkonstruktor (ingen parameter)
@@ -51,19 +51,19 @@ Console.WriteLine(bil.Årsmodell);  // 2020
 Om klassen inte definierar någon konstruktor alls skapar C# automatiskt en tom standardkonstruktor. Definierar du en parametriserad konstruktor försvinner standardkonstruktorn — vill du ha båda, skriv ut dem.
 
 ```csharp
-public class Bil
+public class Car
 {
-    public string Märke { get; set; }
+    public string Brand { get; set; }
 
     // Standardkonstruktor — skapar ett "tomt" Bil-objekt
-    public Bil()
+    public Car()
     {
-        Märke = "Okänt";
+        Brand = "Okänt";
     }
 }
 
-var bil = new Bil();
-Console.WriteLine(bil.Märke);  // Okänt
+var car = new Car();
+Console.WriteLine(car.Brand);  // Okänt
 ```
 
 ## Konstruktoröverlagring
@@ -73,29 +73,29 @@ Du kan ha flera konstruktorer med olika parameterlistor. C# väljer rätt basera
 ```csharp
 public class Person
 {
-    public string Namn { get; private set; }
-    public int    Ålder { get; private set; }
+    public string Name { get; private set; }
+    public int    Age { get; private set; }
 
     // Konstruktor 1: bara namn
-    public Person(string namn)
+    public Person(string name)
     {
-        Namn  = namn;
-        Ålder = 0;
+        Name  = name;
+        Age = 0;
     }
 
     // Konstruktor 2: namn och ålder
-    public Person(string namn, int ålder)
+    public Person(string name, int age)
     {
-        Namn  = namn;
-        Ålder = ålder;
+        Name  = name;
+        Age = age;
     }
 }
 
 var p1 = new Person("Anna");
 var p2 = new Person("Björn", 30);
 
-Console.WriteLine($"{p1.Namn}, {p1.Ålder}");  // Anna, 0
-Console.WriteLine($"{p2.Namn}, {p2.Ålder}");  // Björn, 30
+Console.WriteLine($"{p1.Name}, {p1.Age}");  // Anna, 0
+Console.WriteLine($"{p2.Name}, {p2.Age}");  // Björn, 30
 ```
 
 ## Anropa annan konstruktor med `: this()`
@@ -105,18 +105,18 @@ Istället för att upprepa initieringskod kan du låta en konstruktor anropa en 
 ```csharp
 public class Person
 {
-    public string Namn  { get; private set; }
-    public int    Ålder { get; private set; }
+    public string Name  { get; private set; }
+    public int    Age { get; private set; }
 
     // Huvud-konstruktor som gör jobbet
-    public Person(string namn, int ålder)
+    public Person(string name, int age)
     {
-        Namn  = namn;
-        Ålder = ålder;
+        Name  = name;
+        Age = age;
     }
 
     // Delegerar till huvud-konstruktorn med ett standardvärde
-    public Person(string namn) : this(namn, 0) { }
+    public Person(string name) : this(name, 0) { }
 }
 ```
 
@@ -132,19 +132,19 @@ Björn, 30
 Object initializer låter dig sätta properties direkt vid skapandet utan att skriva en konstruktor för varje kombination.
 
 ```csharp
-public class Bok
+public class Book
 {
-    public string Titel  { get; set; }
-    public string Författare { get; set; }
-    public int    År     { get; set; }
+    public string Title  { get; set; }
+    public string Author { get; set; }
+    public int    Year     { get; set; }
 }
 
 // Alla properties sätts i ett block
-var bok = new Bok
+var book = new Book
 {
-    Titel       = "Dune",
-    Författare  = "Herbert",
-    År          = 1965
+    Title       = "Dune",
+    Author  = "Herbert",
+    Year          = 1965
 };
 ```
 
@@ -156,12 +156,12 @@ I C# 12 kan du deklarera parametrar direkt på klassrubriken. Parametrarna finns
 
 ```csharp
 // Gammalt sätt
-public class Punkt
+public class Point
 {
     public int X { get; }
     public int Y { get; }
 
-    public Punkt(int x, int y)
+    public Point(int x, int y)
     {
         X = x;
         Y = y;
@@ -169,13 +169,13 @@ public class Punkt
 }
 
 // ✨ C# 12 — primärkonstruktor
-public class Punkt(int x, int y)
+public class Point(int x, int y)
 {
     public int X { get; } = x;
     public int Y { get; } = y;
 }
 
-var p = new Punkt(3, 7);
+var p = new Point(3, 7);
 Console.WriteLine($"X={p.X}, Y={p.Y}");  // X=3, Y=7
 ```
 
@@ -185,9 +185,9 @@ Console.WriteLine($"X={p.X}, Y={p.Y}");  // X=3, Y=7
 
 | Variant | Syntax | Används när |
 |---------|--------|-------------|
-| Standardkonstruktor | `public Klass() { }` | Objektet kan skapas utan argument |
-| Parametriserad | `public Klass(typ param) { }` | Argumenten krävs för giltigt objekt |
+| Standardkonstruktor | `public Class() { }` | Objektet kan skapas utan argument |
+| Parametriserad | `public Class(type param) { }` | Argumenten krävs för giltigt objekt |
 | Överlagring | Flera konstruktorer | Olika kombinationer av argument |
 | `: this()` | Delegerar till annan konstruktor | Undvika upprepning |
-| Object initializer | `new Klass { Prop = val }` | Snabb syntax, kräver public set |
-| Primärkonstruktor (C# 12) | `public class Klass(typ param)` | Modernt och kortfattat |
+| Object initializer | `new Class { Prop = choice }` | Snabb syntax, kräver public set |
+| Primärkonstruktor (C# 12) | `public class Class(type param)` | Modernt och kortfattat |

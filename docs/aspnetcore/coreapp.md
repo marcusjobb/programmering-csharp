@@ -101,7 +101,7 @@ namespace HangmanGame.Controllers
         {
             // Läs in ordlistan från
 
-JSON-filen vid kontrollerns konstruktion
+JSON-file at controller design
             string json = System.IO.File.ReadAllText("Data/wordlist.json");
             var wordList = JsonSerializer.Deserialize<WordList>(json);
 

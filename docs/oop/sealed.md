@@ -26,18 +26,18 @@ nav_order: 45
 En `sealed class` kan inte användas som basklass. Försöker du ärva från den får du ett kompileringsfel.
 
 ```csharp
-sealed class Licensnyckel
+sealed class LicenseKey
 {
-    public string Värde { get; }
+    public string Value { get; }
 
-    public Licensnyckel(string värde)
+    public LicenseKey(string value)
     {
-        Värde = värde;
+        Value = value;
     }
 }
 
 // Kompileringsfel — kan inte ärva från sealed klass
-class CrackadNyckel : Licensnyckel { }
+class CrackedKey : LicenseKey { }
 ```
 
 `string` i .NET är ett känt exempel — den är `sealed` och kan inte subklassas.
@@ -47,24 +47,24 @@ class CrackadNyckel : Licensnyckel { }
 Du kan också sätta `sealed` på en enskild override-metod. Det tillåter arv av klassen, men förhindrar att just den metoden overridas längre ner i hierarkin.
 
 ```csharp
-class Djur
+class Animal
 {
-    public virtual string Ljud() => "...";
+    public virtual string Sound() => "...";
 }
 
-class Hund : Djur
+class Dog : Animal
 {
-    public sealed override string Ljud() => "Voff!";  // låst här
+    public sealed override string Sound() => "Voff!";  // låst här
 }
 
-class Labrador : Hund
+class Labrador : Dog
 {
     // Kompileringsfel — Ljud() är sealed i Hund
-    public override string Ljud() => "Woof!";
+    public override string Sound() => "Woof!";
 }
 ```
 
-`Labrador` kan fortfarande ärva från `Hund` och lägga till egna metoder — men just `Ljud()` är låst.
+`Labrador` kan fortfarande ärva från `Dog` och lägga till egna metoder — men just `Sound()` är låst.
 
 ## När är sealed ett bra val?
 
@@ -73,7 +73,7 @@ class Labrador : Hund
 ```csharp
 sealed class BetalningsProcessor
 {
-    public bool Genomför(decimal belopp) { ... }
+    public bool Perform(decimal amount) { ... }
 }
 ```
 

@@ -11,29 +11,29 @@ Arv (inheritance) är ett av de viktigaste koncepten i objektorienterad programm
 
 ## Problemet arv löser
 
-Tänk dig att du bygger `Hund` och `Katt` var för sig:
+Tänk dig att du bygger `Dog` och `Cat` var för sig:
 
 ```csharp
-class Hund
+class Dog
 {
-    private string _namn;
-    public Hund(string namn) { _namn = namn; }
-    public void Presentera() => Console.WriteLine($"Jag heter {_namn}.");
-    public void LåtaLjud()  => Console.WriteLine("Voff!");
+    private string _name;
+    public Dog(string name) { _name = name; }
+    public void Present() => Console.WriteLine($"Jag heter {_name}.");
+    public void PlaySound()  => Console.WriteLine("Voff!");
 }
 ```
 
 ```csharp
-class Katt
+class Cat
 {
-    private string _namn;
-    public Katt(string namn) { _namn = namn; }
-    public void Presentera() => Console.WriteLine($"Jag heter {_namn}.");
-    public void LåtaLjud()  => Console.WriteLine("Mjau!");
+    private string _name;
+    public Cat(string name) { _name = name; }
+    public void Present() => Console.WriteLine($"Jag heter {_name}.");
+    public void PlaySound()  => Console.WriteLine("Mjau!");
 }
 ```
 
-`Presentera()` är **exakt samma** i båda klasserna — rad för rad. Vill du lägga till en `_ålder`? Ändra på **två ställen**. Vill du lägga till kaniner? En klass till med samma `Presentera()`.
+`Present()` är **exakt samma** i båda klasserna — rad för rad. Vill du lägga till en `_age`? Ändra på **två ställen**. Vill du lägga till kaniner? En klass till med samma `Present()`.
 
 Det här kallas ett **DRY-brott** — Don't Repeat Yourself. Arv är lösningen.
 
@@ -50,50 +50,50 @@ Flytta det som är gemensamt till en **basklass**. En basklass är en vanlig kla
 ## Basklassen
 
 ```csharp
-class Djur
+class Animal
 {
-    public string Namn { get; private set; }
+    public string Name { get; private set; }
 
-    public Djur(string namn)
+    public Animal(string name)
     {
-        Namn = namn;
+        Name = name;
     }
 
-    public void Presentera()
+    public void Present()
     {
-        Console.WriteLine($"Jag heter {Namn}.");
+        Console.WriteLine($"Jag heter {Name}.");
     }
 
-    public virtual void LåtaLjud() { }
+    public virtual void PlaySound() { }
 }
 ```
 
-`Presentera()` skrivs **en gång** i `Djur`. Nyckelordet `virtual` markerar att subklasser får skriva sin egen version av `LåtaLjud`.
+`Present()` skrivs **en gång** i `Animal`. Nyckelordet `virtual` markerar att subklasser får skriva sin egen version av `PlaySound`.
 
 ## Subklasserna ärver
 
 En subklass är ett "barn" till basklassen — den ärver allt som inte är `private`.
 
-`Presentera()` finns i `Djur`. `Hund` och `Katt` får den gratis — ingen kopiering.
+`Present()` finns i `Animal`. `Dog` och `Cat` får den gratis — ingen kopiering.
 
 ## `virtual` och `override`
 
 Regeln kallas "öppen för arv, stängd för ändringar". Du har djur med olika beteenden — samma grund, men de agerar annorlunda. Istället för en massa if-satser i basklassen skapar du subklasser som ärver basklassen och skriver om specifika metoder.
 
 ```csharp
-class Djur
+class Animal
 {
-    public virtual void LåtaLjud() { }   // vet inte — gör ingenting
+    public virtual void PlaySound() { }   // vet inte — gör ingenting
 }
 
-class Hund : Djur
+class Dog : Animal
 {
-    public override void LåtaLjud() => Console.WriteLine("Voff!");
+    public override void PlaySound() => Console.WriteLine("Voff!");
 }
 
-class Katt : Djur
+class Cat : Animal
 {
-    public override void LåtaLjud() => Console.WriteLine("Mjau!");
+    public override void PlaySound() => Console.WriteLine("Mjau!");
 }
 ```
 
@@ -102,27 +102,27 @@ class Katt : Djur
 En subklass måste sätta i gång basklassens konstruktor med `: base(...)`:
 
 ```csharp
-class Hund : Djur
+class Dog : Animal
 {
-    public Hund(string namn) : base(namn) { }
+    public Dog(string name) : base(name) { }
 
-    public override void LåtaLjud()
+    public override void PlaySound()
     {
         Console.WriteLine("Voff!");
     }
 }
 ```
 
-- `: Djur` — Hund är en Djur
-- `: base(namn)` — anropar basklassens konstruktor med `namn`
-- `override` — skriver över basklassens `LåtaLjud`
+- `: Animal` — Hund är en Djur
+- `: base(name)` — anropar basklassens konstruktor med `name`
+- `override` — skriver över basklassens `PlaySound`
 
 ```csharp
-class Katt : Djur
+class Cat : Animal
 {
-    public Katt(string namn) : base(namn) { }
+    public Cat(string name) : base(name) { }
 
-    public override void LåtaLjud()
+    public override void PlaySound()
     {
         Console.WriteLine("Mjau!");
     }
@@ -132,43 +132,43 @@ class Katt : Djur
 ## `base(...)` — konstruktorkedjan
 
 ```csharp
-class Djur
+class Animal
 {
-    public string Namn { get; private set; }
+    public string Name { get; private set; }
 
-    public Djur(string namn)
+    public Animal(string name)
     {
-        Namn = namn;
+        Name = name;
     }
 }
 
-class Hund : Djur
+class Dog : Animal
 {
-    public Hund(string namn) : base(namn) { }
+    public Dog(string name) : base(name) { }
 }
 ```
 
-`: base(namn)` skickar `namn` upp till `Djur`. Utan det vet inte `Djur` vad `Namn` ska vara.
+`: base(name)` skickar `name` upp till `Animal`. Utan det vet inte `Animal` vad `Name` ska vara.
 
 ## Klassdiagram
 
 ```
 ┌──────────────────────────────┐
-│           Djur               │  ← basklass
+│           Animal               │  ← baseClass
 ├──────────────────────────────┤
-│ + Namn : string              │
+│ + Name : string              │
 ├──────────────────────────────┤
-│ + Djur(namn)                 │
-│ + Presentera()               │
-│ + virtual LåtaLjud()         │
+│ + Animal(name)                 │
+│ + Present()               │
+│ + virtual PlaySound()         │
 └──────────────────────────────┘
          ▲           ▲
          │           │
 ┌────────────┐  ┌────────────┐
-│    Hund    │  │    Katt    │  ← subklasser
+│    Dog    │  │    Cat    │  ← subclasses
 ├────────────┤  ├────────────┤
 │ override   │  │ override   │
-│ LåtaLjud   │  │ LåtaLjud   │
+│ PlaySound   │  │ PlaySound   │
 └────────────┘  └────────────┘
 ```
 
@@ -177,14 +177,14 @@ Pilen pekar uppåt — subklassen ärver från basklassen.
 ## Sätt ihop det i Main
 
 ```csharp
-Hund hund = new Hund("Fido");
-Katt katt = new Katt("Luna");
+Dog dog = new Dog("Fido");
+Cat cat = new Cat("Luna");
 
-hund.Presentera();   // ärvd från Djur — "Jag heter Fido."
-hund.LåtaLjud();    // Hunds egen override — "Voff!"
+dog.Present();   // ärvd från Djur — "Jag heter Fido."
+dog.PlaySound();    // Hunds egen override — "Voff!"
 
-katt.Presentera();   // ärvd från Djur — "Jag heter Luna."
-katt.LåtaLjud();    // Katts egen override — "Mjau!"
+cat.Present();   // ärvd från Djur — "Jag heter Luna."
+cat.PlaySound();    // Katts egen override — "Mjau!"
 ```
 
 ## Lägg till ett nytt djur — minimal kod
@@ -192,18 +192,18 @@ katt.LåtaLjud();    // Katts egen override — "Mjau!"
 Det är här arv verkligen lönar sig. För att lägga till en kanin behöver du bara:
 
 ```csharp
-class Kanin : Djur
+class Rabbit : Animal
 {
-    public Kanin(string namn) : base(namn) { }
+    public Rabbit(string name) : base(name) { }
 
-    public override void LåtaLjud()
+    public override void PlaySound()
     {
         Console.WriteLine("Nöff!");
     }
 }
 ```
 
-`Presentera()` fungerar direkt — ingen ändring någonstans. Det är poängen med arv.
+`Present()` fungerar direkt — ingen ändring någonstans. Det är poängen med arv.
 
 ## `virtual` vs `override` — en sammanfattning
 
@@ -218,16 +218,16 @@ Om du glömmer `override` i subklassen → basklassens version körs.
 ## De tre nyckelorden
 
 ```csharp
-class Hund : Djur           // arv — Hund är en Djur
+class Dog : Animal           // arv — Hund är en Djur
 {
-    public Hund(string namn)
-        : base(namn) { }    // kedja konstruktorer
+    public Dog(string name)
+        : base(name) { }    // kedja konstruktorer
 
-    public override void LåtaLjud()  // skriv över virtual-metod
+    public override void PlaySound()  // skriv över virtual-metod
     {
         Console.WriteLine("Voff!");
     }
 }
 ```
 
-Kom ihåg: `: Djur` · `: base(...)` · `override`
+Kom ihåg: `: Animal` · `: base(...)` · `override`

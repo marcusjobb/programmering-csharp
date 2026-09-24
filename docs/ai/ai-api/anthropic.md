@@ -32,7 +32,7 @@ public class ClaudeKlient
     private readonly HttpClient  _http;
     private readonly string      _apiKey;
     private const    string      ApiUrl  = "https://api.anthropic.com/v1/messages";
-    private const    string      Modell  = "claude-opus-4-5";
+    private const    string      Model  = "claude-opus-4-5";
 
     public ClaudeKlient(string apiKey)
     {
@@ -40,16 +40,16 @@ public class ClaudeKlient
         _http   = new HttpClient();
     }
 
-    public async Task<string> FrågaAsync(string fråga, string systemPrompt = "")
+    public async Task<string> FrågaAsync(string question, string systemPrompt = "")
     {
         var request = new
         {
-            model      = Modell,
+            model      = Model,
             max_tokens = 1024,
             system     = systemPrompt,
             messages   = new[]
             {
-                new { role = "user", content = fråga }
+                new { role = "user", content = question }
             }
         };
 
@@ -80,12 +80,12 @@ var apiKey = Environment.GetEnvironmentVariable("ANTHROPIC_API_KEY")
 
 var claude = new ClaudeKlient(apiKey);
 
-string svar = await claude.FrågaAsync(
-    fråga:        "Vad är skillnaden mellan List<T> och IEnumerable<T>?",
+string answer = await claude.FrågaAsync(
+    question:        "Vad är skillnaden mellan List<T> och IEnumerable<T>?",
     systemPrompt: "Du är en C#-lärare. Förklara kortfattat med kodexempel."
 );
 
-Console.WriteLine(svar);
+Console.WriteLine(answer);
 ```
 
 ## Request-strukturen
@@ -128,8 +128,8 @@ Console.WriteLine(svar);
 ```csharp
 try
 {
-    var svar = await claude.FrågaAsync(fråga);
-    Console.WriteLine(svar);
+    var answer = await claude.FrågaAsync(question);
+    Console.WriteLine(answer);
 }
 catch (HttpRequestException ex) when (ex.StatusCode == System.Net.HttpStatusCode.Unauthorized)
 {

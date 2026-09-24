@@ -46,23 +46,23 @@ public class KalkylatornTests
     [Fact]
     public void Addera_TvåPositivaTal_ReturnererarKorektSumma()
     {
-        var kalkylator = new Kalkylator();
+        var calculator = new Calculator();
 
-        int resultat = kalkylator.Addera(2, 3);
+        int result = calculator.Add(2, 3);
 
-        Assert.Equal(5, resultat);
+        Assert.Equal(5, result);
     }
 }
 ```
 
-Det kompilerar inte än — `Kalkylator` finns inte. Det är okej.
+Det kompilerar inte än — `Calculator` finns inte. Det är okej.
 
 ### 2. Implementera minimalt
 
 ```csharp
-public class Kalkylator
+public class Calculator
 {
-    public int Addera(int a, int b) => a + b;
+    public int Add(int a, int b) => a + b;
 }
 ```
 
@@ -78,27 +78,27 @@ Nu när testet är grönt — finns det något att förbättra? I det här falle
 
 ```csharp
 [Fact]
-public void Addera_NegativaTal_ReturnerarKorrektSumma()
+public void add_negative_number_returns_correct_sum()
 {
-    var kalkylator = new Kalkylator();
-    Assert.Equal(-5, kalkylator.Addera(-2, -3));
+    var calculator = new Calculator();
+    Assert.Equal(-5, calculator.Add(-2, -3));
 }
 
 [Fact]
 public void Addera_NollOchPositivt_ReturnerarSammaTal()
 {
-    var kalkylator = new Kalkylator();
-    Assert.Equal(7, kalkylator.Addera(0, 7));
+    var calculator = new Calculator();
+    Assert.Equal(7, calculator.Add(0, 7));
 }
 
 [Theory]
 [InlineData(2, 3, 5)]
 [InlineData(-1, 1, 0)]
 [InlineData(0, 0, 0)]
-public void Addera_OlikaKombinationer(int a, int b, int förväntat)
+public void add_different_combinations(int a, int b, int expected)
 {
-    var kalkylator = new Kalkylator();
-    Assert.Equal(förväntat, kalkylator.Addera(a, b));
+    var calculator = new Calculator();
+    Assert.Equal(expected, calculator.Add(a, b));
 }
 ```
 
@@ -112,17 +112,17 @@ Arrange–Act–Assert är standardstrukturen:
 
 ```csharp
 [Fact]
-public void NamnPåTest()
+public void NameForTest()
 {
     // Arrange — förbered allt som behövs
-    var objekt = new MinKlass();
-    int indata = 5;
+    var object = new MinClass();
+    int input = 5;
 
     // Act — kör det som testas
-    int resultat = objekt.MinMetod(indata);
+    int result = object.MinMethod(input);
 
     // Assert — kontrollera att resultatet är korrekt
-    Assert.Equal(10, resultat);
+    Assert.Equal(10, result);
 }
 ```
 
@@ -133,7 +133,7 @@ public void NamnPåTest()
 Namnge testerna så att de beskriver beteendet:
 
 ```
-Addera_TvåPositivaTal_ReturnerarKorrektSumma
+add_two_positive_number_returns_correct_sum
 Dela_MedNoll_KastarDivideByZeroException
 Hämta_EjBefintligtId_ReturnerarNull
 ```
@@ -168,6 +168,6 @@ dotnet test
 
 ## Övningar
 
-1. Implementera en metod `ÄrPrimtal(int n)` med TDD — skriv testerna först för: `1` (ej primtal), `2` (primtal), `4` (ej primtal), `17` (primtal).
+1. Implementera en metod `IsPrimeNumber(int n)` med TDD — skriv testerna först för: `1` (ej primtal), `2` (primtal), `4` (ej primtal), `17` (primtal).
 2. Bygg en miniräknare med TDD som stöder addition, subtraktion, multiplikation och division (inklusive division med noll).
 3. Skriv tester för en metod som tar en lista med heltal och returnerar den med alla dubletter borttagna — implementera sedan metoden.

@@ -32,14 +32,14 @@ Bra för: debuggning, arkitekturbeslut, komplexa algoritmer.
 Visa vad du vill ha genom att ge 1–3 exempel:
 
 ```
-Transformera dessa metoder till expression-bodied syntax.
+Transform these methods till expression-bodied syntax.
 
-Exempel:
-Innan: public int Hämta() { return _värde; }
-Efter:  public int Hämta() => _värde;
+Example:
+Before: public int Fetch() { return _value; }
+After:  public int Fetch() => _value;
 
-Nu transformera:
-public string Beskriv() { return $"Namn: {Namn}, Ålder: {Ålder}"; }
+Nu transform:
+public string Describe() { return $"Namn: {Name}, Ålder: {Age}"; }
 ```
 
 AI förstår mönstret och upprepar det korrekt.
@@ -56,15 +56,15 @@ AI förstår mönstret och upprepar det korrekt.
 ## Persona för code review
 
 ```
-Du är en strikt code reviewer. Din uppgift är att hitta ALLA problem i koden nedan.
-Var direkt — inga artigheter. Prioritera:
-1. Säkerhetsproblem
+Du is en strict code reviewer. Din task is to find ALL problem i code below.
+Var direct — none politePhrases. Prioritise:
+1. SecurityIssue
 2. Bugs
-3. Prestandaproblem
-4. Clean Code-brott
+3. PerformanceIssues
+4. Clean Code-crime
 
-Koden:
-[klistra in kod]
+Code:
+[paste in code]
 ```
 
 ## Konversationsminne — utnyttja kontexten
@@ -72,13 +72,13 @@ Koden:
 AI:t minns tidigare meddelanden i samma konversation. Bygg vidare:
 
 ```
-Konversation:
+Conversation:
 → "Skriv en Stack-klass i C#"
-← [AI ger koden]
+← [AI ger code]
 → "Lägg till en Peek-metod"
-← [AI uppdaterar klassen]
+← [AI updates class]
 → "Skriv enhetstester för alla metoder"
-← [AI skriver tester baserade på klassen]
+← [AI writes tester based on class]
 ```
 
 Börja om i ny konversation när ämnet byter — gammalt kontext förvirrar.
@@ -98,7 +98,7 @@ var request = new { temperature = 0.2, ... };
 Be om JSON eller specifikt format för att lättare bearbeta svaret i kod:
 
 ```
-Svara med JSON i detta format:
+Answer med JSON i this format:
 {
   "bedömning": "OK" | "Varning" | "Fel",
   "problem": ["problem 1", "problem 2"],

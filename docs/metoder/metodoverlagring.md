@@ -54,7 +54,7 @@ Hej
 Hej
 Hej
 Hej
-Hej (grön)
+Hej (green)
 ```
 
 ## Signaturen avgör vilken som väljs

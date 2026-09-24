@@ -10,7 +10,7 @@ nav_order: 10
 Varje C#-program börjar med samma kod — men vad betyder den egentligen?
 
 ```csharp
-namespace myprogram
+namespace myProgram
 {
     class Program
     {
@@ -28,7 +28,7 @@ Här är tre delar som alltid är med, och det är värt att förstå vad var oc
 ## namespace
 
 ```csharp
-namespace myprogram
+namespace myProgram
 ```
 
 Ett namespace är en kategorisering — det bestämmer var i projektet dina klasser "bor".

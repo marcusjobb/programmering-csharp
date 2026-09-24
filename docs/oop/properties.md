@@ -32,23 +32,23 @@ Innan C# hade properties fick man skriva `Get`- och `Set`-metoder för hand — 
 ```csharp
 public class Person
 {
-    private string _namn;  // backing field
+    private string _name;  // backing field
 
-    public string GetNamn()
+    public string GetName()
     {
-        return _namn;
+        return _name;
     }
 
-    public void SetNamn(string namn)
+    public void SetName(string name)
     {
-        _namn = namn;
+        _name = name;
     }
 }
 
 // Användning
 var p = new Person();
-p.SetNamn("Marcus");
-Console.WriteLine(p.GetNamn());  // Marcus
+p.SetName("Marcus");
+Console.WriteLine(p.GetName());  // Marcus
 ```
 
 Det fungerar — men det är ordigt, och felstavningar i metodnamnet (`GetNamnn`) ger inget kompileringsfel.
@@ -58,15 +58,15 @@ C# löste det med properties: samma kontroll, halva koden.
 
 ```csharp
 // Fält — direkt exponering, ingen kontroll
-public class Produkt
+public class Product
 {
-    public double Pris;       // farligt — vem som helst kan sätta -99
+    public double Price;       // farligt — vem som helst kan sätta -99
 }
 
 // Property — kontrollerad åtkomst
-public class Produkt
+public class Product
 {
-    public double Pris { get; private set; }   // alla läser, bara klassen skriver
+    public double Price { get; private set; }   // alla läser, bara klassen skriver
 }
 ```
 
@@ -75,11 +75,11 @@ public class Produkt
 Den enklaste formen — C# genererar det underliggande fältet automatiskt.
 
 ```csharp
-public class Produkt
+public class Product
 {
-    public string Namn  { get; set; }     // läs och skriv utifrån
-    public double Pris  { get; private set; }  // skriv bara inifrån klassen
-    public int    Antal { get; set; }
+    public string Name  { get; set; }     // läs och skriv utifrån
+    public double Price  { get; private set; }  // skriv bara inifrån klassen
+    public int    Count { get; set; }
 }
 ```
 
@@ -90,16 +90,16 @@ Ibland behövs extra logik vid get eller set — t.ex. validering.
 ```csharp
 public class BankAccount
 {
-    private double _saldo;   // backing field
+    private double _balance;   // backing field
 
-    public double Saldo
+    public double Balance
     {
-        get { return _saldo; }
+        get { return _balance; }
         set
         {
             if (value < 0)
                 throw new ArgumentException("Saldo kan inte vara negativt");
-            _saldo = value;
+            _balance = value;
         }
     }
 }
@@ -110,19 +110,19 @@ public class BankAccount
 När logiken är ett enkelt uttryck kan du använda `=>` för att korta ner koden.
 
 ```csharp
-public class Rektangel
+public class Rectangle
 {
-    public double Bredd { get; set; }
-    public double Höjd  { get; set; }
+    public double Width { get; set; }
+    public double Height  { get; set; }
 
     // Beräknad property — inget backing field
-    public double Area => Bredd * Höjd;
-    public double Omkrets => 2 * (Bredd + Höjd);
+    public double Area => Width * Height;
+    public double Perimeter => 2 * (Width + Height);
 }
 
-var r = new Rektangel { Bredd = 5, Höjd = 3 };
+var r = new Rectangle { Width = 5, Height = 3 };
 Console.WriteLine(r.Area);      // 15
-Console.WriteLine(r.Omkrets);   // 16
+Console.WriteLine(r.Perimeter);   // 16
 ```
 
 ## init — sätt bara vid skapandet (C# 9) ✨
@@ -132,12 +132,12 @@ Med `init` kan en property sättas i object initializer men inte ändras efterå
 ```csharp
 public class Person
 {
-    public string Namn  { get; init; }
-    public int    Ålder { get; init; }
+    public string Name  { get; init; }
+    public int    Age { get; init; }
 }
 
 // Sätts en gång vid skapandet
-var p = new Person { Namn = "Anna", Ålder = 30 };
+var p = new Person { Name = "Anna", Age = 30 };
 
 // p.Namn = "Björn";  // kompileringsfel — init tillåter inte ändring
 ```
@@ -149,14 +149,14 @@ var p = new Person { Namn = "Anna", Ålder = 30 };
 `required` markerar att en property måste sättas när objektet skapas. Kompilatorn varnar om du glömmer den.
 
 ```csharp
-public class Produkt
+public class Product
 {
-    public required string Namn { get; set; }   // måste anges
-    public double Pris { get; set; }            // valfri
+    public required string Name { get; set; }   // måste anges
+    public double Price { get; set; }            // valfri
 }
 
-var p1 = new Produkt { Namn = "Kaffebryggare" };          // OK
-var p2 = new Produkt { Namn = "Kaffebryggare", Pris = 499.0 };  // OK
+var p1 = new Product { Name = "Kaffebryggare" };          // OK
+var p2 = new Product { Name = "Kaffebryggare", Price = 499.0 };  // OK
 // var p3 = new Produkt { Pris = 499.0 };                 // kompileringsfel
 ```
 
@@ -165,15 +165,15 @@ var p2 = new Produkt { Namn = "Kaffebryggare", Pris = 499.0 };  // OK
 ## Kombinera init + required
 
 ```csharp
-public class Adress
+public class Address
 {
-    public required string Gata   { get; init; }
-    public required string Stad   { get; init; }
+    public required string Street   { get; init; }
+    public required string City   { get; init; }
     public string          Land   { get; init; } = "Sverige";
 }
 
-var a = new Adress { Gata = "Storgatan 1", Stad = "Göteborg" };
-Console.WriteLine($"{a.Gata}, {a.Stad}, {a.Land}");
+var a = new Address { Street = "Storgatan 1", City = "Göteborg" };
+Console.WriteLine($"{a.Street}, {a.City}, {a.Land}");
 // Storgatan 1, Göteborg, Sverige
 ```
 
@@ -184,24 +184,24 @@ Båda ger oföränderlighet, men på olika sätt:
 ```csharp
 class MedReadonly
 {
-    private readonly string _namn;
+    private readonly string _name;
 
-    public MedReadonly(string namn)
+    public MedReadonly(string name)
     {
-        _namn = namn;  // readonly — sätts bara i konstruktor
+        _name = name;  // readonly — sätts bara i konstruktor
     }
 }
 
 class MedInit
 {
-    public string Namn { get; init; }  // init — sätts i konstruktor ELLER object initializer
+    public string Name { get; init; }  // init — sätts i konstruktor ELLER object initializer
 }
 
 // Med readonly måste du ha en konstruktor med parametrar
 var a = new MedReadonly("Marcus");
 
 // Med init kan du använda object initializer
-var b = new MedInit { Namn = "Marcus" };
+var b = new MedInit { Name = "Marcus" };
 ```
 
 | | `readonly` (fält) | `{ get; }` (property) | `{ get; init; }` (C# 9) |
@@ -219,7 +219,7 @@ var b = new MedInit { Namn = "Marcus" };
 |---------|--------|-----|
 | Auto-property | `public T Prop { get; set; }` | Standard |
 | Read-only utifrån | `{ get; private set; }` | Klassen skriver, alla läser |
-| Beräknad | `public T Prop => uttryck;` | Värdet räknas ut |
+| Beräknad | `public T Prop => expression;` | Värdet räknas ut |
 | init | `{ get; init; }` | Sätt vid skapande, sedan oföränderlig |
 | required | `public required T Prop { get; set; }` | Tvinga initiering |
 | Full property | `get { } set { }` | Behöver validering |

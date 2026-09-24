@@ -73,7 +73,7 @@ public abstract class WebScraper
     public string Html { get => HtmlDocument?.DocumentNode?.OuterHtml ?? ""; }
 
     // All text utan HTML-taggar
-    public string Text { get => HtmlDocument?.DocumentNode?.InnerText ?? ""; }
+    public string Text { get => HtmlDocument?.DocumentNode?.InsideText ?? ""; }
 
     // Öppna en webbsida
     public virtual string GetHtmlDocument(string url)
@@ -81,7 +81,7 @@ public abstract class WebScraper
         Url = url;
         var web = new HtmlWeb();
         HtmlDocument = GetUrlAsync().Result;
-        Title = HtmlDocument.DocumentNode.SelectSingleNode("//title").InnerText;
+        Title = HtmlDocument.DocumentNode.SelectSingleNode("//title").InsideText;
         Description = HtmlDocument?.DocumentNode?.SelectSingleNode("//meta[@name='description']")?.Attributes["content"]?.Value ?? "";
         Tags = HtmlDocument?.DocumentNode?.SelectSingleNode("//meta[@name='keywords']")?.Attributes["content"]?.Value ?? "";
         return Html;
@@ -254,17 +254,17 @@ Här är en lista över några termer som används i koden:
 - `SaveImage`: En virtuell metod som sparar en bild till en specifik fil.
 - `Scrape`: En abstrakt metod som definierar hur webbsidan ska webscrapas.
 - `GetKittens`: En klass som ärver från `WebScraper` och implementerar `Scrape`-metoden för att hämta kattbilder från en specifik sida.
-- `Abstrakt klass`: En klass som inte kan instansieras direkt utan måste ärvas och implementeras i en konkret klass.
-- `Virtuell metod`: En metod som kan överskridas i en subklass.
-- `Nuget-paket`: Ett paket som kan installeras i Visual Studio för att lägga till funktionalitet i ett projekt.
+- `Abstrakt class`: En klass som inte kan instansieras direkt utan måste ärvas och implementeras i en konkret klass.
+- `Virtuell method`: En metod som kan överskridas i en subklass.
+- `Nuget-package`: Ett paket som kan installeras i Visual Studio för att lägga till funktionalitet i ett projekt.
 - `Grafik`: Bilder, ikoner och andra visuella element som används på en webbsida.
 - `HTML-dokument`: En textfil som innehåller HTML-kod för att skapa en webbsida.
-- `Överskrida`: Att skriva om en metod i en subklass.
-- `Utöka`: Att lägga till funktionalitet i en subklass.
+- `Exceed`: Att skriva om en metod i en subklass.
+- `Extend`: Att lägga till funktionalitet i en subklass.
 - `Klassimplementation`: En klass som ärver från en abstrakt klass och implementerar dess abstrakta metoder.
-- `Återanvändbar kod`: Kod som kan återanvändas i olika delar av ett projekt.
-- `Underhållbar kod`: Kod som är lätt att förstå och underhålla.
-- `Abstrakt metod`: En metod som inte har någon implementation och måste implementeras i en subklass.
+- `Reusable code`: Kod som kan återanvändas i olika delar av ett projekt.
+- `Maintainable code`: Kod som är lätt att förstå och underhålla.
+- `Abstrakt method`: En metod som inte har någon implementation och måste implementeras i en subklass.
 - `Regex`: Ett uttryck för att matcha mönster i textsträngar.
 - `Regex.Match`: En metod som matchar ett uttryck mot en textsträng.
 - `Regex.NextMatch`: En metod som matchar nästa uttryck mot en textsträng.

@@ -22,13 +22,13 @@ Hur hittar du ett värde i en samling utan att kontrollera varje element i onöd
 Gå igenom varje element tills du hittar rätt.
 
 ```csharp
-public static int LinjärSökning<T>(IEnumerable<T> källa, T mål)
+public static int LinearSearching<T>(IEnumerable<T> source, T goal)
     where T : IEquatable<T>
 {
     int index = 0;
-    foreach (var item in källa)
+    foreach (var item in source)
     {
-        if (item.Equals(mål))
+        if (item.Equals(goal))
             return index;
         index++;
     }
@@ -50,20 +50,20 @@ Välj linjär sökning när:
 Avfärda halva listan i varje steg. Fungerar bara på sorterade listor.
 
 ```csharp
-public static int BinärSökning<T>(IList<T> källa, T mål)
+public static int BinarySearching<T>(IList<T> source, T goal)
     where T : IComparable<T>
 {
-    int vänster = 0;
-    int höger = källa.Count - 1;
+    int left = 0;
+    int right = source.Count - 1;
 
-    while (vänster <= höger)
+    while (left <= right)
     {
-        int mitt = vänster + ((höger - vänster) / 2); // undviker overflow
-        int jämförelse = källa[mitt].CompareTo(mål);
+        int mitt = left + ((right - left) / 2); // undviker overflow
+        int comparison = source[mitt].CompareTo(goal);
 
-        if (jämförelse == 0) return mitt;
-        if (jämförelse < 0) vänster = mitt + 1;
-        else höger = mitt - 1;
+        if (comparison == 0) return mitt;
+        if (comparison < 0) left = mitt + 1;
+        else right = mitt - 1;
     }
 
     return -1;
@@ -96,15 +96,15 @@ Välj binär sökning när:
 Du behöver sällan rulla eget:
 
 ```csharp
-var namnlista = new List<string> { "Anna", "Kalle", "Pelle", "Sara" };
-namnlista.Sort(); // Sortera först!
+var nameList = new List<string> { "Anna", "Kalle", "Pelle", "Sara" };
+nameList.Sort(); // Sortera först!
 
-int index = namnlista.BinarySearch("Kalle");
+int index = nameList.BinarySearch("Kalle");
 // index >= 0 → hittades; annars bitwise complement av insättningspunkten
 
 // För existenskontroll: byt List mot HashSet
-var namn = new HashSet<string> { "Anna", "Kalle", "Pelle", "Sara" };
-bool finns = namn.Contains("Kalle"); // O(1)
+var name = new HashSet<string> { "Anna", "Kalle", "Pelle", "Sara" };
+bool exists = name.Contains("Kalle"); // O(1)
 ```
 
 ---

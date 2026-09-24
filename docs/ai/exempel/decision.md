@@ -23,9 +23,9 @@ Input 2: "Teamet har 5 år MSSQL-erfarenhet, 0 år PostgreSQL"
 Input 3: "Systemet hanterar 10 000 transaktioner/dag"
 Input 4: "Budget: begränsad — 2 månader för migrering"
 ↓
-AI analyserar alla inputs
+AI analyses all inputs
 ↓
-Strukturerat svar: Bedömning, risker, rekommendation, nästa steg
+Structured answer: Assessment, risks, recommendation, next step
 ```
 
 ## Fullständigt exempel
@@ -37,12 +37,12 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 
 // Modell för det strukturerade svaret
-record Beslutsbedömning(
-    string Bedömning,
-    string[] Risker,
-    string[] Fördelar,
-    string Rekommendation,
-    string[] NästaSteg
+record DecisionAssessment(
+    string Assessment,
+    string[] Risks,
+    string[] Advantages,
+    string Recommendation,
+    string[] NextStep
 );
 
 class BeslutsHelper
@@ -51,10 +51,10 @@ class BeslutsHelper
     private readonly string     _apiKey;
 
     private const string ApiUrl       = "https://api.anthropic.com/v1/messages";
-    private const string Modell       = "claude-sonnet-4-6";
+    private const string Model       = "claude-sonnet-4-6";
     private const string SystemPrompt = """
-        Du är en erfaren IT-arkitekt och beslutsrådgivare.
-        Analysera de givna faktorerna och svara ALLTID med JSON i exakt detta format:
+        Du is en experienced IT-architect och decisionAdviser.
+        Analyse de given factors och answer ALWAYS med JSON i exact this format:
         {
           "Bedömning": "Positiv" | "Neutral" | "Negativ",
           "Risker": ["risk 1", "risk 2"],
@@ -62,7 +62,7 @@ class BeslutsHelper
           "Rekommendation": "En mening med din rekommendation",
           "NästaSteg": ["steg 1", "steg 2", "steg 3"]
         }
-        Svara BARA med JSON — inga förklaringar utanför.
+        Answer BARA med JSON — none explanations outside.
         """;
 
     public BeslutsHelper(string apiKey)
@@ -71,22 +71,22 @@ class BeslutsHelper
         _http   = new HttpClient();
     }
 
-    public async Task<Beslutsbedömning?> AnalyseraAsync(string beslutsfraga, List<string> faktorer)
+    public async Task<DecisionAssessment?> AnalyseraAsync(string decisionQuestion, List<string> factors)
     {
-        var faktorText = string.Join("\n", faktorer.Select((f, i) => $"- Faktor {i + 1}: {f}"));
+        var factorText = string.Join("\n", factors.Select((f, i) => $"- Faktor {i + 1}: {f}"));
 
         var prompt = $"""
-            Beslutsfraga: {beslutsfraga}
+            DecisionQuestion: {decisionQuestion}
 
-            Faktorer att beakta:
-            {faktorText}
+            Factors to consider:
+            {factorText}
 
-            Analysera och ge din rekommendation som JSON.
+            Analyse och ge din recommendation as JSON.
             """;
 
         var request = new
         {
-            model      = Modell,
+            model      = Model,
             max_tokens = 1024,
             system     = SystemPrompt,
             messages   = new[] { new { role = "user", content = prompt } }
@@ -107,7 +107,7 @@ class BeslutsHelper
                               .GetProperty("text")
                               .GetString() ?? "{}";
 
-        return JsonSerializer.Deserialize<Beslutsbedömning>(
+        return JsonSerializer.Deserialize<DecisionAssessment>(
             text,
             new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
         );
@@ -119,59 +119,59 @@ var apiKey = Environment.GetEnvironmentVariable("ANTHROPIC_API_KEY")
     ?? throw new InvalidOperationException("ANTHROPIC_API_KEY saknas");
 
 var helper = new BeslutsHelper(apiKey);
-var faktorer = new List<string>();
+var factors = new List<string>();
 
 Console.WriteLine("=== Decision Helper ===\n");
 Console.Write("Vad ska beslutet handla om? ");
-var fråga = Console.ReadLine() ?? "";
+var question = Console.ReadLine() ?? "";
 
 Console.WriteLine("\nAnge faktorer (tom rad = klar):");
 while (true)
 {
-    Console.Write($"Faktor {faktorer.Count + 1}: ");
-    var faktor = Console.ReadLine() ?? "";
-    if (string.IsNullOrWhiteSpace(faktor)) break;
-    faktorer.Add(faktor);
+    Console.Write($"Faktor {factors.Count + 1}: ");
+    var factor = Console.ReadLine() ?? "";
+    if (string.IsNullOrWhiteSpace(factor)) break;
+    factors.Add(factor);
 }
 
-if (faktorer.Count == 0)
+if (factors.Count == 0)
 {
     Console.WriteLine("Inga faktorer angivna.");
     return;
 }
 
 Console.WriteLine("\nAnalyserar...\n");
-var bedömning = await helper.AnalyseraAsync(fråga, faktorer);
+var assessment = await helper.AnalyseraAsync(question, factors);
 
-if (bedömning is null)
+if (assessment is null)
 {
     Console.WriteLine("Kunde inte tolka svaret.");
     return;
 }
 
 // Presentera resultatet
-var färg = bedömning.Bedömning switch
+var colour = assessment.Assessment switch
 {
     "Positiv" => ConsoleColor.Green,
     "Negativ" => ConsoleColor.Red,
     _         => ConsoleColor.Yellow
 };
 
-Console.ForegroundColor = färg;
-Console.WriteLine($"BEDÖMNING: {bedömning.Bedömning}");
+Console.ForegroundColor = colour;
+Console.WriteLine($"BEDÖMNING: {assessment.Assessment}");
 Console.ResetColor();
 
-Console.WriteLine($"\nREKOMMENDATION:\n  {bedömning.Rekommendation}");
+Console.WriteLine($"\nREKOMMENDATION:\n  {assessment.Recommendation}");
 
 Console.WriteLine("\nRISKER:");
-foreach (var r in bedömning.Risker) Console.WriteLine($"  ⚠ {r}");
+foreach (var r in assessment.Risks) Console.WriteLine($"  ⚠ {r}");
 
 Console.WriteLine("\nFÖRDELAR:");
-foreach (var f in bedömning.Fördelar) Console.WriteLine($"  ✓ {f}");
+foreach (var f in assessment.Advantages) Console.WriteLine($"  ✓ {f}");
 
 Console.WriteLine("\nNÄSTA STEG:");
-for (int i = 0; i < bedömning.NästaSteg.Length; i++)
-    Console.WriteLine($"  {i + 1}. {bedömning.NästaSteg[i]}");
+for (int i = 0; i < assessment.NextStep.Length; i++)
+    Console.WriteLine($"  {i + 1}. {assessment.NextStep[i]}");
 ```
 
 ## Exempel på körning
@@ -179,32 +179,32 @@ for (int i = 0; i < bedömning.NästaSteg.Length; i++)
 ```
 === Decision Helper ===
 
-Vad ska beslutet handla om? Byta databas från MSSQL till PostgreSQL
-Faktor 1: Teamet har 5 år MSSQL-erfarenhet, noll PostgreSQL
-Faktor 2: 10 000 transaktioner per dag
-Faktor 3: Budget för 2 månaders migration
-Faktor 4: PostgreSQL är gratis, MSSQL kostar 50 000 kr/år
-Faktor 5:
+What should decision shop if? Swap database from MSSQL till PostgreSQL
+Factor 1: Team has 5 year MSSQL-experience, zero PostgreSQL
+Factor 2: 10 000 transactions per day
+Factor 3: Budget for 2 months migration
+Factor 4: PostgreSQL is gratis, MSSQL costs 50 000 kr/year
+Factor 5:
 
-Analyserar...
+Analyses...
 
-BEDÖMNING: Neutral
+ASSESSMENT: Neutral
 
-REKOMMENDATION:
-  Byte är möjligt men kräver noggrann planering — kostnadsbesparingen motiverar det på sikt.
+RECOMMENDATION:
+  Byte is possible men requires precise planning — costSaving motivates it on aim.
 
-RISKER:
-  ⚠ Kunskapsgap kan leda till längre driftstörningar vid problem
-  ⚠ 2 månader är tight för fullständig migrering och testning
+RISKS:
+  ⚠ KnowledgeGap can leda till longer outages at problem
+  ⚠ 2 months is tight for complete migration och testing
 
-FÖRDELAR:
-  ✓ Kostnadsbesparing på 50 000 kr/år
-  ✓ PostgreSQL är väl dokumenterat med stor community
+ADVANTAGES:
+  ✓ CostSaving on 50 000 kr/year
+  ✓ PostgreSQL is well documented med large community
 
-NÄSTA STEG:
-  1. Genomför pilot-migrering av ett icke-kritiskt system
-  2. Boka PostgreSQL-utbildning för teamet
-  3. Ta fram rollback-plan innan produktionsmigration
+NEXT STEP:
+  1. Perform pilot-migration of ett non-critical system
+  2. Book PostgreSQL-education for team
+  3. Ta forward rollback-plan before productionMigration
 ```
 
 ## Designprinciper i exemplet

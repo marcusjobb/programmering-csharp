@@ -44,7 +44,7 @@ Console.WriteLine("Klart");
 2
 3
 4
-Klart
+Clear
 ```
 
 Loopen slutade vid 5 — 5 skrevs aldrig ut.
@@ -96,7 +96,7 @@ foreach (var name in list)
 ### Output
 
 ```
-Hittade Björn!
+Found Björn!
 ```
 
 ## break i switch

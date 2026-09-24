@@ -54,9 +54,9 @@ doc.Load(file);
 XmlNodeList people = doc.GetElementsByTagName("person");
 foreach (XmlNode person in people)
 {
-    string name = person["name"].InnerText;
-    string age = person["age"].InnerText;
-    string alias = person["alias"].InnerText;
+    string name = person["name"].InsideText;
+    string age = person["age"].InsideText;
+    string alias = person["alias"].InsideText;
     Console.WriteLine(name + " " + alias + " " + age);
 }
 ```

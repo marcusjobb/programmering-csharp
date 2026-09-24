@@ -16,7 +16,7 @@ nav_order: 10
 En bra programmerare skriver inte direkt kod. De **tänker igenom problemet först**.
 
 ```
-Problem → Plan → Kod
+Problem → Plan → Code
 ```
 
 Det är mycket lättare att rätta till en plan på papper än att rätta till kod som inte fungerar.
@@ -44,20 +44,20 @@ Det är mycket lättare att rätta till en plan på papper än att rätta till k
          └──────┬──────┘
                 │
          ┌──────▼──────┐
-         │  Regnar det? │
+         │  Rains it? │
          └──┬───────┬───┘
-           Ja      Nej
+           Ja      No
             │       │
     ┌───────▼──┐  ┌──▼────────────┐
-    │Ta paraply│  │Lämna paraplyt │
+    │Ta umbrella│  │Leave umbrella │
     └───────┬──┘  └──┬────────────┘
             │        │
          ┌──▼────────▼──┐
-         │    Gå ut     │
+         │    Go ut     │
          └──────┬───────┘
                 │
          ┌──────▼──────┐
-         │    SLUT     │
+         │    END     │
          └─────────────┘
 ```
 
@@ -67,13 +67,13 @@ Pseudokod är ett mellansteg — varken kod eller vanlig text. Skriv logiken på
 
 ```
 START
-  Om det regnar
-    Ta med paraply
-  Annars
-    Lämna paraplyt hemma
-  Slut om
-  Gå ut
-SLUT
+  If it rains
+    Ta med umbrella
+  Otherwise
+    Leave umbrella home
+  End if
+  Go ut
+END
 ```
 
 Ingen kompilator kan läsa det — men du kan resonera om det utan att fastna i detaljer.
@@ -100,8 +100,8 @@ Console.WriteLine("Gå ut.");
 ### Output
 
 ```
-Ta med paraply!
-Gå ut.
+Ta med umbrella!
+Go ut.
 ```
 
 ## Loopar i flödesscheman
@@ -118,11 +118,11 @@ En loop är en pil som **går tillbaka** — slingan upprepas tills villkoret ä
     └──────┬──────┘
            │  ◄────────────────────────┐
     ┌──────▼──────┐                    │
-    │  i <= 5?    │──Nej──► SLUT       │
+    │  i <= 5?    │──No──► END       │
     └──────┬──────┘                    │
           Ja                           │
     ┌──────▼──────┐                    │
-    │ Skriv ut i  │                    │
+    │ Write ut i  │                    │
     └──────┬──────┘                    │
     ┌──────▼──────┐                    │
     │   i = i + 1 │────────────────────┘
@@ -133,10 +133,10 @@ Pseudokod:
 
 ```
 i = 1
-Så länge i <= 5
-  Skriv ut i
+So long i <= 5
+  Write ut i
   i = i + 1
-Slut så länge
+End so long
 ```
 
 C#:

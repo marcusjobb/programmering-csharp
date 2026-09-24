@@ -27,22 +27,22 @@ En destruktor (eller finalizer) är kod som körs **när ett objekt förstörs**
 En destruktor har klassens namn med ett `~` framför. Den tar inga parametrar och har inget returvärde.
 
 ```csharp
-public class Resurs
+public class Resource
 {
-    public Resurs()
+    public Resource()
     {
         Console.WriteLine("Resurs skapades");
     }
 
     // Destruktor — körs av GC när objektet städas bort
-    ~Resurs()
+    ~Resource()
     {
         Console.WriteLine("Resurs förstördes");
     }
 }
 
 {
-    var r = new Resurs();   // Resurs skapades
+    var r = new Resource();   // Resurs skapades
     // r går ur scope här
 }
 // "Resurs förstördes" skrivs ut... men när? GC bestämmer.
@@ -51,8 +51,8 @@ public class Resurs
 ### Output (ungefärlig)
 
 ```
-Resurs skapades
-Resurs förstördes
+Resource created
+Resource destroyed
 ```
 
 ## Varför är destruktorer sällsynta i C#?
@@ -71,17 +71,17 @@ Destruktorn omvandlas av kompilatorn till en **finalizer** och körs av Garbage 
 Om din klass håller en **ohanterad resurs** (filhandle, databaskoppling, nätverksanslutning) använder du `IDisposable` istället.
 
 ```csharp
-public class FilSkrivare : IDisposable
+public class FilePrinter : IDisposable
 {
     private StreamWriter _writer;
     private bool _disposed = false;
 
-    public FilSkrivare(string sökväg)
+    public FilePrinter(string path)
     {
-        _writer = new StreamWriter(sökväg);
+        _writer = new StreamWriter(path);
     }
 
-    public void Skriv(string text) => _writer.WriteLine(text);
+    public void Write(string text) => _writer.WriteLine(text);
 
     public void Dispose()
     {
@@ -94,9 +94,9 @@ public class FilSkrivare : IDisposable
 }
 
 // using-blocket anropar Dispose() automatiskt när blocket är klart
-using (var fil = new FilSkrivare("log.txt"))
+using (var file = new FilePrinter("log.txt"))
 {
-    fil.Skriv("Hej från fil!");
+    file.Write("Hej från fil!");
 }
 // Dispose() har körts — filen är stängd
 ```
@@ -105,8 +105,8 @@ using (var fil = new FilSkrivare("log.txt"))
 
 ```csharp
 // ✨ C# 8 — ingen explicit block behövs
-using var fil = new FilSkrivare("log.txt");
-fil.Skriv("Hej från fil!");
+using var file = new FilePrinter("log.txt");
+file.Write("Hej från fil!");
 // Dispose() körs automatiskt när variabeln lämnar scope
 ```
 
@@ -115,7 +115,7 @@ fil.Skriv("Hej från fil!");
 Standardmönstret (Dispose pattern) kombinerar båda för att hantera både kontrollerad (`Dispose`) och okontrollerad (GC) frigöring.
 
 ```csharp
-public class HanterdResurs : IDisposable
+public class HandledResource : IDisposable
 {
     private bool _disposed = false;
 
@@ -138,13 +138,13 @@ public class HanterdResurs : IDisposable
         GC.SuppressFinalize(this);  // Säger åt GC att skippa finalizern
     }
 
-    ~HanterdResurs() => Dispose(false);  // Säkerhetsnät om Dispose glömdes
+    ~HandledResource() => Dispose(false);  // Säkerhetsnät om Dispose glömdes
 }
 ```
 
 ## TL;DR
 
-- Destruktor (`~Klass()`) körs av GC — du vet inte när
+- Destruktor (`~Class()`) körs av GC — du vet inte när
 - Sällsynt i C# eftersom GC hanterar minnet automatiskt
 - För ohanterade resurser: implementera `IDisposable` och använd `using`
 - `using var` (C# 8) är kortast och anropar `Dispose()` automatiskt

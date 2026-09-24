@@ -84,7 +84,7 @@ Följande exempelkod visar hur du kan använda constraints för att skapa tabell
 
 ```sql
 CREATE TABLE Person (
-    PersonID int NOT NULL PRIMARY KEY,
+    PersonId int NOT NULL PRIMARY KEY,
     LastName varchar(255) NOT NULL,
     FirstName varchar(255),
     Address varchar(255),
@@ -94,8 +94,8 @@ CREATE TABLE Person (
 CREATE TABLE Orders (
     OrderID int NOT NULL PRIMARY KEY,
     OrderDate date NOT NULL,
-    PersonID int NOT NULL,
-    FOREIGN KEY (PersonID) REFERENCES Person(PersonID)
+    PersonId int NOT NULL,
+    FOREIGN KEY (PersonId) REFERENCES Person(PersonId)
 );
 ```
 
@@ -105,7 +105,7 @@ För att koppla ihop tabellerna och visa information från båda tabellerna kan 
 
 ```sql
 SELECT * FROM Person
-INNER JOIN Orders ON Person.PersonID = Orders.PersonID;
+INSIDE JOIN Orders ON Person.PersonId = Orders.PersonId;
 ```
 
 Denna fråga hämtar alla rader från både "Person" och "Orders" tabellerna där primary key-värdet i "Person" matchar foreign key-värdet i "Orders".

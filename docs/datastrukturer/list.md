@@ -78,8 +78,8 @@ foreach (string name in starWarsHeroes)
 
 Output:
 ```
-Antal hjältar: 4
-Första hjälten: Luke Skywalker
+Count heroes: 4
+First hero: Luke Skywalker
 Luke Skywalker
 Princess Leia
 Yoda
@@ -131,8 +131,8 @@ foreach (string name in starWarsHeroes)
 
 Output:
 ```
-Antal hjältar: 4
-Första hjälten: Luke Skywalker
+Count heroes: 4
+First hero: Luke Skywalker
 Luke Skywalker
 Princess Leia
 Yoda
