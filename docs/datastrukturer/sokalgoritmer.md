@@ -79,6 +79,45 @@ Välj binär sökning när:
 
 ---
 
+## Gissa talet — binär sökning i praktiken
+
+Du har säkert spelat "jag tänker på ett tal mellan 1 och 100, gissa vilket" — antingen som spelare eller som
+programmerare som byggt spelet. Om du gissade slumpmässigt gjorde du en linjär sökning. Men gissade du på
+*mitten* av det som var kvar varje gång ("50... för högt... 25... för lågt... 37...") körde du binär sökning
+för hand, utan att veta om det.
+
+Vänder vi på spelet — datorn ska gissa **ditt** tal så snabbt som möjligt — blir det uppenbart att det är
+exakt samma algoritm som `BinarySearching` ovan:
+
+```csharp
+int min = 1;
+int max = 100;
+int attempts = 0;
+
+while (min <= max)
+{
+    attempts++;
+    int guess = min + (max - min) / 2; // samma halvering som mitt i BinarySearching
+
+    Console.Write($"Försök {attempts}: Är talet {guess}? (h=högre, l=lägre, r=rätt) ");
+    string answer = Console.ReadLine();
+
+    if (answer == "r")
+    {
+        Console.WriteLine($"Hittade det på {attempts} försök.");
+        break;
+    }
+    else if (answer == "h") min = guess + 1;
+    else max = guess - 1;
+}
+```
+
+Med tal mellan 1 och 100 behöver datorn **aldrig** fler än 7 försök (2⁷ = 128 ≥ 100), oavsett vilket tal du
+väljer — samma `O(log n)` som i teorin ovan, fast som ett samtal i stället för en sökning i en array. Jämför
+med en spelare som gissar slumpmässigt: den kan i värsta fall behöva 100 försök.
+
+---
+
 ## Snabbguide
 
 | Situation                            | Algoritm         | Kommentar                                        |
