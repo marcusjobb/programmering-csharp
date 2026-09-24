@@ -1,13 +1,6 @@
 ---
 title: StringBuilder
 description: "Strängar i C# är oföränderliga. Varje gång du lägger ihop strängar med + skapas ett nytt strängobjekt i minnet. Gör du det hundra gånger skapas hundra…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Variabler
 nav_order: 42
 ---

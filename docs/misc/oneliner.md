@@ -1,13 +1,6 @@
 ---
 title: Funktionell kodning
 description: "C# är primärt objektorienterat, men har starkt stöd för funktionell stil. Funktionell kodning handlar om att beskriva vad som ska göras, inte hur — med…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Övrigt
 nav_order: 10
 ---

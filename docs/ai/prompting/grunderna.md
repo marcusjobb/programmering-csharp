@@ -1,13 +1,6 @@
 ---
 title: Promptens grunder
 description: "En välskriven prompt är skillnaden mellan ett vagt svar och ett svar du kan använda direkt. Det finns ett tydligt mönster som fungerar konsekvent."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Prompting
 nav_order: 10
 ---

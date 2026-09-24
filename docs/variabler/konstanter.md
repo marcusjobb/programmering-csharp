@@ -1,13 +1,6 @@
 ---
 title: Konstanter
 description: "En konstant är ett värde som aldrig ändras under programmets körning. I C# finns två nyckelord för detta: const och readonly."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Variabler
 nav_order: 20
 ---

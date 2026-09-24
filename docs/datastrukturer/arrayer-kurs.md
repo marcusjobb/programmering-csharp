@@ -1,5 +1,5 @@
 ---
-title: "Arrayer och listor (kurs)"
+title: "Lästext — Arrayer och listor"
 description: "Ibland räcker det inte med en enda variabel. Tänk dig att du vill lagra fem poäng från ett spel. Du kan skapa fem separata variabler — score, score, score…"
 parent: "Datastrukturer"
 nav_order: 15

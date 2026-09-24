@@ -1,13 +1,6 @@
 ---
 title: Gemini
 description: "Gemini är Googles AI-modell. Den är integrerad i Google Workspace (Docs, Gmail, Sheets) och finns tillgänglig via API. Multimodal från grunden — ser text…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: AI-modeller
 nav_order: 40
 ---

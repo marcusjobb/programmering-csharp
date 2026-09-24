@@ -1,13 +1,6 @@
 ---
 title: AI-exempel
 description: "Tre konkreta applikationer som visar hur du integrerar AI i C#-program. Alla bygger på samma mönster — HttpClient + JSON — men löser olika problem."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: AI
 nav_order: 40
 has_children: true

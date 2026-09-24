@@ -1,13 +1,6 @@
 ---
 title: Exempel - Webscraping
 description: "I den här artikeln ska vi titta på hur man skapar en abstrakt klass med abstrakta och virtuella metoder i C#."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: Abstrakta klasser
 nav_order: 20
 ---

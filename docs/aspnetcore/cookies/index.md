@@ -1,13 +1,6 @@
 ---
 title: Cookies
 description: "Cookies är en liten fil som sparas på en användares dator."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: ASP.net Core
 nav_order: 10
 has_children: True
@@ -16,16 +9,6 @@ has_children: True
 
 Cookies är en liten fil som sparas på en användares dator.
 
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 
 ## TL;DR

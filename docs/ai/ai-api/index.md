@@ -1,13 +1,6 @@
 ---
 title: AI-API
 description: "Du kan anropa AI-modeller direkt från din C#-applikation via HTTP. Det är samma mönster som alla andra REST-API:er — en POST-förfrågan med JSON-body, ett…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: AI
 nav_order: 30
 has_children: true

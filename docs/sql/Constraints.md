@@ -1,28 +1,11 @@
 ---
 title: Constraints
 description: "Constraints i SQL används för att begränsa datan i en tabell. Det finns två typer av constraints: primary key och foreign key. Primary key används för att…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: SQL
 nav_order: 10
 ---
 # Constraints
 
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## TL;DR
 
@@ -66,9 +49,7 @@ Några viktiga begränsningar att vara medveten om när man använder constraint
 - Varje tabell kan ha endast en primary key och flera foreign keys.
 - Primary key och foreign key kan inte vara null.
 - Om en tabell refererar till en annan tabell med en foreign key, måste värdet i foreign key-kolumnen finnas som en primary key i den andra tabellen.
-- Vid användning av sammansatta nycklar måste kombinationen
-
- av värden vara unik för varje rad i tabellen.
+- Vid användning av sammansatta nycklar måste kombinationen av värden vara unik för varje rad i tabellen.
 
 ## Användningsområden
 

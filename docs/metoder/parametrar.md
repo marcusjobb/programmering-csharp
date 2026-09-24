@@ -1,13 +1,6 @@
 ---
 title: Parametrar
 description: "En parameter är ett värde som skickas in till en metod. Det är metodens ingång — data den behöver för att göra sitt jobb."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Metoder
 nav_order: 20
 ---

@@ -1,13 +1,6 @@
 ---
 title: Visual Studio
 description: "Installera Visual Studio Visual Studio är ett IDE för C# och .NET. Det är främst den som används när man arbetar med C#."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: Installation
 nav_order: 40
 ---

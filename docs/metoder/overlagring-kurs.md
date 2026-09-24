@@ -1,5 +1,5 @@
 ---
-title: "Överlagring (kurs)"
+title: "Överlagring och arv — tips och tricks"
 description: "Det här är en fördjupning av arv-konceptet med fokus på metodöverlagring, konstruktoröverlagring, base.Method() och ToString()."
 parent: "Metoder"
 nav_order: 25

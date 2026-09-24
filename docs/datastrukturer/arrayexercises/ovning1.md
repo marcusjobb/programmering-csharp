@@ -1,13 +1,6 @@
 ---
 title: Summera element i en array
 description: "Skriv en metod som tar emot en array av heltal och summerar alla element i arrayen. Returnera den resulterande summan."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: Array övningar
 nav_order: 30
 ---

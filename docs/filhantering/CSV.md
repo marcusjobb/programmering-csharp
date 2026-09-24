@@ -1,13 +1,6 @@
 ---
 title: CSV
 description: "Filformatet CSV (Comma Separated Values) är ett filformat som används för att lagra data i en tabell. Det är ett vanligt filformat som används för att…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: Filhantering
 nav_order: 20
 ---
@@ -43,9 +36,7 @@ CSV-filer används i olika sammanhang och har många användningsområden:
 
 - **Dataimport och -export**: CSV-filer används ofta för att importera och exportera data från olika program och system. Det kan vara användbart när du behöver överföra data mellan olika databaser, kalkylblad eller applikationer.
 
-- **Dataanalys**: CSV-filer är vanliga inom dataanalys och affärsintelligens. Genom att exportera data från olika källor till CSV-format kan du sammanställa och analy
-
-sera informationen med hjälp av specialiserade analysverktyg eller skript.
+- **Dataanalys**: CSV-filer är vanliga inom dataanalys och affärsintelligens. Genom att exportera data från olika källor till CSV-format kan du sammanställa och analysera informationen med hjälp av specialiserade analysverktyg eller skript.
 
 - **Testdata**: CSV-filer kan användas för att skapa testdata för programvarutestning. Genom att generera CSV-filer med olika scenarier och värden kan du testa programmet med olika dataset och se till att det fungerar korrekt i olika situationer.
 

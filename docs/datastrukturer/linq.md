@@ -1,13 +1,6 @@
 ---
 title: LINQ
 description: "LINQ är ett av C#:s kraftfullaste verktyg. Det låter dig filtrera, transformera och aggregera samlingar med en konsekvent syntax — oavsett om du jobbar…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Datastrukturer
 nav_order: 40
 ---

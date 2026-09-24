@@ -1,13 +1,6 @@
 ---
 title: Diagram
 description: "Bra programmerare planerar innan de kodar. Diagram hjälper dig att tänka igenom ett problem, kommunicera lösningar till andra och dokumentera hur ett…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: C# bok
 nav_order: 40
 has_children: true

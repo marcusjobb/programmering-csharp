@@ -1,13 +1,6 @@
 ---
 title: Binär
 description: "Vi ska nu utforska hur man skapar och läser binära filer i C#. Det är faktiskt ganska coolt!"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: Filhantering
 nav_order: 10
 ---
@@ -15,16 +8,6 @@ nav_order: 10
 
 Vi ska nu utforska hur man skapar och läser binära filer i C#. Det är faktiskt ganska coolt!
 
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## Beskrivning
 

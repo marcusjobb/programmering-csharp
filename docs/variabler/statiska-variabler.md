@@ -1,13 +1,6 @@
 ---
 title: Statiska variabler
 description: "Vanliga variabler tillhör ett objekt. Varje instans av en klass har sin egen kopia. En statisk variabel tillhör klassen själv — alla instanser delar på…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Variabler
 nav_order: 30
 ---

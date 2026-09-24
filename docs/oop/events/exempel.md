@@ -1,13 +1,6 @@
 ---
 title: Bankkonto
 description: "Vi ska skapa ett bankkonto där vi kan sätta in pengar och ta ut pengar. Ett bankkonto är en vanlig komponent i finansiella system och används för att…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: Events
 nav_order: 10
 ---

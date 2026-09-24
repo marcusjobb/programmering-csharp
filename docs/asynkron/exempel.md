@@ -1,13 +1,6 @@
 ---
 title: Exempel
 description: "Yay! Nu ska vi ta en titt på ett exempel där vi ska skapa en metod som söker igenom alla filer i en mapp och returnerar en lista med filer som innehåller…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: Asynkron
 nav_order: 10
 ---

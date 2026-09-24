@@ -1,13 +1,6 @@
 ---
 title: Break och Continue
 description: "break och continue är satser som styr vad som händer inuti en loop. De används för att hoppa ut ur loopen eller hoppa vidare till nästa varv."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Loopar
 nav_order: 45
 ---

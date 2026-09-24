@@ -1,13 +1,6 @@
 ---
 title: Foreach
 description: "foreach är den vanligaste loopen i C# när du jobbar med samlingar. Den går igenom varje element ett i taget — du behöver aldrig hantera ett index."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Loopar
 nav_order: 25
 ---

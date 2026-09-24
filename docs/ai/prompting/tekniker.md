@@ -1,13 +1,6 @@
 ---
 title: Promptingtekniker
 description: "Utöver grundstrukturen finns det beprövade tekniker som förbättrar svar dramatiskt."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Prompting
 nav_order: 20
 ---

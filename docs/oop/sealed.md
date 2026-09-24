@@ -1,13 +1,6 @@
 ---
 title: Sealed
 description: "sealed är ett nyckelord som låser arv — antingen för en hel klass, eller för en specifik metod. Det är ett sätt att säga: \"Designen slutar här. Inga fler…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Objektorienterad programmering (OOP)
 nav_order: 45
 ---

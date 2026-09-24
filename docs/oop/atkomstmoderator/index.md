@@ -1,13 +1,6 @@
 ---
 title: Åtkomstmoderator
 description: "En åtkomstmoderator är en modifierare som används för att definiera åtkomsten till en klassmedlem. Detta innebär att du kan bestämma vilka klassmedlemmar…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: Objektorienterad programmering (OOP)
 nav_order: 50
 has_children: True

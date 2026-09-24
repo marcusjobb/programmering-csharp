@@ -1,13 +1,6 @@
 ---
 title: Asp.Net Core Hangman
 description: "Nu ska vi bygga en enkel Hangman-spel med ASP.NET Core och JSON-lagring."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: ASP.net Core
 nav_order: 10
 ---

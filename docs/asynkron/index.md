@@ -1,13 +1,6 @@
 ---
 title: Asynkron
 description: "Asynkrona metoder är metoder som inte blockerar tråden som kör metoden. Detta gör det möjligt för oss att köra flera metoder samtidigt och förbättra…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: C# bok
 nav_order: 140
 has_children: True
@@ -49,9 +42,7 @@ Det är viktigt att notera några viktiga punkter när man använder asynkrona m
 
 Användningen av asynkrona metoder kan ge flera fördelar i en applikation:
 
-1. **Responsivitet**: Genom att använda asynkrona metoder kan man undvika att blockera huvudtråden i applikationen och
-
- ge en mer responsiv användarupplevelse.
+1. **Responsivitet**: Genom att använda asynkrona metoder kan man undvika att blockera huvudtråden i applikationen och ge en mer responsiv användarupplevelse.
 
 2. **Parallellism**: Genom att köra flera metoder samtidigt kan man utnyttja flera processorkärnor och därmed förbättra prestanda och genomströmning.
 
@@ -100,9 +91,7 @@ public static void Main()
 }
 ```
 
-I exemplet ovan definieras en asynkron metod `GetAsync` som hämtar data från en given URL. Metoden använder `HttpClient` för att
-
- göra ett asynkront HTTP-anrop och returnerar innehållet som en sträng.
+I exemplet ovan definieras en asynkron metod `GetAsync` som hämtar data från en given URL. Metoden använder `HttpClient` för att göra ett asynkront HTTP-anrop och returnerar innehållet som en sträng.
 
 I `Main`-metoden anropas `GetAsync` och resultatet skrivs ut på konsolen.
 

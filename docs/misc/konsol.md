@@ -1,14 +1,11 @@
 ---
 title: "Konsol-I/O"
-description: "🟢 Det här kapitlet är din introduktion till att prata med datorn! Vi ska lära oss hur man får C-Sharp att visa text och siffror på skärmen. Tänk dig det…"
+description: "Det här kapitlet är din introduktion till att prata med datorn! Vi ska lära oss hur man får C-Sharp att visa text och siffror på skärmen. Tänk dig det som…"
 parent: "Övrigt"
 nav_order: 10
 ---
 
 # Enkla utskrifter
-
-🟢
-
 
 ## 🧠 Syfte
 
@@ -73,20 +70,18 @@ interpolation" – ett smartare sätt att lägga in variabler i strängar.  Klam
 `name` och `price` säger åt datorn att ersätta dem med värdena från variablerna.  `{price:C}`
 formaterar priset som valuta (kronor).
 
-<div class="mermaid">
-
+```mermaid
 graph LR
-    A[Main] --> B(Console.WriteLine("Hej världen!"));
-    A --> C(int age = 25;);
-    A --> D(Console.WriteLine("Jag är " + age + " år gammal."));
-    A --> E(string name = "Marcus";);
-    A --> F(double price = 99.99;);
-    A --> G(Console.WriteLine($"Mitt namn är {name} och priset är {price:C}"));
-    B --> H[Skriver ut text till konsolen];
-    D --> H;
-    G --> H;
-
-</div>
+    A[Main] --> B["Console.WriteLine: Hej världen!"]
+    A --> C["int age = 25"]
+    A --> D["Console.WriteLine: Jag är + age + år gammal"]
+    A --> E["string name = Marcus"]
+    A --> F["double price = 99.99"]
+    A --> G["Console.WriteLine: Mitt namn och pris"]
+    B --> H[Skriver ut text till konsolen]
+    D --> H
+    G --> H
+```
 
 Detta diagram visar flödet av programmet.
 

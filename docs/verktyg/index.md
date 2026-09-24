@@ -1,17 +1,16 @@
----
+﻿---
 title: Verktyg
-description: "I denna artikel har vi tittat på några användbara verktyg för att underlätta utvecklingen av C#-program. Genom att använda dessa verktyg kan vi öka vår…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
+description: "Installation, Git och webbtjänster som Miro och Goblin Tools — praktiska verktyg för att underlätta utvecklingen av C#-program."
 parent: C# bok
 nav_order: 970
 has_children: True
 ---
 # Verktyg
 
-I denna artikel har vi tittat på några användbara verktyg för att underlätta utvecklingen av C#-program. Genom att använda dessa verktyg kan vi öka vår produktivitet och förbättra kvaliteten på vår kod. Det är viktigt att välja verktyg som bäst passar våra behov och att utforska och använda dem på rätt sätt.
+Några användbara verktyg för att underlätta utvecklingen av C#-program:
+
+1. [Installation](installation/index.md) — .NET SDK, Git och en kodeditor (VS Code, Visual Studio eller Rider)
+2. [Git](git/index.md) — versionshantering, grunder och konflikthantering
+3. [Webbtjänster](webbjanster/index.md) — anteckningsverktyg, Miro, Goblin Tools och kommunikationsverktyg som du möter under utbildningen
+
+Genom att använda dessa verktyg kan du öka din produktivitet och förbättra kvaliteten på din kod. Det är viktigt att välja verktyg som bäst passar dina behov och att utforska och använda dem på rätt sätt.

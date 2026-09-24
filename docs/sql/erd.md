@@ -1,13 +1,6 @@
 ---
 title: ER-diagram
 description: "Ett ER-diagram (Entity-Relationship Diagram) är en ritning av en databas — vilka tabeller som finns, vad de innehåller och hur de hänger ihop. Rita det…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: SQL
 nav_order: 40
 ---

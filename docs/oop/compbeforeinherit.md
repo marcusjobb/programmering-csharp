@@ -1,13 +1,6 @@
 ---
 title: Komposition över Arv
 description: "En artikel som utforskar ämnet \"Komposition över Arv\" inom programmering."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: Objektorienterad programmering (OOP)
 nav_order: 50
 ---
@@ -44,9 +37,7 @@ Här diskuteras fördelarna med att använda Komposition över Arv i programmeri
 
 Diskutera även eventuella begränsningar eller kompromisser med Komposition över Arv. Det kan vara viktigt att förstå och vara medveten om eventuella utmaningar eller negativa aspekter som kan uppstå vid användning av detta koncept. Några begränsningar inkluderar:
 
-- **Ökad komplexitet**: Att använda komposition kan introducera mer komplexitet i koden, speciellt när det handlar om att hantera kommunikation
-
- och samverkan mellan olika klasser.
+- **Ökad komplexitet**: Att använda komposition kan introducera mer komplexitet i koden, speciellt när det handlar om att hantera kommunikation och samverkan mellan olika klasser.
 - **Mer kod att skriva**: Genom att separera funktionalitet i mindre klasser kan det krävas mer kod för att uppnå önskad funktionalitet jämfört med en hierarki av klasser med arv.
 - **Inlärningskurva**: Att behärska konceptet med komposition över arv kan kräva mer tid och ansträngning för utvecklare som är vana vid att använda arv som sitt primära verktyg för att bygga system.
 

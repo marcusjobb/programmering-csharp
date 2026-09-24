@@ -1,13 +1,6 @@
 ---
 title: params
 description: "params låter en metod ta emot hur många argument du vill — utan att anroparen behöver skapa en array. Inuti metoden är de ett vanligt array."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Metoder
 nav_order: 50
 ---

@@ -1,13 +1,6 @@
 ---
 title: FileInfo
 description: "Fileinfo är en fantastisk klass som hjälper oss att hantera filer på ett enkelt sätt. Med FileInfo-klassen kan vi få tillgång till olika egenskaper och…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: Filhantering
 nav_order: 40
 ---
@@ -43,9 +36,7 @@ FileInfo-klassen är verkligen en vänlig och hjälpsam kompanjon i vår resa ge
 
 FileInfo-klassen kan användas i en mängd olika scenarier där vi behöver få tillgång till och hantera filinformation. Här är några användningsområden för FileInfo-klassen:
 
-- **Filövervakning**: Vi kan använda FileInfo för att övervaka en
-
- fil och automatiskt utföra åtgärder baserat på filens egenskaper eller ändringar.
+- **Filövervakning**: Vi kan använda FileInfo för att övervaka en fil och automatiskt utföra åtgärder baserat på filens egenskaper eller ändringar.
 
 - **Filhantering och manipulation**: FileInfo är perfekt för att hantera filer i våra applikationer. Vi kan använda den för att skapa, läsa, uppdatera, flytta, kopiera eller radera filer.
 

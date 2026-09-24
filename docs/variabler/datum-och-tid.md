@@ -1,13 +1,6 @@
 ---
 title: Datum och tid
 description: "Datum och tid är svårare än de ser ut. Tidszoner, skottår, sommartid, antalet dagar i månader — allt detta hanterar .NET åt dig om du använder rätt typer."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Variabler
 nav_order: 62
 ---

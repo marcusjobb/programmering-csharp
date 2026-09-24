@@ -1,13 +1,6 @@
 ---
 title: Mappar
 description: "I denna artikel kommer vi att utforska ämnet \"Mappar\" och hur de används inom C#-programmering. Vi kommer att undersöka olika typer av mappar…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: Filhantering
 nav_order: 80
 ---
@@ -47,9 +40,7 @@ Det finns vissa begränsningar och saker att tänka på när det gäller mapphan
 
 Mappar används inom många olika områden i C#-programmering. Här är några vanliga användningsområden:
 
-1. **Datahantering**: Genom att organisera filer i olika mappar kan vi
-
-enkelt hantera och hitta data relaterad till specifika uppgifter eller funktioner i våra program.
+1. **Datahantering**: Genom att organisera filer i olika mappar kan vi enkelt hantera och hitta data relaterad till specifika uppgifter eller funktioner i våra program.
 
 2. **Filhantering**: Genom att använda korrekta filsökvägar kan vi läsa, skriva och manipulera filer i olika mappar.
 

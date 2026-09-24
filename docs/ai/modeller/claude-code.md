@@ -1,13 +1,6 @@
 ---
 title: Claude Code
 description: "Claude Code är ett CLI-verktyg från Anthropic som kör Claude direkt i din terminal. Det kan läsa, skriva och köra filer i ditt projekt — inte bara svara…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: AI-modeller
 nav_order: 30
 ---

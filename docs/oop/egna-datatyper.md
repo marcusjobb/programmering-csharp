@@ -1,13 +1,6 @@
 ---
 title: Egna datatyper
 description: "Ibland räcker inte int, double och string. Du kanske vill ha en typ som representerar ett belopp, en temperatur eller en enhet — och som beter sig som en…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Objektorienterad programmering (OOP)
 nav_order: 65
 ---
@@ -50,7 +43,7 @@ struct Unit
 
     // ++ och --
     public static Unit operator ++(Unit e) => e._value + 1;
-    public static Unit operator --(Enhet e) => e._value - 1;
+    public static Unit operator --(Unit e) => e._value - 1;
 
     public override string ToString() => $"{_value} enheter";
 }
@@ -59,7 +52,7 @@ struct Unit
 ### Användning
 
 ```csharp
-Unit thing = 5;           // implicit int → Enhet
+Unit thing = 5;           // implicit int → Unit
 thing++;                   // operator++
 Console.WriteLine(thing);  // 6 enheter
 
@@ -71,8 +64,8 @@ Console.WriteLine(a + b);  // 7 enheter  (via implicit int-konvertering)
 ### Output
 
 ```
-6 units
-7 units
+6 enheter
+7 enheter
 ```
 
 ---
@@ -120,7 +113,7 @@ if (total > 300m)
 ### Output
 
 ```
-Price:  199,90 kr
+Pris:  199,90 kr
 Moms:  49,98 kr
 Total: 249,88 kr
 ```

@@ -1,13 +1,6 @@
 ---
 title: Metoder
 description: "En metod är ett namngivet kodblock som utför en uppgift. Metoder låter dig bryta ner ett program i logiska delar, återanvända kod och göra programmet…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: C# bok
 nav_order: 60
 has_children: true

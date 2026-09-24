@@ -1,13 +1,6 @@
 ---
 title: ASP.net Core
 description: "Välkommen till en spännande resa in i ASP.net Core, ett fantastiskt ramverk för att bygga webbapplikationer. Det är som en glittrande regnbåge som…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: C# bok
 nav_order: 130
 has_children: True
@@ -16,16 +9,6 @@ has_children: True
 
 Välkommen till en spännande resa in i ASP.net Core, ett fantastiskt ramverk för att bygga webbapplikationer. Det är som en glittrande regnbåge som sträcker sig över Windows, Linux och macOS, vilket gör det tillgängligt för alla äventyrliga utvecklare där ute. Och det bästa av allt? Det är öppen källkod, vilket innebär att du kan vara en del av dess magiska utveckling.
 
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## TL;DR
 
@@ -51,9 +34,7 @@ ASP.net Core är en modernisering av det äldre ASP.net MVC-ramverket. Det är b
 
 ASP.net Core erbjuder en rad fördelar för webbutveckling. Här är några av de skäl varför utvecklare älskar att använda ASP.net Core:
 
-- **Plattformsoberoende**: Med ASP.net Core kan du bygga applikationer som kan köras på olika plattformar som Windows, Linux och macOS. Det ger en flexibilitet och möjlighet att nå en bred
-
-are publik.
+- **Plattformsoberoende**: Med ASP.net Core kan du bygga applikationer som kan köras på olika plattformar som Windows, Linux och macOS. Det ger en flexibilitet och möjlighet att nå en bredare publik.
 - **Prestanda och skalbarhet**: ASP.net Core är optimerat för att leverera snabba och responsiva webbapplikationer. Det har inbyggda funktioner för att hantera hög belastning och skalbarhet, vilket gör det till ett kraftfullt val för applikationer av alla storlekar.
 - **Modularitet och flexibilitet**: Ramverket är uppdelat i mindre komponenter, vilket gör det möjligt att använda endast de funktioner du behöver. Det ger en ökad flexibilitet och möjliggör skräddarsydd utveckling baserat på dina specifika behov.
 - **Stöd för moderna webbtekniker**: ASP.net Core har stöd för moderna webbtekniker som WebSockets, SignalR och Razor Pages. Det möjliggör utveckling av realtidsapplikationer och interaktiva gränssnitt.

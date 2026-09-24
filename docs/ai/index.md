@@ -1,13 +1,6 @@
 ---
 title: AI
 description: "AI-verktyg har förändrat hur vi skriver kod. Som programmerare möter du AI i tre roller: som assistent (hjälper dig koda), som API (du anropar ett AI i…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: C# bok
 nav_order: 150
 has_children: true

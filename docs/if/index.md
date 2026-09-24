@@ -1,13 +1,6 @@
 ---
 title: If
 description: "En introduktion till ämnet If på språket 'Svenska' och kodspråk 'C#'."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: C# bok
 nav_order: 30
 has_children: True
@@ -53,9 +46,7 @@ If-satser används i många olika situationer och scenarier inom programmering. 
 1. Användarens validering: Om vi vill kontrollera om en användare har angett giltig indata kan vi använda en if-sats för att validera input och vidta lämpliga åtgärder baserat på resultatet.
 2. Styra programflödet: If-satser kan användas för att styra hur programmet ska bete sig baserat på olika villkor. Till exempel kan vi använda en if-sats för att avgöra om ett visst block av kod ska utföras eller inte.
 3. Loopar: If-satser kan användas inuti loopar för att kontrollera när loopen ska avslutas eller fortsätta. Detta ger oss möjlighet att skapa mer flexibla och dynamiska loopar.
-4. Felsökning och hantering av undantag: If-satser kan användas för att hantera olika undantagssituationer och felsöka problem i koden. Genom att kontrollera olika vill
-
-kor kan vi vidta lämpliga åtgärder för att hantera fel och undantag.
+4. Felsökning och hantering av undantag: If-satser kan användas för att hantera olika undantagssituationer och felsöka problem i koden. Genom att kontrollera olika villkor kan vi vidta lämpliga åtgärder för att hantera fel och undantag.
 
 ## TL;DR
 

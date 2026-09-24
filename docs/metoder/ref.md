@@ -1,19 +1,14 @@
 ---
 title: ref-parametrar
 description: "ref skickar en referens till originalet istället för en kopia. Det metoden gör med parametern påverkar direkt den variabel du skickade in."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Metoder
 nav_order: 40
 ---
 # ref — referensparametrar
 
 `ref` skickar en *referens* till originalet istället för en kopia. Det metoden gör med parametern påverkar direkt den variabel du skickade in.
+
+> Nytt på värde- vs referenstyper? Läs [Värde- och referenstyper](varde-och-referenstyper.md) först — den förklarar varför `ref` ens behövs för ett `int` men aldrig för en `List<T>`.
 
 ## När du läst detta ska du kunna
 
@@ -106,6 +101,24 @@ Compute(out int b);
 
 var (x, y) = Swap(3, 7);
 ```
+
+### Ännu hellre — swap utan metod alls
+
+Du behöver inte ens en metod. Tuple-deconstruction (se [Tupler](../variabler/tupler.md)) kan byta plats på två variabler i en enda rad:
+
+```csharp
+int x = 3, y = 7;
+(x, y) = (y, x);
+Console.WriteLine($"x={x}, y={y}");
+```
+
+### Output
+
+```
+x=7, y=3
+```
+
+`(y, x)` bygger en ny tuple med de gamla värdena i omvänd ordning, och `(x, y) =` packar upp den rakt in i `x` och `y` igen — allt sker samtidigt, så ingen temp-variabel behövs och ingen `ref` heller.
 
 ## Regler
 

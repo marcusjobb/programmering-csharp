@@ -1,13 +1,6 @@
 ---
 title: Switch
 description: "Ibland behöver du jämföra ett och samma värde mot många möjliga alternativ. Du kan göra det med en lång kedja av if / else if / else — men efter tre–fyra…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: If
 nav_order: 20
 ---

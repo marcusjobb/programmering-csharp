@@ -1,13 +1,6 @@
 ---
 title: Chatbot
 description: "En chatbot skickar hela konversationshistoriken med varje anrop. Det gör att AI:t \"minns\" vad som sagts tidigare i samma session."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: AI-exempel
 nav_order: 10
 ---

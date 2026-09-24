@@ -1,13 +1,6 @@
 ---
 title: Klasser och Objekt inom programmering
 description: "En artikel som utforskar ämnet Klasser och Objekt inom programmering."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: Objektorienterad programmering (OOP)
 nav_order: 10
 ---
@@ -43,7 +36,7 @@ Klasser kallas för olika namn beroende på hur de används.
 Här är den uppdaterade tabellen med basklass, subklass och några namn för olika designmönster:
 
 | Term           | Förklaring                                                                                                                                                     | Andra namn                |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | --- |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
 | Klass          | En klass är som en ritning för att bygga något. Det berättar vilka delar och funktioner som något ska ha när det skapas.                                       |                           |
 | Abstrakt klass | En abstrakt klass är som en mall där man bara får en idé om hur något ska se ut och fungera, men inte exakt hur det ska göras.                                 |                           |
 | Gränssnitt     | Ett gränssnitt är som en överenskommelse där man bestämmer vilka saker man behöver kunna göra för att passa in i en viss grupp.                                | Interface                 |
@@ -58,7 +51,7 @@ Här är den uppdaterade tabellen med basklass, subklass och några namn för ol
 | Helper         | En helper är som en bästa vän som alltid är där för att hjälpa till med små uppgifter och göra saker lite enklare för dig.                                     | Hjälpklass, Verktygsklass |
 | Utility        | En utility är som en verktygslåda full med användbara saker som hjälper dig att lösa specifika problem eller göra svåra saker enklare.                         |                           |
 | Komponent      | En komponent är som en del av något större, som en pusselbit som passar in i en större bild och har en specifik funktion.                                      |                           |
-| Enhetsobjekt   | Ett enhetsobjekt är som en representation av en specifik enhet eller apparat som kan utföra vissa uppgifter eller ha viss funkt                                | ionalitet.                |     |
+| Enhetsobjekt   | Ett enhetsobjekt är som en representation av en specifik enhet eller apparat som kan utföra vissa uppgifter eller ha viss funktionalitet.                      |                           |
 | Verktyg        | Ett verktyg är som en hjälpande hand som underlättar och effektiviserar olika uppgifter eller processer.                                                       |                           |
 | Modul          | En modul är som en självständig del av ett större system, som kan kopplas in och användas för att utföra specifika uppgifter.                                  |                           |
 | Singleton      | Singleton är ett designmönster som används för att se till att endast en instans av en klass skapas och att den kan nås globalt.                               |                           |
@@ -77,9 +70,7 @@ Användningen av Klasser och Objekt erbjuder flera fördelar inom programmering:
 
 1. **Modularitet och återanvändbarhet**: Klasser möjliggör modulär kod genom att separera olika delar av programmet i olika klasser. Detta gör det enklare att hantera och underhålla koden samt möjliggör återanvändning av kod genom att skapa nya objekt baserat på en befintlig klass.
 
-2. **Abstraktion och hantering av komplexitet**: Genom att använda klasser kan vi abstrahera bort detaljer och fokusera på de väsentliga egenskaperna och bete
-
-endena hos objektet. Detta hjälper till att hantera komplexitet och gör koden mer läsbar och underhållbar.
+2. **Abstraktion och hantering av komplexitet**: Genom att använda klasser kan vi abstrahera bort detaljer och fokusera på de väsentliga egenskaperna och beteendena hos objektet. Detta hjälper till att hantera komplexitet och gör koden mer läsbar och underhållbar.
 
 3. **Kapsling och informationsskydd**: Klasser möjliggör att vi kan begränsa åtkomsten till objektets egenskaper och metoder. Detta främjar informationsskydd och hjälper till att undvika oavsiktliga ändringar av objektets tillstånd.
 
@@ -103,9 +94,7 @@ Klasser och Objekt kan tillämpas i en mängd olika scenarier inom programmering
 
 2. **Spelutveckling**: Inom spelutveckling används Klasser och Objekt för att skapa olika spelobjekt, karaktärer, världar och mycket mer. Genom att använda objektorienterad programmering kan spelutvecklare skapa komplexa och interaktiva spelvärldar.
 
-3. **Simuleringar**: Simuleringsprogram och modelleringsverktyg kan dra nytta av Klasser och Objekt för att representera och simulera olika entiteter och processer. Genom att använda objekt för att modellera olika aspekter av system
-
-et kan simuleringar bli mer realistiska och flexibla.
+3. **Simuleringar**: Simuleringsprogram och modelleringsverktyg kan dra nytta av Klasser och Objekt för att representera och simulera olika entiteter och processer. Genom att använda objekt för att modellera olika aspekter av systemet kan simuleringar bli mer realistiska och flexibla.
 
 4. **Databashantering**: Vid databashantering används ofta objektorienterade koncept för att modellera och hantera data. Objekt kan representera tabeller, rader och kolumner i en databas och möjliggöra en mer flexibel och hanterbar databasstruktur.
 

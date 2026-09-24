@@ -1,13 +1,6 @@
 ---
 title: Typer
 description: "En typ är en klassificering av data som används för att bestämma vilken typ av värde en variabel kan lagra. I C# finns det två typer av typer: värdestyper…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: Variabler
 nav_order: 15
 ---
@@ -20,7 +13,7 @@ En typ är en klassificering av data som används för att bestämma vilken typ 
 Här är en lista över några vanliga värdetyper i C# tillsammans med deras beskrivning, minsta värde, högsta värde, datalagring och storlek i minnet:
 
 | Kategori    | Typ     | Beskrivning                            | Minsta                         | Högsta                        | Lagrar         | Storlek                                                |
-| ----------- | ------- | -------------------------------------- | ------------------------------ | ----------------------------- | -------------- | ------------------------------------------------------ | -------- |
+| ----------- | ------- | -------------------------------------- | ------------------------------ | ----------------------------- | -------------- | ------------------------------------------------------ |
 | Primitiv    | bool    | Booleskt värde                         | False                          | True                          | Booleskt värde | 1 byte                                                 |
 | Primitiv    | char    | 16-bitars Unicode-tecken               | '\0'                           | '\uFFFF'                      | Unicode-tecken | 2 byte                                                 |
 | Primitiv    | byte    | 8-bitars heltal                        | 0                              | 255                           | Heltal         | 1 byte                                                 |
@@ -36,7 +29,7 @@ Här är en lista över några vanliga värdetyper i C# tillsammans med deras be
 | Primitiv    | decimal | 128-bitars decimaltal                  | -79228162514264337593543950335 | 79228162514264337593543950335 | Decimaltal     | 16 byte                                                |
 | Abstrakt    | enum    | Uppräkningsvärde                       | -                              | -                             | Heltal         | Varierar                                               |
 | Referenstyp | string  | Textsträng                             | -                              | -                             | Textsträng     | Varierar                                               |
-| Referenstyp | object  | Basobjekt för                          | Alla andra objekt              | -                             | -              | Alla objekt                                            | Varierar |
+| Referenstyp | object  | Basobjekt för alla andra objekt        | -                               | -                              | Alla objekt    | Varierar                                                |
 | Pekare      | -       | Pekare till minnesadresser             | -                              | -                             | Minnesadresser | 4 byte på 32-bitars system, 8 byte på 64-bitars system |
 
 Observera att...

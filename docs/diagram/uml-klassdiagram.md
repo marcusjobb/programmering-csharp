@@ -1,13 +1,6 @@
 ---
 title: UML-klassdiagram
 description: "UML (Unified Modeling Language) är ett gemensamt språk för att rita klasser och relationer — utan att skriva kod. Det används för att planera design och…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Diagram
 nav_order: 20
 ---
@@ -41,7 +34,7 @@ classDiagram
     }
 ```
 
-| Tecken | Meaning |
+| Tecken | Betydelse |
 |--------|---------|
 | `-` | `private` — bara klassen kan nå det |
 | `+` | `public` — synligt utifrån |

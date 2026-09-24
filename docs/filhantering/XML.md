@@ -1,29 +1,12 @@
 ---
 title: XML
 description: "XML (Extensible Markup Language) är ett filformat som används för att lagra data i en strukturerad form."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: Filhantering
 nav_order: 120
 ---
 # XML
 
 XML (Extensible Markup Language) är ett filformat som används för att lagra data i en strukturerad form.
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## Beskrivning
 

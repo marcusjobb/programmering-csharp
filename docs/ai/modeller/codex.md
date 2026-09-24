@@ -1,13 +1,6 @@
 ---
 title: Codex och kodnings-AI
 description: "OpenAI Codex var den första specialiserade kodnings-AI:n — tränad specifikt på kod. Den drev GitHub Copilot och inspirerade en generation av…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: AI-modeller
 nav_order: 50
 ---

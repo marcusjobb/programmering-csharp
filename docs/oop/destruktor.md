@@ -1,13 +1,6 @@
 ---
 title: Destruktor och Finalizer
 description: "En destruktor (eller finalizer) är kod som körs när ett objekt förstörs. I C# hanteras minnet automatiskt av Garbage Collector — destruktorn är sällan…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Objektorienterad programmering (OOP)
 nav_order: 60
 ---

@@ -1,13 +1,6 @@
 ---
 title: out-parametrar
 description: "out låter en metod returnera extra värden utöver det vanliga returvärdet. Metoden måste tilldela parametern ett värde innan den returnerar."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Metoder
 nav_order: 30
 ---
@@ -64,15 +57,15 @@ else
 ### Output (lyckat)
 
 ```
-Provide ett integer: 42
-Du provided: 42
+Ange ett heltal: 42
+Du angav: 42
 ```
 
 ### Output (misslyckat)
 
 ```
-Provide ett integer: hej
-It there var not ett integer.
+Ange ett heltal: hej
+Det där var inte ett heltal.
 ```
 
 Andra `Try`-metoder i .NET som följer samma mönster: `double.TryParse`, `DateTime.TryParse`, `Guid.TryParse`, `Dictionary.TryGetValue`.

@@ -1,5 +1,5 @@
 ---
-title: "Loopar (kurs)"
+title: "Lästext — Loopar"
 description: "Tänk dig att du ska skriva ut räknetabellen för 3. Du skulle kunna skriva tio separata Console.WriteLine-rader. Men vad händer när du behöver 100 rader?…"
 parent: "Loopar"
 nav_order: 15
@@ -76,6 +76,25 @@ while (check > 0)
 ```
 
 Villkoret `check > 0` är alltid sant eftersom `check` bara blir större. Resultatet är detsamma — en oändlig loop — men orsaken är subtilare: koden ändrar räknaren, men i fel riktning.
+
+### En verklig oändlig loop — potatisskalning 1995
+
+Det här hände på riktigt, långt innan jag undervisade i programmering. Jag jobbade i en lokal för film- och reklamproduktion som delade hus med en restaurang. En dag skar sig kocken i fingret och kunde inte skala potatis. Jag hade inte mycket för mig just då, så jag erbjöd mig att hjälpa till — fick en bunke vatten och en säck potatis, och satte igång.
+
+Sen försvann jag helt in i mina egna tankar. Om man skulle skriva om det som kod hade det sett ut ungefär så här:
+
+```csharp
+while (SäckenHarPotatis())
+{
+    SkalaPotatis();
+}
+```
+
+Villkoret var "så länge det finns potatis kvar" — men ingen hade sagt *hur mycket* det faktiskt skulle vara. En timme senare kom kocken och köksansvarig springande: "Stopp! Du skulle inte skala så mycket!" Men eftersom ingen hade angett ett antal eller ett tydligt slutvillkor hade loopen bara fortsatt, varv efter varv, tills någon utifrån stoppade den — precis som `break;` avbryter en `while`-loop utifrån, snarare än att villkoret själv blir falskt.
+
+Resten av veckan serverade köket potatisrätter.
+
+**Moralen:** en loop utan ett tydligt slutvillkor stannar inte av sig själv — den kör tills något annat avbryter den. Bäst att vara den som skriver villkoret, inte den som till slut behöver ropa "stopp".
 
 ---
 

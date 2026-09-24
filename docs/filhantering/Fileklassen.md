@@ -1,13 +1,6 @@
 ---
 title: File klassen
 description: "File-klassen innehåller metoder för att hantera filer. Den tillhör namespace System.IO och erbjuder olika funktioner för att skapa, skriva, läsa och ta…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: Filhantering
 nav_order: 50
 ---
@@ -74,9 +67,7 @@ public static class Program
 }
 ```
 
-I detta exempel skapar vi en fil på sökvägen "C:\\Temp\\test.txt" om den inte redan finns. Sedan använder vi metoden `File.WriteAllText` för att skriva texten "Hello World!" till filen. Vi använder `File.ReadAllText` för att läsa in
-
-nehållet i filen och skriva ut det till konsolen. Slutligen tar vi bort filen med `File.Delete`.
+I detta exempel skapar vi en fil på sökvägen "C:\\Temp\\test.txt" om den inte redan finns. Sedan använder vi metoden `File.WriteAllText` för att skriva texten "Hello World!" till filen. Vi använder `File.ReadAllText` för att läsa innehållet i filen och skriva ut det till konsolen. Slutligen tar vi bort filen med `File.Delete`.
 
 Det finns många fler metoder i File-klassen som kan vara användbara beroende på dina specifika behov. Genom att utforska dokumentationen för File-klassen kan du lära dig mer om var och en av metoderna och hur de kan användas.
 

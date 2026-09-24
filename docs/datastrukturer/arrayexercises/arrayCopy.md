@@ -1,13 +1,6 @@
 ---
 title: Plocka ut en del av en array och skapa en ny array av det.
 description: "I denna övning ska vi skapa en array med 10 heltal och sedan plocka ut de fem första talen från den ursprungliga arrayen för att skapa en ny array."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: Array övningar
 nav_order: 10
 ---

@@ -1,7 +1,6 @@
 ---
 title: C# bok
 description: "Det här är inte en kurs. Det är ett uppslagsverk. Du förväntas inte läsa det från början till slut — du använder det när du kör fast, när du glömt…"
-layout: home
 nav_order: 1
 has_children: true
 ---

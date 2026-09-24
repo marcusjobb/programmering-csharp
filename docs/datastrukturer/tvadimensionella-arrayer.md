@@ -1,13 +1,6 @@
 ---
 title: Tvådimensionella arrayer
 description: "En vanlig array är en rad av platser. Ibland räcker inte det — ett schackbräde, ett rutnät i ett spel, eller en tabell med rader och kolumner behöver två…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-23"
-updated: "2026-09-23"
 parent: Datastrukturer
 nav_order: 21
 ---

@@ -1,13 +1,6 @@
 ---
 title: Jagged arrays
 description: "En tvådimensionell array kräver att alla rader har exakt samma längd — ett riktigt rutnät. Men ibland varierar radlängden: en triangel av tal, en lista…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-23"
-updated: "2026-09-23"
 parent: Datastrukturer
 nav_order: 23
 ---

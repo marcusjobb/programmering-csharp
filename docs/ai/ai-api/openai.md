@@ -1,13 +1,6 @@
 ---
 title: OpenAI API (ChatGPT)
 description: "OpenAIs Chat Completions API är det vanligaste AI-API:et. Det används av ChatGPT, GitHub Copilot och tusentals applikationer."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: AI-API
 nav_order: 20
 ---

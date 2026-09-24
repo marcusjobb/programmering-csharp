@@ -1,13 +1,6 @@
 ---
 title: Array övningar
 description: "Här finns lite övningar som du kan göra för att träna på att använda arrayer."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: Datastrukturer
 nav_order: 20
 has_children: True
@@ -15,3 +8,8 @@ has_children: True
 # Array övningar
 
 Här finns lite övningar som du kan göra för att träna på att använda arrayer.
+
+1. [Plocka ut en del av en array och skapa en ny array av det](arrayCopy.md)
+2. [Summera element i en array](ovning1.md)
+3. [Hitta det största elementet i en array](ovning2.md)
+4. [Invertera en array](ovning3.md)

@@ -1,13 +1,6 @@
 ---
 title: Konstruktoröverlagring
 description: "En klass kan ha flera konstruktorer med olika parametrar — precis som metoder kan överlagras. Det låter dig skapa objekt på olika sätt utan att tvinga…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Objektorienterad programmering (OOP)
 nav_order: 16
 ---

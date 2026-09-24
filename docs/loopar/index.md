@@ -1,13 +1,6 @@
 ---
 title: Loopar
 description: "Loopar är en viktig del av programmering. De används för att upprepa en viss uppsättning instruktioner eller handlingar ett visst antal gånger eller tills…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: C# bok
 nav_order: 50
 has_children: True
@@ -377,9 +370,7 @@ int result = Fibonacci(6);
 Console.WriteLine(result); // Resultatet blir 8
 ```
 
-Rekursion kan vara kraftfullt, men det är viktigt att se till att det finns ett stoppvill
-
-kor för att undvika oändlig rekursion.
+Rekursion kan vara kraftfullt, men det är viktigt att se till att det finns ett stoppvillkor för att undvika oändlig rekursion.
 
 Det var några avancerade koncept och tekniker relaterade till loopar. Fortsätt att utforska och experimentera med dessa idéer för att utöka dina programmeringskunskaper!
 

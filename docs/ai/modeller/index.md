@@ -1,13 +1,6 @@
 ---
 title: AI-modeller
 description: "Det finns flera stora AI-modeller och verktyg. Här är en översikt av de vanligaste — vad de är bra på, vad de kostar och hur de används av programmerare."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: AI
 nav_order: 10
 has_children: true

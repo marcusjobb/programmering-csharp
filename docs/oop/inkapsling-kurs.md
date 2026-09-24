@@ -1,11 +1,11 @@
 ---
-title: "Inkapsling (kurs)"
+title: "Lästext — Inkapsling"
 description: "Inkapsling handlar om att skydda ett objekts data så att bara klassen själv kan bestämma vad som händer med den. Det är en av grundpelarna i…"
 parent: "Objektorienterad programmering (OOP)"
 nav_order: 18
 ---
 
-# Inkapsling
+# Lästext — Inkapsling
 
 Inkapsling handlar om att skydda ett objekts data så att bara klassen själv kan bestämma vad som händer med den. Det är en av grundpelarna i objektorienterad programmering.
 

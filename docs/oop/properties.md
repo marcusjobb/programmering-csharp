@@ -1,13 +1,6 @@
 ---
 title: Properties
 description: "En property är ett kontrollerat fönster in till ett objekts data. Istället för att exponera ett fält direkt kan du styra vad som får läsas och skrivas."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Objektorienterad programmering (OOP)
 nav_order: 14
 ---

@@ -1,13 +1,6 @@
 ---
 title: Kontext
 description: "Yay, dags att lära oss om databas-kontexten! En databaskontext är en klass som ärver från DbContext och används för att kommunicera med databasen med…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: Entity Framework
 nav_order: 10
 has_children: True

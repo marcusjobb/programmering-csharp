@@ -1,13 +1,6 @@
 ---
 title: Flödesscheman
 description: "En bra programmerare skriver inte direkt kod. De tänker igenom problemet först."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Diagram
 nav_order: 10
 ---
@@ -44,20 +37,20 @@ Det är mycket lättare att rätta till en plan på papper än att rätta till k
          └──────┬──────┘
                 │
          ┌──────▼──────┐
-         │  Rains it? │
-         └──┬───────┬───┘
-           Ja      No
+         │ Regnar det? │
+         └──┬───────┬──┘
+           Ja      Nej
             │       │
-    ┌───────▼──┐  ┌──▼────────────┐
-    │Ta umbrella│  │Leave umbrella │
-    └───────┬──┘  └──┬────────────┘
-            │        │
-         ┌──▼────────▼──┐
-         │    Go ut     │
-         └──────┬───────┘
+    ┌───────▼───┐ ┌─▼──────────────┐
+    │ Ta paraply│ │ Lämna paraply  │
+    └───────┬───┘ └─┬──────────────┘
+            │       │
+         ┌──▼───────▼──┐
+         │    Gå ut    │
+         └──────┬──────┘
                 │
          ┌──────▼──────┐
-         │    END     │
+         │     SLUT    │
          └─────────────┘
 ```
 
@@ -67,13 +60,13 @@ Pseudokod är ett mellansteg — varken kod eller vanlig text. Skriv logiken på
 
 ```
 START
-  If it rains
-    Ta med umbrella
-  Otherwise
-    Leave umbrella home
-  End if
-  Go ut
-END
+  Om det regnar
+    Ta med paraply
+  Annars
+    Lämna paraplyet hemma
+  Slut om
+  Gå ut
+SLUT
 ```
 
 Ingen kompilator kan läsa det — men du kan resonera om det utan att fastna i detaljer.

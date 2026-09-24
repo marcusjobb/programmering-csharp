@@ -1,13 +1,6 @@
 ---
 title: ChatGPT
 description: "ChatGPT är OpenAIs chattgränssnitt för GPT-modellerna. Det var det verktyg som lanserade AI-assistenter i bred allmänhet i november 2022. Det är i dag en…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: AI-modeller
 nav_order: 20
 ---

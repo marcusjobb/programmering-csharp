@@ -1,29 +1,12 @@
 ---
 title: Datastrukturer
 description: "Datastrukturer är organiserade sätt att lagra och hantera data i en dator. Det finns olika typer av datastrukturer, såsom arrayer, listor, träd, grafer…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2025-08-18 15:37:40"
-updated: "2025-09-06 23:35:21"
 parent: C# bok
 nav_order: 70
 has_children: True
 ---
 # Datastrukturer
 
-<details open markdown="block">
-  <summary>
-    Innehållsförteckning
-  </summary>
-  {: .text-delta }
-
-1. TOC
-{:toc}
-
-</details>
 
 ## Beskrivning
 

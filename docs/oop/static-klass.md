@@ -1,13 +1,6 @@
 ---
 title: Statiska klasser och metoder
 description: "En statisk klass eller metod tillhör typen — inte ett enskilt objekt. Du behöver inte skapa ett objekt för att använda den."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Objektorienterad programmering (OOP)
 nav_order: 35
 ---

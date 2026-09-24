@@ -1,13 +1,6 @@
 ---
 title: Garbage Collector
 description: "Garbage Collector är .NETs automatiska minneshanterar. Den spårar vilka objekt som används och frigör minnet för dem som inte längre nås."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Objektorienterad programmering (OOP)
 nav_order: 62
 ---

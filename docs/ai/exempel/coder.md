@@ -1,13 +1,6 @@
 ---
 title: AI-coder
 description: "En enkel applikation som tar en uppgiftsbeskrivning på svenska och returnerar C#-kod. Systemprompten styr att AI:t alltid svarar med kod i rätt format."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: AI-exempel
 nav_order: 20
 ---

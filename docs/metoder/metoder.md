@@ -1,13 +1,6 @@
 ---
-title: Metoder
+title: Om metoder
 description: "En metod är ett namngivet block av kod. Du anropar den när du vill köra koden, och du kan anropa den hur många gånger du vill."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Metoder
 nav_order: 10
 ---

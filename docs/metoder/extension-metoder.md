@@ -1,13 +1,6 @@
 ---
 title: Extension-metoder
 description: "Extension-metoder låter dig lägga till metoder på en befintlig typ — utan att ändra typen och utan arv. Det ser ut som om metoden hör till typen, men den…"
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: Metoder
 nav_order: 70
 ---

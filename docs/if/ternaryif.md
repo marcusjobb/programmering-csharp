@@ -1,13 +1,6 @@
 ---
 title: Ternary if
 description: "Ibland är ett villkor så enkelt att en hel if/else-sats känns som overkill. Ternary-operatorn låter dig skriva det på en rad."
-layout: default
-author: Marcus Ackre Medina
-author_github: marcusjobb
-author_url: "https://www.linkedin.com/in/marcusmedina/"
-school: Nion Education
-date: "2026-09-16"
-updated: "2026-09-16"
 parent: If
 nav_order: 30
 ---
