@@ -1,6 +1,6 @@
 ---
 title: LINQ
-description: "LINQ i Datastrukturer — C#-boken av Marcus Ackre Medina"
+description: "LINQ är ett av C#:s kraftfullaste verktyg. Det låter dig filtrera, transformera och aggregera samlingar med en konsekvent syntax — oavsett om du jobbar…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

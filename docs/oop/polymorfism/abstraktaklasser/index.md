@@ -1,6 +1,6 @@
 ---
 title: Abstrakta klasser
-description: "Abstrakta klasser i Polymorfism — C#-boken av Marcus Ackre Medina"
+description: "Abstrakta klasser är klasser som innehåller både kod och abstrakta metoder. Som en slags mellanting mellan en interface och en klass."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

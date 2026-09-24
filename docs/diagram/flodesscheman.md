@@ -1,6 +1,6 @@
 ---
 title: Flödesscheman
-description: "Flödesscheman i Diagram — C#-boken av Marcus Ackre Medina"
+description: "En bra programmerare skriver inte direkt kod. De tänker igenom problemet först."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

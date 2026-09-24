@@ -1,6 +1,6 @@
 ---
 title: Polymorfism
-description: "Polymorfism i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+description: "Polymorfism kommer från grekiskans poly = många och morphe = form. Det är en av de viktigaste egenskaperna i objektorienterad programmering."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

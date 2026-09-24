@@ -1,5 +1,6 @@
-﻿---
+---
 title: Datastrukturer
+description: "Datastrukturer är organiserade sätt att lagra och hantera data i en dator. Det finns olika typer av datastrukturer, såsom arrayer, listor, träd, grafer…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

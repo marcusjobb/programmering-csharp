@@ -1,6 +1,6 @@
 ---
 title: APIer
-description: "APIer — C#-boken av Marcus Ackre Medina"
+description: "Ett API (Application Programming Interface) är ett gränssnitt som låter din applikation prata med andra applikationer — eller låter andra prata med din."
 nav_order: 120
 has_children: true
 ---

@@ -1,6 +1,6 @@
 ---
 title: Kontext
-description: "Kontext i Entity Framework — C#-boken av Marcus Ackre Medina"
+description: "Yay, dags att lära oss om databas-kontexten! En databaskontext är en klass som ärver från DbContext och används för att kommunicera med databasen med…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

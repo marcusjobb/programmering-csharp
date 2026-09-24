@@ -1,6 +1,6 @@
 ---
 title: TDD
-description: "TDD i Testa din kod — C# bok av Marcus Ackre Medina"
+description: "TDD vänder på ordningen: skriv testet innan du skriver koden. Det låter bakvänt — men det tvingar dig att tänka igenom vad metoden ska göra innan du…"
 parent: Testa din kod
 nav_order: 10
 ---

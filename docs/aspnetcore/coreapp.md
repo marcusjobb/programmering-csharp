@@ -1,6 +1,6 @@
 ---
 title: Asp.Net Core Hangman
-description: "Asp.Net Core Hangman i ASP.net Core — C#-boken av Marcus Ackre Medina"
+description: "Nu ska vi bygga en enkel Hangman-spel med ASP.NET Core och JSON-lagring."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

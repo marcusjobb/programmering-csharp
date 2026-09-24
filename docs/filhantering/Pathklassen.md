@@ -1,6 +1,6 @@
 ---
 title: Path klassen
-description: "Path klassen i Filhantering — C#-boken av Marcus Ackre Medina"
+description: "Path-klassen används för att hantera sökvägar till filer och mappar. Med hjälp av Path-klassen kan vi utföra olika operationer relaterade till hantering…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: Miro
-description: "Miro i Webbtjänster — C#-boken av Marcus Ackre Medina"
+description: "Öppna Miro Miro är en digital whiteboard för att skapa och dela idéer visuellt. Du kan rita flödesscheman, wireframes, mindmaps och backlog-boards — och…"
 parent: Webbtjänster
 nav_order: 20
 ---

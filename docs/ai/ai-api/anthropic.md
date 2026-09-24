@@ -1,6 +1,6 @@
 ---
 title: Anthropic API (Claude)
-description: "Anthropic API (Claude) i AI-API — C#-boken av Marcus Ackre Medina"
+description: "Anthropics Messages API låter dig integrera Claude i din applikation. Anropet är ett vanligt HTTP POST med JSON."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

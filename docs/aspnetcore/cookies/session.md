@@ -1,6 +1,6 @@
 ---
 title: Session
-description: "Session i Cookies — C#-boken av Marcus Ackre Medina"
+description: "En session är en tillfällig lagring av data som är kopplad till en användare. Sessionen lagras på servern och är inte tillgänglig för andra användare…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

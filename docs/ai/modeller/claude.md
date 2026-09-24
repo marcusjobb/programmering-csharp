@@ -1,6 +1,6 @@
 ---
 title: Claude
-description: "Claude i AI-modeller — C#-boken av Marcus Ackre Medina"
+description: "Claude är Anthropics AI-assistent. Den är känd för lång kontext, noggrant resonemang och att följa instruktioner väl. Som programmeringsassistent…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

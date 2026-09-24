@@ -1,6 +1,6 @@
 ---
 title: Protected
-description: "Protected i Åtkomstmoderator — C#-boken av Marcus Ackre Medina"
+description: "Protected är en åtkomstmoderator som gör att en klass, metod eller egenskap är tillgänglig för klassen den är deklarerad i och alla klasser som ärver från…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

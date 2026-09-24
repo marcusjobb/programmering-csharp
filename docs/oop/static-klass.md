@@ -1,6 +1,6 @@
 ---
 title: Statiska klasser och metoder
-description: "Statiska klasser och metoder i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+description: "En statisk klass eller metod tillhör typen — inte ett enskilt objekt. Du behöver inte skapa ett objekt för att använda den."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

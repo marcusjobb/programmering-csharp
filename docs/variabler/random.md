@@ -1,6 +1,6 @@
 ---
 title: Random
-description: "Random i Variabler — C#-boken av Marcus Ackre Medina"
+description: "Datorer är deterministiska — de gör exakt det du säger åt dem. Slump finns inte på riktigt. Vad Random faktiskt gör är att beräkna en lång sekvens av tal…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

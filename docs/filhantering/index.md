@@ -1,5 +1,6 @@
-﻿---
+---
 title: Filhantering
+description: "Filhantering är en viktig del av programmerandet. Man ska kunna läsa och skriva data, och det finns olika sätt att göra det på, plus att det finns olika…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

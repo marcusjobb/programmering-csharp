@@ -1,6 +1,6 @@
 ---
 title: Cookies
-description: "Cookies i ASP.net Core — C#-boken av Marcus Ackre Medina"
+description: "Cookies är en liten fil som sparas på en användares dator."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: StringBuilder
-description: "StringBuilder i Variabler — C#-boken av Marcus Ackre Medina"
+description: "Strängar i C# är oföränderliga. Varje gång du lägger ihop strängar med + skapas ett nytt strängobjekt i minnet. Gör du det hundra gånger skapas hundra…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

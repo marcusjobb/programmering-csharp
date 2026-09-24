@@ -1,6 +1,6 @@
 ---
 title: AI
-description: "AI i C# bok — C#-boken av Marcus Ackre Medina"
+description: "AI-verktyg har förändrat hur vi skriver kod. Som programmerare möter du AI i tre roller: som assistent (hjälper dig koda), som API (du anropar ett AI i…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: Arrays
-description: "Arrays i Datastrukturer — C#-boken av Marcus Ackre Medina"
+description: "En array är en grundläggande datastruktur inom programmering som tillåter lagring av en samling av element av samma datatyp. Den används för att…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

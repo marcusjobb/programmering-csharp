@@ -1,6 +1,6 @@
 ---
 title: AI-exempel
-description: "AI-exempel i AI — C#-boken av Marcus Ackre Medina"
+description: "Tre konkreta applikationer som visar hur du integrerar AI i C#-program. Alla bygger på samma mönster — HttpClient + JSON — men löser olika problem."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: Plocka ut en del av en array och skapa en ny array av det.
-description: "Plocka ut en del av en array och skapa en ny array av det. i Array övningar — C#-boken av Marcus Ackre Medina"
+description: "I denna övning ska vi skapa en array med 10 heltal och sedan plocka ut de fem första talen från den ursprungliga arrayen för att skapa en ny array."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: TempData
-description: "TempData i Cookies — C#-boken av Marcus Ackre Medina"
+description: "Tempdata används i ASP.NET Core för att överföra data mellan olika sidor."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

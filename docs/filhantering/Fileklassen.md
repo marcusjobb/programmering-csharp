@@ -1,6 +1,6 @@
 ---
 title: File klassen
-description: "File klassen i Filhantering — C#-boken av Marcus Ackre Medina"
+description: "File-klassen innehåller metoder för att hantera filer. Den tillhör namespace System.IO och erbjuder olika funktioner för att skapa, skriva, läsa och ta…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: Nullable typer
-description: "Nullable typer i Variabler — C#-boken av Marcus Ackre Medina"
+description: "I C# skiljer man på typer som kan vara null och typer som aldrig ska vara det. Sedan C# 8 kan du aktivera nullable reference types — kompilatorn hjälper…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

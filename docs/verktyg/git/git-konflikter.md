@@ -1,6 +1,6 @@
 ---
 title: "Git — konflikter"
-description: "Git — konflikter i Git — C#-boken av Marcus Ackre Medina"
+description: "En konflikt uppstår när Git inte kan avgöra vilken version av en fil som ska gälla. Det händer när du och någon annan (eller du själv på två ställen) har…"
 parent: Git
 nav_order: 20
 ---

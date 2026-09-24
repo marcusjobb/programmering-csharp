@@ -1,5 +1,6 @@
-﻿---
+---
 title: Verktyg
+description: "I denna artikel har vi tittat på några användbara verktyg för att underlätta utvecklingen av C#-program. Genom att använda dessa verktyg kan vi öka vår…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

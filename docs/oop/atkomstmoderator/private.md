@@ -1,6 +1,6 @@
 ---
 title: Private
-description: "Private i Åtkomstmoderator — C#-boken av Marcus Ackre Medina"
+description: "Private är en åtkomstmoderator som gör att en klassmedlem endast är tillgänglig för den klass där den är deklarerad."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: Switch
-description: "Switch i If — C#-boken av Marcus Ackre Medina"
+description: "Ibland behöver du jämföra ett och samma värde mot många möjliga alternativ. Du kan göra det med en lång kedja av if / else if / else — men efter tre–fyra…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: Chatbot
-description: "Chatbot i AI-exempel — C#-boken av Marcus Ackre Medina"
+description: "En chatbot skickar hela konversationshistoriken med varje anrop. Det gör att AI:t \"minns\" vad som sagts tidigare i samma session."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

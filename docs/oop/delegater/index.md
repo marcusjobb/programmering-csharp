@@ -1,6 +1,6 @@
 ---
 title: Delegater
-description: "Delegater i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+description: "Delegater är en typ av referenstyp som kan användas för att referera till metoder med en viss signatur. Detta gör det möjligt för oss att skapa metoder…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

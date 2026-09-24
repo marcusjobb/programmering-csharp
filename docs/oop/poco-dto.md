@@ -1,6 +1,6 @@
 ---
 title: POCO och DTO
-description: "POCO och DTO i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+description: "Två vanliga begrepp för \"enkla dataklasser\" som du möter ofta i C#-projekt."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

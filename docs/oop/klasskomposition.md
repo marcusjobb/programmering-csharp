@@ -1,6 +1,6 @@
 ---
 title: Klasskomposition
-description: "Klasskomposition i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+description: "En artikel som utforskar ämnet \"Klasskomposition\" inom programmering."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

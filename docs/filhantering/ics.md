@@ -1,6 +1,6 @@
 ---
 title: "ICS-filer i C#"
-description: "ICS-filer i C# — Filhantering i C#-boken av Marcus Ackre Medina"
+description: "<details open markdown=\"block\"> <summary> Innehållsförteckning </summary>"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

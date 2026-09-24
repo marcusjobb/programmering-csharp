@@ -1,6 +1,6 @@
 ---
 title: Invertera en array
-description: "Invertera en array i Array övningar — C#-boken av Marcus Ackre Medina"
+description: "Skriv en metod som tar emot en array av strängar och inverterar ordningen på elementen i arrayen. Metoden ska returnera den resulterande inverterade…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

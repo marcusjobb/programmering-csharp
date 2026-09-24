@@ -1,6 +1,6 @@
 ---
 title: Radera
-description: "Radera i Cookies — C#-boken av Marcus Ackre Medina"
+description: "Man kan radera cookien när användaren loggar ut eller när användaren har varit inaktiv under en viss tid."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

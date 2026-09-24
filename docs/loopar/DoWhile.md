@@ -1,6 +1,6 @@
 ---
 title: Do While
-description: "Do While i Loopar — C#-boken av Marcus Ackre Medina"
+description: "Do While är en loop som körs minst en gång. Den körs sedan så länge som villkoret är sant."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

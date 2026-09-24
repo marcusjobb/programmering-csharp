@@ -1,6 +1,6 @@
 ---
 title: "Git — grunder"
-description: "Git — grunder i Git — C#-boken av Marcus Ackre Medina"
+description: "Git är ett versionshanteringssystem som håller koll på varje ändring du gör i dina filer. Tänk på det som en tidsmaskin — du kan när som helst gå tillbaka…"
 parent: Git
 nav_order: 10
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Arrayer och listor (kurs)"
-description: "Arrayer och listor (kurs) i Datastrukturer — C#-boken av Marcus Ackre Medina"
+description: "Ibland räcker det inte med en enda variabel. Tänk dig att du vill lagra fem poäng från ett spel. Du kan skapa fem separata variabler — score, score, score…"
 parent: "Datastrukturer"
 nav_order: 15
 ---

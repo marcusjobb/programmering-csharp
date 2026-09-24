@@ -1,6 +1,6 @@
 ---
 title: Git
-description: "Git i Installation — C#-boken av Marcus Ackre Medina"
+description: "Installera Git Git är ett versionhanteringssystem som används för att spara och hantera källkod. Det är ett av de mest använda versionhanteringssystemen i…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: GitHub Copilot
-description: "GitHub Copilot i AI-modeller — C#-boken av Marcus Ackre Medina"
+description: "GitHub Copilot är den mest använda AI-kodningsassistenten bland professionella utvecklare. Den sitter direkt i din IDE och kompletterar kod medan du…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

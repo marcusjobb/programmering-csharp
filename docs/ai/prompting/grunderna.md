@@ -1,6 +1,6 @@
 ---
 title: Promptens grunder
-description: "Promptens grunder i Prompting — C#-boken av Marcus Ackre Medina"
+description: "En välskriven prompt är skillnaden mellan ett vagt svar och ett svar du kan använda direkt. Det finns ett tydligt mönster som fungerar konsekvent."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

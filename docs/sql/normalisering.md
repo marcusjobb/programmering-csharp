@@ -1,6 +1,6 @@
 ---
 title: Normalisering
-description: "Normalisering i SQL — C# bok av Marcus Ackre Medina"
+description: "Normalisering är processen att strukturera en databas så att data lagras på ett ställe, inte flera. Det handlar om att ta bort redundans och förhindra att…"
 parent: SQL
 nav_order: 45
 ---

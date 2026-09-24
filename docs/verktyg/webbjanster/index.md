@@ -1,6 +1,6 @@
 ---
 title: Webbtjänster
-description: "Webbtjänster i Verktyg — C#-boken av Marcus Ackre Medina"
+description: "Verktyg som är vanliga i branschen och som du möter under utbildningen — för anteckningar, samarbete och planering. Alla är gratis att komma igång med och…"
 parent: Verktyg
 nav_order: 30
 has_children: true

@@ -1,6 +1,6 @@
 ---
 title: Metodöverlagring
-description: "Metodöverlagring i Metoder — C#-boken av Marcus Ackre Medina"
+description: "Metodöverlagring innebär att du har flera metoder med samma namn men olika parametrar. C# väljer rätt version baserat på argumenten du skickar."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

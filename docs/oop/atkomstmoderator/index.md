@@ -1,6 +1,6 @@
 ---
 title: Åtkomstmoderator
-description: "Åtkomstmoderator i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+description: "En åtkomstmoderator är en modifierare som används för att definiera åtkomsten till en klassmedlem. Detta innebär att du kan bestämma vilka klassmedlemmar…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: While
-description: "While i Loopar — C#-boken av Marcus Ackre Medina"
+description: "Grundinformation om While. While-loopen är en grundläggande kontrollstruktur inom programmering som används för att upprepa en viss kodsekvens så länge…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

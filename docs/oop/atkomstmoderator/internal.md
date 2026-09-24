@@ -1,6 +1,6 @@
 ---
 title: Internal
-description: "Internal i Åtkomstmoderator — C#-boken av Marcus Ackre Medina"
+description: "Internal är en åtkomstmoderator som gör att en klass, metod eller egenskap är tillgänglig för alla klasser i samma projekt."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: Installation
-description: "Installation i Verktyg — C#-boken av Marcus Ackre Medina"
+description: "Genom att installera och använda dessa program kommer du vara redo att börja lära dig och utveckla med C# och dra nytta av dess möjligheter inom…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

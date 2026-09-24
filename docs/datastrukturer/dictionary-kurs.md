@@ -1,6 +1,6 @@
 ---
 title: "Dictionary (kurs)"
-description: "Dictionary (kurs) i Datastrukturer — C#-boken av Marcus Ackre Medina"
+description: "En lista är bra för att hålla en sekvens av värden. Men ibland behöver du inte en rad med data — du behöver en uppslagstabell."
 parent: "Datastrukturer"
 nav_order: 25
 ---

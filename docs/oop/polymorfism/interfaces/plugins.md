@@ -1,6 +1,6 @@
 ---
 title: Exempel på Pluginsystem med interfaces
-description: "Exempel på Pluginsystem med interfaces i Interfaces — C#-boken av Marcus Ackre Medina"
+description: "Ett pluginsystem för att lägga till nya funktioner till en applikation."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

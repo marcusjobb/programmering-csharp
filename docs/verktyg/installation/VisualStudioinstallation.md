@@ -1,6 +1,6 @@
 ---
 title: Visual Studio
-description: "Visual Studio i Installation — C#-boken av Marcus Ackre Medina"
+description: "Installera Visual Studio Visual Studio är ett IDE för C# och .NET. Det är främst den som används när man arbetar med C#."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

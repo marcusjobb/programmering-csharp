@@ -1,6 +1,6 @@
 ---
 title: Exempel - Webscraping
-description: "Exempel - Webscraping i Abstrakta klasser — C#-boken av Marcus Ackre Medina"
+description: "I den här artikeln ska vi titta på hur man skapar en abstrakt klass med abstrakta och virtuella metoder i C#."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

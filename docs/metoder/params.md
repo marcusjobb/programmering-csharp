@@ -1,6 +1,6 @@
 ---
 title: params
-description: "params i Metoder — C#-boken av Marcus Ackre Medina"
+description: "params låter en metod ta emot hur många argument du vill — utan att anroparen behöver skapa en array. Inuti metoden är de ett vanligt array."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

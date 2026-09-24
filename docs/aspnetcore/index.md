@@ -1,5 +1,6 @@
-﻿---
+---
 title: ASP.net Core
+description: "Välkommen till en spännande resa in i ASP.net Core, ett fantastiskt ramverk för att bygga webbapplikationer. Det är som en glittrande regnbåge som…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: "Arv (kurs)"
-description: "Arv (kurs) i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+description: "Arv (inheritance) är ett av de viktigaste koncepten i objektorienterad programmering. Det låter dig bygga nya klasser som återanvänder kod från befintliga…"
 parent: "Objektorienterad programmering (OOP)"
 nav_order: 22
 ---

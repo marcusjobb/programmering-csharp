@@ -1,6 +1,6 @@
 ---
 title: JSON
-description: "JSON i Filhantering — C#-boken av Marcus Ackre Medina"
+description: "Nu ska kolla på ett fantastiskt verktyg för datahantering: JSON! Du kanske undrar vad JSON är och hur det kan hjälpa dig i din C#-programmering. Oroa dig…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

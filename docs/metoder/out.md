@@ -1,6 +1,6 @@
 ---
 title: out-parametrar
-description: "out-parametrar i Metoder — C#-boken av Marcus Ackre Medina"
+description: "out låter en metod returnera extra värden utöver det vanliga returvärdet. Metoden måste tilldela parametern ett värde innan den returnerar."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

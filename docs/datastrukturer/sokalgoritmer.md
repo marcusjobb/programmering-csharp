@@ -1,6 +1,6 @@
 ---
 title: Sökalgoritmer
-description: "Sökalgoritmer i Datastrukturer — C# bok av Marcus Ackre Medina"
+description: "Hur hittar du ett värde i en samling utan att kontrollera varje element i onödan? Det är frågan sökalgoritmer svarar på."
 parent: Datastrukturer
 nav_order: 60
 ---

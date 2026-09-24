@@ -1,6 +1,6 @@
 ---
 title: Typer
-description: "Typer i Variabler — C#-boken av Marcus Ackre Medina"
+description: "En typ är en klassificering av data som används för att bestämma vilken typ av värde en variabel kan lagra. I C# finns det två typer av typer: värdestyper…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

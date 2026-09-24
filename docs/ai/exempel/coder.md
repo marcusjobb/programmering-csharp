@@ -1,6 +1,6 @@
 ---
 title: AI-coder
-description: "AI-coder i AI-exempel — C#-boken av Marcus Ackre Medina"
+description: "En enkel applikation som tar en uppgiftsbeskrivning på svenska och returnerar C#-kod. Systemprompten styr att AI:t alltid svarar med kod i rätt format."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

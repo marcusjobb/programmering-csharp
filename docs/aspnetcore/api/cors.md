@@ -1,6 +1,6 @@
 ---
 title: Cors
-description: "Cors i API — C#-boken av Marcus Ackre Medina"
+description: "Låt oss ta en titt på Cors, och nej, jag pratar inte om tjejgruppen Cors från 90-talet. Jag pratar om Cross-Origin Resource Sharing (Cors), en kraftfull…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

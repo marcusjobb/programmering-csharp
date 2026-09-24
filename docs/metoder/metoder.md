@@ -1,6 +1,6 @@
 ---
 title: Metoder
-description: "Metoder i Metoder — C#-boken av Marcus Ackre Medina"
+description: "En metod är ett namngivet block av kod. Du anropar den när du vill köra koden, och du kan anropa den hur många gånger du vill."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: ToString-override
-description: "ToString-override i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+description: "Alla klasser i C# ärver från object. Det ger alla objekt en ToString()-metod — men standardversionen returnerar bara typnamnet. Genom att overrida den kan…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

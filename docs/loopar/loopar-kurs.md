@@ -1,6 +1,6 @@
 ---
 title: "Loopar (kurs)"
-description: "Loopar (kurs) i Loopar — C#-boken av Marcus Ackre Medina"
+description: "Tänk dig att du ska skriva ut räknetabellen för 3. Du skulle kunna skriva tio separata Console.WriteLine-rader. Men vad händer när du behöver 100 rader?…"
 parent: "Loopar"
 nav_order: 15
 ---

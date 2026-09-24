@@ -1,6 +1,6 @@
 ---
 title: ChatGPT
-description: "ChatGPT i AI-modeller — C#-boken av Marcus Ackre Medina"
+description: "ChatGPT är OpenAIs chattgränssnitt för GPT-modellerna. Det var det verktyg som lanserade AI-assistenter i bred allmänhet i november 2022. Det är i dag en…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

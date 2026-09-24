@@ -1,6 +1,6 @@
 ---
 title: VS Code
-description: "VS Code i Installation — C#-boken av Marcus Ackre Medina"
+description: "Installera Visual Studio Code VS Code är ett IDE för C# och .NET. Det är ett gratis program som är öppen källkod. Den är mer anpassaningsbar än Visual…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,5 +1,6 @@
-﻿---
+---
 title: Asynkron
+description: "Asynkrona metoder är metoder som inte blockerar tråden som kör metoden. Detta gör det möjligt för oss att köra flera metoder samtidigt och förbättra…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: Skapa
-description: "Skapa i Cookies — C#-boken av Marcus Ackre Medina"
+description: "Hur skapar man cookies? Det ska jag visa dig!"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

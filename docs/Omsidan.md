@@ -1,6 +1,6 @@
 ---
 title: Om sidan
-description: "Om sidan i C# bok — C#-boken av Marcus Ackre Medina"
+description: "Denna sidan skapades för att samla alla dokument på ett ställe, för att göra det enklare för studerande att hitta material från lektioner och annat…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

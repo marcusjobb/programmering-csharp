@@ -1,6 +1,6 @@
 ---
 title: XML
-description: "XML i Filhantering — C#-boken av Marcus Ackre Medina"
+description: "XML (Extensible Markup Language) är ett filformat som används för att lagra data i en strukturerad form."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

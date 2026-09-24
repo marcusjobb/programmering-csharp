@@ -1,6 +1,6 @@
 ---
 title: Rider
-description: "Rider i Installation — C#-boken av Marcus Ackre Medina"
+description: "Installera Jetbrains Rider Jetbrains Rider är ett IDE för C# och .NET. Det är ett gratis program som är öppen källkod. Den är som Visual Studio Code och…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

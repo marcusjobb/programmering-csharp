@@ -1,6 +1,6 @@
 ---
 title: Claude Code
-description: "Claude Code i AI-modeller — C#-boken av Marcus Ackre Medina"
+description: "Claude Code är ett CLI-verktyg från Anthropic som kör Claude direkt i din terminal. Det kan läsa, skriva och köra filer i ditt projekt — inte bara svara…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

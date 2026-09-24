@@ -1,5 +1,6 @@
-﻿---
+---
 title: Ordlista
+description: "Här finns några ordlistor med vanliga ord och uttryck som används inom IT världen, med korta förklaringar."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

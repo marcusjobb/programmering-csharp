@@ -1,6 +1,6 @@
 ---
 title: Hitta det största elementet i en array
-description: "Hitta det största elementet i en array i Array övningar — C#-boken av Marcus Ackre Medina"
+description: "Skriv en metod som tar emot en array av heltal och returnerar det största elementet i arrayen."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

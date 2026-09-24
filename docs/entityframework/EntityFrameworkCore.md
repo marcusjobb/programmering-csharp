@@ -1,6 +1,6 @@
 ---
 title: Entity Framework Core
-description: "Entity Framework Core i Entity Framework — C#-boken av Marcus Ackre Medina"
+description: "Yay! Idag ska vi prata om Entity Framework Core, en fantastisk ORM (Object Relational Mapper) som hjälper oss att kommunicera med databaser. Entity…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: Summera element i en array
-description: "Summera element i en array i Array övningar — C#-boken av Marcus Ackre Medina"
+description: "Skriv en metod som tar emot en array av heltal och summerar alla element i arrayen. Returnera den resulterande summan."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

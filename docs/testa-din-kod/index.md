@@ -1,6 +1,6 @@
 ---
 title: Testa din kod
-description: "Testa din kod — C# bok av Marcus Ackre Medina"
+description: "Kod som aldrig testas är kod du hoppas fungerar. Kod som testas är kod du vet fungerar."
 nav_order: 115
 has_children: true
 ---

@@ -1,6 +1,6 @@
 ---
 title: Foreach
-description: "Foreach i Loopar — C#-boken av Marcus Ackre Medina"
+description: "foreach är den vanligaste loopen i C# när du jobbar med samlingar. Den går igenom varje element ett i taget — du behöver aldrig hantera ett index."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

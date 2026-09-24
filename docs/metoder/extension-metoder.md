@@ -1,6 +1,6 @@
 ---
 title: Extension-metoder
-description: "Extension-metoder i Metoder — C#-boken av Marcus Ackre Medina"
+description: "Extension-metoder låter dig lägga till metoder på en befintlig typ — utan att ändra typen och utan arv. Det ser ut som om metoden hör till typen, men den…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

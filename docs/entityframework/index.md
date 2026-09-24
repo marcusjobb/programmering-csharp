@@ -1,5 +1,6 @@
-﻿---
+---
 title: Entity Framework
+description: "Yay! Idag ska vi prata om Entity Framework, ett fantastiskt ORM-ramverk som gör det enkelt att kommunicera med databaser. Vi kommer att fokusera på Entity…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

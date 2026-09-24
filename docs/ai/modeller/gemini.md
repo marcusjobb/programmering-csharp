@@ -1,6 +1,6 @@
 ---
 title: Gemini
-description: "Gemini i AI-modeller — C#-boken av Marcus Ackre Medina"
+description: "Gemini är Googles AI-modell. Den är integrerad i Google Workspace (Docs, Gmail, Sheets) och finns tillgänglig via API. Multimodal från grunden — ser text…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

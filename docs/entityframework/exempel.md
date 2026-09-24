@@ -1,6 +1,6 @@
 ---
 title: Code-First Dagbok med Entity Framework
-description: "Code-First Dagbok med Entity Framework i Entity Framework — C#-boken av Marcus Ackre Medina"
+description: "I den här övningen kommer vi att skapa en enkel dagboksapplikation som låter användare skapa och visa dagboksinlägg från konsolen. Vi kommer att använda…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

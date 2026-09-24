@@ -1,6 +1,6 @@
 ---
 title: OpenAI API (ChatGPT)
-description: "OpenAI API (ChatGPT) i AI-API — C#-boken av Marcus Ackre Medina"
+description: "OpenAIs Chat Completions API är det vanligaste AI-API:et. Det används av ChatGPT, GitHub Copilot och tusentals applikationer."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

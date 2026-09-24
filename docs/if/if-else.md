@@ -1,6 +1,6 @@
 ---
 title: "if / else"
-description: "if / else i If — C#-boken av Marcus Ackre Medina"
+description: "Program behöver fatta beslut. Ska rabatt ges eller inte? Är användaren inloggad? Är poängen tillräcklig för ett godkänt betyg? Det är just det ett villkor…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

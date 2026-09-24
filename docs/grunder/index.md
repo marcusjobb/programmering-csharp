@@ -1,6 +1,6 @@
 ---
 title: Grunder
-description: "Grundläggande C#-struktur — namespace, klasser och startpunkten för ett program."
+description: "Det här avsnittet förklarar det som alltid är med men sällan förklaras — ramverket runt din kod."
 parent: C# bok
 nav_order: 15
 has_children: true

@@ -1,6 +1,6 @@
 ---
 title: Events
-description: "Events i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+description: "I denna överblick kommer vi att utforska konceptet events i C#. Events är en funktion som låter oss reagera på händelser som inträffar under körningen av…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

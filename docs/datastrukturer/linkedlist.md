@@ -1,6 +1,6 @@
 ---
 title: LinkedList
-description: "LinkedList i Datastrukturer — C# bok av Marcus Ackre Medina"
+description: "En LinkedList<T> är en samling noder där varje nod håller ett värde och en pekare till nästa — och i .NET även till föregående — nod. Till skillnad från…"
 parent: Datastrukturer
 nav_order: 45
 ---

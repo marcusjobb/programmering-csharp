@@ -1,6 +1,6 @@
 ---
 title: Programstruktur
-description: "Vad betyder namespace, class Program och static void Main? Förklaring av grundstrukturen i ett C#-program."
+description: "Varje C#-program börjar med samma kod — men vad betyder den egentligen?"
 parent: Grunder
 nav_order: 10
 ---

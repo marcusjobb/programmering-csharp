@@ -1,6 +1,6 @@
 ---
 title: "Inkapsling (kurs)"
-description: "Inkapsling (kurs) i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+description: "Inkapsling handlar om att skydda ett objekts data så att bara klassen själv kan bestämma vad som händer med den. Det är en av grundpelarna i…"
 parent: "Objektorienterad programmering (OOP)"
 nav_order: 18
 ---

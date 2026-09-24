@@ -1,5 +1,6 @@
 ---
 title: Tredimensionella arrayer
+description: "Samma idé som en tvådimensionell array, fast med ytterligare ett steg: en tredje dimension utöver rad och kolumn. Tänk en Rubiks kub, ett voxel-baserat…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

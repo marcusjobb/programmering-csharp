@@ -1,6 +1,6 @@
 ---
 title: AI-API
-description: "AI-API i AI — C#-boken av Marcus Ackre Medina"
+description: "Du kan anropa AI-modeller direkt från din C#-applikation via HTTP. Det är samma mönster som alla andra REST-API:er — en POST-förfrågan med JSON-body, ett…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

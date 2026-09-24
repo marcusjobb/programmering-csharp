@@ -1,6 +1,6 @@
 ---
 title: Metoder
-description: "Metoder i C# bok — C#-boken av Marcus Ackre Medina"
+description: "En metod är ett namngivet kodblock som utför en uppgift. Metoder låter dig bryta ner ett program i logiska delar, återanvända kod och göra programmet…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

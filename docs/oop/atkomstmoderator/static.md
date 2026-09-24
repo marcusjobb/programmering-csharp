@@ -1,6 +1,6 @@
 ---
 title: Static
-description: "Static i Åtkomstmoderator — C#-boken av Marcus Ackre Medina"
+description: "Static är inte en åtkomstmoderator utan en modifierare. Det gör att en klass, metod eller egenskap är tillgänglig för alla klasser i samma projekt."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

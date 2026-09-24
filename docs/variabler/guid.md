@@ -1,6 +1,6 @@
 ---
 title: Guid
-description: "Guid i Variabler — C#-boken av Marcus Ackre Medina"
+description: "En Guid (Globally Unique Identifier) är ett 128-bitars tal som genereras så att sannolikheten för en kollision är astronomiskt liten. I praktiken: du kan…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

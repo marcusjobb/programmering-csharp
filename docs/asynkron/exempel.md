@@ -1,6 +1,6 @@
 ---
 title: Exempel
-description: "Exempel i Asynkron — C#-boken av Marcus Ackre Medina"
+description: "Yay! Nu ska vi ta en titt på ett exempel där vi ska skapa en metod som söker igenom alla filer i en mapp och returnerar en lista med filer som innehåller…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

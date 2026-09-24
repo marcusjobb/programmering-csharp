@@ -1,6 +1,6 @@
 ---
 title: Array övningar
-description: "Array övningar i Datastrukturer — C#-boken av Marcus Ackre Medina"
+description: "Här finns lite övningar som du kan göra för att träna på att använda arrayer."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

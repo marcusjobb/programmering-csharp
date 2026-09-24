@@ -1,6 +1,6 @@
 ---
 title: HashSet
-description: "HashSet i Datastrukturer — C# bok av Marcus Ackre Medina"
+description: "HashSet<T> lagrar element utan dubletter och utan garanterad ordning. Contains, Add och Remove kostar O(1) — oberoende av hur stor samlingen är."
 parent: Datastrukturer
 nav_order: 50
 ---

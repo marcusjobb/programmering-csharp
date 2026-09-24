@@ -1,6 +1,6 @@
 ---
 title: Constraints
-description: "Constraints i SQL — C#-boken av Marcus Ackre Medina"
+description: "Constraints i SQL används för att begränsa datan i en tabell. Det finns två typer av constraints: primary key och foreign key. Primary key används för att…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

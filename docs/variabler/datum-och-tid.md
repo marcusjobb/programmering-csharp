@@ -1,6 +1,6 @@
 ---
 title: Datum och tid
-description: "Datum och tid i Variabler — C#-boken av Marcus Ackre Medina"
+description: "Datum och tid är svårare än de ser ut. Tidszoner, skottår, sommartid, antalet dagar i månader — allt detta hanterar .NET åt dig om du använder rätt typer."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

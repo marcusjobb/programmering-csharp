@@ -1,5 +1,6 @@
-﻿---
+---
 title: Loopar
+description: "Loopar är en viktig del av programmering. De används för att upprepa en viss uppsättning instruktioner eller handlingar ett visst antal gånger eller tills…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

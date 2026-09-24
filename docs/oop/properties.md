@@ -1,6 +1,6 @@
 ---
 title: Properties
-description: "Properties i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+description: "En property är ett kontrollerat fönster in till ett objekts data. Istället för att exponera ett fält direkt kan du styra vad som får läsas och skrivas."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

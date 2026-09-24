@@ -1,6 +1,6 @@
 ---
 title: UML-klassdiagram
-description: "UML-klassdiagram i Diagram — C#-boken av Marcus Ackre Medina"
+description: "UML (Unified Modeling Language) är ett gemensamt språk för att rita klasser och relationer — utan att skriva kod. Det används för att planera design och…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

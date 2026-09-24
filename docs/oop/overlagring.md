@@ -1,6 +1,6 @@
 ---
 title: Konstruktoröverlagring
-description: "Konstruktoröverlagring i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+description: "En klass kan ha flera konstruktorer med olika parametrar — precis som metoder kan överlagras. Det låter dig skapa objekt på olika sätt utan att tvinga…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

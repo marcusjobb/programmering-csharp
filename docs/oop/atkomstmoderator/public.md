@@ -1,6 +1,6 @@
 ---
 title: Public
-description: "Public i Åtkomstmoderator — C#-boken av Marcus Ackre Medina"
+description: "Public är en åtkomstmoderator som gör att en klass, metod eller egenskap är tillgänglig för alla klasser."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

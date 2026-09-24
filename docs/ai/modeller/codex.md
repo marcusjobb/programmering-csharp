@@ -1,6 +1,6 @@
 ---
 title: Codex och kodnings-AI
-description: "Codex och kodnings-AI i AI-modeller — C#-boken av Marcus Ackre Medina"
+description: "OpenAI Codex var den första specialiserade kodnings-AI:n — tränad specifikt på kod. Den drev GitHub Copilot och inspirerade en generation av…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

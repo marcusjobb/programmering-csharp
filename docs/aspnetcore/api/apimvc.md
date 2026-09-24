@@ -1,6 +1,6 @@
 ---
 title: MVC och API
-description: "MVC och API i API — C#-boken av Marcus Ackre Medina"
+description: "I dagens digitala era är det viktigt att kunna skapa webbapplikationer som är både användbara och effektiva. För att uppnå detta använder sig många…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: Swagger och Swashbuckle
-description: "Swagger och Swashbuckle i APIer — C#-boken av Marcus Ackre Medina"
+description: "Innan Scalar fanns Swagger UI via paketet Swashbuckle.AspNetCore. Det är fortfarande vanligt i äldre .NET-projekt och tutorials — och du kommer stöta på…"
 parent: APIer
 nav_order: 20
 ---

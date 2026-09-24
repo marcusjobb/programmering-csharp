@@ -1,6 +1,6 @@
 ---
 title: FileInfo
-description: "FileInfo i Filhantering — C#-boken av Marcus Ackre Medina"
+description: "Fileinfo är en fantastisk klass som hjälper oss att hantera filer på ett enkelt sätt. Med FileInfo-klassen kan vi få tillgång till olika egenskaper och…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

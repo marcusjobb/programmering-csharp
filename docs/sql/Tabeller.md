@@ -1,6 +1,6 @@
 ---
 title: Tabeller
-description: "Tabeller i SQL — C#-boken av Marcus Ackre Medina"
+description: "Tabeller är en grundläggande del av databashantering och används för att lagra och organisera data i en strukturerad form. Varje tabell består av rader…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

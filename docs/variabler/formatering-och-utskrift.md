@@ -1,5 +1,6 @@
 ---
 title: Formatering och utskrift
+description: "Att skriva ut text är sällan bara \"skriv ut den här strängen\" — du vill ofta styra hur den ser ut: en ny rad här, ett citattecken där, eller ett tal som…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

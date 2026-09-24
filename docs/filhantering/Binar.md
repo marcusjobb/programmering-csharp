@@ -1,6 +1,6 @@
 ---
 title: Binär
-description: "Binär i Filhantering — C#-boken av Marcus Ackre Medina"
+description: "Vi ska nu utforska hur man skapar och läser binära filer i C#. Det är faktiskt ganska coolt!"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

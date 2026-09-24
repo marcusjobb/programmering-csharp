@@ -1,6 +1,6 @@
 ---
 title: Loopar i C#
-description: "Loopar i C# i Loopar — C#-boken av Marcus Ackre Medina"
+description: "Loopar är ett mycket användbart verktyg inom C#-programmering för att automatisera processer, förbättra prestanda och lösa komplexa problem. Genom att…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

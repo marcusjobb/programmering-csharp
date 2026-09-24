@@ -1,6 +1,6 @@
 ---
 title: Git
-description: "Git i Verktyg — C#-boken av Marcus Ackre Medina"
+description: "Git är det versionshanteringssystem du använder för att spåra ändringar i din kod. Med Git slipper du mappar fyllda med ProgramfinalRIKTIG.cs — historiken…"
 parent: Verktyg
 nav_order: 20
 has_children: true

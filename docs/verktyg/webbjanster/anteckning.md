@@ -1,6 +1,6 @@
 ---
 title: Anteckningsverktyg
-description: "Anteckningsverktyg i Webbtjänster — C#-boken av Marcus Ackre Medina"
+description: "Bra anteckningar är en del av att vara en bra utvecklare. Här är två populära verktyg — välj det som passar hur du tänker."
 parent: Webbtjänster
 nav_order: 10
 ---

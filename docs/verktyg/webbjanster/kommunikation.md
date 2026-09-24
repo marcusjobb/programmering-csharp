@@ -1,6 +1,6 @@
 ---
 title: Kommunikation
-description: "Kommunikation i Webbtjänster — C#-boken av Marcus Ackre Medina"
+description: "Kodare kommunicerar mycket via text — med kollegor, med öppen källkod-communities, och med hela team på distans. Två verktyg dominerar: Discord under…"
 parent: Webbtjänster
 nav_order: 30
 ---

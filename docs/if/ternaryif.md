@@ -1,6 +1,6 @@
 ---
 title: Ternary if
-description: "Ternary if i If — C#-boken av Marcus Ackre Medina"
+description: "Ibland är ett villkor så enkelt att en hel if/else-sats känns som overkill. Ternary-operatorn låter dig skriva det på en rad."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: Endpoints
-description: "Endpoints i API — C#-boken av Marcus Ackre Medina"
+description: "En endpoint är som en speciell webbadress som används för att prata med en webbapplikation. Tänk på det som en dörr till webbapplikationen där du kan…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

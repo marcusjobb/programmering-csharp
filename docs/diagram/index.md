@@ -1,6 +1,6 @@
 ---
 title: Diagram
-description: "Diagram i C# bok — C#-boken av Marcus Ackre Medina"
+description: "Bra programmerare planerar innan de kodar. Diagram hjälper dig att tänka igenom ett problem, kommunicera lösningar till andra och dokumentera hur ett…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: Partial class
-description: "Partial class i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+description: "Med partial kan du dela upp definitionen av en klass i flera filer. Kompilatorn sätter ihop dem till en klass när koden byggs."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

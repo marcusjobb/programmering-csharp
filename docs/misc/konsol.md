@@ -1,6 +1,6 @@
 ---
 title: "Konsol-I/O"
-description: "Konsol-I/O i Övrigt — C#-boken av Marcus Ackre Medina"
+description: "🟢 Det här kapitlet är din introduktion till att prata med datorn! Vi ska lära oss hur man får C-Sharp att visa text och siffror på skärmen. Tänk dig det…"
 parent: "Övrigt"
 nav_order: 10
 ---

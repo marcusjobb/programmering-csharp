@@ -1,6 +1,6 @@
 ---
 title: Konstruktorer
-description: "Konstruktorer i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+description: "En konstruktor är den metod som körs när ett objekt skapas. Den ser till att objektet startar i ett giltigt tillstånd."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

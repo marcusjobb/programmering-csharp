@@ -1,5 +1,6 @@
-﻿---
+---
 title: Övrigt
+description: "Här finns lite övriga ämnen som inte riktigt passade in någonannanstans"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: Bankkonto
-description: "Bankkonto i Events — C#-boken av Marcus Ackre Medina"
+description: "Vi ska skapa ett bankkonto där vi kan sätta in pengar och ta ut pengar. Ett bankkonto är en vanlig komponent i finansiella system och används för att…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

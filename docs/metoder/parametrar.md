@@ -1,6 +1,6 @@
 ---
 title: Parametrar
-description: "Parametrar i Metoder — C#-boken av Marcus Ackre Medina"
+description: "En parameter är ett värde som skickas in till en metod. Det är metodens ingång — data den behöver för att göra sitt jobb."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

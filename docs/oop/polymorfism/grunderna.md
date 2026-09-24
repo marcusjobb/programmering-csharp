@@ -1,5 +1,6 @@
 ---
 title: Grunderna — virtual och override
+description: "Innan interfaces och abstrakta klasser: den enklaste formen av polymorfism bygger bara på vanligt arv, virtual och override. Det här är fundamentet resten…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: For
-description: "For i Loopar — C#-boken av Marcus Ackre Medina"
+description: "Det finns tre olika typer av for-loopar i C#: vanlig for-loop, foreach-loop och inline for-each-loop."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

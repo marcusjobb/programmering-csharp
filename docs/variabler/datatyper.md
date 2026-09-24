@@ -1,6 +1,6 @@
 ---
 title: "Datatyper"
-description: "Datatyper i Variabler — C#-boken av Marcus Ackre Medina"
+description: "🟢 En datatyp talar om för C# vad för slags data som ska lagras i en variabel — och hur mycket plats det tar i minnet. Utan det vet kompilatorn ingenting…"
 parent: "Variabler"
 nav_order: 10
 ---

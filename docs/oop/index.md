@@ -1,5 +1,6 @@
-﻿---
+---
 title: Objektorienterad programmering (OOP)
+description: "I den här avdelningen ska vi kolla på ämnet Objektorienterad programmering (OOP)."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

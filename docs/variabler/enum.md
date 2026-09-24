@@ -1,6 +1,6 @@
 ---
 title: Enum
-description: "Enum i Variabler — C#-boken av Marcus Ackre Medina"
+description: "Föreställ dig att du skriver ett program som hanterar årstider. Du behöver lagra vilken årstid det är."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

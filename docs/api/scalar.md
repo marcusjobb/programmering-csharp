@@ -1,6 +1,6 @@
 ---
 title: Scalar och OpenAPI
-description: "Scalar och OpenAPI i APIer — C#-boken av Marcus Ackre Medina"
+description: "Du bygger ett API. Någon annan ska använda det — kanske en kollega, kanske en frontend-utvecklare, kanske du själv om tre månader."
 parent: APIer
 nav_order: 10
 ---

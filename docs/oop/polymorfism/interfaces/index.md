@@ -1,6 +1,6 @@
 ---
 title: Interfaces
-description: "Interfaces i Polymorfism — C#-boken av Marcus Ackre Medina"
+description: "Interfaces är ett kraftfullt verktyg i C# som ger oss möjlighet att skapa flexibla och återanvändbara komponenter i våra program. Genom att använda…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

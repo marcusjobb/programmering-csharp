@@ -1,6 +1,6 @@
 ---
 title: Mappar
-description: "Mappar i Filhantering — C#-boken av Marcus Ackre Medina"
+description: "I denna artikel kommer vi att utforska ämnet \"Mappar\" och hur de används inom C#-programmering. Vi kommer att undersöka olika typer av mappar…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

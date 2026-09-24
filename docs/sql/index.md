@@ -1,5 +1,6 @@
-﻿---
+---
 title: SQL
+description: "SQL erbjuder många fler avancerade funktioner och kommandon för att hantera och manipulera data i databaser. Genom att lära dig SQL kan du få en djupare…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: List
-description: "List i Datastrukturer — C#-boken av Marcus Ackre Medina"
+description: "Vi använder olika typer av listor, för att slippa hantera Arrays :)"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

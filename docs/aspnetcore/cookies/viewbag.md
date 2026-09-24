@@ -1,6 +1,6 @@
 ---
 title: ViewBag
-description: "ViewBag i Cookies — C#-boken av Marcus Ackre Medina"
+description: "En ViewBag finns i ASP.NET Core MVC och används för att överföra data mellan olika sidor."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

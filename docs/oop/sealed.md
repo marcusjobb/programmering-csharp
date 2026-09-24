@@ -1,6 +1,6 @@
 ---
 title: Sealed
-description: "Sealed i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+description: "sealed är ett nyckelord som låser arv — antingen för en hel klass, eller för en specifik metod. Det är ett sätt att säga: \"Designen slutar här. Inga fler…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

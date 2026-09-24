@@ -1,6 +1,6 @@
 ---
 title: Break och Continue
-description: "Break och Continue i Loopar — C#-boken av Marcus Ackre Medina"
+description: "break och continue är satser som styr vad som händer inuti en loop. De används för att hoppa ut ur loopen eller hoppa vidare till nästa varv."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

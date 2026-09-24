@@ -1,6 +1,6 @@
 ---
 title: ref-parametrar
-description: "ref-parametrar i Metoder — C#-boken av Marcus Ackre Medina"
+description: "ref skickar en referens till originalet istället för en kopia. Det metoden gör med parametern påverkar direkt den variabel du skickade in."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,6 +1,6 @@
 ---
 title: ER-diagram
-description: "ER-diagram i SQL — C#-boken av Marcus Ackre Medina"
+description: "Ett ER-diagram (Entity-Relationship Diagram) är en ritning av en databas — vilka tabeller som finns, vad de innehåller och hur de hänger ihop. Rita det…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

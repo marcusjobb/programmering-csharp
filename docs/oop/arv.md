@@ -1,6 +1,6 @@
 ---
 title: Arv inom programmering
-description: "Arv inom programmering i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+description: "Nu ska vi titta på Arv inom OOP. Arv är en viktig princip inom objektorienterad programmering som möjliggör återanvändning av kod och skapar hierarkier av…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

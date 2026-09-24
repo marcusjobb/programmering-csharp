@@ -1,6 +1,6 @@
 ---
 title: AI-modeller
-description: "AI-modeller i AI — C#-boken av Marcus Ackre Medina"
+description: "Det finns flera stora AI-modeller och verktyg. Här är en översikt av de vanligaste — vad de är bra på, vad de kostar och hur de används av programmerare."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

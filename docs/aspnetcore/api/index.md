@@ -1,6 +1,6 @@
 ---
 title: API
-description: "API i ASP.net Core — C#-boken av Marcus Ackre Medina"
+description: "I detta avsnitt kan du läsa lite om APIer och hur man kommunicerar med dem."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

@@ -1,5 +1,6 @@
-﻿---
+---
 title: If
+description: "En introduktion till ämnet If på språket 'Svenska' och kodspråk 'C#'."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

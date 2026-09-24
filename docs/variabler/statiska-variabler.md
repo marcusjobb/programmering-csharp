@@ -1,6 +1,6 @@
 ---
 title: Statiska variabler
-description: "Statiska variabler i Variabler — C#-boken av Marcus Ackre Medina"
+description: "Vanliga variabler tillhör ett objekt. Varje instans av en klass har sin egen kopia. En statisk variabel tillhör klassen själv — alla instanser delar på…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

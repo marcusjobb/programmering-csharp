@@ -1,6 +1,6 @@
 ---
 title: Stränghantering
-description: "Stränghantering i Variabler — C#-boken av Marcus Ackre Medina"
+description: "Strängar i C# är objekt av typen string (alias för System.String). De är immutabla — du kan inte ändra en sträng, bara skapa en ny. Klassen har dock…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

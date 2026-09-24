@@ -1,6 +1,6 @@
 ---
 title: Inkapsling
-description: "Inkapsling i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+description: "En artikel som utforskar ämnet \"Inkapsling\" inom programmering med fokus på C#."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

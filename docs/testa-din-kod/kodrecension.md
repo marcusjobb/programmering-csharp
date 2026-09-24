@@ -1,6 +1,6 @@
 ---
 title: Kodgranskning
-description: "Kodgranskning i Testa din kod — C# bok av Marcus Ackre Medina"
+description: "Tester fångar buggar. Kodgranskningar fångar problemen innan de ens blir buggar. När kollegor läser din kod innan den går ut blir resultatet bättre kod…"
 parent: Testa din kod
 nav_order: 20
 ---

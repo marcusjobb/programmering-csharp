@@ -1,6 +1,6 @@
 ---
 title: Prompting
-description: "Prompting i AI — C#-boken av Marcus Ackre Medina"
+description: "En prompt är instruktionen du skickar till ett AI. Kvaliteten på prompten avgör kvaliteten på svaret. Prompting är en professionell skill — inte magin det…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

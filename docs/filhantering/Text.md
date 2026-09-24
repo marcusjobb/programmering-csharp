@@ -1,6 +1,6 @@
 ---
 title: Textfiler
-description: "Textfiler i Filhantering — C#-boken av Marcus Ackre Medina"
+description: "Textfiler är en vanlig filtyp som används för att lagra text. Det är ett textbaserat filformat som används för att lagra data rent allmänt."
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

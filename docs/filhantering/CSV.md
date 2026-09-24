@@ -1,6 +1,6 @@
 ---
 title: CSV
-description: "CSV i Filhantering — C#-boken av Marcus Ackre Medina"
+description: "Filformatet CSV (Comma Separated Values) är ett filformat som används för att lagra data i en tabell. Det är ett vanligt filformat som används för att…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

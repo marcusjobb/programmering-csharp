@@ -1,6 +1,6 @@
 ---
 title: Stack och Queue
-description: "Stack och Queue i Datastrukturer — C# bok av Marcus Ackre Medina"
+description: "Stack och Queue är specialiserade samlingar med en enkel regel: du kan bara lägga till och ta bort element på ett bestämt ställe. Regeln är det som gör…"
 parent: Datastrukturer
 nav_order: 55
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Metoder (kurs)"
-description: "Metoder (kurs) i Metoder — C#-boken av Marcus Ackre Medina"
+description: "Program upprepar sig. Hälsa användaren. Beräkna summan. Kontrollera om ett tal är jämnt. Utan metoder skriver du samma logik om och om igen — och varje…"
 parent: "Metoder"
 nav_order: 15
 ---

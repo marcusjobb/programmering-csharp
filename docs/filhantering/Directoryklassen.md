@@ -1,6 +1,6 @@
 ---
 title: Directory-klassen
-description: "Directory-klassen i Filhantering — C#-boken av Marcus Ackre Medina"
+description: "Välkommen till en fantastisk artikel om Directory-klassen i C#! Vi kommer att utforska denna kraftfulla klass och lära oss hur den kan hjälpa oss att…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

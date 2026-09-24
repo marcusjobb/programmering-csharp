@@ -1,6 +1,6 @@
 ---
 title: Egna datatyper
-description: "Egna datatyper i Objektorienterad programmering (OOP) — C#-boken av Marcus Ackre Medina"
+description: "Ibland räcker inte int, double och string. Du kanske vill ha en typ som representerar ett belopp, en temperatur eller en enhet — och som beter sig som en…"
 layout: default
 author: Marcus Ackre Medina
 author_github: marcusjobb

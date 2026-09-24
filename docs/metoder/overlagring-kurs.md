@@ -1,6 +1,6 @@
 ---
 title: "Överlagring (kurs)"
-description: "Överlagring (kurs) i Metoder — C#-boken av Marcus Ackre Medina"
+description: "Det här är en fördjupning av arv-konceptet med fokus på metodöverlagring, konstruktoröverlagring, base.Method() och ToString()."
 parent: "Metoder"
 nav_order: 25
 ---
