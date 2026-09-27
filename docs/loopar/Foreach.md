@@ -99,6 +99,29 @@ Clara: 5
 | Du ska modifiera samlingen under loopen | `for` (foreach tillåter inte det) |
 | Kod som ska läsas lätt och snabbt | `foreach` |
 
+## Inline foreach med List\<T\>.ForEach
+
+`List<T>` har en egen `ForEach`-metod som tar ett lambda-uttryck — ett alternativ till `foreach`-satsen när du bara ska köra en enkel operation per element:
+
+```csharp
+var names = new List<string> { "Anna", "Björn", "Clara" };
+names.ForEach(name => Console.WriteLine(name));
+```
+
+Den finns bara på `List<T>`, inte på arrayer. Vill du loopa baklänges, vänd listan (eller arrayen) innan du loopar:
+
+```csharp
+names.Reverse();
+names.ForEach(name => Console.WriteLine(name));
+
+// På en array används Array.Reverse istället:
+int[] numbers = { 10, 20, 30 };
+Array.Reverse(numbers);
+foreach (var n in numbers) Console.WriteLine(n);
+```
+
+`List<T>.ForEach` är kortare för enkla fall, men en vanlig `foreach`-sats är oftast tydligare att felsöka och stega igenom — särskilt så fort logiken blir mer än en rad.
+
 ## Modern syntax — utan `var`
 
 Du kan skriva ut typen explicit om du vill vara tydlig:

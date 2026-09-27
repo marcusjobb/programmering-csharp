@@ -1,11 +1,11 @@
 ---
-title: "Lästext — Loopar"
+title: "Grunderna — for, while, do-while"
 description: "Tänk dig att du ska skriva ut räknetabellen för 3. Du skulle kunna skriva tio separata Console.WriteLine-rader. Men vad händer när du behöver 100 rader?…"
 parent: "Loopar"
-nav_order: 15
+nav_order: 10
 ---
 
-# Lästext — Loopar
+# Grunderna — for, while, do-while
 
 ## Vad är en loop?
 
@@ -214,4 +214,4 @@ Console.WriteLine("Du valde: " + choice);
 
 ---
 
-**Se även:** `arrayer.md` i `programmeringstermer/` under `06_datastrukturer` för en genomgång av arrays och hur `foreach` används tillsammans med dem.
+**Se även:** [Foreach](Foreach.md) för en djupare genomgång — listor, arrayer, dictionaries och `List<T>.ForEach`.
