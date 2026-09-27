@@ -5,7 +5,7 @@ parent: "Variabler"
 nav_order: 10
 ---
 
-# Data Types
+# Datatyper
 
 En datatyp talar om för C# vad för slags data som ska lagras i en variabel — och hur mycket plats det tar i minnet. Utan det vet kompilatorn ingenting. "En siffra? En text? Ett ja eller nej?" Kompilatorn är noga på den punkten.
 
