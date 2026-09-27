@@ -361,5 +361,3 @@ Console.WriteLine(r.GetValue());   // 8
 När du börjar bygga klasser nästa vecka gäller objektmetoder. Tills dess kör vi `static`.
 
 ---
-
-**Se även:** [programmeringstermer/metoder.md](../programmeringstermer/metoder.md)

@@ -200,4 +200,4 @@ bool rightChoice = !answer;
 
 Se scenen: [youtu.be/ReFhu8KYbmU](https://www.youtube.com/watch?v=ReFhu8KYbmU)
 
-**Se även:** [switch.md](switch.md) för ett alternativ när du har många fasta värden att jämföra, och `operatorer.md` i `programmeringstermer/` för en fullständig genomgång av operatorer.
+**Se även:** [switch.md](switch.md) för ett alternativ när du har många fasta värden att jämföra, och [Operatorer i ordlistan](../ordlista/Operatorer.md) för en fullständig genomgång.

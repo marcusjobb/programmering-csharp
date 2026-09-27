@@ -277,5 +277,3 @@ Varje gång du ser dig själv skriva en sträng som ett av ett begränsat antal 
 ## TL;DR
 
 Enum ger namn åt fasta heltalsvärden. Bättre än magiska siffror och strängar — kompilatorn kontrollerar att du använder giltiga värden. Passar perfekt med `switch`. Använd `[Flags]` när värden kan kombineras.
-
-**Se även:** [programmeringstermer/listor.md](../programmeringstermer/listor.md)
