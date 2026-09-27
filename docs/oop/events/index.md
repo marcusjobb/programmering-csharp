@@ -1,45 +1,32 @@
 ---
 title: Events
-description: "I denna överblick kommer vi att utforska konceptet events i C#. Events är en funktion som låter oss reagera på händelser som inträffar under körningen av…"
+description: "En händelse en klass sänder ut, som andra delar av koden kan välja att lyssna på — utan att klassen som sänder behöver veta vem som lyssnar."
 parent: Objektorienterad programmering (OOP)
 nav_order: 20
 has_children: True
 ---
 # Events
 
-I denna överblick kommer vi att utforska konceptet events i C#. Events är en funktion som låter oss reagera på händelser som inträffar under körningen av vårt program.
+Ett event är en signal en klass skickar ut när något hänt — och andra delar av koden kan prenumerera på den signalen utan att klassen som skickar den vet eller bryr sig om vem som lyssnar. Det bygger vidare på [Delegater](../delegater/index.md): ett event är i grunden en delegat, bara med extra regler för hur den får användas utifrån.
 
-## Vad är Events?
+## När du läst detta ska du kunna
 
-Events kan ses som en mekanism för att anropa metoder när något specifikt händer i programmet. Istället för att använda if-satser eller liknande för att kontrollera och reagera på olika scenarier, kan vi definiera events som triggas när en händelse uppstår.
+- Deklarera ett event med `EventHandler`
+- Utlösa ett event från insidan av klassen
+- Prenumerera på ett event utifrån med `+=`
+- Förklara varför events är säkrare än publika delegater
 
-En händelse kan vara något som att en knapp klickas, en fil ändras, en timer slår till eller ett objekt uppdateras. Genom att använda events kan vi separera logiken för att hantera händelsen från den del av koden som utlöser händelsen.
-
-## Användningsområden för Events
-
-Events kan vara till nytta i en mängd olika scenarier, inklusive:
-
-1. Grafiska användargränssnitt (GUI): I GUI-applikationer kan events användas för att hantera händelser som knappklickar, musinmatning eller fönsterfokusändringar.
-
-2. Spelprogrammering: I spel kan events användas för att hantera händelser som spelarens interaktion, karaktärsdöd eller nivåuppgradering.
-
-3. Multitrådad programmering: I flertrådade applikationer kan events användas för att synkronisera och kommunicera mellan olika trådar.
-
-4. Kommunikation med externa enheter: Events kan användas för att hantera händelser som inträffar vid kommunikation med externa enheter eller system, t.ex. sensorer eller nätverksanslutningar.
-
-## Kodexempel
-
-För att ge dig en bättre förståelse för hur events fungerar i C#, låt oss titta på ett exempel:
+## Ett exempel — en hjälte som levlar upp
 
 ```csharp
 public class Hero
 {
-    public event EventHandler LevelUp;
-    public event EventHandler Died;
+    public event EventHandler? LevelUp;
+    public event EventHandler? Died;
 
-    public int Level { get; set; } = 1;
-    public int XP { get; set; }
-    public int MaxXP { get => Level * 100; }
+    public int Level { get; private set; } = 1;
+    public int XP { get; private set; }
+    public int MaxXP => Level * 100;
 
     public void IncreaseXP(int amount)
     {
@@ -48,58 +35,45 @@ public class Hero
         if (XP >= MaxXP)
         {
             Level++;
-            OnLevelUp();
+            LevelUp?.Invoke(this, EventArgs.Empty);
         }
     }
 
-    public void Die()
-    {
-        OnDied();
-    }
-
-    private void OnLevelUp()
-    {
-        LevelUp?.Invoke(this, EventArgs.Empty);
-    }
-
-    private void OnDied()
-    {
-        Died?.Invoke(this, EventArgs.Empty);
-    }
-}
-
-public class Program
-{
-    public static void Main()
-    {
-        Hero hero = new Hero();
-        hero.LevelUp += OnLevelUp;
-        hero.Died += OnDied;
-
-        hero.IncreaseXP(100);
-        hero.Die();
-    }
-
-    private static void OnLevelUp(object sender, EventArgs e)
-    {
-        Console.WriteLine("Hjälten har nått en ny nivå!");
-    }
-
-    private static void OnDied(object sender, EventArgs e)
-    {
-        Console.WriteLine("Hjälten har dött!");
-    }
+    public void Die() => Died?.Invoke(this, EventArgs.Empty);
 }
 ```
 
-I detta exempel har vi en klass som heter `Hero`, som representerar en spelkaraktär. Klassen har två events, `LevelUp` och `Died`, som utlöses när hjälten når en ny nivå eller dör.
+```csharp
+Hero hero = new();
+hero.LevelUp += (sender, e) => Console.WriteLine("Hjälten har nått en ny nivå!");
+hero.Died    += (sender, e) => Console.WriteLine("Hjälten har dött!");
 
-När hjältens erfarenhetspoäng (`XP`) ökar, kontrolleras om XP överstiger det maximala värdet (`MaxXP`). Om så är fallet, ökar hjältens nivå och eventet `LevelUp` utlöses. På samma sätt, när hjältens hälsopoäng (`HP`) når 0 eller mindre, utlöses eventet `Died`.
+hero.IncreaseXP(100);
+hero.Die();
+```
 
-I `Program`-klassen skapar vi en instans av `Hero` och prenumererar på eventen genom att lägga till metoder `OnLevelUp` och `OnDied` i respektive eventlista. När vi sedan ökar hjältens XP eller simulerar dess död, kommer de tillhörande metoderna att anropas och en meddelandetext skrivs ut i konsolen.
+### Output
 
-Detta är bara ett grundläggande exempel för att illustrera hur events kan användas. I praktiken kan de vara mycket kraftfulla och användas för att skapa interaktion och dynamik i programmet.
+```
+Hjälten har nått en ny nivå!
+Hjälten har dött!
+```
 
-## Summering
+`Hero` vet ingenting om vad som händer när `LevelUp` utlöses — den bara skickar signalen. Koden som lyssnar bestämmer vad "levla upp" faktiskt innebär: skriva ut ett meddelande, spela ett ljud, spara framsteg. `Hero`-klassen behöver aldrig ändras för att lägga till en ny reaktion.
 
-Events i C# möjliggör reaktioner på händelser under programkörningen. Genom att separera händelsehanteringen från den del av koden som utlöser händelsen, kan vi skapa mer modulära och underhållbara program. Events kan användas i olika scenarier, inklusive GUI-programmering, spelutveckling och multitrådad programmering. Genom att följa principerna om ren kod (Clean Code) kan vi skriva läsbar och effektiv kod som är lätt att förstå och underhålla.
+## Varför inte en vanlig publik delegat?
+
+Du skulle kunna göra `LevelUp` till en publik `Action` istället för ett event. Skillnaden är vad omvärlden får göra med den:
+
+```csharp
+public Action? LevelUpAction;      // publik delegat — vem som helst kan skriva över ALLA lyssnare
+public event EventHandler? LevelUp; // event — utifrån får du bara += och -=
+```
+
+Med en publik delegat kan yttre kod råka skriva `hero.LevelUpAction = NyMetod;` och därmed radera alla tidigare prenumeranter av misstag. Ett `event` tillåter bara `+=` och `-=` utifrån — du kan lägga till och ta bort din egen lyssnare, men aldrig rensa andras eller anropa det direkt (`LevelUp.Invoke(...)` utifrån klassen kompilerar inte). Det är precis den typen av skydd som gör events till rätt val när signalen ska vara publik.
+
+## Obligatorisk dad-joke
+
+Varför är events så bra på fester?
+
+De vet exakt när något värt att fira händer, utan att behöva fråga.

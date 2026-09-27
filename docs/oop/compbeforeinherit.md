@@ -1,175 +1,107 @@
 ---
-title: Komposition över Arv
-description: "En artikel som utforskar ämnet \"Komposition över Arv\" inom programmering."
-parent: Objektorienterad programmering (OOP)
+title: "Komposition över arv"
+description: "Arv modellerar \"är en\". Komposition modellerar \"har en\". När du blandar ihop beteenden som inte hänger ihop hierarkiskt, är komposition ofta den enklare vägen."
+parent: "Objektorienterad programmering (OOP)"
 nav_order: 50
 ---
-# Komposition över Arv
 
-En artikel som utforskar ämnet "Komposition över Arv" inom programmering.
+# Komposition över arv
 
-## När du läst detta ska du kunna
+I [Arv](arv.md) byggde vi `Enemy` och `Hero` som ärver från `Character`. Det fungerar bra så länge alla karaktärer bara skiljer sig åt i **en** dimension — hur de låter, till exempel. Problemet uppstår när de skiljer sig åt i **flera** dimensioner samtidigt.
 
-- Förstå och förklara vad "Komposition över Arv" är och dess relevans inom programmering.
-- Diskutera fördelar och begränsningar med "Komposition över Arv".
-- Identifiera olika användningsområden där "Komposition över Arv" kan tillämpas.
-- Förstå och tolka ett kodexempel som använder "Komposition över Arv".
-- Sammanfatta viktiga insikter och rekommendationer för vidare läsning.
+## Var arv börjar krångla
 
-## Introduktion
-
-I denna artikel kommer vi att utforska konceptet "Komposition över Arv" och dess betydelse inom programmering. Vi kommer att diskutera varför det är en föredragen metod för att bygga flexibla och modulära system och jämföra det med den traditionella metoden att använda arv.
-
-## Vad är Komposition över Arv?
-
-Komposition över Arv är ett designmönster inom objektorienterad programmering där klasser sammansätts genom att inkludera andra klasser som medlemmar, istället för att ärva från en gemensam förälderklass. Istället för att skapa en hierarki av klasser med allt mer specifik funktionalitet, skapas klasserna separat och kombineras sedan genom att använda objektinstanser av de inkluderade klasserna.
-
-## Fördelar
-
-Här diskuteras fördelarna med att använda Komposition över Arv i programmering. Förklara hur det kan förbättra flexibilitet, underhållbarhet och återanvändbarhet av kod. Några fördelar inkluderar:
-
-- **Flexibilitet**: Genom att använda komposition kan vi bygga klasser som kan anpassas och ändras enkelt genom att ändra vilka objektinstanser de använder.
-- **Moduläritet**: Klasser kan hållas separata och självständiga, vilket gör det enklare att förstå, testa och underhålla dem.
-- **Återanvändbarhet**: Genom att separera funktionalitet i mindre klasser kan vi återanvända dem på olika ställen och i olika kombinationer.
-- **Minskat beroende**: Klasser som använder komposition är mindre beroende av specifika implementationer och kan enkelt bytas ut eller uppgraderas utan att påverka resten av systemet.
-
-## Begränsningar
-
-Diskutera även eventuella begränsningar eller kompromisser med Komposition över Arv. Det kan vara viktigt att förstå och vara medveten om eventuella utmaningar eller negativa aspekter som kan uppstå vid användning av detta koncept. Några begränsningar inkluderar:
-
-- **Ökad komplexitet**: Att använda komposition kan introducera mer komplexitet i koden, speciellt när det handlar om att hantera kommunikation och samverkan mellan olika klasser.
-- **Mer kod att skriva**: Genom att separera funktionalitet i mindre klasser kan det krävas mer kod för att uppnå önskad funktionalitet jämfört med en hierarki av klasser med arv.
-- **Inlärningskurva**: Att behärska konceptet med komposition över arv kan kräva mer tid och ansträngning för utvecklare som är vana vid att använda arv som sitt primära verktyg för att bygga system.
-
-## Användningsområden
-
-Beskriv olika användningsområden där Komposition över Arv kan tillämpas inom programmering. Exemplifiera med verkliga scenarier eller problem som kan lösas med hjälp av Komposition över Arv. Några exempel på användningsområden inkluderar:
-
-- **GUI-komponenter**: Ett GUI-ramverk kan implementeras med hjälp av komposition där olika GUI-komponenter kan kombineras för att skapa mer avancerade och anpassningsbara användargränssnitt.
-- **Spelutveckling**: Inom spelutveckling kan komposition användas för att skapa spelobjekt med olika egenskaper och beteenden genom att kombinera olika komponenter, som t.ex. rörelsekomponent, kollisionskomponent, grafikkomponent etc.
-- **Plugin-system**: Genom att använda komposition kan man bygga flexibla plugin-system där olika funktionaliteter kan läggas till eller tas bort dynamiskt genom att inkludera eller exkludera olika plugin-komponenter.
-
-## Exempelkod - Komposition över Arv i en berättelse
-
-Följande kodexempel illustrerar användningen av Komposition över Arv genom en berättelse. I detta exempel skapas en klass som representerar en spelkaraktär:
+Säg att spelet växer. Nu behöver karaktärer flyga *eller* inte, simma *eller* inte, ha vapen *eller* inte — i alla kombinationer.
 
 ```csharp
-// Klassen för spelkaraktären
-public class Character
-{
-    private HealthComponent health;
-    private MovementComponent movement;
-    private AttackComponent attack;
-
-    public Character()
-    {
-        health = new HealthComponent();
-        movement = new MovementComponent();
-        attack = new AttackComponent();
-    }
-
-    public void Update()
-    {
-        health.Update();
-        movement.Update();
-        attack.Update();
-    }
-}
-
-// Komponentklasserna
-public class HealthComponent
-{
-    public void Update()
-    {
-        // Uppdatera hälsostatus
-    }
-}
-
-public class MovementComponent
-{
-    public void Update()
-    {
-        // Uppdatera rörelsebeteende
-    }
-}
-
-public class AttackComponent
-{
-    public void Update()
-    {
-        // Uppdatera attackbeteende
-    }
-}
-
-// Användning av klassen Character
-Character player = new Character();
-player.Update();
+class FlyingSwimmingArmedCharacter : Character { }
+class FlyingArmedCharacter : Character { }
+class SwimmingArmedCharacter : Character { }
+class FlyingCharacter : Character { }
+// ... och så vidare, för varje kombination
 ```
 
-I detta exempel har vi en klass `Character` som använder komposition genom att inkludera tre olika komponentklasser: `HealthComponent`, `MovementComponent` och `AttackComponent`. Genom att använda dessa komponenter kan vi bygga en spelkaraktär med olika egenskaper och beteenden. I `Character`-klassens `Update`-metod kallas `Update`-metoden för varje komponent för att uppdatera deras respektive funktionalitet.
+Det här kallas en **kombinatorisk explosion** — en klass per kombination av egenskaper. Fyra oberoende egenskaper ger upp till sexton klasser. Lägg till en femte och det dubblas igen. Arv är fel verktyg när egenskaperna inte bildar en naturlig hierarki, utan bara kan kombineras fritt.
 
-### Jämförelse med arv
+## Lösningen: bygg av delar istället för att ärva ner
 
-För att illustrera skillnaden mellan Komposition över Arv och arv, låt oss skapa en klass `Character` som ärver från en basklass `Entity`:
+Komposition modellerar **"har en"** istället för **"är en"**: en `Character` *har* en förmåga att flyga, snarare än att *vara* en `FlyingCharacter`.
 
 ```csharp
-// Basklassen
-public class Entity
+interface IMovable
 {
-    public void Update()
-    {
-        // Uppdatera beteende
-    }
+    void Move();
 }
 
-// Klassen för spelkaraktären
-public class Character : Entity
+class Flying : IMovable
 {
-    private HealthComponent health;
-    private MovementComponent movement;
-    private AttackComponent attack;
+    public void Move() => Console.WriteLine("Flyger genom luften.");
+}
 
-    public Character()
+class Swimming : IMovable
+{
+    public void Move() => Console.WriteLine("Simmar genom vattnet.");
+}
+
+class Character
+{
+    private readonly IMovable _movement;
+
+    public Character(IMovable movement)
     {
-        health = new HealthComponent();
-        movement = new MovementComponent();
-        attack = new AttackComponent();
+        _movement = movement;
     }
 
-    public void Update()
-    {
-        base.Update();
-        health.Update();
-        movement.Update();
-        attack.Update();
-    }
+    public void Move() => _movement.Move();
 }
 ```
 
-I detta exempel har vi en basklass `Entity` som innehåller en `Update`-metod. Vi har också en klass `Character` som ärver från `Entity` och inkluderar tre komponenter. I `Character`-klassens `Update`-metod kallas `Update`-metoden för basklassen `Entity` och varje komponent för att uppdatera deras respektive funktionalitet.
+```csharp
+var eagle = new Character(new Flying());
+var shark = new Character(new Swimming());
 
-### Vad är den stora skillnaden?
+eagle.Move();   // Flyger genom luften.
+shark.Move();   // Simmar genom vattnet.
+```
 
-I båda exemplen har vi en klass `Character` som innehåller tre komponenter: `HealthComponent`, `MovementComponent` och `AttackComponent`.
+Ingen klasshierarki att bygga ut. Ny rörelsetyp? Skriv en klass till som implementerar `IMovable` — inga befintliga klasser rörs.
 
-I det första exemplet använder vi komposition genom att inkludera dessa komponenter som medlemmar i `Character`-klassen.
+## Flera oberoende egenskaper samtidigt
 
-I det andra exemplet använder vi arv genom att ärva från en basklass `Entity` som innehåller en `Update`-metod.
+Samma idé skalar till flera egenskaper genom att sätta ihop flera komponenter, en per ansvarsområde:
 
-### Vilket är bättre?
+```csharp
+class Character
+{
+    private readonly IMovable _movement;
+    private readonly IAttacker? _weapon;   // null = obeväpnad
 
-Därav tvistar de lärda. Det finns ingen bra eller dålig lösning, utan det beror på situationen och vad du försöker uppnå. Även om några är lite puritanska över ämnet så ta det inte för allvarligt, välj den lösning som passar ditt projekt.
+    public Character(IMovable movement, IAttacker? weapon = null)
+    {
+        _movement = movement;
+        _weapon = weapon;
+    }
 
-## Slutsats
+    public void Move() => _movement.Move();
+    public void Attack() => _weapon?.Attack();
+}
+```
 
-Genom att använda komposition över arv kan vi skapa flexibla, modulära och återanvändbara system inom programmering. Genom att separera funktionalitet i mindre klasser och kombinera dem kan vi undvika problem som kommer med en djup hierarki av klasser med arv. Vi har diskuterat fördelar som flexibilitet, moduläritet och återanvändbarhet samt begränsningar som ökad komplexitet och mer kod att skriva. Komposition över arv kan tillämpas inom olika områden som GUI-utveckling, spelutveckling och plugin-system. Genom att förstå och behärska detta koncept kan vi bygga bättre och mer flexibla program.
+Flygande och beväpnad, simmande och obeväpnad, eller någon annan kombination — samma `Character`-klass, olika komponenter skickade in. Ingen ny klass krävs för varje kombination, till skillnad från arvsversionen.
 
-## TL;DR
+## Så väljer du
 
-I denna artikel har vi utforskat konceptet "Komposition över Arv" inom programmering. Vi har diskuterat fördelar som flexibilitet, moduläritet och återanvändbarhet samt begränsningar som ökad komplexitet och mer kod att skriva. Vi har även sett olika användningsområden där komposition över arv kan tillämpas, som GUI-utveckling, spelutveckling och plugin-system. Genom att använda komposition kan vi bygga flexibla och modulära system som är enklare att förstå och underhålla.
+| Fråga | Svar pekar mot |
+|---|---|
+| Är det en tydlig "är en"-relation? (`Dog` är ett `Animal`) | Arv |
+| Skiljer sig objekten i flera oberoende dimensioner? | Komposition |
+| Behöver beteendet bytas ut vid körning? | Komposition (byt ut komponenten) |
+| Är hierarkin högst ett eller två steg djup och stabil? | Arv är okej |
+
+De utesluter inte varandra. `Character` kan fortfarande ärva grundläggande properties som `Name` och `Health` (se [Arv](arv.md)) samtidigt som den bygger ihop sitt beteende av utbytbara komponenter. Många robusta designer använder båda — en tunn, stabil arvshierarki för det som verkligen är en "är en"-relation, och komposition för allt som varierar fritt.
 
 ## Obligatorisk dad-joke
 
-Varför var komposition över arv så populärt på familjemiddagen?
+Varför gick spelkaraktären till IKEA istället för till familjeträdet?
 
-För att de ville skapa en flexibel hierarki av smakfulla maträtter utan att ärva mammas matlagningsskills!
+Den ville byggas av delar den kunde byta ut senare.

@@ -1,86 +1,34 @@
 ---
 title: Kontext
-description: "Yay, dags att lära oss om databas-kontexten! En databaskontext är en klass som ärver från DbContext och används för att kommunicera med databasen med…"
+description: "DbContext är porten mellan din kod och databasen — en klass som representerar dina tabeller som samlingar av vanliga C#-objekt."
 parent: Entity Framework
-nav_order: 10
+nav_order: 20
 has_children: True
 ---
 # Kontext
 
-Yay, dags att lära oss om databas-kontexten! En databaskontext är en klass som ärver från DbContext och används för att kommunicera med databasen med hjälp av Entity Framework Core.
-
-## TL;DR
-
-En databaskontext är en klass som ärver från DbContext och används för att kommunicera med databasen med hjälp av Entity Framework Core.
-
-## Beskrivning
-
-En DBContext innehåller en samling av entiteter. Vad är då en entitet? Jo, en entitet är helt enkelt en klass som representerar en tabell i databasen. Varje entitet har egenskaper som motsvarar kolumnerna i tabellen.
-
-## Skapa en kontext för SQL Server
+En `DbContext` är klassen som håller ihop hela din databas i kod. Varje `DbSet<T>` på den motsvarar en tabell, och varje entitet — en vanlig klass med properties som matchar kolumnerna — motsvarar en rad.
 
 ```csharp
-public class MyDbContext : DbContext
+public class SchoolContext : DbContext
 {
-    string connString = "Server=localhost;Database=MyDatabase;User Id=sa;Password=Password123;";
+    public SchoolContext(DbContextOptions<SchoolContext> options) : base(options) { }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlServer(connString);
-    }
-
-    public DbSet<Blog> Blogs { get; set; }
-    public DbSet<Post> Posts { get; set; }
+    public DbSet<Student> Students { get; set; }
+    public DbSet<Course> Courses { get; set; }
 }
 ```
 
-## Skapa en kontext för SQLite
+Notera konstruktorn: kontexten tar emot sina `DbContextOptions` utifrån, via beroendeinjektion — den konfigurerar inte sig själv. Anslutningssträng, provider (SQL Server, SQLite, MySQL, …) och loggning sätts på ett ställe, i `Program.cs`, inte hårdkodat i klassen. Se [Konfigurera DbContext](konfiguration.md) för hur det ser ut i praktiken, och [DbContext-livscykeln](livscykel.md) för hur länge en instans ska leva och varför det spelar roll.
 
-```csharp
-public class MyDbContext : DbContext
-{
-    string connString = "Data Source=MyDatabase.db";
+## När du läst detta ska du kunna
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlite(connString);
-    }
+- Förklara vad en `DbContext` och en `DbSet<T>` gör
+- Skapa en egen kontext med konstruktorinjicerade `DbContextOptions`
+- Veta var konfiguration och livscykelhantering hör hemma (och varför inte i kontexten själv)
 
-    public DbSet<Blog> Blogs { get; set; }
-    public DbSet<Post> Posts { get; set; }
-}
-```
+## Obligatorisk dad-joke
 
-## Skapa en kontext för MySQL (med Pomelo)
+Varför gick DbContext till terapeuten?
 
-```csharp
-public class MyDbContext : DbContext
-{
-    string connString = "Server=localhost;Database=MyDatabase;User Id=sa;Password=Password123;";
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        var version = new MySqlServerVersion(new Version(8, 0, 21)); // Sätt senaste versionen av MySQL
-        optionsBuilder.UseMySql(connString, version);
-    }
-
-    public DbSet<Blog> Blogs { get; set; }
-    public DbSet<Post> Posts { get; set; }
-}
-```
-
-Awesome! Nu har vi sett exempel på hur man skapar en kontext för olika databassystem. I varje exempel skapar vi en ny klass som ärver från DbContext och konfigurerar anslutningssträngen i OnConfiguring-metoden.
-
-I SQL Server-exemplet använder vi `UseSqlServer`-metoden för att ange att vi vill använda SQL Server som databassystem.
-
-I SQLite-exemplet använder vi `UseSqlite`-metoden för att ange att vi vill använda SQLite som databassystem.
-
-I MySQL-exemplet använder vi `UseMySql`-metoden från Pomelo.EntityFrameworkCore.MySql-paketet för att ange att vi vill använda MySQL som databassystem. Vi specificerar också vilken version av MySQL vi använder.
-
-Nu är vi redo att skapa och interagera med våra databaskontexter. Najs jobbat!
-
-## Obligatorisk Dad-joke
-
-Varför blev Entity Frameworks DbContext så populär på stand-up scenen?
-
-För att den hade en enastående "Connection" med publiken och kunde hantera många "Entities" samtidigt!
+Den hade svårt att släppa relationer den borde ha stängt för länge sedan.

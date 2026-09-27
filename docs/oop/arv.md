@@ -1,157 +1,249 @@
 ---
-title: Arv inom programmering
-description: "Nu ska vi titta på Arv inom OOP. Arv är en viktig princip inom objektorienterad programmering som möjliggör återanvändning av kod och skapar hierarkier av…"
-parent: Objektorienterad programmering (OOP)
-nav_order: 40
+title: "Arv"
+description: "Arv (inheritance) låter dig bygga nya klasser som återanvänder kod från befintliga klasser — utan att kopiera den."
+parent: "Objektorienterad programmering (OOP)"
+nav_order: 22
 ---
-# Arv inom programmering
 
-Nu ska vi titta på Arv inom OOP. Arv är en viktig princip inom objektorienterad programmering som möjliggör återanvändning av kod och skapar hierarkier av klasser. Genom att använda arv kan vi strukturera och organisera vår kod på ett modulärt sätt, vilket förbättrar underhållbarheten och läsbarheten.
+# Arv
 
-## När du läst detta ska du kunna
+Arv (inheritance) är ett av de viktigaste koncepten i objektorienterad programmering. Det låter dig bygga nya klasser som återanvänder kod från befintliga klasser — utan att kopiera den.
 
-- Förstå och förklara vad arv är och dess relevans inom programmering.
-- Diskutera fördelar och begränsningar med arv.
-- Identifiera olika användningsområden där arv kan tillämpas.
-- Förstå och tolka ett kodexempel som använder arv.
-- Sammanfatta viktiga insikter och rekommendationer för vidare läsning.
+## Problemet arv löser
 
-## Introduktion
-
-Välkommen till denna artikel som handlar om arv inom programmering. Arv är en viktig princip inom objektorienterad programmering (OOP) och används för att skapa hierarkier av klasser och dela kod och egenskaper mellan dem. Genom att förstå och behärska arv kan du bygga flexibla och återanvändbara program.
-
-## Vad är arv?
-
-Arv är en grundläggande princip inom OOP som möjliggör att en klass kan ärva egenskaper och beteenden från en annan överordnad klass, även kallad en superklass eller basklass. Den överordnade klassen fungerar som en mall eller ritning, och de nedärvande klasserna, kallade subklasser eller barnklasser, ärver och utökar funktionaliteten från superklassen.
-
-Genom arv kan man skapa en hierarki av klasser där de gemensamma egenskaperna och beteendena placeras i överordnade klasser och specialiserade egenskaper och beteenden läggs till i de nedärvande klasserna. Detta möjliggör återanvändning av kod och effektivisering av utvecklingsprocessen.
-
-## Fördelar
-
-Arv erbjuder flera fördelar inom programmering:
-
-1. **Kodåteranvändning**: Genom att använda arv kan du återanvända kod från överordnade klasser i de nedärvande klasserna. Detta minskar behovet av att skriva samma kod flera gånger och förbättrar därmed kodens underhållbarhet och läsbarhet.
-
-2. **Modulär design**: Arv bidrar till en modulär design av program. Genom att dela upp funktionaliteten i olika klasser och använda arv kan du separera olika ansvarsområden och skapa en hierarki av klasser som är enklare att förstå och hantera.
-
-3. **Kodens struktur**: Arv kan förbättra kodens struktur och organisering. Genom att placera gemensam funktionalitet i överordnade klasser och specialisera den i nedärvande klasser blir koden mer lättläslig och intuitiv.
-
-4. **Utbytbarhet**: Arv möjliggör att objekt av en nedärvande klass kan användas där objekt av en överordnad klass förväntas. Detta skapar möjligheten att behandla objekt på ett enhetligt sätt och gör koden mer flexibel och skalbar.
-
-## Begränsningar
-
-Trots sina fördelar har arv vissa begränsningar och kompromisser:
-
-1. **Tätt kopplade klasser**: Genom att använda arv skapas en tät koppling mellan överordnade och nedärvande klasser. Om du gör ändringar i överordnade klasser kan det påverka alla nedärvande klasser, vilket kan vara komplicerat att hantera och underhålla.
-
-2. **Brist på flexibilitet**: Arv kan begränsa flexibiliteten i en kodbas. Om hierarkin av klasser inte är korrekt utformad kan det bli svårt att lägga till eller ändra funktionalitet på ett smidigt sätt.
-
-3. **Ökad komplexitet**: När hierarkin av klasser blir djup och komplex kan det bli svårt att förstå och hantera koden. Det är viktigt att noggrant planera och organisera klasshierarkin för att undvika överflödig komplexitet.
-
-## Användningsområden
-
-Arv kan tillämpas i olika scenarier och användningsområden inom programmering. Här är några exempel:
-
-1. **GUI-ramverk**: I grafiska användargränssnittsramverk används arv för att skapa hierarkier av användargränssnittskomponenter. Till exempel kan en överordnad klass "Komponent" innehålla grundläggande egenskaper och beteenden, medan nedärvande klasser som "Knapp" och "Textfält" specialiserar funktionaliteten.
-
-2. **Spelprogrammering**: I spelutveckling kan arv användas för att skapa en hierarki av spelobjekt. Till exempel kan en överordnad klass "Spelobjekt" innehålla gemensamma egenskaper och beteenden, medan nedärvande klasser som "Fiende" och "Spelare" specialiserar funktionaliteten för specifika spelkaraktärer.
-
-3. **Databashanterare**: I databashanterare kan arv användas för att skapa en hierarki av databasobjekt. Till exempel kan en överordnad klass "Databasobjekt" innehålla generella funktioner för att hantera databasoperationer, medan nedärvande klasser som "Tabell" och "Fråga" specialiserar funktionaliteten för specifika databasentiteter.
-
-Dessa är bara några exempel på användningsområden där arv kan tillämpas inom programmering. Principen om arv kan vara användbar i olika typer av program och system, oavsett om det är grafiska användargränssnitt, spel eller databashantering.
-
-## Exempelkod - Arv i en berättelse
-
-För att bättre förstå arv kan vi titta på ett kodexempel som illustrerar användningen av arv genom en berättelse.
-
-Anta att vi bygger ett spel där vi har olika typer av karaktärer, inklusive fiender och hjältar. Vi kan använda arv för att skapa en hierarki av karaktärsklasser.
+Tänk dig att du bygger `Dog` och `Cat` var för sig:
 
 ```csharp
-// Definiera överordnad klass Karaktär
-public class Character
+class Dog
 {
-    public string Name { get; set; }
-    public int Health { get; set; }
+    private string _name;
+    public Dog(string name) { _name = name; }
+    public void Present() => Console.WriteLine($"Jag heter {_name}.");
+    public void PlaySound()  => Console.WriteLine("Voff!");
+}
+```
+
+```csharp
+class Cat
+{
+    private string _name;
+    public Cat(string name) { _name = name; }
+    public void Present() => Console.WriteLine($"Jag heter {_name}.");
+    public void PlaySound()  => Console.WriteLine("Mjau!");
+}
+```
+
+`Present()` är **exakt samma** i båda klasserna — rad för rad. Vill du lägga till en `_age`? Ändra på **två ställen**. Vill du lägga till kaniner? En klass till med samma `Present()`.
+
+Det här kallas ett **DRY-brott** — Don't Repeat Yourself. Arv är lösningen.
+
+## Lösningen: en basklass
+
+Flytta det som är gemensamt till en **basklass**. En basklass är en vanlig klass, men den använder speciella åtkomstmodifierare:
+
+| Nyckelord | Tillgänglig för |
+|-----------|----------------|
+| `private` | Bara basklassen själv |
+| `protected` | Basklassen och alla subklasser |
+| `public` | Alla |
+
+## Basklassen
+
+```csharp
+class Animal
+{
+    public string Name { get; private set; }
+
+    public Animal(string name)
+    {
+        Name = name;
+    }
+
+    public void Present()
+    {
+        Console.WriteLine($"Jag heter {Name}.");
+    }
+
+    public virtual void PlaySound() { }
+}
+```
+
+`Present()` skrivs **en gång** i `Animal`. Nyckelordet `virtual` markerar att subklasser får skriva sin egen version av `PlaySound`.
+
+## Subklasserna ärver
+
+En subklass är ett "barn" till basklassen — den ärver allt som inte är `private`.
+
+`Present()` finns i `Animal`. `Dog` och `Cat` får den gratis — ingen kopiering.
+
+## `virtual` och `override`
+
+Regeln kallas "öppen för arv, stängd för ändringar". Du har djur med olika beteenden — samma grund, men de agerar annorlunda. Istället för en massa if-satser i basklassen skapar du subklasser som ärver basklassen och skriver om specifika metoder.
+
+```csharp
+class Animal
+{
+    public virtual void PlaySound() { }   // vet inte — gör ingenting
 }
 
-// Definiera nedärvande klass Fiende
-public class Enemy : Character
+class Dog : Animal
 {
-    public void Attack()
+    public override void PlaySound() => Console.WriteLine("Voff!");
+}
+
+class Cat : Animal
+{
+    public override void PlaySound() => Console.WriteLine("Mjau!");
+}
+```
+
+## Konstruktorn i en subklass
+
+En subklass måste sätta i gång basklassens konstruktor med `: base(...)`:
+
+```csharp
+class Dog : Animal
+{
+    public Dog(string name) : base(name) { }
+
+    public override void PlaySound()
     {
-        Console.WriteLine($"{Name} attackerar!");
+        Console.WriteLine("Voff!");
+    }
+}
+```
+
+- `: Animal` — Hund är en Djur
+- `: base(name)` — anropar basklassens konstruktor med `name`
+- `override` — skriver över basklassens `PlaySound`
+
+```csharp
+class Cat : Animal
+{
+    public Cat(string name) : base(name) { }
+
+    public override void PlaySound()
+    {
+        Console.WriteLine("Mjau!");
+    }
+}
+```
+
+## `base(...)` — konstruktorkedjan
+
+```csharp
+class Animal
+{
+    public string Name { get; private set; }
+
+    public Animal(string name)
+    {
+        Name = name;
     }
 }
 
-// Definiera nedärvande klass Hjälte
-public class Hero : Character
+class Dog : Animal
 {
-    public void Defend()
+    public Dog(string name) : base(name) { }
+}
+```
+
+`: base(name)` skickar `name` upp till `Animal`. Utan det vet inte `Animal` vad `Name` ska vara.
+
+## Klassdiagram
+
+```
+┌──────────────────────────────┐
+│            Animal            │  ← baseClass
+├──────────────────────────────┤
+│ + Name : string               │
+├──────────────────────────────┤
+│ + Animal(name)                │
+│ + Present()                   │
+│ + virtual PlaySound()         │
+└──────────────────────────────┘
+
+        ▲                 ▲
+        │                 │
+┌──────────────┐  ┌──────────────┐
+│     Dog      │  │     Cat      │  ← subclasses
+├──────────────┤  ├──────────────┤
+│ override     │  │ override     │
+│ PlaySound    │  │ PlaySound    │
+└──────────────┘  └──────────────┘
+```
+
+Pilen pekar uppåt — subklassen ärver från basklassen.
+
+## Sätt ihop det i Main
+
+```csharp
+Dog dog = new Dog("Fido");
+Cat cat = new Cat("Luna");
+
+dog.Present();   // ärvd från Djur — "Jag heter Fido."
+dog.PlaySound();    // Hunds egen override — "Voff!"
+
+cat.Present();   // ärvd från Djur — "Jag heter Luna."
+cat.PlaySound();    // Katts egen override — "Mjau!"
+```
+
+## Lägg till ett nytt djur — minimal kod
+
+Det är här arv verkligen lönar sig. För att lägga till en kanin behöver du bara:
+
+```csharp
+class Rabbit : Animal
+{
+    public Rabbit(string name) : base(name) { }
+
+    public override void PlaySound()
     {
-        Console.WriteLine($"{Name} försvarar!");
+        Console.WriteLine("Nöff!");
     }
 }
-
-// Skapa objekt och sätt egenskaper
-var enemy = new Enemy();
-enemy.Name = "Ond skurk";
-enemy.Health = 100;
-enemy.Attack();
-
-var hero = new Hero();
-hero.Name = "Modig hjälte";
-hero.Health = 100;
-hero.Defend();
 ```
 
-I detta kodexempel har vi en överordnad klass `Character` som innehåller gemensamma egenskaper för både fiender och hjältar. Genom att ärva från `Character` kan vi definiera specialiserad funktionalitet för fiender och hjältar i deras respektive nedärvande klasser.
+`Present()` fungerar direkt — ingen ändring någonstans. Det är poängen med arv.
 
-### Output
+## `virtual` vs `override` — en sammanfattning
 
+| Nyckelord | Var? | Vad gör det? |
+|-----------|------|--------------|
+| `virtual` | Basklassen | "Subklasser får skriva sin egen version" |
+| `override` | Subklassen | "Jag skriver min egen version" |
+
+Om du glömmer `virtual` i basklassen → `override` fungerar inte.
+Om du glömmer `override` i subklassen → basklassens version körs.
+
+## De tre nyckelorden
+
+```csharp
+class Dog : Animal           // arv — Hund är en Djur
+{
+    public Dog(string name)
+        : base(name) { }    // kedja konstruktorer
+
+    public override void PlaySound()  // skriv över virtual-metod
+    {
+        Console.WriteLine("Voff!");
+    }
+}
 ```
-Evil villain attacks!
-Brave hero defends!
-```
 
----
+Kom ihåg: `: Animal` · `: base(...)` · `override`
 
 ## Konstruktorer och arv — gamla och nya sätt
 
-### Konstruktor med `: base()` (alltid giltigt)
+Exemplen ovan använder klassisk konstruktorsyntax — den är alltid giltig. C# 12 har ett kortare alternativ när konstruktorn bara sätter properties, utan extra logik:
 
-```csharp
-public class Character
-{
-    public string Name { get; set; }
-    public int Health { get; set; }
-
-    // Konstruktor i basklassen
-    public Character(string name, int health)
-    {
-        Name  = name;
-        Health = health;
-    }
-}
-
-public class Enemy : Character
-{
-    // : base(...) skickar argumenten upp till Karaktärs konstruktor
-    public Enemy(string name, int health) : base(name, health) { }
-
-    public void Attack() => Console.WriteLine($"{Name} attackerar!");
-}
-
-var enemy = new Enemy("Ond skurk", 100);
-enemy.Attack();
-```
-
-### Primärkonstruktor (C# 12) — ✨ Modernast
+### Primärkonstruktor (C# 12) — modernast
 
 ```csharp
 // Parametrarna deklareras direkt på klassen — ingen separat konstruktorkropp
 public class Character(string name, int health)
 {
-    public string Name  { get; } = name;
+    public string Name   { get; } = name;
     public int    Health { get; } = health;
 }
 
@@ -163,7 +255,7 @@ public class Enemy(string name, int health) : Character(name, health)
 var enemy = new Enemy("Ond skurk", 100);
 ```
 
-> **✨ C# 12 — Primary constructors:** Parametrarna skrivs direkt på klassrubriken. Kortare och tydligare när konstruktorn bara sätter properties. Fungerar på vanliga klasser, inte bara records.
+Parametrarna skrivs direkt på klassrubriken, och `: Character(name, health)` skickar dem vidare till basklassen — samma jobb som `: base(...)` gör i den klassiska stilen, bara kortare.
 
 ### Fil-scoped namespace (C# 10)
 
@@ -171,32 +263,17 @@ var enemy = new Enemy("Ond skurk", 100);
 // Gammalt — hela filen indenteras ett steg
 namespace Game
 {
-    public class Character { ... }
+    public class Character { }
 }
 
-// Modernt (C# 10) — ✨ en rad, hela filen tillhör namespacet
+// Modernt (C# 10) — en rad, hela filen tillhör namespacet
 namespace Game;
 
-public class Character { ... }
+public class Character { }
 ```
-
-## Slutsats
-
-Arv är en viktig princip inom objektorienterad programmering som möjliggör återanvändning av kod och skapar hierarkier av klasser. Genom att använda arv kan vi strukturera och organisera vår kod på ett modulärt sätt, vilket förbättrar underhållbarheten och läsbarheten.
-
-I denna artikel har vi utforskat arvets fördelar, inklusive kodåteranvändning, modulär design och strukturerad kod. Vi har också diskuterat dess begränsningar och utmaningar, såsom tät koppling och ökad komplexitet.
-
-Arv kan tillämpas inom olika områden inom programmering, från grafiska användargränssnittsramverk till spelprogrammering och databashanterare. Genom att förstå och behärska arv kan du utveckla effektivare och mer flexibla program.
-
-För att fördjupa dina kunskaper rekommenderar vi att du fortsätter läsa om arv, utforskar mer avancerade koncept som abstrakt arv och gränssnitt och experimenterar med att använda arv i dina egna programmeringsprojekt.
-
-## TL;DR
-
-Arv är en princip inom programmering som möjliggör att en klass kan ärva egenskaper och beteenden från en annan överordnad klass. Det ger fördelar som kodåteranvändning, modulär design och förbättrad kodstruktur. Arv kan tillämpas i olika områden inom programmering, inklusive GUI-ramverk, spelprogrammering och databashanterare. Genom att förstå och behärska arv kan du utveckla flexibla och återanvändbara program.
 
 ## Obligatorisk dad-joke
 
-Självklart! Här kommer en dad joke om arv i programmering:
+Varför älskar programmerare arv?
 
-Varför älskar programmerare att använda arv?
-För att det ligger i deras "kod"-DNA! 😄
+Det ligger i deras kod-DNA.

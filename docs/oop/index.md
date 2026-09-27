@@ -1,119 +1,54 @@
 ---
 title: Objektorienterad programmering (OOP)
-description: "I den här avdelningen ska vi kolla på ämnet Objektorienterad programmering (OOP)."
+description: "Kod organiserad som objekt med data och beteende, istället för lösa variabler och funktioner som råkar hänga ihop."
 parent: C# bok
 nav_order: 80
 has_children: True
 ---
 # Objektorienterad programmering (OOP)
 
-I den här avdelningen ska vi kolla på ämnet Objektorienterad programmering (OOP).
+Ett program utan struktur är en hög lösa variabler och funktioner som *råkar* höra ihop, bara därför att de ligger nära varandra i filen. Objektorienterad programmering ger dig ett annat sätt att organisera det: bunta ihop data och de metoder som hör till den datan i en enda enhet — en klass — och låt klassen själv bestämma vad som får hända med sitt innehåll.
 
-## När du läst detta ska du kunna
+Det löser ett konkret problem, inte ett abstrakt ett. [Klasser och objekt](klasser.md) bygger ett `BankAccount` steg för steg för att visa exakt varför: utan struktur blandas kontonas data ihop så snart du har fler än ett par konton. Med en klass äger varje konto sin egen data, och vet själv hur den får ändras.
 
-- Förstå och förklara vad Objektorienterad programmering (OOP) är och dess relevans inom programmering.
-- Diskutera fördelar och begränsningar med Objektorienterad programmering (OOP).
-- Identifiera olika användningsområden där Objektorienterad programmering (OOP) kan tillämpas.
-- Förstå och tolka ett kodexempel som använder Objektorienterad programmering (OOP).
-- Känna dig inspirerad att utforska mer om ämnet och lära dig mer!
+## Grunderna — bygg din första klass
 
-## Innehållsförteckning
+- [Klasskomposition](klasskomposition.md) — en klass byggd av andra klassers objekt, innan vi går in på arv
+- [Struct](struct.md) — värdetyper, och varför `int` egentligen är en liten struct
+- [Konstruktorer](konstruktor.md) och [Konstruktoröverlagring](overlagring.md) — hur ett objekt startar i ett giltigt tillstånd
+- [Properties](properties.md) — kontrollerade fönster in till ett objekts data
+- [Klasser och objekt](klasser.md) — allt ovan satt ihop i ett komplett exempel
+- [Åtkomstmoderator](atkomstmoderator/index.md) — `private`, `public`, `protected`, `internal`
 
-- [Introduktion](#introduktion)
-- [Fördelar](#fördelar)
-- [Begränsningar](#begränsningar)
-- [Användningsområden](#användningsområden)
-- [Exempel](#exempel)
-- [Slutsats](#slutsats)
-- [TL;DR](#tldr)
+## Skydda och visa data
 
-## Introduktion
+- [Inkapsling](inkapsling.md) — varför data är privat och beteende är publikt
+- [ToString-override](tostring.md) — hur ett objekt beskriver sig själv som text
 
-Välkommen till världen av Objektorienterad programmering (OOP)! Det är en spännande grej inom programmering som handlar om att organisera kod på ett sätt som liknar hur vi tänker och interagerar med saker i den verkliga världen. Vi skapar objekt som har egenskaper och beteenden, precis som riktiga grejer vi kan pilla på och få dem att göra saker!
+## Bygga vidare på klasser
 
-## Fördelar
+- [Arv](arv.md) — återanvänd kod genom en basklass, utan att kopiera den
+- [Komposition över arv](compbeforeinherit.md) — när "har en" är ett bättre val än "är en"
+- [Polymorfism](polymorfism/index.md), [Interfaces](polymorfism/interfaces/index.md), [Abstrakta klasser](polymorfism/abstraktaklasser/index.md) — olika objekt, samma gränssnitt
+- [Delegater](delegater/index.md) och [Events](events/index.md) — metoder som data
+- [Sealed](sealed.md) — stänga en klasshierarki medvetet
+- [Static-klasser och metoder](static-klass.md) — när något tillhör typen, inte ett objekt
+- [Partial class](partial-klass.md) — dela en klassdefinition över flera filer
 
-Så, varför är OOP så coolt? Jo, det finns faktiskt några riktigt häftiga fördelar med det. Checka in:
+## Data, värden och när du väljer vad
 
-- **Modularitet**: Med OOP kan vi dela upp vår kod i små, självständiga objekt. Det gör det enklare att bygga och underhålla vår kod och ger oss möjlighet att återanvända objekten på olika ställen. Som att bygga med lego!
-- **Återanvändbarhet**: Vi kan använda samma objekt om och om igen i olika delar av vår kod eller till och med i olika projekt. Det sparar tid och minskar mängden krånglig kod. Det är bra för oss och bra för vår planet!
-- **Lätt att förstå och ändra**: Om vi behöver göra ändringar i en del av koden påverkar det inte resten av systemet. Vi kan fixa buggar eller göra förbättringar utan att oroa oss för att allt annat ska sluta fungera. Det är som att bygga ett hus med olika moduler som kan bytas ut eller uppgraderas utan att påverka resten av huset.
-- **Abstraktion**: Genom att använda abstraktion kan vi förenkla komplexa system genom att bara visa de viktigaste detaljerna för användaren. Det är som att köra en bil, vi behöver inte veta hur motorn fungerar för att kunna köra bilen.
-- **Flexibilitet**: OOP ger oss möjlighet att skapa hierarkier av objekt och använda koncept som arv och polymorfism. Det ger oss flexibilitet att skapa olika typer av objekt och hantera dem på ett enkelt sätt. Det är som att ha en verktygslåda med olika verktyg som vi kan använda för att lösa olika problem.
+- [Records](records.md) — värdelikhet och oföränderlighet, gratis
+- [Class, struct eller record — vilken?](records-structs-classes.md) — beslutstabellen som samlar alla fyra
+- [POCO och DTO](poco-dto.md) — enkla dataklasser i praktiken, t.ex. i EF Core och API:er
+- [Egna datatyper](egna-datatyper.md) — operator-överlagring, när din typ ska bete sig som en inbyggd
 
-## Begränsningar
+## Under huven
 
-Nu ska vi vara ärliga här, OOP har också sina begränsningar och utmaningar. Det är viktigt att vara medveten om dem:
+- [Garbage Collector](garbage-collector.md) — hur .NET faktiskt frigör minne
+- [Destruktor och Finalizer](destruktor.md) — och varför du sällan behöver skriva en
+- [Attribut och Reflection](attribut-reflection.md) — mekaniken bakom `[Required]`, EF Core och System.Text.Json
+- [OOP — en kort historik](historik.md) — Simula, Smalltalk, C++, Java — vägen hit
 
-- **Inlärningskurva**: OOP kan vara lite knepigt att lära sig i början. Det finns en del koncept och termer att förstå, men det är värt det! När du väl har lärt dig grunderna kommer du att kunna skapa fantastiska saker!
-- **Prestandaöverhuvud**: Ibland kan OOP leda till lite prestandaförluster eftersom det kan bli en del "bakom kulisserna"-grejer som påverkar hur snabbt vår kod körs. Det är dock inte något som vi behöver oroa oss för i de flesta fall.
-- **Designkomplexitet**: Om vi inte använder OOP-koncepten på rätt sätt kan det leda till överdriven designkomplexitet och göra koden svårare att förstå och underhålla. Det är viktigt att vi använder OOP på ett sätt som gör vår kod enklare och inte mer komplicerad.
+## Testa dig själv
 
-## Användningsområden
-
-OOP är inte bara något fancy koncept som bara funkar i labbmiljö. Det har faktiskt massor av praktiska användningsområden! Kolla in några exempel:
-
-- **Applikationsutveckling**: Om vi bygger applikationer med komplexa datastrukturer och beteenden kan OOP vara till stor hjälp. Det hjälper oss att organisera koden och göra den lättare att hantera.
-- **Spelutveckling**: Har du någonsin velat bygga ditt eget spel? OOP är vägen att gå! Det hjälper oss att modellera spelobjekt, hantera spellogik och skapa interaktiva spelupplevelser.
-- **Webbutveckling**: Inom webbutveckling kan OOP hjälpa oss att skapa återanvändbara och skalbara komponenter. Det hjälper oss också att implementera designmönster som gör vår kod snyggare och mer effektiv.
-- **Simuleringar**: OOP används ofta inom simuleringar för att modellera och interagera med simulerade entiteter och beteenden. Det kan vara allt från vetenskapliga simuleringar till spelutveckling.
-- **Databashantering**: Till och med databashantering kan dra nytta av OOP. Vi kan abstrahera databasåtkomst och använda objekt för att enkelt kommunicera med vår databas.
-
-## Exempel
-
-Nu ska vi kolla på ett konkret exempel för att se OOP i aktion! Vi ska skapa en klass som representerar en bil i C#:
-
-```csharp
-using System;
-
-public class Car
-{
-    private string brand;
-    private string color;
-    private int speed;
-
-    public Car(string brand, string color)
-    {
-        this.brand = brand;
-        this.color = color;
-        this.speed = 0;
-    }
-
-    public void Accelerate(int value)
-    {
-        speed += value;
-    }
-
-    public void Brake(int value)
-    {
-        speed -= value;
-    }
-
-    public int GetSpeed()
-    {
-        return speed;
-    }
-}
-
-public class Program
-{
-    public static void Main()
-    {
-        Car myCar = new Car("Volvo", "blå");
-        myCar.Accelerate(20);
-        Console.WriteLine(myCar.GetSpeed());  // Output: 20
-        myCar.Brake(10);
-        Console.WriteLine(myCar.GetSpeed());  // Output: 10
-    }
-}
-```
-
-I detta exempel skapar vi en bilklass (`Car`) med egenskaper och metoder för att accelerera, bromsa och hämta hastigheten. I `Main`-metoden skapar vi en instans av `Car` och testar dess metoder.
-
-## Slutsats
-
-All right! Du har precis fått en introduktion till Objektorienterad programmering (OOP). Det är en viktig del av programmeringsvärlden och något som du definitivt bör utforska mer! Med OOP kan du organisera din kod på ett sätt som gör den lättare att förstå, underhålla och återanvända. Tänk på fördelarna och användningsområdena vi har diskuterat och låt det inspirera dig att ta dig an OOP och skapa fantastiska saker! Lycka till!
-
-## TL;DR
-
-OOP är en programmeringsmetodik som hjälper oss att organisera vår kod genom att skapa objekt med egenskaper och beteenden. Det ger oss modularitet, återanvändbarhet och lättare underhåll. OOP kan användas inom applikationsutveckling, spelutveckling, webbutveckling, simuleringar och databashantering. Ta en titt på vårt exempel med en bilklass och kom igång med OOP! Nu är det dags att dyka djupare in i världen av OOP och skapa magi med din kod!
+- [Testa dig själv](testa-dig-sjalv.md) — kontrollera att det satt sig innan du går vidare

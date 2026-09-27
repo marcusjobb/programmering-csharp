@@ -1,97 +1,117 @@
 ---
 title: Arrays
-description: "En array är en grundläggande datastruktur inom programmering som tillåter lagring av en samling av element av samma datatyp. Den används för att…"
+description: "Ibland räcker det inte med en enda variabel. En array är en samling av värden av samma typ, ordnade i en rad, med en storlek som bestäms en gång och aldrig ändras."
 parent: Datastrukturer
-nav_order: 20
+nav_order: 10
 ---
 # Arrays
 
+Ibland räcker det inte med en enda variabel. Tänk dig att du vill lagra fem poäng från ett spel. Du *kan* skapa fem separata variabler — `score1`, `score2` och så vidare — men det blir snabbt opraktiskt. Vad händer när du behöver femtio poäng?
 
-## Beskrivning
-
-En array är en grundläggande datastruktur inom programmering som tillåter lagring av en samling av element av samma datatyp. Den används för att organisera och hantera större mängder data på ett strukturerat sätt.
-
-En array kan tänkas som en linjär samling av "lådor" eller "fack", där varje låda innehåller ett element. Varje element i arrayen har en specifik position, känd som dess index, som används för att komma åt och manipulera elementet.
-
-För att deklarera och skapa en array i C# använder vi följande syntax:
+En **array** löser det här. Den är en samling av värden av samma typ, ordnade i en rad. Du bestämmer storleken en gång när du skapar den, och den storleken ändras aldrig.
 
 ```csharp
-dataType[] arrayName = new dataType[arrayLength];
+// En array med fem veckodagar
+string[] weekdays = { "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag" };
+
+// En array med poäng
+int[] score = { 42, 17, 88, 56, 73 };
 ```
 
-Här är en förklaring av de olika delarna av arraydeklarationen:
+Tänk på en array som en rad med lådor. Alla lådor är likadana (samma typ), de sitter i ordning, och du kan inte lägga till eller ta bort lådor efteråt.
 
-- `dataType`: Anger den datatyp som elementen i arrayen kommer att ha, t.ex. int, string, bool, osv.
-- `arrayName`: Namnet på arrayen, som du kan välja själv.
-- `arrayLength`: Antalet element som arrayen ska ha.
+## När du läst detta ska du kunna
 
-Exempelvis kan vi deklarera och skapa en array av heltal med 5 element på följande sätt:
+- Deklarera och fylla en array
+- Läsa och ändra element via index
+- Loopa över en array med `for` och `foreach`
+- Avgöra när en array är rätt val, och när `List<T>` är bättre
+
+## Indexering — nollbaserad
+
+Varje plats i en array har ett nummer som kallas **index**. Det första elementet har index `0`, inte `1`. Det kan kännas ovant till en början, men det är standard i nästan alla programmeringsspråk.
 
 ```csharp
-int[] numbers = new int[5];
+string[] weekdays = { "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag" };
+
+Console.WriteLine(weekdays[0]);   // Måndag
+Console.WriteLine(weekdays[1]);   // Tisdag
+Console.WriteLine(weekdays[4]);   // Fredag
 ```
 
-Efter att en array har skapats kan vi tilldela värden till dess enskilda element och få tillgång till elementen genom att använda deras index. Indexeringen i en array börjar alltid på 0, vilket innebär att det första elementet i arrayen har index 0, det andra elementet har index 1, och så vidare.
+```mermaid
+flowchart LR
+    A["[0]\nMåndag"] --- B["[1]\nTisdag"] --- C["[2]\nOnsdag"] --- D["[3]\nTorsdag"] --- E["[4]\nFredag"]
+    style A fill:#1a5276,stroke:#154360,color:#fff
+    style B fill:#1a5276,stroke:#154360,color:#fff
+    style C fill:#1a5276,stroke:#154360,color:#fff
+    style D fill:#1a5276,stroke:#154360,color:#fff
+    style E fill:#1a5276,stroke:#154360,color:#fff
+```
 
-Här är ett exempel som tilldelar värden till några element i vår tidigare skapade array och sedan skriver ut dessa värden:
+Det sista giltiga indexet är alltid `array.Length - 1`. Försöker du läsa `weekdays[5]` på en array med fem element kraschar programmet med ett `IndexOutOfRangeException`. Det är ett av de vanligaste nybörjarmisstagen — håll det i bakhuvudet.
+
+**Se även:** [Samlingar i ordlistan](../ordlista/Samlingar.md)
+
+## Loopa med for och foreach
+
+Att skriva ut varje element för hand fungerar för tre element. För trettio är det omöjligt. Då loopar du istället.
+
+### for-loopen ger dig index
+
+`for`-loopen är bra när du behöver veta *vilken position* du befinner dig på.
 
 ```csharp
-numbers[0] = 10;
-numbers[1] = 20;
-numbers[2] = 30;
-numbers[3] = 40;
-numbers[4] = 50;
+int[] score = { 42, 17, 88, 56, 73 };
 
-Console.WriteLine(numbers[0]);  // Output: 10
-Console.WriteLine(numbers[2]);  // Output: 30
-Console.WriteLine(numbers[4]);  // Output: 50
+int sum = 0;
+for (int i = 0; i < score.Length; i++)
+{
+    sum += score[i];
+}
+
+double average = (double)sum / score.Length;
+Console.WriteLine("Summa: " + sum);
+Console.WriteLine("Medelvärde: " + average);
 ```
 
-Det finns också olika metoder och egenskaper som kan användas tillsammans med arrayer för att underlätta deras hantering och bearbetning. Till exempel kan vi använda egenskapen `Length` för att få antalet element
+Observera `i < score.Length` — inte `i <= score.Length`. Det sista giltiga indexet är `Length - 1`, inte `Length`.
 
- i en array:
+### foreach är renare när du bara vill läsa
+
+När du bara vill gå igenom varje element utan att bry dig om positionen är `foreach` kortare och tydligare.
 
 ```csharp
-int[] numbers = new int[5];
-Console.WriteLine(numbers.Length);  // Output: 5
+string[] weekdays = { "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag" };
+
+foreach (string day in weekdays)
+{
+    Console.WriteLine(day);
+}
 ```
 
-Det är viktigt att komma ihåg att storleken på en array inte kan ändras efter att den har skapats. Om vi behöver lägga till eller ta bort element i en samling på ett dynamiskt sätt kan det vara mer lämpligt att använda andra datastrukturer, som List i C#.
+`foreach` kan inte ändra elementen och ger dig inget index. Men när du bara vill *läsa* varje värde är det det rakaste sättet.
 
-## Exempel
+<details markdown="block">
+<summary>Vilken loop ska jag välja?</summary>
 
-Här är ett exempel som visar hur man kan använda en array för att lagra och manipulera en samling av namn:
+| Situation | Loop |
+|---|---|
+| Jag behöver indexet (t.ex. skriva ut "Dag 1: Måndag") | `for` |
+| Jag vill beräkna något med positionsbaserad logik | `for` |
+| Jag vill bara läsa varje element i tur och ordning | `foreach` |
+| Jag vill ändra elementen | `for` |
 
-```csharp
-string[] heroes = new string[3];
-heroes[0] = "Batman";
-heroes[1] = "Spider-Man";
-heroes[2] = "Wonder Woman";
+Välj den som gör koden mest läsbar för just det du gör. Det finns inget svar som alltid är rätt.
 
-Console.WriteLine(heroes[1]);  // Output: Spider-Man
+</details>
 
-heroes[1] = "Iron Man";
-Console.WriteLine(heroes[1]);  // Output: Iron Man
-```
+## Array vs List — när väljer man vad?
 
-I det här exemplet deklarerar vi en array av strängar och tilldelar värden till några av elementen. Vi använder sedan indexering för att komma åt och uppdatera ett av elementen i arrayen.
-
-Detta är bara en grundläggande introduktion till arrays i C#. Det finns mycket mer att lära sig om hur man hanterar och bearbetar arrayer, inklusive användning av slingor för att iterera över elementen och olika metoder för att söka, sortera och filtrera arrayer. Men förhoppningsvis ger denna introduktion dig en bra startpunkt för att förstå grunderna i arrayhantering.
-
-## Slutsats
-
-Arrays är en viktig datastruktur inom programmering som används för att organisera och hantera samlingar av element av samma datatyp. Genom att använda indexering kan vi komma åt och manipulera enskilda element i en array. Det är viktigt att komma ihåg att storleken på en array är fastställd vid skapandet och inte kan ändras i efterhand. Om du behöver en dynamiskt storlek anpassningsbar samling, kan andra datastrukturer som List vara mer lämpliga att använda.
-
-För att bli mer bekant med användningen av arrays och utforska avancerade funktioner och tekniker, rekommenderas det att du fortsätter din läsning och experimenterar med kodexempel. Det finns många resurser tillgängliga online, inklusive dokumentation och handledningar, som kan hjälpa dig att fördjupa din förståelse och behärskning av arrayer i C#.
-
-Lycka till med ditt fortsatta lärande och utforskande av arrays!
-
-## TL;DR
-
-En array är en datastruktur som används för att lagra en samling av element av samma datatyp. Den tillåter strukturerad hantering av data och kan nås och manipuleras genom indexering. Storleken på en array är fast vid skapandet och kan inte ändras i efterhand. Om du behöver en dynamiskt storlek anpassningsbar samling, kan andra datastrukturer som List vara mer lämpliga att använda.
+En array är rätt val när storleken verkligen är fast och känd i förväg — ett schackbräde som alltid är 8x8, veckans sju dagar. I de flesta andra fall vet du inte hur många element du kommer behöva, och då är [List\<T\>](list.md) det bättre valet — den har samma indexering och loopmönster som en array, men kan växa och krympa.
 
 ## Obligatorisk dad-joke
 
-Varför älskar programmerare att använda arrays?
+Varför gick arrayen aldrig ut och festade?
 
-För att de känner sig som riktiga "array-stokrater"!
+Den visste redan exakt hur många den skulle bli — ingen plats för överraskningar.

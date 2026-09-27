@@ -44,8 +44,8 @@ public class Resource
 ### Output (ungefärlig)
 
 ```
-Resource created
-Resource destroyed
+Resurs skapades
+Resurs förstördes
 ```
 
 ## Varför är destruktorer sällsynta i C#?

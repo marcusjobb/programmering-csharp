@@ -1,208 +1,98 @@
 ---
-title: Bankkonto
-description: "Vi ska skapa ett bankkonto där vi kan sätta in pengar och ta ut pengar. Ett bankkonto är en vanlig komponent i finansiella system och används för att…"
+title: Exempel — Bankkonto
+description: "Ett bankkonto som sänder ut events för insättningar, uttag och regelbrott — ett realistiskt exempel med fler events än bara ett."
 parent: Events
 nav_order: 10
 ---
-# Bankkonto
+# Exempel — Bankkonto
 
-Vi ska skapa ett bankkonto där vi kan sätta in pengar och ta ut pengar. Ett bankkonto är en vanlig komponent i finansiella system och används för att hantera insättningar, uttag och saldo.
+Ett bankkonto behöver ofta rapportera mer än en sorts händelse: en insättning, ett uttag, och några saker som gick fel på vägen. Det här exemplet visar en klass med flera events samtidigt, och vad som händer när en insättning bryter mot en regel.
 
-## Beskrivning
-
-Vårt bankkonto kommer att ha flera events som informerar oss om olika händelser som inträffar på kontot. Dessa events inkluderar:
-
-- Insättning: När pengar sätts in på kontot.
-- Uttag: När pengar tas ut från kontot.
-- Saldo mindre än 0: När saldot på kontot blir mindre än 0.
-- Insättning med felaktig summa: När en insättning görs med en ogiltig summa (t.ex. 0 eller negativt belopp).
-- Uttag med felaktig summa: När ett uttag görs med en ogiltig summa.
-
-Vi kommer också att ha en särskild händelse för insättningar över en viss gräns, till exempel 15000 kr. Denna händelse kan användas för att varna för eventuell kriminell aktivitet.
-
-För att implementera detta bankkonto använder vi C# och skapar en klass som heter "Account". Klassen har egenskapen "Balance" för att hålla reda på kontots saldo, samt olika events för att rapportera händelser till intresserade lyssnare.
-
-Här är den C#-koden som implementerar bankkontot:
+## Modellen
 
 ```csharp
 public class Account
 {
-    public event EventHandler<DepositEventArgs> Deposit;
-    public event EventHandler<WithdrawEventArgs> Withdraw;
-    public event EventHandler<BalanceBelowZeroEventArgs> BalanceBelowZero;
-    public event EventHandler<DepositInvalidAmountEventArgs> DepositInvalidAmount;
-    public event EventHandler<WithdrawInvalidAmountEventArgs> WithdrawInvalidAmount;
-    public event EventHandler<DepositAboveLimitEventArgs> DepositAboveLimit;
+    public event EventHandler<TransactionEventArgs>? Deposited;
+    public event EventHandler<TransactionEventArgs>? Withdrawn;
+    public event EventHandler<TransactionEventArgs>? DepositRejected;
+    public event EventHandler<TransactionEventArgs>? WithdrawalRejected;
+    public event EventHandler<TransactionEventArgs>? LargeDepositFlagged;
 
     public int Balance { get; private set; }
+
+    private const int LargeDepositThreshold = 15000;
 
     public void Deposit(int amount)
     {
         if (amount <= 0)
         {
-            DepositInvalidAmount?.Invoke(this, new DepositInvalidAmountEventArgs(amount));
+            DepositRejected?.Invoke(this, new TransactionEventArgs(amount));
             return;
         }
 
-        if (amount > 15000)
-        {
-            DepositAboveLimit?.Invoke(this, new DepositAboveLimitEventArgs(amount));
-        }
+        if (amount > LargeDepositThreshold)
+            LargeDepositFlagged?.Invoke(this, new TransactionEventArgs(amount));
 
         Balance += amount;
-        Deposit?.Invoke(this, new DepositEventArgs(amount));
+        Deposited?.Invoke(this, new TransactionEventArgs(amount));
     }
 
     public void Withdraw(int amount)
     {
-        if (amount <= 0)
+        if (amount <= 0 || amount > Balance)
         {
-            WithdrawInvalidAmount?.Invoke(this, new WithdrawInvalidAmountEventArgs(amount));
-            return;
-        }
-
-        if (Balance - amount < 0)
-        {
-            BalanceBelowZero?.Invoke(this, new BalanceBelowZeroEventArgs(amount));
+            WithdrawalRejected?.Invoke(this, new TransactionEventArgs(amount));
             return;
         }
 
         Balance -= amount;
-        Withdraw?.Invoke(this, new WithdrawEventArgs(amount));
+        Withdrawn?.Invoke(this, new TransactionEventArgs(amount));
     }
 }
 
-public class DepositEventArgs : EventArgs
+public class TransactionEventArgs : EventArgs
 {
     public int Amount { get; }
-
-    public DepositEventArgs(int amount)
-    {
-        Amount = amount;
-    }
-}
-
-public class WithdrawEventArgs : EventArgs
-{
-    public int Amount { get; }
-
-    public WithdrawEventArgs(int amount)
-    {
-        Amount = amount;
-    }
-}
-
-public class BalanceBelowZeroEventArgs : EventArgs
-{
-    public int Amount { get; }
-
-    public BalanceBelowZeroEventArgs(int amount)
-    {
-        Amount = amount;
-    }
-}
-
-public class DepositInvalidAmountEventArgs : EventArgs
-{
-    public int Amount { get; }
-
-    public DepositInvalidAmountEventArgs(int amount)
-    {
-
-
-        Amount = amount;
-    }
-}
-
-public class WithdrawInvalidAmountEventArgs : EventArgs
-{
-    public int Amount { get; }
-
-    public WithdrawInvalidAmountEventArgs(int amount)
-    {
-        Amount = amount;
-    }
-}
-
-public class DepositAboveLimitEventArgs : EventArgs
-{
-    public int Amount { get; }
-
-    public DepositAboveLimitEventArgs(int amount)
-    {
-        Amount = amount;
-    }
-}
-
-public static class Program
-{
-    public static void Main()
-    {
-        var account = new Account();
-        account.Deposit += Account_Deposit;
-        account.Withdraw += Account_Withdraw;
-        account.BalanceBelowZero += Account_BalanceBelowZero;
-        account.DepositInvalidAmount += Account_DepositInvalidAmount;
-        account.WithdrawInvalidAmount += Account_WithdrawInvalidAmount;
-        account.DepositAboveLimit += Account_DepositAboveLimit;
-
-        account.Deposit(1000);
-        account.Withdraw(500);
-        account.Withdraw(600);
-        account.Deposit(-100);
-        account.Withdraw(-100);
-        account.Deposit(20000);
-    }
-
-    private static void Account_DepositAboveLimit(object sender, DepositAboveLimitEventArgs e)
-    {
-        Console.WriteLine($"Insättning på {e.Amount} kr är över gränsen");
-        Console.WriteLine("Ring SÄPO!");
-    }
-
-    private static void Account_WithdrawInvalidAmount(object sender, WithdrawInvalidAmountEventArgs e)
-    {
-        Console.WriteLine($"Uttag på {e.Amount} kr är inte tillåtet");
-    }
-
-    private static void Account_DepositInvalidAmount(object sender, DepositInvalidAmountEventArgs e)
-    {
-        Console.WriteLine($"Insättning på {e.Amount} kr är inte tillåtet");
-    }
-
-    private static void Account_BalanceBelowZero(object sender, BalanceBelowZeroEventArgs e)
-    {
-        Console.WriteLine($"Uttag på {e.Amount} kr är inte tillåtet då det skulle sätta saldo under 0");
-    }
-
-    private static void Account_Withdraw(object sender, WithdrawEventArgs e)
-    {
-        Console.WriteLine($"Uttag på {e.Amount} kr");
-    }
-
-    private static void Account_Deposit(object sender, DepositEventArgs e)
-    {
-        Console.WriteLine($"Insättning på {e.Amount} kr");
-    }
+    public TransactionEventArgs(int amount) => Amount = amount;
 }
 ```
 
-I det här exemplet skapas en instans av klassen "Account" och olika händelselyssnare kopplas till dess events. Därefter utförs några operationer på kontot, som insättningar och uttag, vilket resulterar i att relevanta events triggas och meddelanden skrivs ut till konsolen.
+Lägg märke till namnen: `Deposited`/`Withdrawn`, inte `Deposit`/`Withdraw`. Metoderna heter `Deposit` och `Withdraw` — händelserna som utlöses **efter** att de lyckats heter i dåtid. Det är inte bara stil: en metod och ett event kan inte heta exakt samma sak i samma klass, C# tillåter det inte. Dåtidsformen löser namnkonflikten och gör samtidigt tydligt att eventet betyder "det här har redan hänt", inte "gör det här nu".
 
-Detta är bara en grundläggande implementation av ett bankkonto i C#. Beroende på användningsområdet kan det finnas ytterligare funktioner och logik som behöver läggas till.
+## Prenumerera på flera events
 
-## Slutsats
+```csharp
+var account = new Account();
 
-I denna artikel har vi skapat ett bankkonto i C# och implementerat funktioner för att sätta in pengar, ta ut pengar och hantera olika händelser som kan inträffa på kontot. Att förstå hur man implementerar ett bankkonto är viktigt för att kunna bygga robusta och säkra finansiella system.
+account.Deposited            += (s, e) => Console.WriteLine($"Insättning på {e.Amount} kr.");
+account.Withdrawn            += (s, e) => Console.WriteLine($"Uttag på {e.Amount} kr.");
+account.DepositRejected       += (s, e) => Console.WriteLine($"Insättning på {e.Amount} kr nekad.");
+account.WithdrawalRejected    += (s, e) => Console.WriteLine($"Uttag på {e.Amount} kr nekat — otillräckligt saldo eller ogiltigt belopp.");
+account.LargeDepositFlagged   += (s, e) => Console.WriteLine($"Insättning på {e.Amount} kr flaggad för manuell granskning.");
 
-## TL;DR-sammanfattning:
+account.Deposit(1000);
+account.Withdraw(500);
+account.Withdraw(600);       // nekas — mer än saldot
+account.Deposit(-100);       // nekas — ogiltigt belopp
+account.Deposit(20000);      // går igenom, men flaggas också
+```
 
-I denna artikel har vi skapat ett bankkonto i C# och visat hur man kan sätta in pengar
+### Output
 
-, ta ut pengar och hantera olika händelser som kan inträffa på kontot. En grundläggande förståelse av bankkonton är viktig för att bygga finansiella system.
+```
+Insättning på 1000 kr.
+Uttag på 500 kr.
+Uttag på 600 kr nekat — otillräckligt saldo eller ogiltigt belopp.
+Insättning på -100 kr nekad.
+Insättning på 20000 kr flaggad för manuell granskning.
+Insättning på 20000 kr.
+```
 
-## Obligatorisk Dad-joke:
+`Account` känner inte till vad som ska hända när gränsen på 15 000 kr överskrids — den bara flaggar det. Om det ska betyda en logg, ett mejl till en handläggare eller en spärr av kontot är upp till vem som lyssnar, inte upp till `Account`. Det är samma idé som i [Events](index.md): sändaren beskriver *vad som hände*, aldrig *vad som ska göras åt det*.
 
-Varför ville bankrånaren bli poet?
+## Obligatorisk dad-joke
 
-För att han ville stjäla pennor och dikter.
+Varför fick banktjänstemannen sparken?
+
+Han lyssnade aldrig på sina events — missade varenda varning.

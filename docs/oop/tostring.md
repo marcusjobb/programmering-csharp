@@ -2,7 +2,7 @@
 title: ToString-override
 description: "Alla klasser i C# ärver från object. Det ger alla objekt en ToString()-metod — men standardversionen returnerar bara typnamnet. Genom att overrida den kan…"
 parent: Objektorienterad programmering (OOP)
-nav_order: 18
+nav_order: 19
 ---
 # ToString — override av basobjektets metod
 
@@ -27,8 +27,8 @@ public class Car
 }
 
 var car = new Car { Brand = "Volvo", Year = 2020 };
-Console.WriteLine(car.ToString());  // Bil
-Console.WriteLine(car);             // Bil (anropar ToString() automatiskt)
+Console.WriteLine(car.ToString());  // Car
+Console.WriteLine(car);             // Car (anropar ToString() automatiskt)
 ```
 
 ### Output
@@ -65,7 +65,7 @@ Console.WriteLine($"Bilen: {car}"); // Bilen: Volvo (2020)
 
 ```
 Volvo (2020)
-Car: Volvo (2020)
+Bilen: Volvo (2020)
 ```
 
 ## Vanliga användningsfall
@@ -108,8 +108,8 @@ Console.WriteLine(u);   // Anna Svensson (32 år)
 ### Output
 
 ```
-CoffeeMachine — 499,00 kr
-Anna Svensson (32 year)
+Kaffemaskin — 499,00 kr
+Anna Svensson (32 år)
 ```
 
 ## TL;DR

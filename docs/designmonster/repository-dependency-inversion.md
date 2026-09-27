@@ -20,7 +20,7 @@ Problemet: kod som pratar direkt med [Entity Framework](../entityframework/index
 public interface IKundRepository
 {
     Kund? HämtaMedId(int id);
-    void Lägg Till(Kund kund);
+    void LäggTill(Kund kund);
 }
 
 public class EfKundRepository : IKundRepository

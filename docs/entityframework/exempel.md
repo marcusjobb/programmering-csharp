@@ -1,36 +1,30 @@
 ---
-title: Code-First Dagbok med Entity Framework
-description: "I den här övningen kommer vi att skapa en enkel dagboksapplikation som låter användare skapa och visa dagboksinlägg från konsolen. Vi kommer att använda…"
+title: Övning — Code-First dagbok
+description: "Bygg en liten konsol-dagbok från grunden: modell, DbContext, migration och en meny som läser och skriver via EF Core."
 parent: Entity Framework
-nav_order: 20
+nav_order: 50
 ---
-# Code-First Dagbok med Entity Framework
+# Övning — Code-First dagbok
 
-## Introduktion
+En dagboksapp i konsolen: skriv ett inlägg, se dina tidigare inlägg, allt sparat i en riktig databas. Ingen webbserver, inget UI-krångel — bara modellen, kontexten och en meny, vilket gör den perfekt för att öva Code-First-flödet från noll.
 
-I den här övningen kommer vi att skapa en enkel dagboksapplikation som låter användare skapa och visa dagboksinlägg från konsolen. Vi kommer att använda Entity Framework och Code-First tillvägagångssättet för att skapa och hantera databasen.
+**Code-First** betyder att du skriver C#-klasserna först och låter EF Core generera databasschemat från dem, via migrationer. Motsatsen — **Database-first** — går åt andra hållet: du har redan en databas och genererar C#-klasserna från den. I den här övningen kör vi Code-First.
 
 ## Förutsättningar
 
-Innan vi börjar, se till att du har följande installerat på din dator:
+- .NET SDK installerat
+- `Microsoft.EntityFrameworkCore.Sqlite` och `Microsoft.EntityFrameworkCore.Design`
 
-- Visual Studio eller annan C#-kompatibel utvecklingsmiljö
-- .NET Core SDK
+```bash
+dotnet new console -n DiaryApp
+cd DiaryApp
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+dotnet add package Microsoft.EntityFrameworkCore.Design
+```
 
-## Steg 1: Skapa projektet
+## Steg 1: Modellen
 
-1. Öppna Visual Studio och skapa ett nytt konsolprojekt.
-2. Välj .NET Core som målplattform och ange ett lämpligt namn för projektet.
-
-## Steg 2: Installera Entity Framework
-
-1. Högerklicka på projektet i Lösarexplorer och välj "Hantera NuGet-paket".
-2. Sök efter "Microsoft.EntityFrameworkCore" och installera paketet.
-3. Sök också efter "Microsoft.EntityFrameworkCore.Design" och installera det.
-
-## Steg 3: Skapa databasmodeller
-
-1. Skapa en ny klassfil `DiaryEntry.cs` och lägg till följande kod:
+`DiaryEntry.cs`:
 
 ```csharp
 using System.ComponentModel.DataAnnotations;
@@ -40,149 +34,131 @@ public class DiaryEntry
     public int Id { get; set; }
 
     [Required]
-    public string Title { get; set; }
+    [MaxLength(100)]
+    public string Title { get; set; } = string.Empty;
 
-    public string Content { get; set; }
+    public string Content { get; set; } = string.Empty;
+
+    public DateTime CreatedAt { get; set; } = DateTime.Now;
 }
 ```
 
-## Steg 4: Skapa en DbContext
+## Steg 2: DbContext
 
-1. Skapa en ny klassfil `DiaryContext.cs` och lägg till följande kod:
+`DiaryContext.cs` — kontexten tar emot sina options utifrån, den konfigurerar inte sig själv (se [Kontext](kontext/index.md)):
 
 ```csharp
 using Microsoft.EntityFrameworkCore;
 
 public class DiaryContext : DbContext
 {
-    public DbSet<DiaryEntry> DiaryEntries { get; set; }
+    public DiaryContext(DbContextOptions<DiaryContext> options) : base(options) { }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlite("Data Source=diary.db");
-    }
+    public DbSet<DiaryEntry> DiaryEntries { get; set; }
 }
 ```
 
-## Steg 5: Skapa metoder för att visa och skapa inlägg
+## Steg 3: Skapa migrationen
 
-1. Öppna filen `Program.cs` och uppdatera koden enligt följande:
+```bash
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+```
+
+Se [Migrationer](migrationer.md) om kommandona känns nya.
+
+## Steg 4: Program.cs
+
+Ingen ASP.NET-server behövs för en DI-container — `ServiceCollection` räcker för en konsolapp:
 
 ```csharp
-using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace DiaryApp
+var services = new ServiceCollection();
+services.AddDbContext<DiaryContext>(options =>
+    options.UseSqlite("Data Source=diary.db"));
+
+using var provider = services.BuildServiceProvider();
+using var scope = provider.CreateScope();
+var context = scope.ServiceProvider.GetRequiredService<DiaryContext>();
+
+while (true)
 {
-    class Program
+    Console.WriteLine();
+    Console.WriteLine("1. Visa alla inlägg");
+    Console.WriteLine("2. Skriv ett nytt inlägg");
+    Console.WriteLine("0. Avsluta");
+
+    switch (Console.ReadLine())
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Välkommen till din dagbok!");
-
-            while (true)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Välj en handling:");
-                Console.WriteLine("1. Visa alla inlägg");
-                Console.WriteLine("2. Skapa ett nytt inlägg");
-                Console.WriteLine("0. Avsluta");
-
-                string choice = Console.ReadLine();
-
-                switch (choice)
-                {
-                    case "1":
-                        ShowAllEntries();
-                        break;
-                    case "2":
-                        CreateNewEntry();
-                        break;
-                    case "0":
-                        return;
-                    default:
-                        Console.WriteLine("Ogiltigt val. Försök igen.");
-                        break;
-                }
-            }
-        }
-
-        static void ShowAllEntries()
-        {
-            // Hämta alla dagboksinlägg från databasen
-            using (var context = new DiaryContext())
-            {
-                var entries = context.DiaryEntries;
-
-                Console.WriteLine("Dina dagboksinlägg:");
-                foreach (
-
-var entry in entries)
-                {
-                    Console.WriteLine($"Id: {entry.Id}, Titel: {entry.Title}");
-                    Console.WriteLine($"Innehåll: {entry.Content}");
-                    Console.WriteLine();
-                }
-            }
-        }
-
-        static void CreateNewEntry()
-        {
-            Console.WriteLine("Ange en titel för ditt inlägg:");
-            string title = Console.ReadLine();
-
-            Console.WriteLine("Skriv ditt inlägg:");
-            string content = Console.ReadLine();
-
-            // Skapa ett nytt DiaryEntry-objekt med användarens angivna titel och innehåll
-            var entry = new DiaryEntry
-            {
-                Title = title,
-                Content = content
-            };
-
-            using (var context = new DiaryContext())
-            {
-                // Lägg till det nya inlägget i DiaryEntries-uppsättningen
-                context.DiaryEntries.Add(entry);
-
-                // Spara ändringarna i databasen
-                context.SaveChanges();
-
-                Console.WriteLine("Inlägget har sparats.");
-            }
-        }
+        case "1":
+            await ShowAllEntriesAsync(context);
+            break;
+        case "2":
+            await CreateNewEntryAsync(context);
+            break;
+        case "0":
+            return;
+        default:
+            Console.WriteLine("Ogiltigt val.");
+            break;
     }
+}
+
+static async Task ShowAllEntriesAsync(DiaryContext context)
+{
+    var entries = await context.DiaryEntries
+        .OrderByDescending(e => e.CreatedAt)
+        .ToListAsync();
+
+    if (entries.Count == 0)
+    {
+        Console.WriteLine("Inga inlägg än.");
+        return;
+    }
+
+    foreach (var entry in entries)
+    {
+        Console.WriteLine($"[{entry.CreatedAt:yyyy-MM-dd}] {entry.Title}");
+        Console.WriteLine(entry.Content);
+        Console.WriteLine();
+    }
+}
+
+static async Task CreateNewEntryAsync(DiaryContext context)
+{
+    Console.WriteLine("Titel:");
+    var title = Console.ReadLine() ?? string.Empty;
+
+    Console.WriteLine("Innehåll:");
+    var content = Console.ReadLine() ?? string.Empty;
+
+    context.DiaryEntries.Add(new DiaryEntry { Title = title, Content = content });
+    await context.SaveChangesAsync();
+
+    Console.WriteLine("Sparat.");
 }
 ```
 
-## Steg 6: Kör applikationen
+Toppnivå-`Main`, `async`/`await` genomgående och en riktig DI-container istället för `new DiaryContext()` utspridd i koden — samma mönster du kommer använda i en webbapp, bara utan webbservern runt omkring.
 
-1. Tryck på F5 eller klicka på Start-knappen för att köra applikationen.
-2. Följ menyvalen för att visa alla inlägg eller skapa ett nytt inlägg i dagboken.
+## Steg 5: Kör
 
-## Sammanfattning
+```bash
+dotnet run
+```
 
-Grattis! Du har nu skapat en enkel dagboksapplikation som använder en Code-First databas. Du kan visa befintliga inlägg och skapa nya inlägg direkt från konsolen. Du kan också utöka applikationen med fler funktioner och anpassningar baserat på dina behov.
+Skriv ett par inlägg, avsluta, kör igen — och se att de fortfarande finns där. Det är hela poängen med att ha en databas istället för en lista i minnet.
 
-Fortsätt utforska Entity Framework och Code-First-approachen för att bygga mer komplexa och kraftfulla databasapplikationer.
+## Bygg vidare
 
-## Termer
+- Lägg till redigering och radering av inlägg (`context.DiaryEntries.Update(...)` / `.Remove(...)`)
+- Lägg till en `Mood`-property och gruppera inlägg efter humör med LINQ (se [LINQ-frågor](linq-queries.md))
+- Byt `Console.ReadLine()`-menyn mot ett enkelt REST-API ovanpå samma `DiaryContext`
 
-| Term              | Definition                                                                                                    |
-| ----------------- | ------------------------------------------------------------------------------------------------------------- |
-| Code-First        | Ett tillvägagångssätt för att skapa en databas genom att definiera databasmodeller i koden.                   |
-| Data Source       | En relationsdatabas som används för att lagra data.                                                           |
-| Database-first    | Ett tillvägagångssätt för att skapa en databas genom att definiera databasmodeller i koden.                   |
-| DbContext         | En klass som representerar en session med databasen.                                                          |
-| DbSet             | En uppsättning av databasobjekt som kan användas för att hämta och spara data.                                |
-| Entity Framework  | Ett objektrelationellt kartläggningsbibliotek som används för att hantera databasobjekt i .NET-applikationer. |
-| Migration         | En databasförändring som kan tillämpas på en databas.                                                         |
-| Migrationer       | En databasförändring som kan tillämpas på en databas.                                                         |
-| Migrationsskript  | En databasförändring som kan tillämpas på en databas.                                                         |
-| Migrationsverktyg | Ett verktyg som används för att skapa och hantera databasmigrationer.                                         |
-| Modell            | En klass som representerar en databasentitet.                                                                 |
-| Modellering       | En klass som representerar en databasentitet.                                                                 |
-| ORM               | Ett objektrelationellt kartläggningsbibliotek som används för att hantera databasobjekt i .NET-applikationer. |
-| SQL               | Ett programmeringsspråk som används för att kommunicera med databaser.                                        |
-| SQL Server        | En relationsdatabas som används för att lagra data.                                                           |
-| SQLite            | En relationsdatabas som används för att lagra data.                                                           |
+## Obligatorisk dad-joke
+
+Varför skrev dagboksappen aldrig något dåligt om sig själv?
+
+Den hade redan `SaveChanges()` inbyggt.

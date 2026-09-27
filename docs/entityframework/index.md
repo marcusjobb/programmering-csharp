@@ -1,92 +1,72 @@
 ---
 title: Entity Framework
-description: "Yay! Idag ska vi prata om Entity Framework, ett fantastiskt ORM-ramverk som gör det enkelt att kommunicera med databaser. Vi kommer att fokusera på Entity…"
+description: "Entity Framework Core är ORM:en som låter dig prata med databasen genom vanliga C#-objekt istället för SQL-strängar."
 parent: C# bok
 nav_order: 110
 has_children: True
 ---
 # Entity Framework
 
-Yay! Idag ska vi prata om Entity Framework, ett fantastiskt ORM-ramverk som gör det enkelt att kommunicera med databaser. Vi kommer att fokusera på Entity Framework Core, den senaste versionen av ramverket. Så låt oss dyka in och utforska denna spännande värld av databashantering!
+Utan ORM ser databaskod ofta ut som en vägg av SQL-strängar, parametrar du måste komma ihåg att escapa, och manuell mappning mellan kolumner och properties. Entity Framework Core löser det genom att låta dig jobba med vanliga klasser och LINQ — och sköta SQL:en, mappningen och relationerna åt dig.
 
-## TL;DR
+```csharp
+var activeStudents = context.Students
+    .Where(s => s.IsActive)
+    .OrderBy(s => s.Name)
+    .ToList();
+```
 
-Entity Framework är ett kraftfullt ORM-ramverk som underlättar interaktionen med databaser. Med Entity Framework Core kan vi enkelt hantera data i våra applikationer och utveckla databasdrivna lösningar.
+Ingen SQL i sikte. Bara ett filter och en sortering, uttryckta i C#.
 
 ## När du läst detta ska du kunna
 
-Efter att ha läst den här artikeln kommer du att ha en grundläggande förståelse för följande:
-
-- Vad Entity Framework är och hur det används som ett ORM-ramverk.
-- Fördelarna med att använda Entity Framework Core för databashantering.
-- Hur man installerar och använder Entity Framework Core för olika databassystem.
-
-## Introduktion
-
-Entity Framework är ett kraftfullt verktyg som gör det möjligt för oss att arbeta med databaser på ett objektorienterat sätt. Istället för att skriva komplex SQL-kod kan vi använda Entity Framework för att kommunicera med databasen genom att manipulera objekt och klasser i vårt programspråk. Detta sparar tid och minskar mängden repetitiv kod vi behöver skriva.
-
-## Beskrivning
-
-Entity Framework Core är den senaste versionen av Entity Framework och erbjuder många fördelar för databashantering. Genom att använda Entity Framework Core kan vi enkelt skapa och hantera databaser, utföra frågor, och hantera relationer mellan tabeller. Det ger oss också möjlighet att använda migrations för att hantera databasstrukturändringar på ett smidigt sätt.
+- Förklara vad ett ORM gör och varför Entity Framework Core finns
+- Sätta upp en `DbContext` och registrera den korrekt via DI
+- Veta när EF Core är rätt verktyg — och när ren SQL vinner
 
 ## Fördelar
 
-Här är några av fördelarna med att använda Entity Framework Core:
-
-- **Enkel databashantering**: Entity Framework Core tar bort mycket av den repetitiva kod som är förknippad med att kommunicera med databaser. Vi kan fokusera på att utveckla funktioner och använda objekt istället för att skriva komplicerade SQL-frågor.
-
-- **Objektorienterad design**: Genom att använda Entity Framework Core kan vi arbeta med databasen på ett objektorienterat sätt. Vi kan definiera klasser och använda dem som modeller för våra tabeller i databasen. Detta gör att vi kan tänka i termer av objekt istället för tabeller och kolumner.
-
-- **Migrationshantering**: Entity Framework Core erbjuder inbyggd stöd för migrations. Det gör det enkelt att hantera ändringar i databasstrukturen över tid. Vi kan enkelt skapa och tillämpa migrationer för att uppdatera databasen och behålla dataintegriteten.
-
-- **Korsplattformsstöd**: Entity Framework Core fungerar på olika plattformar, inklusive Windows, macOS och Linux. Det ger oss flexibilitet att utveckla databasapplikationer på den plattform som passar oss bäst.
+- **Mindre repetitiv kod** — inga handskrivna `SELECT`/`INSERT`-strängar för varje tabell.
+- **Objektorienterat** — dina klasser *är* modellen, inte en separat mappningsfil.
+- **Migrationer** — databasstrukturen versionshanteras i kod, se [Migrationer](migrationer.md).
+- **Databasoberoende** — samma kod fungerar mot SQL Server, SQLite, MySQL eller Postgres, bara providern byts.
 
 ## Begränsningar
 
-Även om Entity Framework Core är ett kraftfullt verktyg för databashantering, finns det vissa begränsningar och överväganden att vara medveten om:
+EF Core abstraherar bort SQL, och det har ett pris: en viss prestandaöverhead jämfört med handskriven SQL, och vid riktigt komplexa frågor (djupa joins, fönsterfunktioner, rapporter) kan ren SQL fortfarande vara det tydligare och snabbare valet. Se [Prestanda](performance.md) för de vanligaste fällorna.
 
-- **Prestandaöverhead**: Eftersom Entity Framework Core abstraherar databashantering kan det finnas en viss prestandaöverhead jämfört med att använda renodlad SQL-kod. Det är viktigt att utvärdera prestandakraven för vår applikation och göra eventuella optimeringar om det behövs.
-
-- **Komplexa frågor**: Vid mer komplexa och avancerade frågor kan det vara nödvändigt att skriva ren SQL-kod istället för att använda Entity Framework Core. Det är viktigt att ha en balans mellan bekvämlighet och prestanda för att uppnå bästa resultat.
-
-## Användningsområden
-
-Entity Framework Core kan användas i en mängd olika scenarier, inklusive:
-
-- Utveckling av webbapplikationer med databaksstöd.
-- Skapande av API:er och mikrotjänster som kommunicerar med en databas.
-- Utveckling av desktopapplikationer med databasintegration.
-- Implementering av affärslogik och dataåtkomst i en enterpriseapplikation.
-
-## Exempelkod
-
-Här är ett exempel på hur vi kan skapa en DbContext-klass och använda den för att interagera med en SQL Server-databas:
+## Kom igång
 
 ```csharp
-public class MyDbContext : DbContext
+public class SchoolContext : DbContext
 {
-    string connString = "Server=localhost;Database=MyDatabase;User Id=sa;Password=Password123;";
+    public SchoolContext(DbContextOptions<SchoolContext> options) : base(options) { }
 
-    // Konfigurera anslutningssträngen för SQL Server
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlServer(connString);
-    }
-
-    // Definiera DbSet för våra entiteter
-    public DbSet<Blog> Blogs { get; set; }
-    public DbSet<Post> Posts { get; set; }
+    public DbSet<Student> Students { get; set; }
+    public DbSet<Course> Courses { get; set; }
 }
 ```
 
-I det här exemplet skapar vi en klass `MyDbContext` som ärver från `DbContext`. Vi konfigurerar anslutningssträngen i `OnConfiguring`-metoden genom att använda `UseSqlServer`-metoden för att ange att vi vill använda en SQL Server-databas. Vi definierar också `DbSet`-egenskaper för våra entiteter `Blog` och `Post`.
+```csharp
+// Program.cs
+builder.Services.AddDbContext<SchoolContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("SchoolConnection")));
+```
 
-## Slutsats
+Kontexten konfigureras utifrån via DI — den ska aldrig hårdkoda en anslutningssträng i sig själv. Fortsätt till [Kontext](kontext/index.md) för hela resonemanget.
 
-Entity Framework är verkligen ett fantastiskt ORM-ramverk som underlättar vår databashantering inom .NET Core. Med Entity Framework Core kan vi enkelt interagera med databaser, arbeta med objektorienterad design och dra nytta av migrationsfunktioner. Det är en kraftfull verktygslåda som kan hjälpa oss att utveckla effektiva och skalbara databasapplikationer. Så varför inte prova på det och upptäcka hur Entity Framework kan förenkla din databashantering?
+## Nästa steg
 
-## Obligatorisk Dad-joke
+- [Kontext](kontext/index.md) — vad en `DbContext` är, hur den konfigureras och hur länge den ska leva
+- [Entiteter](entiteter.md) — modellera dina tabeller som klasser
+- [Relationer](relationer.md) — 1:1, 1:M och M:M
+- [Migrationer](migrationer.md) — versionshantera databasstrukturen
+- [Seeding](seeding.md) — få in testdata utan att skriva INSERT-satser för hand
+- [LINQ-frågor](linq-queries.md) — hämta data utan att skriva SQL
+- [Prestanda](performance.md) — N+1-problemet, tracking och när du ska gå runt EF helt
 
-Vet du varför Entity Framework alltid är så populärt på fester?
+## Obligatorisk dad-joke
 
-För att det är mästare på att hantera relationer!
+Varför är Entity Framework så populärt på fester?
+
+Det är experten på att hantera relationer.

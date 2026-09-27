@@ -18,4 +18,4 @@ Mönstren delas in i tre kategorier, efter vilket problem de löser:
 | **Struktur (Structural)** | Hur objekt sätts ihop | Adapter, Decorator, Facade |
 | **Beteende (Behavioral)** | Hur objekt kommunicerar | Observer, Strategy, State |
 
-Den här boken går igenom 21 av de 23 — Interpreter och Memento tillkommer senare. Många av mönstren dyker upp igen som "inbyggt i .NET" — .NET-klassbiblioteket är i grunden en stor samling av just de här mönstren, färdigimplementerade.
+Den här boken går igenom alla 23. Många av mönstren dyker upp igen som "inbyggt i .NET" — .NET-klassbiblioteket är i grunden en stor samling av just de här mönstren, färdigimplementerade.

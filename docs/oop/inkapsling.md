@@ -1,209 +1,251 @@
 ---
-title: Inkapsling
-description: "En artikel som utforskar ämnet \"Inkapsling\" inom programmering med fokus på C#."
-parent: Objektorienterad programmering (OOP)
-nav_order: 30
+title: "Inkapsling"
+description: "Inkapsling handlar om att skydda ett objekts data så att bara klassen själv kan bestämma vad som händer med den."
+parent: "Objektorienterad programmering (OOP)"
+nav_order: 18
 ---
+
 # Inkapsling
 
-En artikel som utforskar ämnet "Inkapsling" inom programmering med fokus på C#.
+Inkapsling handlar om att skydda ett objekts data så att bara klassen själv kan bestämma vad som händer med den. Det är en av grundpelarna i objektorienterad programmering.
 
-## När du läst detta ska du kunna
+## Vad händer utan inkapsling?
 
-- Förstå och förklara vad inkapsling är och dess relevans inom programmering.
-- Diskutera fördelar och begränsningar med inkapsling.
-- Identifiera olika användningsområden där inkapsling kan tillämpas inom C#-programmering.
-- Förstå och tolka ett kodexempel som använder inkapsling.
-- Sammanfatta viktiga insikter och rekommendationer för vidare läsning om inkapsling i C#.
-
-## Introduktion
-
-Inkapsling är en viktig princip inom objektorienterad programmering som möjliggör att data och funktioner som hör samman hålls tillsammans inom en enhet, kallad en klass. Genom att använda inkapsling kan vi definiera vilka data som är tillgängliga utanför klassen och hur de kan manipuleras. Detta främjar moduläritet, återanvändbarhet och säkerhet i programkoden.
-
-## Vad är inkapsling?
-
-Inkapsling handlar om att kombinera data och metoder i en enhet som kallas en klass och kontrollera åtkomsten till dessa medlemmar från andra delar av programmet. Genom att använda åtkomstmodifierare, såsom `public`, `private` och `protected`, kan vi specificera vilka medlemmar som är tillgängliga utanför klassen och vilka som är begränsade till klassens interna användning. På så sätt kan vi uppnå informationshiding och skydda data från oavsiktlig manipulation.
-
-## Fördelar med inkapsling
-
-Inkapsling erbjuder flera fördelar inom C#-programmering:
-
-- **Säkerhet**: Genom att använda inkapsling kan vi gömma interna implementationer och bara exponera de nödvändiga gränssnitten för andra delar av programmet. Detta skyddar våra data och förhindrar oönskad manipulation.
-- **Moduläritet**: Inkapsling hjälper till att organisera och strukturera kod genom att gruppera relaterade data och funktioner i en klass. Detta gör det lättare att hantera och underhålla programkoden.
-- **Återanvändbarhet**: Genom att definiera klasser med väldefinierade gränssnitt kan vi återanvända dem i olika delar av programmet eller i andra projekt. Detta sparar tid och minskar kodupprepning.
-- **Kodunderhåll**: Inkapsling främjar bättre kodunderhåll genom att ge tydliga gränssnitt och gömma interna detaljer. Om vi behöver ändra implementationen inuti en klass behöver vi bara uppdatera den interna logiken utan att påverka andra delar av programmet.
-
-## Begränsningar med inkapsling
-
-Trots sina fördelar har inkapsling vissa begränsningar:
-
-- **Överhead**: Att använda inkapsling kan medföra en viss prestandaförlust eftersom åtkomsten till data och metoder måste hanteras genom speciella funktioner, som getter och setter, istället för direkt åtkomst.
-- **Komplexitet**: Om inkapslingen inte används på rätt sätt kan det leda till ökad komplexitet och förvirring i koden. Det är viktigt att ha en tydlig struktur och väldefinierade gränssnitt för att undvika oönskade bieffekter.
-
-## Användningsområden för inkapsling
-
-Inkapsling kan tillämpas i olika scenarier inom C#-programmering:
-
-- **Dataklasser**: Genom att använda inkapsling kan vi definiera dataklasser som innehåller attribut och tillhörande metoder för att hantera dessa attribut. Exempelvis kan vi skapa en `Person`-klass med medlemmar som `Name`, `Age` och `Address`, samt metoder för att manipulera och hämta dessa data.
-- **API-design**: När vi skapar offentliga API:er är det viktigt att använda inkapsling för att skydda interna implementationer och erbjuda tydliga och säkra gränssnitt för användare av API:et.
-- **Arv och polymorfism**: Inkapsling används tillsammans med arv och polymorfism för att definiera klasser med olika beteenden och gränssnitt, samtidigt som implementationen göms för användare av klassen.
-
-## Exempelkod - Inkapsling i en berättelse
-
-Här presenteras ett kodexempel som illustrerar användningen av inkapsling i C# genom en berättelse. Anta att vi vill skapa en klass för att representera en bankkonto.
+Tänk dig ett bankkonto utan lås på dörren:
 
 ```csharp
-public class BankAccount
+// Utan inkapsling — alla kan göra vad de vill
+class BankAccount
 {
-    private decimal balance;
-
-    public void Deposit(decimal amount)
-    {
-        balance += amount;
-    }
-
-    public void Withdraw(decimal amount)
-    {
-        if (amount <= balance)
-        {
-            balance -= amount;
-        }
-        else
-        {
-            Console.WriteLine("Insufficient funds.");
-        }
-    }
-
-    public decimal GetBalance()
-    {
-        return balance;
-    }
+    public double balance = 1000;   // publikt fält — farligt!
 }
 
-// Användning av BankAccount-klassen
+// Vem som helst kan sätta saldot till vad som helst
 BankAccount account = new BankAccount();
-account.Deposit(1000);
-account.Withdraw(500);
-decimal balance = account.GetBalance();
-Console.WriteLine($"Saldo: {balance}");
+account.balance = -99999;             // ingen koll, ingen validering
 ```
 
-### Output
+Ingen kontroll. Inga spärrar. Vad som helst kan hända med dina data. Det kallas ett **publikt fält** — och det är i princip alltid fel.
 
-```text
-Saldo: 500
-```
-
-I detta exempel definierar vi en klass `BankAccount` med en privat medlem `balance` som representerar kontots saldo. Vi har också metoder för att göra insättningar, uttag och hämta saldo. Genom att använda inkapsling och göra `balance` privat kan vi kontrollera och skydda åtkomsten till saldot och säkerställa att insättningar och uttag hanteras på rätt sätt.
-
-## Slutsats
-
-Inkapsling är en viktig princip inom objektorienterad programmering, och det är särskilt relevant inom C#-programmering. Genom att använda inkapsling kan vi organisera och strukturera vår kod på ett effektivt sätt, skydda data och erbjuda tydliga gränssnitt för användare av våra klasser. Det är viktigt att förstå fördelarna och begränsningarna med inkapsling för att använda den på rätt sätt och undvika oönskade bieffekter.
-
-## Moderna alternativ (C# 9–12)
-
-Nedanstående visar moderna sätt att skriva samma sak. Den gamla stilen fungerar fortfarande — koden ovan är inte fel. Det här är tillägg, inte ersättningar.
-
----
-
-### Instansiering
+## Lösningen: stäng dörren med `private`
 
 ```csharp
-// Klassisk (alltid giltigt)
-BankAccount account = new BankAccount();
-
-// Med var — typen härleds från höger sida
-var account = new BankAccount();
-
-// Target-typed new (C# 9) — typen härleds från vänster sida
-BankAccount account = new();
+class BankAccount
+{
+    private double balance;   // privat — ingen utifrån kan röra det
+}
 ```
 
-> **✨ Modernast (C# 9+):** `BankAccount account = new();` — du slipper upprepa typnamnet när det redan framgår av deklarationen.
+Fältet `balance` existerar fortfarande — men nu är det inlåst. Ingen kod utanför klassen kan läsa eller skriva direkt till det. Klassen själv bestämmer vad som får hända med sin data.
 
----
+## `private` och `public` — vad är vad?
 
-### Properties — init-only (C# 9)
+| Nyckelord | Vem ser det? | Används till |
+|-----------|-------------|--------------|
+| `private` | Bara klassen själv | Fält, intern logik |
+| `public`  | Alla utifrån | Konstruktorer, metoder, properties |
 
 ```csharp
-// Gammalt — set tillåter ändring när som helst
-public string Owner { get; set; }
+class BankAccount
+{
+    private double balance;           // bara klassen får röra det
+    public string Owner { get; private set; }   // alla kan läsa, bara klassen skriver
+}
+```
 
-// Modernt — init tillåter bara sättning vid skapandet
+Enkelt: **privat = inuti, publik = utifrån.**
+
+## Property med `private set` — det kontrollerade fönstret
+
+En property är det rekommenderade sättet att exponera data på ett kontrollerat sätt.
+
+**Gammal stil** (ser du i äldre kodbaser):
+```csharp
+private double _balance;
+
+public double Balance
+{
+    get { return _balance; }
+    private set { _balance = value; }
+}
+```
+
+**Modern stil (C# 3+):**
+```csharp
+// Kortare, men gör exakt samma sak
+public double Balance { get; private set; }
+```
+
+Utifrån kan du läsa `account.Balance`. Du kan **inte** skriva `account.Balance = 999`.
+
+## Konstruktor som ingångsport
+
+```csharp
+class BankAccount
+{
+    public double Balance { get; private set; }
+
+    public BankAccount(double startBalance)
+    {
+        Balance = startBalance;
+    }
+}
+```
+
+Konstruktorn är den enda ingångsporten när objektet skapas. Inga genvägar. Inga bakdörrar. Klassen bestämmer själv hur den får skapas.
+
+## Metoder med validering
+
+```csharp
+public void Deposit(double amount)
+{
+    if (amount > 0)
+        Balance += amount;
+}
+
+public bool Withdraw(double amount)
+{
+    if (amount > 0 && amount <= Balance)
+    {
+        Balance -= amount;
+        return true;
+    }
+    return false;
+}
+```
+
+Metoderna kontrollerar att värdet är rimligt. Ogiltiga operationer avvisas — saldot kan aldrig hamna i ett ogiltigt tillstånd.
+
+## Varför `private set` och inte bara `set`?
+
+```csharp
+// Med public set — vem som helst kan skriva
+public double Balance { get; set; }
+account.Balance = 1000000;   // inga hinder alls
+
+// Med private set — bara klassen skriver
+public double Balance { get; private set; }
+account.Balance = 1000000;   // kompileringsfel — stoppas direkt
+```
+
+`private set` ger dig det bästa av två världar: alla kan **läsa**, bara klassen kan **ändra**.
+
+## Hela BankAccount — alla delar på plats
+
+```csharp
+class BankAccount
+{
+    public double Balance { get; private set; }
+
+    public BankAccount(double startBalance)
+    {
+        Balance = startBalance;
+    }
+
+    public void Deposit(double amount)
+    {
+        if (amount > 0)
+            Balance += amount;
+    }
+
+    public bool Withdraw(double amount)
+    {
+        if (amount > 0 && amount <= Balance)
+        {
+            Balance -= amount;
+            return true;
+        }
+        return false;
+    }
+}
+```
+
+## Skapa ett objekt och använd det
+
+```csharp
+BankAccount account = new BankAccount(1000);
+
+Console.WriteLine($"Saldo: {account.Balance} kr");   // 1000
+
+account.Deposit(500);
+Console.WriteLine($"Saldo: {account.Balance} kr");   // 1500
+
+bool succeeded = account.Withdraw(200);
+Console.WriteLine($"Uttag lyckades: {succeeded}");
+Console.WriteLine($"Saldo: {account.Balance} kr");   // 1300
+
+bool failed = account.Withdraw(9999);
+Console.WriteLine($"Uttag lyckades: {failed}");  // False
+```
+
+Allt sker via metoderna. Saldot kan aldrig hamna i ett ogiltigt tillstånd.
+
+## Ditt jobb som klassdesigner
+
+Ställ dig alltid dessa frågor:
+
+- Behöver kod utanför klassen **läsa** det här? → `public get`
+- Behöver kod utanför klassen **ändra** det här? → `public set` (sällan rätt!)
+- Är det intern logik som ingen annan ska röra? → `private`
+
+Det är inte bara teknik. Det är design.
+
+## Modernare vägar till samma sak (C# 9–12)
+
+`private set` är standardlösningen, men C# har fått flera verktyg de senaste versionerna som gör inkapsling ännu mer precis.
+
+### `init` — skrivbar en gång, aldrig igen
+
+```csharp
+// private set — bara klassen kan ändra, men den KAN ändra när den vill
+public double Balance { get; private set; }
+
+// init — sätts bara vid skapandet, sen är den låst för alltid, även för klassen själv
 public string Owner { get; init; }
 
-// Med init kan du använda object initializer men inte ändra efteråt
-BankAccount account = new() { Owner = "Marcus" };
-account.Owner = "Anna";  // ❌ Kompileringsfel — init-only
+var account = new BankAccount { Owner = "Marcus" };
+account.Owner = "Anna";  // kompileringsfel — init-only
 ```
 
-> **✨ Modernt (C# 9+):** `init` ger dig fördelarna med `set` vid skapandet men skyddar värdet efter det — bra för oföränderliga dataklasser.
+`private set` skyddar mot omvärlden men klassen själv får fortfarande ändra värdet när den vill. `init` går längre: värdet låses permanent efter konstruktionen, även för klassens egna metoder. Bra för data som aldrig borde ändras efter att objektet skapats — ett skapandedatum, ett kontonummer.
 
----
-
-### Required members (C# 11)
+### `required` — kompilatorn kollar obligatoriska fält
 
 ```csharp
 public class BankAccount
 {
-    required public string Owner { get; set; }  // Måste sättas vid skapandet
-    private decimal balance;
-    // ...
+    public required string Owner { get; set; }   // måste sättas vid skapandet
 }
 
-// Kompileringsfel om Owner saknas
-BankAccount account = new();               // ❌ 'Owner' is required
-BankAccount account = new() { Owner = "Marcus" };  // ✅
+BankAccount account = new();                          // kompileringsfel: 'Owner' krävs
+BankAccount account = new() { Owner = "Marcus" };      // OK
 ```
 
-> **✨ Modernt (C# 11+):** `required` ersätter konstruktörskontroller för obligatoriska fält — kompilatorn fångar misstaget direkt.
+Innan `required` fick du kontrollera obligatoriska fält i konstruktorn, i körtid. Med `required` fångar kompilatorn misstaget innan koden ens kör.
 
----
+### `record` — när klassen bara är data
 
-### Object initializer med target-typed new
-
-```csharp
-// Gammalt
-BankAccount account = new BankAccount { Owner = "Marcus" };
-
-// Modernt (C# 9)
-BankAccount account = new() { Owner = "Marcus" };
-```
-
-> **✨ Modernt (C# 9+):** Kortare och lättare att läsa, särskilt när typnamnet är långt.
-
----
-
-### Records som dataklasser (C# 9)
-
-När en klass bara håller data utan logik kan en `record` vara bättre:
+Håller klassen bara data utan egen logik, är en `record` ofta ett bättre val än en `class`:
 
 ```csharp
-// Klass — kräver manuell equals, ToString, etc.
+// Klass — kräver att du skriver Equals, ToString, etc. själv om du vill ha dem
 public class Transaction
 {
     public string Type { get; set; }
     public decimal Amount { get; set; }
 }
 
-// Record (C# 9) — immutable, ==, ToString() och with-uttryck gratis
+// Record (C# 9) — jämförelse, utskrift och kopiering på köpet
 public record Transaction(string Type, decimal Amount);
 
-// Användning
 var t = new Transaction("Insättning", 500);
-Console.WriteLine(t);  // Transaktion { Typ = Insättning, Belopp = 500 }
-
-// with skapar en kopia med ändrat värde
-var t2 = t with { Amount = 1000 };
+var t2 = t with { Amount = 1000 };   // kopia med ett ändrat värde, originalet orört
 ```
 
-> **✨ Modernt (C# 9+):** Använd `record` för rena dataklasser — du får automatisk jämförelse, utskrift och kopiering utan att skriva en rad extra kod.
-
----
-
-## TL;DR
-
-Inkapsling är en viktig princip inom C#-programmering som handlar om att kombinera data och metoder inom en klass och kontrollera åtkomsten till dem. Det främjar säkerhet, moduläritet, återanvändbarhet och kodunderhåll. Inkapsling kan tillämpas i dataklasser, API-design och användas tillsammans med arv och polymorfism.
+En `record` är immutable som standard — samma idé som `init`, men för hela objektet på en gång. Se [Records, structs och klasser](records-structs-classes.md) för hela jämförelsen.
 
 ## Obligatorisk dad-joke
-Varför älskar programmerare att använda inkapsling?<br>För att de inte vill läcka sina privata medlemmar!
+
+Varför älskar programmerare inkapsling?
+
+De vill inte läcka sina privata medlemmar.

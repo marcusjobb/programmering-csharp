@@ -29,9 +29,9 @@ C# använder två minnesutrymmen:
 void Method()
 {
     int x = 42;          // på stacken — frigörs när Metod() returnerar
-    var car = new Car(); // "bil"-referensen på stacken, Bil-objektet på heapen
+    var car = new Car(); // "car"-referensen på stacken, Car-objektet på heapen
 }
-// bil-objektet på heapen lever kvar tills GC städar
+// Car-objektet på heapen lever kvar tills GC städar
 ```
 
 ## Hur GC vet vad den kan ta bort
@@ -39,7 +39,7 @@ void Method()
 GC letar efter **rötter** — aktiva variabler, statiska fält och anrop på call-stacken. Allt som kan nås från en rot är "levande". Allt som inte kan nås är skräp och kan tas bort.
 
 ```csharp
-var a = new Car("Volvo");   // a pekar på ett Bil-objekt
+var a = new Car("Volvo");   // a pekar på ett Car-objekt
 var b = a;                   // b pekar på samma objekt
 a = null;                    // a pekar inte längre dit
                              // men b gör det — objektet lever kvar
@@ -92,7 +92,7 @@ Trots GC kan du orsaka minnesläckor i C# — vanligast när:
 ```csharp
 // Klassisk event-läcka
 knapp.Click += HandleClick;   // prenumeration
-// Om du aldrig skriver: knapp.Click -= HanteraKlick;
+// Om du aldrig skriver: knapp.Click -= HandleClick;
 // ... lever objektet kvar så länge knappen finns
 ```
 

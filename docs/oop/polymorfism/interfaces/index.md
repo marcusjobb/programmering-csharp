@@ -1,19 +1,21 @@
 ---
 title: Interfaces
-description: "Interfaces är ett kraftfullt verktyg i C# som ger oss möjlighet att skapa flexibla och återanvändbara komponenter i våra program. Genom att använda…"
+description: "Ett interface är ett kontrakt: en lista av medlemmar en klass lovar att implementera, utan att säga något om hur."
 parent: Polymorfism
 nav_order: 20
 has_children: True
 ---
-Interfaces är ett kraftfullt verktyg i C# som ger oss möjlighet att skapa flexibla och återanvändbara komponenter i våra program. Genom att använda interfaces kan vi implementera polymorfism och separera implementation och användning av komponenter.
+# Interfaces
 
-## Beskrivning
+Ett interface definierar en uppsättning metoder, properties och events som en klass lovar att implementera — utan att själv innehålla någon implementation. Det är därför man kallar ett interface ett **kontrakt**: det säger vad en klass måste kunna göra, aldrig hur den gör det.
 
-Interfaces är en typ som definierar en uppsättning metoder, egenskaper och händelser som en klass kan implementera. En klass som implementerar ett interface måste implementera alla dess medlemmar. Därför säger man att Interfaces är kontrakt.
+## När du läst detta ska du kunna
 
-## Exempel
+- Deklarera ett interface och implementera det i en klass
+- Förklara varför interfaces inte kan innehålla fält
+- Förklara vad som händer om en klass glömmer implementera en medlem
 
-Låt oss titta på ett exempel där vi skapar ett interface som heter IAnimal:
+## Exempel — IAnimal
 
 ```csharp
 interface IAnimal
@@ -21,38 +23,37 @@ interface IAnimal
     string Name { get; set; }
     void Eat();
     void Sleep();
-    void Poop();
 }
 ```
 
-I detta exempel har vi ett interface som heter IAnimal. Vi har också tre metoder och en property. Observera att Interfaces inte kan ha fält, men de kan ha properties!
+`IAnimal` har en property och två metoder — men ingen kropp, ingen logik. Ett interface kan ha properties men aldrig fält; det är fortfarande bara ett kontrakt, inte en plats att lagra data i.
 
-Observera att interfaces som regel alltid har ett namn som börjar på <b>I</b> och slutar helst på <b>able</b>. I vårt fall slutar det inte på able för att IAnimalable låter bara dumt, men ett interface som deklarerar en metod som heter Calc(int[]) skulle kunna heta ICalculable. Usch vilket dåligt exempel, men ja, du förstår tanken.
+Konventionen är att namnet börjar på `I`. En andra, valfri konvention är att avsluta på `-able` när interfacet beskriver en förmåga — `IComparable`, `IDisposable`. Den passar inte alltid (`IAnimalable` låter inte bättre än `IAnimal`), men den är värd att känna igen när du ser den i andra bibliotek.
 
-Vi provar nu med att skapa en katt.
+## En klass som implementerar kontraktet
 
 ```csharp
 class Cat : IAnimal
 {
-    public string Name { get; set; }
+    public string Name { get; set; } = "";
 
-    public void Eat()
-    {
-        Console.WriteLine($"{Name} is eating.");
-    }
-
-    public void Sleep()
-    {
-        Console.WriteLine($"{Name} is sleeping.");
-    }
-
-    public void Poop()
-    {
-        Console.WriteLine($"{Name} is pooping.");
-    }
+    public void Eat() => Console.WriteLine($"{Name} äter.");
+    public void Sleep() => Console.WriteLine($"{Name} sover.");
 }
 ```
 
-I den här koden har vi skapat en klass Cat som implementerar IAnimal-gränssnittet. Klassen har en egenskap Name som kan sättas och hämtas. Vi har också implementerat de tre metoderna Eat(), Sleep() och Poop() enligt gränssnittets krav.
+`Cat` lovar — genom `: IAnimal` — att den har allt `IAnimal` kräver. Om `Cat` skulle glömma en av metoderna, eller ge den en annan signatur än kontraktet anger, kompilerar koden inte. Kompilatorn håller dig till löftet, du behöver inte komma ihåg det själv.
 
-Om någon av metoderna saknas eller har en annan metodhuvud kommer programmet inte att kompileras då den inte uppfyller kontraktet.
+```csharp
+IAnimal cat = new Cat { Name = "Måns" };
+cat.Eat();    // Måns äter.
+cat.Sleep();  // Måns sover.
+```
+
+Variabeln är deklarerad som `IAnimal`, inte `Cat` — och det räcker för att anropa allt interfacet lovar. Det är samma polymorfism-princip som i [Grunderna — virtual och override](../grunderna.md), bara med ett kontrakt istället för en basklass som gemensam nämnare.
+
+## Obligatorisk dad-joke
+
+Varför signerade katten kontraktet utan att läsa det?
+
+Den visste redan att den skulle göra exakt vad den ville ändå.

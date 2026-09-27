@@ -1,158 +1,194 @@
 ---
-title: Klasser och Objekt inom programmering
-description: "En artikel som utforskar ämnet Klasser och Objekt inom programmering."
-parent: Objektorienterad programmering (OOP)
-nav_order: 10
+title: "Klasser och objekt"
+description: "Innan du kan förstå hur en klass fungerar i kod behöver du förstå varför den finns."
+parent: "Objektorienterad programmering (OOP)"
+nav_order: 15
 ---
-# Klasser och Objekt inom programmering
 
-En artikel som utforskar ämnet Klasser och Objekt inom programmering.
+# Klasser och objekt
 
-## När du läst detta ska du kunna
+## Vad är en klass?
 
-- Förstå och förklara vad Klasser och Objekt är och deras relevans inom programmering.
-- Diskutera fördelar och begränsningar med Klasser och Objekt.
-- Identifiera olika användningsområden där Klasser och Objekt kan tillämpas.
-- Förstå och tolka ett kodexempel som använder Klasser och Objekt.
-- Sammanfatta viktiga insikter och rekommendationer för vidare läsning.
+Innan du kan förstå hur en klass fungerar i kod behöver du förstå varför den finns.
 
-## Introduktion
+Tänk dig att du ska bygga ett program som hanterar bankkonton. Du behöver hålla reda på ett kontos ägare, saldo och om kontot är aktivt. Du behöver också kunna sätta in pengar, ta ut pengar och visa kontoinformation. Om du bara har tre variabler och tre lösa metoder fungerar det — men vad händer när du har hundra konton? Variablerna blandas ihop, metoderna vet inte vilket konto de arbetar med, och koden blir omöjlig att följa.
 
-Välkommen till denna artikel som kommer att utforska konceptet Klasser och Objekt inom programmering. Klasser och Objekt är grundläggande byggstenar inom objektorienterad programmering (OOP) och spelar en central roll för att skapa modulära och strukturerade program. Genom att förstå och behärska dessa koncept kan du skapa kraftfulla och flexibla program som är lättare att underhålla och återanvända.
+En klass löser det här. Den är en **ritning** — en mall som beskriver vad ett objekt ska innehålla och vad det ska kunna göra. Ur ritningen skapar du sedan verkliga objekt.
 
-## Vad är Klasser och Objekt?
+```mermaid
+flowchart LR
+    K["Klass: BankAccount\n(ritning)"] --> O1["Objekt: konto1\nÄgare: Alex\nSaldo: 1000"]
+    K --> O2["Objekt: konto2\nÄgare: Sam\nSaldo: 500"]
+    K --> O3["Objekt: konto3\nÄgare: Nour\nSaldo: 250"]
+```
 
-Klasser och Objekt är centrala koncept inom objektorienterad programmering som hjälper oss att organisera och strukturera vår kod på ett mer logiskt sätt.
+Klassen skapas en gång. Objekt kan du skapa hur många som helst ur samma klass — varje med sina egna värden, men samma struktur och beteende.
 
-En **klass** kan betraktas som en mall eller ritning som definierar hur ett objekt av den klassen ska se ut och agera. Klassen innehåller definitioner av attribut (också kallade egenskaper) och metoder som beskriver objektets egenskaper och beteenden.
+**Klass** = ritningen. **Objekt** = det verkliga exemplaret byggt från ritningen.
 
-Ett **objekt** är en specifik förekomst av en klass. Det kan ses som en konkret entitet med egenskaper som är definierade av klassen och som kan utföra de metoder som klassen tillhandahåller.
+---
 
-En analogi som ofta används för att förklara klasser och objekt är att klassen är som en ritning för att skapa ett hus och objektet är själva huset som skapas enligt ritningen. Ritningen definierar husets egenskaper (antalet rum, färg, storlek, etc.) och metoder (öppna dörren, tända lampan, etc.), medan själva huset är den specifika instansen som skapas baserat på ritningen.
+## Skapa en klass
 
-### Klassers namn
+En klass i C# har tre byggstenar: **fält** (eller properties) som lagrar data, en **konstruktor** som körs när objektet skapas, och **metoder** som beskriver vad objektet kan göra.
 
-Klasser kallas för olika namn beroende på hur de används.
-Här är den uppdaterade tabellen med basklass, subklass och några namn för olika designmönster:
-
-| Term           | Förklaring                                                                                                                                                     | Andra namn                |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| Klass          | En klass är som en ritning för att bygga något. Det berättar vilka delar och funktioner som något ska ha när det skapas.                                       |                           |
-| Abstrakt klass | En abstrakt klass är som en mall där man bara får en idé om hur något ska se ut och fungera, men inte exakt hur det ska göras.                                 |                           |
-| Gränssnitt     | Ett gränssnitt är som en överenskommelse där man bestämmer vilka saker man behöver kunna göra för att passa in i en viss grupp.                                | Interface                 |
-| Konkret klass  | En konkret klass är som en färdig produkt som kan användas direkt, precis som en leksak som man kan leka med direkt när man köper den.                         |                           |
-| Basklass       | En basklass är som en övergripande klass som innehåller gemensam funktionalitet och egenskaper som är ärvt av flera subklasser.                                | Superklass                |
-| Subklass       | En subklass är som en specialiserad klass som ärver funktionalitet och egenskaper från en basklass och kan lägga till eller ändra dem.                         | Underklass                |
-| Instans        | En instans är som en specifik sak som man skapar baserat på ritningen eller mallen i en klass.                                                                 | Objekt                    |
-| Modell         | En modell är som en beskrivning av hur något ser ut och fungerar, t.ex. hur man ska spara information i en databas.                                            |                           |
-| Typ            | En typ är som en kategori som används för att organisera och hantera olika sorters saker, som olika typer av mätningar eller enheter.                          |                           |
-| Objekt         | Ett objekt är som en grej som man kan röra vid och använda. Det är det konkreta resultatet av att använda en ritning eller mall.                               |                           |
-| Entitet        | En entitet är som en specifik grej som man vill hålla reda på och spara information om, som en person eller en produkt i en databas.                           |                           |
-| Helper         | En helper är som en bästa vän som alltid är där för att hjälpa till med små uppgifter och göra saker lite enklare för dig.                                     | Hjälpklass, Verktygsklass |
-| Utility        | En utility är som en verktygslåda full med användbara saker som hjälper dig att lösa specifika problem eller göra svåra saker enklare.                         |                           |
-| Komponent      | En komponent är som en del av något större, som en pusselbit som passar in i en större bild och har en specifik funktion.                                      |                           |
-| Enhetsobjekt   | Ett enhetsobjekt är som en representation av en specifik enhet eller apparat som kan utföra vissa uppgifter eller ha viss funktionalitet.                      |                           |
-| Verktyg        | Ett verktyg är som en hjälpande hand som underlättar och effektiviserar olika uppgifter eller processer.                                                       |                           |
-| Modul          | En modul är som en självständig del av ett större system, som kan kopplas in och användas för att utföra specifika uppgifter.                                  |                           |
-| Singleton      | Singleton är ett designmönster som används för att se till att endast en instans av en klass skapas och att den kan nås globalt.                               |                           |
-| Fabrik         | Fabrik är ett designmönster som används för att skapa objekt utan att avslöja den konkreta implementationen och istället använda en gemensam gränssnitt.       | Factory                   |
-| Byggare        | Byggare är ett designmönster som används för att skapa objekt stegvis och möjliggör olika sätt att bygga upp komplexa objekt.                                  | Builder                   |
-| Strategi       | Strategi är ett designmönster som används för att välja och använda en av flera möjliga algoritmer eller beteenden vid körningstid.                            | Strategy                  |
-| Observatör     | Observatör är ett designmönster som används för att etablera en publikera/prenumerera-mekanism där flera objekt kan lyssna på händelser från ett annat objekt. | Observer                  |
-
-Som du ser har klasser många namn, man kan säga att det är en klass för varje tillfälle.
-Men inget att oroa sig för, du kommer att lära dig mer om dem allt eftersom du fortsätter att lära dig om programmering.
-Ju mer man använder klasser, desto bättre lär man sig namnen.
-
-## Fördelar
-
-Användningen av Klasser och Objekt erbjuder flera fördelar inom programmering:
-
-1. **Modularitet och återanvändbarhet**: Klasser möjliggör modulär kod genom att separera olika delar av programmet i olika klasser. Detta gör det enklare att hantera och underhålla koden samt möjliggör återanvändning av kod genom att skapa nya objekt baserat på en befintlig klass.
-
-2. **Abstraktion och hantering av komplexitet**: Genom att använda klasser kan vi abstrahera bort detaljer och fokusera på de väsentliga egenskaperna och beteendena hos objektet. Detta hjälper till att hantera komplexitet och gör koden mer läsbar och underhållbar.
-
-3. **Kapsling och informationsskydd**: Klasser möjliggör att vi kan begränsa åtkomsten till objektets egenskaper och metoder. Detta främjar informationsskydd och hjälper till att undvika oavsiktliga ändringar av objektets tillstånd.
-
-4. **Hantering av relationer mellan objekt**: Genom att använda klasser och objekt kan vi definiera och hantera relationer mellan olika objekt. Detta möjliggör att vi kan skapa mer realistiska och flexibla modeller av den verkliga världen i våra program.
-
-## Begränsningar
-
-Det finns också vissa begränsningar eller utmaningar med att använda Klasser och Objekt:
-
-1. **Inlärningskurva**: Konceptet med Klasser och Objekt kan vara svårt att förstå i början, särskilt för nybörjare inom programmering. Att förstå sambandet mellan klasser och objekt och att behärska olika OOP-koncept kan ta tid och övning.
-
-2. **Prestandaöverhead**: Objektorienterad kod kan vara lite mer resurskrävande än procedurorienterad kod på grund av det extra lagringsutrymmet som krävs för att hålla reda på objektens tillstånd och beteenden. Detta kan vara en faktor att ta hänsyn till när det krävs maximal prestanda i en applikation.
-
-3. **Designkomplexitet**: Att designa och planera klasser och objekt kan vara en utmaning. Att hitta rätt abstraktionsnivå, definiera korrekta relationer och undvika överkomplicerade hierarkier kan vara svårt och kräver erfarenhet och bra designprinciper.
-
-## Användningsområden
-
-Klasser och Objekt kan tillämpas i en mängd olika scenarier inom programmering. Här är några exempel på användningsområden:
-
-1. **Applikationsutveckling**: Klasser och Objekt används i stor utsträckning vid utveckling av applikationer, oavsett om det är webbapplikationer, mobilappar eller skrivbordsprogram. Genom att strukturera koden med hjälp av klasser och objekt blir programmet mer organiserat och lättare att underhålla.
-
-2. **Spelutveckling**: Inom spelutveckling används Klasser och Objekt för att skapa olika spelobjekt, karaktärer, världar och mycket mer. Genom att använda objektorienterad programmering kan spelutvecklare skapa komplexa och interaktiva spelvärldar.
-
-3. **Simuleringar**: Simuleringsprogram och modelleringsverktyg kan dra nytta av Klasser och Objekt för att representera och simulera olika entiteter och processer. Genom att använda objekt för att modellera olika aspekter av systemet kan simuleringar bli mer realistiska och flexibla.
-
-4. **Databashantering**: Vid databashantering används ofta objektorienterade koncept för att modellera och hantera data. Objekt kan representera tabeller, rader och kolumner i en databas och möjliggöra en mer flexibel och hanterbar databasstruktur.
-
-## Exempelkod
-
-För att illustrera användningen av Klasser och Objekt, låt oss tänka oss att vi bygger ett program för att hantera en biblioteksdatabase. Vi kan använda Klasser och Objekt för att representera olika entiteter i biblioteket, till exempel böcker och medlemmar. Här är ett kodexempel i C#:
+Här är ett komplett exempel på klassen `BankAccount`:
 
 ```csharp
-public class Book
+class BankAccount
 {
-    public string Title { get; set; }
-    public string Author { get; set; }
-    public int Year { get; set; }
+    // Properties — lagrar data, skrivbara bara inifrån klassen
+    public double Balance { get; private set; }
+    public string Owner { get; private set; }
+    public bool IsActive { get; private set; }
 
-    public void DisplayInfo()
+    // Konstruktor — körs en gång när objektet skapas
+    public BankAccount(string owner, double startBalance)
     {
-        Console.WriteLine($"Title: {Title}");
-        Console.WriteLine($"Author: {Author}");
-        Console.WriteLine($"Year: {Year}");
+        Owner = owner;
+        Balance = startBalance;
+        IsActive = true;
     }
-}
 
-public class Member
-{
-    public string Name { get; set; }
-    public int Age { get; set; }
-    public List<Book> BorrowedBooks { get; set; }
-
-    public void DisplayInfo()
+    // Metod — sätter in pengar på kontot
+    public void Deposit(double amount)
     {
-        Console.WriteLine($"Name: {Name}");
-        Console.WriteLine($"Age: {Age}");
-        Console.WriteLine("Borrowed Books:");
-        foreach (var book in BorrowedBooks)
+        if (amount <= 0)
         {
-            Console.WriteLine($"- {book.Title}");
+            Console.WriteLine("Beloppet måste vara positivt.");
+            return;
         }
+        Balance += amount;
+        Console.WriteLine($"{Owner} satte in {amount} kr. Nytt saldo: {Balance} kr.");
+    }
+
+    // Metod — tar ut pengar, returnerar true om det gick
+    public bool Withdraw(double amount)
+    {
+        if (amount <= 0 || amount > Balance)
+        {
+            Console.WriteLine("Uttag nekat — otillräckligt saldo.");
+            return false;
+        }
+        Balance -= amount;
+        Console.WriteLine($"{Owner} tog ut {amount} kr. Nytt saldo: {Balance} kr.");
+        return true;
+    }
+
+    // Metod — skriver ut en presentation av kontot
+    public void Present()
+    {
+        string status = IsActive ? "Aktivt" : "Inaktivt";
+        Console.WriteLine($"Konto: {Owner} | Saldo: {Balance} kr | Status: {status}");
     }
 }
-
-// Exempel på användning av Klasser och Objekt
-var book = new Book
-{
-    Title = "The Catcher in the Rye",
-    Author = "J.D. Salinger",
-    Year = 1951
-};
-
-var member = new Member
-{
-    Name = "John Doe",
-    Age = 30,
-    BorrowedBooks = new List<Book> { book }
-};
-
-book.DisplayInfo();
-member.DisplayInfo();
 ```
+
+Lägg märke till att klassen bara beskriver strukturen. Inget händer förrän du skapar ett objekt ur den.
+
+---
+
+## Konstruktorn
+
+Konstruktorn är en speciell metod som körs automatiskt när ett objekt skapas. Den har alltid samma namn som klassen och returnerar inget.
+
+**Varför behövs den?** Utan en konstruktor skulle ett nyskapat objekt sakna värden — `Owner` skulle vara `null` och `Balance` skulle vara `0`. Konstruktorn är platsen där du garanterar att objektet startar i ett korrekt tillstånd.
+
+```csharp
+public BankAccount(string owner, double startBalance)
+{
+    Owner = owner;
+    Balance = startBalance;
+    IsActive = true;
+}
+```
+
+Konstruktorn tar emot parametrar precis som en vanlig metod. När du skriver `new BankAccount("Alex", 1000)` skickas `"Alex"` och `1000` in i konstruktorn, som sedan tilldelar dem till objektets properties.
+
+```mermaid
+flowchart LR
+    A["new BankAccount('Alex', 1000)"] --> B["Konstruktorn körs\nÄgare = 'Alex'\nSaldo = 1000\nÄrAktivt = true"]
+    B --> C["Objektet är klart\noch kan användas"]
+```
+
+---
+
+## Private och public
+
+En klass kan hålla på hemligheter. Det är faktiskt meningen.
+
+`public` betyder att något är tillgängligt för alla — kod utanför klassen kan läsa och ändra det. `private` betyder att något bara är tillgängligt inifrån klassen själv.
+
+Varför vill vi dölja något? Tänk på `Balance`. Om det vore en vanlig `public` variabel skulle vem som helst kunna skriva `account.Balance = 999999` direkt — utan att gå via `Deposit` eller `Withdraw`. All logik om giltiga belopp och felmeddelanden skulle kringgås helt.
+
+Det här principen kallas **inkapsling**: du döljer interndetaljer och erbjuder istället ett kontrollerat gränssnitt utåt (se [Inkapsling](inkapsling.md) för hela resonemanget).
+
+```csharp
+// Utanför klassen — detta fungerar INTE:
+account.Balance = 999999;  // Fel! Saldo har private set
+
+// Det här fungerar däremot:
+account.Deposit(999999);  // Går via metoden som validerar beloppet
+```
+
+Tumregeln är enkel: **data är privat, beteende är publikt**. Metoder är klassens API mot omvärlden.
+
+---
+
+## Properties
+
+`{ get; private set; }` kallas en **property**. En property ser ut som en variabel utifrån men beter sig som en kontrollpunkt.
+
+**Varför inte bara en vanlig variabel?** En `public double balance;` kan läsas och ändras av vem som helst. En property med `private set` låter omvärlden läsa värdet men inte ändra det direkt — bara metoderna inuti klassen kan sätta ett nytt värde.
+
+```csharp
+// Property — läsbar utifrån, skrivbar bara inifrån
+public double Balance { get; private set; }
+
+// Utanför klassen kan man göra:
+Console.WriteLine(account.Balance);  // Fungerar — läsning är public
+
+// Men inte:
+account.Balance = 500;  // Kompileringsfel — set är private
+```
+
+En vanlig fälla: `{ get; set; }` med publik set ser ut som en property men beter sig som ett publikt fält — vem som helst kan skriva vilket värde som helst, ingen validering sker. Det är inte inkapsling, det är bara syntaxsocker.
+
+---
+
+## Privata fält (backing fields)
+
+Auto-propertyn `{ get; private set; }` räcker i de flesta fall. Men ibland vill du ha ett **privat fält** som lagrar värdet — ett så kallat *backing field* — och en full property med logik i `get` eller `set`.
+
+Konventionen för privata fält i C# är `_camelCase` — understreck som prefix:
+
+```csharp
+private string _name;
+private int _number;
+private double _balance;
+```
+
+När behöver du det? När du vill validera eller transformera värdet vid tilldelning. Auto-propertyn `{ get; private set; }` ger dig noll koll på vad som skickas in — en full property kan stoppa ogiltiga värden:
+
+```csharp
+private double _balance;
+
+public double Balance
+{
+    get { return _balance; }
+    private set
+    {
+        if (value < 0)
+        {
+            Console.WriteLine("Saldo kan inte bli negativt.");
+            return;
+        }
+        _balance = value;
+    }
+}
+```
+
+Propertyn `Balance` är gränssnittet utåt. `_balance` är det privata lagret inuti. Ingen utifrån kan röra `_balance` direkt.
 
 ---
 
@@ -162,66 +198,182 @@ Det finns flera sätt att skapa ett objekt i C#. Alla fungerar, men nyare versio
 
 ```csharp
 // Klassiskt (alltid giltigt)
-Book b1 = new Book();
-b1.Title = "Dune";
+BankAccount a1 = new BankAccount("Alex", 1000);
 
 // Med var — typen bestäms av höger sida (alltid giltigt)
-var b2 = new Book();
-b2.Title = "Dune";
+var a2 = new BankAccount("Sam", 500);
 
-// Object initializer — sätt properties direkt vid skapandet (alltid giltigt)
-Book b3 = new Book { Title = "Dune", Author = "Herbert", Year = 1965 };
-
-// Target-typed new (C# 9) — typen bestäms av vänster sida
-// ✨ Modernast — kortast när typen redan är deklarerad
-Book b4 = new() { Title = "Dune", Author = "Herbert", Year = 1965 };
+// Target-typed new (C# 9) — typen bestäms av vänster sida, modernast
+BankAccount a3 = new("Nour", 250);
 ```
 
-> **✨ C# 9 — target-typed `new()`:** När kompilatorn redan vet vilken typ det är (från vänster sida av `=`) kan du skriva `new()` utan att upprepa typnamnet. Samma sak gäller i metodparametrar och returvärden.
+När kompilatorn redan vet vilken typ det är — från vänster sida av `=` — kan du skriva `new(...)` utan att upprepa typnamnet. Det gäller lika mycket i metodparametrar och returvärden.
 
-### Samlingar — gammal och ny stil
+Samma princip gäller samlingar:
 
 ```csharp
 // Gammalt
-List<Book> books = new List<Book>();
-
-// Med var
-var books = new List<Book>();
+List<BankAccount> accounts = new List<BankAccount>();
 
 // Target-typed new (C# 9)
-List<Book> books = new();
+List<BankAccount> accounts = new();
 
-// Collection expression (C# 12) — ✨ Modernast
-List<Book> books = [b1, b2, b3];
+// Collection expression (C# 12) — modernast, fyll direkt
+List<BankAccount> accounts = [a1, a2, a3];
 ```
 
-### Output
+---
 
-```text
-Title: The Catcher in the Rye
-Author: J.D. Salinger
-Year: 1951
-Name: John Doe
-Age: 30
-Borrowed Books:
-- The Catcher in the Rye
+## Skapa ett objekt
+
+Nu när klassen är definierad kan du skapa objekt ur den. Det gör du med nyckelordet `new`.
+
+```csharp
+BankAccount alex = new BankAccount("Alex", 1000);
+BankAccount sam = new BankAccount("Sam", 500);
 ```
 
-I detta exempel har vi två klasser, `Book` och `Member`, som representerar en bok och en medlem i biblioteket. Vi skapar sedan ett objekt av varje klass och använder deras metoder för att visa informationen om boken och medlemmen.
+Varje `new`-anrop skapar ett **eget objekt** med egna värden. `alex` och `sam` är oberoende av varandra — ändrar du `alex.Balance` påverkar det inte `sam`.
 
-## Slutsats
+Variabeltypen till vänster (`BankAccount`) berättar vad för slags objekt variabeln pekar på. Det är viktigt: du kan bara använda det som klassen erbjuder via sitt publika gränssnitt.
 
-Klasser och Objekt är grundläggande koncept inom objektorienterad programmering som hjälper oss att organisera och strukturera vår kod på ett mer logiskt och effektivt sätt. Genom att använda Klasser och Objekt kan vi skapa modulära och återanvändbara program, hantera komplexitet och modellera relationer mellan olika entiteter.
+---
 
-Det är viktigt att förstå både fördelarna och begränsningarna med att använda Klasser och Objekt och att kunna identifiera olika användningsområden där dessa koncept kan tillämpas. Genom att behärska Klasser och Objekt kan du utveckla välstrukturerad och lättunderhållen kod.
+## Metodanrop på objekt
 
-För vidare läsning och fördjupning rekommenderas att studera OOP-principer, designmönster och mer avancerade koncept som arv och polymorfism.
+När du har ett objekt kallar du dess metoder med punktnotation: `object.Method(argument)`.
 
-## TL;DR
+```csharp
+BankAccount alex = new BankAccount("Alex", 1000);
+BankAccount sam = new BankAccount("Sam", 500);
 
-Klasser och Objekt är centrala koncept inom objektorienterad programmering. Klasser fungerar som mallar för att skapa objekt med definierade egenskaper och beteenden. Genom att använda Klasser och Objekt kan vi skapa modulära och återanvändbara program, hantera komplexitet och modellera relationer mellan olika entiteter. Det finns fördelar som modularitet och abstraktion, men också begränsningar som inlärningskurva och designkomplexitet. Klasser och Objekt kan tillämpas inom olika områden som applikationsutveckling, spelutveckling och simuleringar.
+alex.Present();
+sam.Present();
 
-## Obligatorisk dad joke
+alex.Deposit(500);
+alex.Withdraw(200);
+alex.Withdraw(5000);   // misslyckas — otillräckligt saldo
 
-Varför ville objektet inte gå på festen?<br>
-För att det inte hade någon klass!
+alex.Present();
+sam.Present();
+```
+
+Utskrift:
+
+```
+Konto: Alex | Saldo: 1000 kr | Status: Aktivt
+Konto: Sam | Saldo: 500 kr | Status: Aktivt
+Alex satte in 500 kr. Nytt saldo: 1500 kr.
+Alex tog ut 200 kr. Nytt saldo: 1300 kr.
+Uttag nekat — otillräckligt saldo.
+Konto: Alex | Saldo: 1300 kr | Status: Aktivt
+Konto: Sam | Saldo: 500 kr | Status: Aktivt
+```
+
+Punkten är inte bara syntax — den är en signal om ägande. `account.Deposit(500)` betyder: "be objektet `account` att utföra sin `Deposit`-metod med argumentet 500". Objektet vet vem det är och arbetar med sin egen data.
+
+---
+
+## UML-klassdiagram
+
+När man pratar om klasser ritar man ofta ett **UML-klassdiagram** — ett standardiserat sätt att visa en klass struktur utan att skriva kod. Det är ett gemensamt språk mellan utvecklare.
+
+```mermaid
+classDiagram
+  class BankAccount {
+    -double Saldo
+    -string Ägare
+    -bool ÄrAktivt
+    +BankAccount(ägare, startSaldo)
+    +SättIn(belopp)
+    +TaUt(belopp) bool
+    +Presentera()
+  }
+```
+
+Tecknen framför namnen har en betydelse:
+
+| Tecken | Betyder |
+|--------|---------|
+| `-` | private |
+| `+` | public |
+
+Det du ser i diagrammet är precis samma klass som vi har kodat — bara ritad istället för skriven. UML hjälper dig planera och kommunicera design innan du börjar koda.
+
+<details markdown="block">
+<summary>Djupare: vad händer i minnet när new anropas?</summary>
+
+När du skriver `new BankAccount("Alex", 1000)` händer det här bakom kulisserna:
+
+1. **Minne allokeras på heapen.** .NET reserverar ett utrymme i minnet tillräckligt stort för att hålla alla objektets data — `Balance`, `Owner` och `IsActive`.
+
+2. **Konstruktorn körs.** Värdena `"Alex"` och `1000` skickas in och tilldelas till objektets properties.
+
+3. **En referens returneras.** Variabeln `account` innehåller inte objektet direkt — den innehåller en **referens**, ungefär som en adress, som pekar till var i minnet objektet finns.
+
+Det har en praktisk konsekvens:
+
+```csharp
+BankAccount account = new BankAccount("Alex", 1000);
+BankAccount copy = account;  // kopia pekar på SAMMA objekt
+
+copy.Deposit(500);
+account.Present();  // visar 1500 — inte 1000!
+```
+
+`account` och `copy` är två variabler men ett och samma objekt. Det är ett vanligt misstag att tro att man kopierat ett objekt när man egentligen bara kopierat referensen till det. Om du vill ha ett äkta nytt objekt med samma värden måste du skapa det med `new`.
+
+</details>
+
+---
+
+## static i klasser
+
+I en klass är metoder **icke-statiska som standard** — de tillhör objektet och har tillgång till dess data. Det är det normala läget när du skriver objektmetoder som `Present`, `Deposit` och `Withdraw`.
+
+`static` i en klass används för saker som inte beror på ett specifikt objekt — till exempel en räknare som håller koll på hur många instanser som skapats:
+
+```csharp
+class BankAccount
+{
+    private static int _count_accounts = 0;
+
+    public static int CountAccounts => _count_accounts;
+
+    public BankAccount(string owner, double startBalance)
+    {
+        // ... sätt ägare och saldo ...
+        _count_accounts++;   // räknas upp för varje nytt konto
+    }
+}
+
+// Anropas på klassen, inte ett objekt:
+Console.WriteLine(BankAccount.CountAccounts);   // 0
+BankAccount k1 = new BankAccount("Alex", 1000);
+BankAccount k2 = new BankAccount("Sam", 500);
+Console.WriteLine(BankAccount.CountAccounts);   // 2
+```
+
+För era klasser i den här kursen — inga `static`-metoder i klasserna om ni inte har en specifik anledning. Håll er till objektmetoder.
+
+---
+
+## Andra namn du kan möta
+
+Samma begrepp går under flera namn i olika sammanhang och böcker. Här är de vanligaste:
+
+| Term | Betyder samma som |
+|------|--------------------|
+| Basklass | Superklass |
+| Subklass | Underklass |
+| Instans | Objekt |
+| Gränssnitt | Interface |
+| Helper / Utility | Hjälpklass, verktygsklass |
+
+Fastnar du på ett ord i en artikel eller ett annat lärmedel — det är troligen ett av dessa, bara en annan författares val av ord för samma sak.
+
+## Obligatorisk dad-joke
+
+Varför ville objektet inte gå på festen?
+
+Det hade ingen klass.

@@ -1,152 +1,123 @@
 ---
 title: List
-description: "Vi använder olika typer av listor, för att slippa hantera Arrays :)"
+description: "En array är bra när du vet exakt hur många element du behöver. List<T> är samma idé, men den kan växa och krympa medan programmet kör."
 parent: Datastrukturer
-nav_order: 10
+nav_order: 15
 ---
-# List
+# List\<T\>
 
+[Arrays](arrays.md) är bra när du vet exakt hur många element du behöver. Men ofta vet du inte det i förväg. Du kanske bygger en shoppinglista och vet inte hur många varor användaren kommer att lägga till.
 
-## Beskrivning
-
-Vi använder olika typer av listor, för att slippa hantera Arrays :)
-
-### Vad är en lista?
-
-En lista är en klass som implementerar en samling av objekt. Listan är en dynamisk samling av objekt, vilket innebär att den kan växa och minska i storlek. Detta är en stor fördel jämfört med en array, som har en fast storlek.
-
-Listan är en klass som ärver från CollectionBase, vilket innebär att den har samma egenskaper som en array.
-
-### Vilka typer av listor finns det?
-
-Det finns Arraylistor, LinkedListor och Generiska listor. Det finns även en Stack och en Queue, som är en specialiserad lista.
-
-Absolut! Här är en fortsättning på artikeln om List med förklaringar och exempel med hjälp av Star Wars-hjältar:
-
-## Vad är en generisk lista?
-
-En generisk lista är en typ av lista som tillåter hantering av objekt av vilken typ som helst. Genom att använda generiska listor kan du undvika behovet av att omvandla objekt till och från en specifik typ, vilket ger enklare och mer typsäker kod. I C# används den generiska List-klassen från System.Collections.Generic-namespace för att skapa generiska listor.
-
-För att skapa en generisk lista i C# med Star Wars-hjältar kan du använda följande kodexempel:
+Det är där `List<T>` kommer in. En lista fungerar som en array — samma indexering, samma loopmönster — men den kan **växa och krympa** medan programmet kör. Du behöver inte bestämma storleken i förväg.
 
 ```csharp
-List<string> starWarsHeroes = new List<string>();
+List<string> shoppingList = new List<string>();
+```
 
-// Lägg till hjältar i listan
-starWarsHeroes.Add("Luke Skywalker");
-starWarsHeroes.Add("Princess Leia");
-starWarsHeroes.Add("Han Solo");
-starWarsHeroes.Add("Obi-Wan Kenobi");
+`T` i `List<T>` är en platshållare för typen. `List<string>` är en lista med strängar, `List<int>` är en lista med heltal. Du berättar för kompilatorn vilken typ listan ska hålla, och den håller dig till det — `shoppingList.Add(42)` kompilerar inte på en `List<string>`.
 
-// Hämta antalet hjältar i listan
-int count = starWarsHeroes.Count;
-Console.WriteLine("Antal hjältar: " + count);
+## När du läst detta ska du kunna
 
-// Hämta en hjälte från listan baserat på index
-string hero = starWarsHeroes[0];
-Console.WriteLine("Första hjälten: " + hero);
+- Skapa en `List<T>` och lägga till/ta bort element
+- Använda `Add`, `Remove`, `RemoveAt`, `Insert`, `Contains`, `IndexOf`
+- Sortera en lista med `Sort()`
+- Förklara varför `List<T>` nästan alltid vinner över den äldre `ArrayList`
 
-// Uppdatera en hjälte i listan
-starWarsHeroes[3] = "Yoda";
+## Add, Remove, Contains, Count
 
-// Ta bort en hjälte från listan
-starWarsHeroes.Remove("Han Solo");
+De metoder och properties du använder mest med en lista:
 
-// Loopa igenom och skriv ut alla hjältar i listan
-foreach (string name in starWarsHeroes)
+```csharp
+List<string> shoppingList = new List<string>();
+
+shoppingList.Add("Mjölk");
+shoppingList.Add("Bröd");
+shoppingList.Add("Ägg");
+
+Console.WriteLine("Antal varor: " + shoppingList.Count);   // 3
+
+bool hasBread = shoppingList.Contains("Bröd");
+Console.WriteLine("Har Bröd? " + hasBread);                  // True
+
+shoppingList.Remove("Bröd");
+Console.WriteLine("Antal varor kvar: " + shoppingList.Count);  // 2
+
+foreach (string item in shoppingList)
 {
-    Console.WriteLine(name);
+    Console.WriteLine("- " + item);
 }
 ```
 
-Output:
-```
-Count heroes: 4
-First hero: Luke Skywalker
-Luke Skywalker
-Princess Leia
-Yoda
-```
+Lägg märke till att listor använder `Count`, inte `Length` — en av de detaljer som är lätta att blanda ihop när man använder båda.
 
-I det här exemplet skapar vi en generisk lista av typen `string` och fyller den med Star Wars-hjältarnas namn. Vi använder sedan olika metoder som `Add`, `Count`, `Remove` och indexeringsoperatorn `[]` för att hantera och manipulera listan. Slutligen loopar vi igenom listan med hjälp av en `foreach`-loop och skriver ut namnen på hjältarna.
+<details markdown="block">
+<summary>Mer om Remove och RemoveAt</summary>
 
-Genom att använda den generiska List-klassen kan du enkelt hantera och manipulera listor med objekt av vilken typ som helst, inklusive Star Wars-hjältar!
+`Remove()` tar bort den *första* förekomsten av värdet. Om värdet inte finns händer ingenting — inget fel kastas.
 
-Fortsätt gärna att utforska andra datastrukturer och hur de kan användas inom programmering. Varje datastruktur har sina egna unika egenskaper och användningsområden, och kunskap om dem kan vara värdefull för att skapa effektiv och strukturerad kod.
-
-## Vad är en arraylista?
-
-En arraylista är en typ av lista som tillåter hantering av objekt av vilken typ som helst. Arraylistan är en dynamisk samling av objekt, vilket innebär att den kan växa och minska i storlek. Detta är en stor fördel jämfört med en array, som har en fast storlek.
-
-Arraylistan är en klass som ärver från CollectionBase, vilket innebär att den har samma egenskaper som en array.
-
-För att skapa en arraylista i C# med Star Wars-hjältar kan du använda följande kodexempel:
+Vill du ta bort ett element på ett visst index (inte ett visst värde) använder du `RemoveAt(int index)`:
 
 ```csharp
-ArrayList starWarsHeroes = new ArrayList();
-
-// Lägg till hjältar i listan
-starWarsHeroes.Add("Luke Skywalker");
-starWarsHeroes.Add("Princess Leia");
-starWarsHeroes.Add("Han Solo");
-starWarsHeroes.Add("Obi-Wan Kenobi");
-
-// Hämta antalet hjältar i listan
-int count = starWarsHeroes.Count;
-Console.WriteLine("Antal hjältar: " + count);
-
-// Hämta en hjälte från listan baserat på index
-string hero = (string)starWarsHeroes[0];
-Console.WriteLine("Första hjälten: " + hero);
-
-// Uppdatera en hjälte i listan
-starWarsHeroes[3] = "Yoda";
-
-// Ta bort en hjälte från listan
-starWarsHeroes.Remove("Han Solo");
-
-// Loopa igenom och skriv ut alla hjältar i listan
-foreach (string name in starWarsHeroes)
-{
-    Console.WriteLine(name);
-}
+List<string> fruits = new List<string> { "Äpple", "Banan", "Citron" };
+fruits.RemoveAt(1);   // tar bort "Banan"
 ```
 
-Output:
-```
-Count heroes: 4
-First hero: Luke Skywalker
-Luke Skywalker
-Princess Leia
-Yoda
-```
+</details>
 
-I det här exemplet skapar vi en arraylista och fyller den med Star Wars-hjältarnas namn. Vi använder sedan olika metoder som `Add`, `Count`, `Remove` och indexeringsoperatorn `[]` för att hantera och manipulera listan. Slutligen loopar vi igenom listan med hjälp av en `foreach`-loop och skriver ut namnen på hjältarna.
+## Insert — lägg till på en specifik plats
 
-Genom att använda en arraylista kan du enkelt hantera och manipulera listor med objekt av vilken typ som helst, inklusive Star Wars-hjältar!
-
-ArrayListor kan ta emot olika typer samtidigt, detta gör att man måste omvandla tillbaka till den typ man vill använda. Det kan göra ArrayListor lite krångliga att använda.
+`Add()` lägger alltid till sist. Vill du sticka in ett element på en given position, använd `Insert`:
 
 ```csharp
-ArrayList luke = new ArrayList();
+List<string> queue = new List<string> { "Anna", "Björn", "Carina" };
+queue.Insert(1, "Prioriterad kund");
 
-luke.Add("Luke Skywalker");
-luke.Add(23); // Ålder
-luke.Add(true); // Är han en jedi?
-
-string name = (string)luke[0];
-int age = (int)luke[1];
-bool isJedi = (bool)luke[2];
+// "Anna", "Prioriterad kund", "Björn", "Carina"
 ```
 
-Fortsätt gärna att utforska andra datastrukturer och hur de kan användas inom programmering. Varje datastruktur har sina egna unika egenskaper och användningsområden, och kunskap om dem kan vara värdefull för att skapa effektiv och strukturerad kod.
+Allt från den positionen och framåt flyttas ett steg bakåt — det är en `O(n)`-operation, inte gratis för en stor lista.
 
-## TL;DR
+## IndexOf och Sort
 
-Med listor kan vi samla ihop flera objekt av samma typ. Vi kan sedan använda olika metoder för att hantera listan. Vi kan t.ex. lägga till och ta bort objekt, eller hämta ett objekt baserat på dess index. Vi kan även loopa igenom listan och göra något med varje objekt.
+```csharp
+List<int> numbers = new List<int> { 42, 17, 88, 56, 73 };
+
+int position = numbers.IndexOf(88);
+Console.WriteLine(position);   // 3
+
+numbers.Sort();
+Console.WriteLine(string.Join(", ", numbers));   // 17, 42, 56, 73, 88
+```
+
+`IndexOf` returnerar `-1` om värdet inte finns — kolla alltid det innan du använder returvärdet som ett index. `Sort()` sorterar listan på plats; vill du behålla originalordningen, sortera en kopia istället (`numbers.OrderBy(n => n).ToList()`, se [LINQ](linq.md)).
+
+## Array vs List — snabb jämförelse
+
+| | Array | List\<T\> |
+|---|---|---|
+| Storlek | Fast — bestäms vid skapandet | Dynamisk — växer och krymper |
+| Antal element | `arr.Length` | `list.Count` |
+| Lägga till/ta bort | Inte möjligt | `Add`, `Remove`, `Insert` |
+| Bra när... | Antalet är känt och fast | Antalet varierar under körning |
+
+I praktiken är `List<T>` det vanligaste valet. Du vet sällan i förväg exakt hur många element du behöver.
+
+## Varför inte ArrayList?
+
+Innan generics (C# 2, 2005) fanns bara `ArrayList` — en lista som kunde lagra *vilken typ som helst* blandat, eftersom den internt jobbade med `object`:
+
+```csharp
+ArrayList mixed = new ArrayList();
+mixed.Add("text");
+mixed.Add(42);          // helt tillåtet — och det är problemet
+
+int value = (int)mixed[1];   // måste castas manuellt, kan krascha om typen är fel
+```
+
+`List<T>` löser det: du deklarerar typen en gång, kompilatorn håller koll resten av vägen, och ingen boxning/casting behövs för värdetyper. Det finns i praktiken inget skäl att välja `ArrayList` i ny kod — den lever kvar bara för bakåtkompatibilitet med gammal kod.
 
 ## Obligatorisk dad-joke
 
-Varför gillar programmerare att arbeta med listor?
+Varför är `List<T>` så avslappnad jämfört med en array?
 
-För att de är *listiga* och hjälper till att *hålla ordning* på saker!
+Den vet att den alltid kan växa om den behöver plats för fler bekymmer.

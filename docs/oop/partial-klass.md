@@ -48,7 +48,7 @@ Console.WriteLine(p.IsAdult());          // True
 ### Output
 
 ```
-Anna, 25 year
+Anna, 25 år
 True
 ```
 
