@@ -220,6 +220,9 @@ a:hover { text-decoration: underline; }
 #font-decrease:hover, #font-increase:hover { border-color: var(--brand); color: var(--text); }
 #font-decrease:disabled, #font-increase:disabled { opacity: 0.35; cursor: default; }
 
+/* Hamburger — visas bara på mobil, döljs på desktop */
+.sidebar-menu-btn { display: none; }
+
 .theme-icon {
   font-size: 0.95rem;
   position: absolute;
@@ -549,6 +552,11 @@ div.highlight pre.highlight,
     border-right: none;
     border-bottom: 1px solid var(--border);
   }
+  .sidebar-menu-btn { display: flex; }
+  .module-list,
+  .overview-link { display: none; }
+  .sidebar.sidebar-nav-open .module-list { display: flex; }
+  .sidebar.sidebar-nav-open .overview-link { display: block; }
 }
 
 /* ── Hero ── */
