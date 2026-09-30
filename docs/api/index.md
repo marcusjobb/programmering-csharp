@@ -11,19 +11,19 @@ Ett API (Application Programming Interface) är ett gränssnitt som låter din a
 
 ## Arkitekturstilar — olika sätt att strukturera kommunikationen
 
-1. [REST](rest.md) — resurser och HTTP-verb, det vanligaste valet för nya API:er idag
-2. [GraphQL](graphql.md) — Facebooks frågespråk, klienten väljer exakt vilka fält den vill ha
-3. [SOAP](soap.md) — äldre, XML-baserat protokoll, vanligt i företagssystem och .NET-arv
-4. [Microservices](microservices.md) — dela upp systemet i flera oberoende tjänster som pratar via API:er
+1. [REST](rest/) — resurser och HTTP-verb, det vanligaste valet för nya API:er idag
+2. [GraphQL](graphql/) — Facebooks frågespråk, klienten väljer exakt vilka fält den vill ha
+3. [SOAP](soap/) — äldre, XML-baserat protokoll, vanligt i företagssystem och .NET-arv
+4. [Microservices](microservices/) — dela upp systemet i flera oberoende tjänster som pratar via API:er
 
 ## Bygga ett REST API i ASP.NET Core
 
-4. [Endpoints](endpoints.md)
-5. [Cors](cors.md)
-6. [MVC och API](apimvc.md)
+4. [Endpoints](endpoints/)
+5. [Cors](cors/)
+6. [MVC och API](apimvc/)
 
 ## Dokumentera API:et
 
-7. [Scalar och OpenAPI](scalar.md)
-8. [Swagger och Swashbuckle](swagger.md)
-9. [Testa dig själv](testa-dig-sjalv.md)
+7. [Scalar och OpenAPI](scalar/)
+8. [Swagger och Swashbuckle](swagger/)
+9. [Testa dig själv](testa-dig-sjalv/)
