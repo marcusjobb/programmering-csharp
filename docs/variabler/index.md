@@ -42,6 +42,6 @@ I detta exempel har vi deklarerat fem variabler.
 
 ## Fördjupning per typfamilj
 
-- [Heltal](heltal.md) — `int`, `long`, `byte` och resten av familjen, plus overflow
-- [Decimaltal](decimaltal.md) — `float`, `double`, `decimal` och varför pengar alltid ska vara `decimal`
-- [Tecken och text](tecken-och-text.md) — `char`, `string`, och varför strängar är oföränderliga
+- [Heltal](heltal/) — `int`, `long`, `byte` och resten av familjen, plus overflow
+- [Decimaltal](decimaltal/) — `float`, `double`, `decimal` och varför pengar alltid ska vara `decimal`
+- [Tecken och text](tecken-och-text/) — `char`, `string`, och varför strängar är oföränderliga
