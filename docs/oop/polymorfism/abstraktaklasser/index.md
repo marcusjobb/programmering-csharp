@@ -7,7 +7,7 @@ has_children: True
 ---
 # Abstrakta klasser
 
-En abstrakt klass är en mellanting mellan en vanlig klass och ett [interface](../interfaces/index.md): den kan innehålla färdig, delad kod precis som en vanlig klass, men den kan också deklarera metoder utan implementation — `abstract`-metoder — som varje subklass **måste** skriva sin egen version av. Och till skillnad från en vanlig klass går det aldrig att skapa ett objekt direkt av en abstrakt klass; den existerar bara för att ärvas.
+En abstrakt klass är en mellanting mellan en vanlig klass och ett [interface](../interfaces/index/): den kan innehålla färdig, delad kod precis som en vanlig klass, men den kan också deklarera metoder utan implementation — `abstract`-metoder — som varje subklass **måste** skriva sin egen version av. Och till skillnad från en vanlig klass går det aldrig att skapa ett objekt direkt av en abstrakt klass; den existerar bara för att ärvas.
 
 ## När du läst detta ska du kunna
 
