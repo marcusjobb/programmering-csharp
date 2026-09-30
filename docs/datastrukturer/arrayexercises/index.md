@@ -9,7 +9,7 @@ has_children: True
 
 Här finns lite övningar som du kan göra för att träna på att använda arrayer.
 
-1. [Plocka ut en del av en array och skapa en ny array av det](arrayCopy.md)
-2. [Summera element i en array](ovning1.md)
-3. [Hitta det största elementet i en array](ovning2.md)
-4. [Invertera en array](ovning3.md)
+1. [Plocka ut en del av en array och skapa en ny array av det](arrayCopy/)
+2. [Summera element i en array](ovning1/)
+3. [Hitta det största elementet i en array](ovning2/)
+4. [Invertera en array](ovning3/)
