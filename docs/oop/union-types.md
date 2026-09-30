@@ -9,7 +9,7 @@ school: Nion Education
 date: "2026-09-30"
 updated: "2026-09-30"
 parent: Objektorienterad programmering (OOP)
-nav_order: 67
+nav_order: 69
 ---
 # Union-typer
 
