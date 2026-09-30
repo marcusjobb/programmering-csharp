@@ -28,12 +28,12 @@ Ingen SQL i sikte. Bara ett filter och en sortering, uttryckta i C#.
 
 - **Mindre repetitiv kod** — inga handskrivna `SELECT`/`INSERT`-strängar för varje tabell.
 - **Objektorienterat** — dina klasser *är* modellen, inte en separat mappningsfil.
-- **Migrationer** — databasstrukturen versionshanteras i kod, se [Migrationer](migrationer.md).
+- **Migrationer** — databasstrukturen versionshanteras i kod, se [Migrationer](migrationer/).
 - **Databasoberoende** — samma kod fungerar mot SQL Server, SQLite, MySQL eller Postgres, bara providern byts.
 
 ## Begränsningar
 
-EF Core abstraherar bort SQL, och det har ett pris: en viss prestandaöverhead jämfört med handskriven SQL, och vid riktigt komplexa frågor (djupa joins, fönsterfunktioner, rapporter) kan ren SQL fortfarande vara det tydligare och snabbare valet. Se [Prestanda](performance.md) för de vanligaste fällorna.
+EF Core abstraherar bort SQL, och det har ett pris: en viss prestandaöverhead jämfört med handskriven SQL, och vid riktigt komplexa frågor (djupa joins, fönsterfunktioner, rapporter) kan ren SQL fortfarande vara det tydligare och snabbare valet. Se [Prestanda](performance/) för de vanligaste fällorna.
 
 ## Kom igång
 
@@ -53,17 +53,17 @@ builder.Services.AddDbContext<SchoolContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("SchoolConnection")));
 ```
 
-Kontexten konfigureras utifrån via DI — den ska aldrig hårdkoda en anslutningssträng i sig själv. Fortsätt till [Kontext](kontext/index.md) för hela resonemanget.
+Kontexten konfigureras utifrån via DI — den ska aldrig hårdkoda en anslutningssträng i sig själv. Fortsätt till [Kontext](kontext/index/) för hela resonemanget.
 
 ## Nästa steg
 
-- [Kontext](kontext/index.md) — vad en `DbContext` är, hur den konfigureras och hur länge den ska leva
-- [Entiteter](entiteter.md) — modellera dina tabeller som klasser
-- [Relationer](relationer.md) — 1:1, 1:M och M:M
-- [Migrationer](migrationer.md) — versionshantera databasstrukturen
-- [Seeding](seeding.md) — få in testdata utan att skriva INSERT-satser för hand
-- [LINQ-frågor](linq-queries.md) — hämta data utan att skriva SQL
-- [Prestanda](performance.md) — N+1-problemet, tracking och när du ska gå runt EF helt
+- [Kontext](kontext/index/) — vad en `DbContext` är, hur den konfigureras och hur länge den ska leva
+- [Entiteter](entiteter/) — modellera dina tabeller som klasser
+- [Relationer](relationer/) — 1:1, 1:M och M:M
+- [Migrationer](migrationer/) — versionshantera databasstrukturen
+- [Seeding](seeding/) — få in testdata utan att skriva INSERT-satser för hand
+- [LINQ-frågor](linq-queries/) — hämta data utan att skriva SQL
+- [Prestanda](performance/) — N+1-problemet, tracking och när du ska gå runt EF helt
 
 ## Obligatorisk dad-joke
 
