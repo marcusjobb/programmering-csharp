@@ -19,7 +19,7 @@ public class SchoolContext : DbContext
 }
 ```
 
-Notera konstruktorn: kontexten tar emot sina `DbContextOptions` utifrån, via beroendeinjektion — den konfigurerar inte sig själv. Anslutningssträng, provider (SQL Server, SQLite, MySQL, …) och loggning sätts på ett ställe, i `Program.cs`, inte hårdkodat i klassen. Se [Konfigurera DbContext](konfiguration.md) för hur det ser ut i praktiken, och [DbContext-livscykeln](livscykel.md) för hur länge en instans ska leva och varför det spelar roll.
+Notera konstruktorn: kontexten tar emot sina `DbContextOptions` utifrån, via beroendeinjektion — den konfigurerar inte sig själv. Anslutningssträng, provider (SQL Server, SQLite, MySQL, …) och loggning sätts på ett ställe, i `Program.cs`, inte hårdkodat i klassen. Se [Konfigurera DbContext](konfiguration/) för hur det ser ut i praktiken, och [DbContext-livscykeln](livscykel/) för hur länge en instans ska leva och varför det spelar roll.
 
 ## När du läst detta ska du kunna
 
