@@ -21,9 +21,9 @@ En loop låter dig köra samma kodblock upprepade gånger, med ett värde som ä
 
 ## Sidor i detta avsnitt
 
-- [Grunderna — for, while, do-while](grunder.md) — de tre grundläggande looptyperna, med jämförelsetabell och en verklig historia om en oändlig loop som skalade potatis i en timme
-- [Foreach](Foreach.md) — den vanligaste loopen för listor, arrayer och dictionaries
-- [Break och Continue](break-continue.md) — hoppa ut ur en loop tidigt, eller hoppa över ett varv
-- [Nästlade loopar](nastlade-loopar.md) — en loop inuti en annan, och varför antalet varv växer snabbt
-- [Rekursion](rekursion.md) — en metod som anropar sig själv, och när det är ett bättre val än en loop
-- [Testa dig själv](testa-dig-sjalv.md) — kontrollera att det satt sig
+- [Grunderna — for, while, do-while](grunder/) — de tre grundläggande looptyperna, med jämförelsetabell och en verklig historia om en oändlig loop som skalade potatis i en timme
+- [Foreach](Foreach/) — den vanligaste loopen för listor, arrayer och dictionaries
+- [Break och Continue](break-continue/) — hoppa ut ur en loop tidigt, eller hoppa över ett varv
+- [Nästlade loopar](nastlade-loopar/) — en loop inuti en annan, och varför antalet varv växer snabbt
+- [Rekursion](rekursion/) — en metod som anropar sig själv, och när det är ett bättre val än en loop
+- [Testa dig själv](testa-dig-sjalv/) — kontrollera att det satt sig
