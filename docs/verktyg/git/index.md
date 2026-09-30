@@ -12,7 +12,7 @@ Git är det versionshanteringssystem du använder för att spåra ändringar i d
 
 Välj ett kapitel nedan för att komma igång:
 
-1. [Git — grunder](git-grunder.md) — init, add, commit, push, pull
-2. [Git — konflikter](git-konflikter.md) — vad de är och hur du löser dem
-3. [GitHub Actions — CI/CD](github-actions.md) — kör dina tester automatiskt vid varje push
-4. [Testa dig själv](testa-dig-sjalv.md) — kontrollfrågor
+1. [Git — grunder](git-grunder/) — init, add, commit, push, pull
+2. [Git — konflikter](git-konflikter/) — vad de är och hur du löser dem
+3. [GitHub Actions — CI/CD](github-actions/) — kör dina tester automatiskt vid varje push
+4. [Testa dig själv](testa-dig-sjalv/) — kontrollfrågor
