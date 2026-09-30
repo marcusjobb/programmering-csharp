@@ -50,7 +50,7 @@ cat.Eat();    // Måns äter.
 cat.Sleep();  // Måns sover.
 ```
 
-Variabeln är deklarerad som `IAnimal`, inte `Cat` — och det räcker för att anropa allt interfacet lovar. Det är samma polymorfism-princip som i [Grunderna — virtual och override](../grunderna.md), bara med ett kontrakt istället för en basklass som gemensam nämnare.
+Variabeln är deklarerad som `IAnimal`, inte `Cat` — och det räcker för att anropa allt interfacet lovar. Det är samma polymorfism-princip som i [Grunderna — virtual och override](../grunderna/), bara med ett kontrakt istället för en basklass som gemensam nämnare.
 
 ## Obligatorisk dad-joke
 
