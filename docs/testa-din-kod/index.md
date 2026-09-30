@@ -13,5 +13,5 @@ Det här avsnittet handlar om två kompletterande tekniker: **TDD** (testdriven 
 
 ## Vad du hittar här
 
-- [TDD](tdd.md) — skriv testet först, implementera sedan. En metod för att tänka igenom vad koden ska göra innan du skriver den.
-- [Kodgranskning](kodrecension.md) — hur du förbereder och genomför en pull request-granskning på ett sätt som faktiskt hittar problem.
+- [TDD](tdd/) — skriv testet först, implementera sedan. En metod för att tänka igenom vad koden ska göra innan du skriver den.
+- [Kodgranskning](kodrecension/) — hur du förbereder och genomför en pull request-granskning på ett sätt som faktiskt hittar problem.
