@@ -96,9 +96,51 @@ public partial class Logger
 }
 ```
 
+## Partial property
+
+Precis som partial methods kan du deklarera en **partial property** — en deklaration i en fil och implementationen i en annan. Användbart när en kod-generator ska styra implementationen men du vill att API:et ska synas tydligt i klassens huvudfil:
+
+```csharp
+// Fil: Person.cs — API:et är synligt här
+public partial class Person
+{
+    public partial string Name { get; set; }
+    public partial int    Age  { get; set; }
+}
+```
+
+```csharp
+// Fil: Person.Generated.cs — implementationen (kanske genererad)
+public partial class Person
+{
+    public partial string Name
+    {
+        get => field;
+        set => field = value?.Trim() ?? throw new ArgumentNullException(nameof(value));
+    }
+
+    public partial int Age
+    {
+        get => field;
+        set => field = value is >= 0 and <= 150
+            ? value
+            : throw new ArgumentOutOfRangeException(nameof(value));
+    }
+}
+```
+
+```csharp
+var p = new Person { Name = "  Anna  ", Age = 30 };
+Console.WriteLine(p.Name);   // "Anna" (trimmad)
+Console.WriteLine(p.Age);    // 30
+```
+
+Deklarationen (utan kropp) och implementationen (med kropp) måste ha samma signatur. En partial property utan implementation ger kompileringsfel — till skillnad från partial methods som kan utelämnas.
+
 ## TL;DR
 
 - `partial class` delar upp en klass i flera filer
 - Kompilatorn slår ihop filerna till en klass
 - Vanligast i kod-genererade klasser (Windows Forms, WPF, EF-scaffolding)
+- `partial` fungerar även på metoder och properties
 - Inte ett designmönster för att hantera stora klasser — det är ett verktyg för specifika situationer

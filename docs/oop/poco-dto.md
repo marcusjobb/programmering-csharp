@@ -73,6 +73,9 @@ public class UserDto
 
 ## Records som POCO/DTO (C# 9)
 
+> Records har en egen djupdykning: [Records](records.md) — med `with`-uttryck, värdejämförelse, `record struct` och när du ska välja records vs klasser.
+> Se även: [Records vs POJOs/DTOs](https://marcusmedina.pro/sv/junior-tips/records-vs-pojos-dtos/) på marcusmedina.pro
+
 Records är ett modernt alternativ som ger dig en kortare och oföränderlig klass.
 
 ```csharp

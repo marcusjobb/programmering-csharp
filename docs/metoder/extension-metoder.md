@@ -125,11 +125,44 @@ using MyApp.Extensions;   // aktiverar alla extension-metoder i det namespacet
 
 Utan `using` ser typen inte metoderna.
 
-## Begränsningar
+## Det nya extension-blocket
+
+Det gamla sättet med `static class` + `this` fungerar fortfarande, men det finns nu en modernare syntax med `extension`-blocket. Det löser den gamla begränsningen — du kan lägga till properties, indexerare och statiska members, inte bara metoder:
+
+```csharp
+// Gammalt sätt — bara metoder
+public static class StringExtensions
+{
+    public static bool IsEmail(this string s)
+        => s.Contains('@') && s.Contains('.');
+}
+
+// Nytt sätt — metoder, properties och indexerare i ett block
+public static class StringExtensions
+{
+    extension (string s)
+    {
+        public bool IsEmail   => s.Contains('@') && s.Contains('.');  // property!
+        public string Reversed => new(s.Reverse().ToArray());         // property!
+        public string Repeat(int times)                               // metod
+            => string.Concat(Enumerable.Repeat(s, times));
+    }
+}
+```
+
+```csharp
+"anna@exempel.se".IsEmail   // True — property-syntax, inte metodanrop
+"hej".Reversed              // "jeh"
+"ha".Repeat(3)              // "hahaha"
+```
+
+Se [Extension-properties](extension-properties.md) och [Extension-indexerare](extension-indexers.md) för fler exempel på det nya blocket.
+
+## Begränsningar (gamla sättet)
 
 - Kan inte komma åt privata fält — bara publika/interna members
 - Instansmetoder på typen prioriteras — din extension döljs om typen själv har en metod med samma namn och signatur
-- Kan inte lägga till properties, bara metoder
+- Kan inte lägga till properties eller indexerare — använd det nya `extension`-blocket för det
 
 ## TL;DR
 

@@ -206,6 +206,110 @@ var b = new MedInit { Name = "Marcus" };
 
 `init` är flexiblare — du behöver inte en konstruktor med alla parametrar för att skapa oföränderliga objekt.
 
+## field — slipp backing-fältet (C# 14)
+
+Med `field` kan du skriva validering i get/set utan att deklarera ett separat backing-fält. Kompilatorn genererar det åt dig — precis som med en auto-property, men med plats för din logik.
+
+**Innan `field`:**
+
+```csharp
+public class Person
+{
+    private string _name;   // backing field — bara för att get/set behöver den
+
+    public string Name
+    {
+        get => _name;
+        set => _name = value?.Trim()
+            ?? throw new ArgumentNullException(nameof(value));
+    }
+}
+```
+
+**Med `field`:**
+
+```csharp
+public class Person
+{
+    public string Name
+    {
+        get => field;
+        set => field = value?.Trim()
+            ?? throw new ArgumentNullException(nameof(value));
+    }
+}
+```
+
+Resultatet är identiskt — `field` refererar till det dolda backing-fältet.
+
+### Fler exempel
+
+```csharp
+public class Produkt
+{
+    // Trimmar namn automatiskt vid tilldelning
+    public string Namn
+    {
+        get => field;
+        set => field = value?.Trim() ?? "";
+    }
+
+    // Tillåter bara positiva priser
+    public decimal Pris
+    {
+        get => field;
+        set => field = value >= 0
+            ? value
+            : throw new ArgumentOutOfRangeException(nameof(value), "Pris kan inte vara negativt");
+    }
+
+    // Loggar när värdet ändras
+    public int Antal
+    {
+        get => field;
+        set
+        {
+            Console.WriteLine($"Antal ändras: {field} → {value}");
+            field = value;
+        }
+    }
+}
+```
+
+```csharp
+var p = new Produkt();
+p.Namn  = "  Kaffebryggare  ";
+p.Pris  = 499.0m;
+p.Antal = 10;
+
+Console.WriteLine(p.Namn);  // "Kaffebryggare" (trimmad)
+```
+
+### Output
+
+```
+Antal ändras: 0 → 10
+Kaffebryggare
+```
+
+### Kombinera med init
+
+`field` fungerar med alla accessor-kombinationer:
+
+```csharp
+public class Config
+{
+    // init med validering — ingen separat backing field
+    public string Host
+    {
+        get => field;
+        init => field = string.IsNullOrWhiteSpace(value)
+            ? throw new ArgumentException("Host krävs")
+            : value.ToLower();
+    }
+}
+```
+
 ## TL;DR
 
 | Variant | Syntax | När |
@@ -215,4 +319,5 @@ var b = new MedInit { Name = "Marcus" };
 | Beräknad | `public T Prop => expression;` | Värdet räknas ut |
 | init | `{ get; init; }` | Sätt vid skapande, sedan oföränderlig |
 | required | `public required T Prop { get; set; }` | Tvinga initiering |
-| Full property | `get { } set { }` | Behöver validering |
+| Full property | `get { } set { }` | Behöver validering + eget backing field |
+| field | `get => field; set => field = ...;` | Validering utan att deklarera backing field |

@@ -89,13 +89,54 @@ Empty:
 Console.WriteLine("{0} + {1} = {2}", 3, 4, 7);
 ```
 
+## params med andra samlingstyper
+
+Sedan C# 13 fungerar `params` med fler typer än bara arrayer. Du kan använda `IEnumerable<T>`, `List<T>`, `ReadOnlySpan<T>` och andra samlingstyper:
+
+```csharp
+// IEnumerable<T> — accepterar vilken samling som helst
+void PrintAll(params IEnumerable<string> items)
+{
+    foreach (var item in items)
+        Console.WriteLine(item);
+}
+
+// ReadOnlySpan<T> — nollkopiering, bra för prestanda
+int FastSum(params ReadOnlySpan<int> numbers)
+{
+    int total = 0;
+    foreach (var n in numbers)
+        total += n;
+    return total;
+}
+```
+
+```csharp
+// Alla anropssätt fungerar
+PrintAll("Anna", "Björn", "Clara");
+
+var list = new List<string> { "David", "Emma" };
+PrintAll(list);                         // skicka en List<string> direkt
+
+Console.WriteLine(FastSum(1, 2, 3));    // 6
+Console.WriteLine(FastSum([4, 5, 6])); // 15 — samlingsuttryck fungerar
+```
+
+### Välj typ efter behov
+
+| Typ | Passar när |
+|-----|-----------|
+| `params T[]` | Standard — enkelt och universellt |
+| `params IEnumerable<T>` | Vill ta emot vilken samling som helst |
+| `params ReadOnlySpan<T>` | Prestanda-kritisk kod — undviker heap-allokering |
+| `params List<T>` | Behöver ändra listan inuti metoden |
+
 ## Regler
 
 - Bara en `params`-parameter per metod
 - Måste vara sista parametern
-- Måste vara ett array-typ
-- Kan anropas med 0 argument (ger tom array)
+- Kan anropas med 0 argument
 
 ## TL;DR
 
-`params int[] numbers` — anroparen skickar valfritt antal int. Inuti metoden är det en vanlig array.
+`params int[] numbers` — anroparen skickar valfritt antal int. Inuti metoden är det en vanlig array. Sedan C# 13 funkar `params` med `IEnumerable<T>`, `List<T>` och `ReadOnlySpan<T>` också.

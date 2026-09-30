@@ -173,6 +173,79 @@ Anropa alltid `ToList()` (eller `ToArray()`, `ToDictionary()`) när du vill ha e
 | `Distinct()` | Ta bort dubbletter |
 | `ToList()` | Materialisera resultatet |
 
+## Join — koppla ihop samlingar
+
+`Join` kombinerar två samlingar baserat på en gemensam nyckel, precis som ett INNER JOIN i SQL. I stället för att returnera ett anonymt objekt kan du nu få ett tupel direkt:
+
+```csharp
+var orders = new List<(int CustomerId, string Product)>
+{
+    (1, "Laptop"),
+    (2, "Mus"),
+    (1, "Tangentbord")
+};
+
+var customers = new List<(int Id, string Name)>
+{
+    (1, "Anna"),
+    (2, "Björn"),
+    (3, "Clara")
+};
+
+// Join returnerar tupel direkt
+var result = customers.Join(orders,
+    customer => customer.Id,
+    order    => order.CustomerId);
+
+foreach (var (customer, order) in result)
+    Console.WriteLine($"{customer.Name}: {order.Product}");
+```
+
+### Output
+
+```
+Anna: Laptop
+Anna: Tangentbord
+Björn: Mus
+```
+
+`Clara` är inte med — INNER JOIN returnerar bara matchande rader.
+
+## FullJoin — alla rader från båda samlingar
+
+`FullJoin` returnerar alla element från båda samlingar. Saknar ett element en matchning på den andra sidan, får det `default` i stället:
+
+```csharp
+var left  = new List<(int Id, string Name)>  { (1, "Anna"), (2, "Björn"), (3, "Clara") };
+var right = new List<(int Id, string City)>  { (2, "Göteborg"), (3, "Stockholm"), (4, "Malmö") };
+
+var full = left.FullJoin(right,
+    l => l.Id,
+    r => r.Id);
+
+foreach (var (l, r) in full)
+{
+    var name = l.Name ?? "(ingen)";
+    var city = r.City ?? "(ingen stad)";
+    Console.WriteLine($"{l.Id}: {name} — {city}");
+}
+```
+
+### Output
+
+```
+1: Anna — (ingen stad)
+2: Björn — Göteborg
+3: Clara — Stockholm
+4: (ingen) — Malmö
+```
+
+| Join-typ | Returnerar |
+|----------|------------|
+| `Join` | Bara matchande rader (INNER JOIN) |
+| `FullJoin` | Alla rader från båda sidor, oavsett matchning |
+| `GroupJoin` | Vänster sida med en grupp av matchande rader från höger |
+
 ## TL;DR
 
 LINQ = deklarativt arbete med samlingar. `Where` filtrerar, `Select` transformerar, `OrderBy` sorterar, aggregatmetoderna räknar ihop. Kedja metoderna för läsbar, kompakt kod. Kom ihåg `ToList()` när du vill ha ett fast resultat.
