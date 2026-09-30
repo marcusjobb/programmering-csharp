@@ -7,7 +7,7 @@ has_children: True
 ---
 # Events
 
-Ett event är en signal en klass skickar ut när något hänt — och andra delar av koden kan prenumerera på den signalen utan att klassen som skickar den vet eller bryr sig om vem som lyssnar. Det bygger vidare på [Delegater](../delegater/index.md): ett event är i grunden en delegat, bara med extra regler för hur den får användas utifrån.
+Ett event är en signal en klass skickar ut när något hänt — och andra delar av koden kan prenumerera på den signalen utan att klassen som skickar den vet eller bryr sig om vem som lyssnar. Det bygger vidare på [Delegater](../delegater/index/): ett event är i grunden en delegat, bara med extra regler för hur den får användas utifrån.
 
 ## När du läst detta ska du kunna
 
