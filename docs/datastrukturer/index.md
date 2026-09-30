@@ -11,34 +11,34 @@ En datastruktur är ett organiserat sätt att lagra flera värden tillsammans. N
 
 ## Grunderna — sekventiell lagring
 
-- [Arrays](arrays.md) — fast storlek, indexering, den enklaste formen
-- [List\<T\>](list.md) — samma idé som en array, men den kan växa och krympa
-- [Tvådimensionella arrayer](tvadimensionella-arrayer.md), [Tredimensionella arrayer](tredimensionella-arrayer.md), [Jagged arrays](jagged-arrays.md) — när en enda rad av värden inte räcker
-- [Array övningar](arrayexercises/index.md) — träna på det du just läst
+- [Arrays](arrays/) — fast storlek, indexering, den enklaste formen
+- [List\<T\>](list/) — samma idé som en array, men den kan växa och krympa
+- [Tvådimensionella arrayer](tvadimensionella-arrayer/), [Tredimensionella arrayer](tredimensionella-arrayer/), [Jagged arrays](jagged-arrays/) — när en enda rad av värden inte räcker
+- [Array övningar](arrayexercises/index/) — träna på det du just läst
 
 ## Uppslagning — hämta via nyckel, inte position
 
-- [Dictionary](dictionary.md) — nyckel-värde-par, som en telefonbok i kod
-- [HashSet](hashset.md) — bara unika värden, ingen given ordning
-- [IList och IDictionary](interface-vs-konkret-typ.md) — gränssnitten bakom List och Dictionary, och varför de spelar roll i metodsignaturer
+- [Dictionary](dictionary/) — nyckel-värde-par, som en telefonbok i kod
+- [HashSet](hashset/) — bara unika värden, ingen given ordning
+- [IList och IDictionary](interface-vs-konkret-typ/) — gränssnitten bakom List och Dictionary, och varför de spelar roll i metodsignaturer
 
 ## Kö-strukturer — ordningen bestämmer vad du får ut
 
-- [Stack och Queue](stack-queue.md) — LIFO och FIFO, senast in/först in
+- [Stack och Queue](stack-queue/) — LIFO och FIFO, senast in/först in
 
 ## Länkade strukturer
 
-- [LinkedList](linkedlist.md) — noder som pekar på varandra, istället för sammanhängande minne
+- [LinkedList](linkedlist/) — noder som pekar på varandra, istället för sammanhängande minne
 
 ## Fråga och bearbeta samlingar
 
-- [LINQ](linq.md) — filtrera, transformera och aggregera utan handskrivna loopar
-- [Sökalgoritmer](sokalgoritmer.md) — linjär sökning, binärsökning och skillnaden i hastighet
+- [LINQ](linq/) — filtrera, transformera och aggregera utan handskrivna loopar
+- [Sökalgoritmer](sokalgoritmer/) — linjär sökning, binärsökning och skillnaden i hastighet
 
 ## Skriv din egen, återanvändbara struktur
 
-- [Generics](generics.md) — samma kod, vilken typ som helst — det som gör `List<T>` möjlig i första taget
+- [Generics](generics/) — samma kod, vilken typ som helst — det som gör `List<T>` möjlig i första taget
 
 ## Testa dig själv
 
-- [Testa dig själv](testa-dig-sjalv.md) — kontrollera att det satt sig innan du går vidare
+- [Testa dig själv](testa-dig-sjalv/) — kontrollera att det satt sig innan du går vidare
