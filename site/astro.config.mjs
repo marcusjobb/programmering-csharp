@@ -17,7 +17,9 @@ function remarkMermaid() {
     }
     walk(tree, null, 0);
     hits.reverse().forEach(({ node, parent, index }) => {
-      parent.children[index] = { type: 'html', value: `<pre class="mermaid">${node.value}</pre>` };
+      // Escapa: annars tolkas <br/>, <|-- och liknande i diagramkoden som HTML-taggar
+      const code = node.value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      parent.children[index] = { type: 'html', value: `<pre class="mermaid">${code}</pre>` };
     });
   };
 }

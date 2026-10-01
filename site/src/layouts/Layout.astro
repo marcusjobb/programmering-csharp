@@ -204,16 +204,16 @@ const jsonLd = {
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: false, theme: 'neutral' });
 
-  // Expressive Code syntax-highlightar ```mermaid-block innan mermaid.js ser dem
-  // (radbryter källkoden i massor av <span>, döper inte om till class="mermaid").
-  // Vi plockar ut rå text rad för rad ur dess markup och renderar varje diagram
-  // FÖR SIG med mermaid.render() + eget try/catch — mermaid.run() bearbetar alla
+  // remarkMermaid i astro.config.mjs gör om ```mermaid till <pre class="mermaid">.
+  // pre[data-language="mermaid"] är Expressive Codes format, kvar som reserv om ett
+  // block ändå skulle highlightas — då plockar vi ut rå text rad för rad ur dess markup.
+  // Varje diagram renderas FÖR SIG med mermaid.render() + eget try/catch — mermaid.run() bearbetar alla
   // diagram på sidan som en batch, så ett enda diagram med syntaxfel kan stoppa
   // resten. Med individuell rendering blir ett trasigt diagram isolerat.
   let renderCounter = 0;
 
   async function renderMermaidDiagrams() {
-    const blocks = document.querySelectorAll('pre[data-language="mermaid"]');
+    const blocks = document.querySelectorAll('pre.mermaid, pre[data-language="mermaid"]');
     for (const pre of Array.from(blocks)) {
       const lines = Array.from(pre.querySelectorAll('.ec-line')).map(l => l.textContent ?? '');
       const code = (lines.length ? lines.join('\n') : (pre.textContent ?? '')).trim();
