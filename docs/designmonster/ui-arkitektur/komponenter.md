@@ -7,7 +7,7 @@ nav_order: 50
 
 # Komponentarkitektur — Blazor
 
-> Del 5 av [UI-arkitektur](../). **Bygger på:** [MVVM](../mvvm/) — vy och ViewModel slås ihop till en komponent, och skärmen ritas om från komponentens state.
+> Del 5 av [UI-arkitektur](index.md). **Bygger på:** [MVVM](mvvm.md) — vy och ViewModel slås ihop till en komponent, och skärmen ritas om från komponentens state.
 
 ## När du läst detta ska du kunna
 
@@ -115,8 +115,8 @@ KundvagnBlazor/
 └── Program.cs
 ```
 
-Läs mer om grunderna i [Blazor](../../../aspnetcore/blazor/).
+Läs mer om grunderna i [Blazor](../../aspnetcore/blazor.md).
 
 ---
 
-← [MVVM](../mvvm/) · [Flux och Redux](../flux-redux/) →
+← [MVVM](mvvm.md) · [Flux och Redux](flux-redux.md) →

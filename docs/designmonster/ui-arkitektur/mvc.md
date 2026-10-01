@@ -7,7 +7,7 @@ nav_order: 10
 
 # MVC — Smalltalk 1979
 
-> Del 1 av [UI-arkitektur](../). Här börjar allt. Modellen `Kundvagn` som används här finns i [översikten](../#exemplet-en-kundvagn).
+> Del 1 av [UI-arkitektur](index.md). Här börjar allt. Modellen `Kundvagn` som används här finns i [översikten](index.md#exemplet-en-kundvagn).
 
 ## När du läst detta ska du kunna
 
@@ -95,4 +95,4 @@ KundvagnMvc/
 
 ---
 
-← [Översikt](../) · [Webb-MVC och Razor Pages](../webb-mvc/) →
+← [Översikt](index.md) · [Webb-MVC och Razor Pages](webb-mvc.md) →

@@ -33,7 +33,7 @@ public class Product
 }
 ```
 
-Entity Framework använder POCO-klasser för att mappa tabeller (se [Entiteter](../../entityframework/entiteter/)). Klassen vet ingenting om databasen — EF hanterar det åt dig.
+Entity Framework använder POCO-klasser för att mappa tabeller (se [Entiteter](../entityframework/entiteter.md)). Klassen vet ingenting om databasen — EF hanterar det åt dig.
 
 ## DTO — Data Transfer Object
 
@@ -74,7 +74,7 @@ public class UserDto
 
 ## Records som POCO/DTO (C# 9)
 
-> Records har en egen djupdykning: [Records](../records/) — med `with`-uttryck, värdejämförelse, `record struct` och när du ska välja records vs klasser.
+> Records har en egen djupdykning: [Records](records.md) — med `with`-uttryck, värdejämförelse, `record struct` och när du ska välja records vs klasser.
 > Se även: [Records vs POJOs/DTOs](https://marcusmedina.pro/sv/junior-tips/records-vs-pojos-dtos/) på marcusmedina.pro
 
 Records är ett modernt alternativ som ger dig en kortare och oföränderlig klass.
@@ -96,7 +96,7 @@ var p = new ProductDto(1, "Kaffemaskin", 499.0);
 Console.WriteLine(p);  // ProductDto { Id = 1, Name = Kaffemaskin, Price = 499 }
 ```
 
-En record är perfekt för DTO och POCO: inbyggd `ToString()`, `Equals()` och `GetHashCode()` baserade på innehållet, oföränderlig som standard med `init`-properties. Se [Records, structs och klasser](../records-structs-classes/) för hela jämförelsen.
+En record är perfekt för DTO och POCO: inbyggd `ToString()`, `Equals()` och `GetHashCode()` baserade på innehållet, oföränderlig som standard med `init`-properties. Se [Records, structs och klasser](records-structs-classes.md) för hela jämförelsen.
 
 ## En DTO per operation — Request och Response
 
@@ -176,7 +176,7 @@ app.MapPut("/users/{id:int}", (int id, UpdateUserRequest request, IUserRepositor
 });
 ```
 
-(`IUserRepository` är ett vanligt [Repository](../../designmonster/repository-dependency-inversion/). `IPasswordHasher<User>` följer med ASP.NET Core och registreras med `builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>()`.)
+(`IUserRepository` är ett vanligt [Repository](../designmonster/repository-dependency-inversion.md). `IPasswordHasher<User>` följer med ASP.NET Core och registreras med `builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>()`.)
 
 Varför det är värt de extra klasserna:
 

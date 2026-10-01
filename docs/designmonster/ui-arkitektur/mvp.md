@@ -7,7 +7,7 @@ nav_order: 30
 
 # MVP — WinForms
 
-> Del 3 av [UI-arkitektur](../). **Bygger på:** [MVC](../mvc/) — men i WinForms tar kontrollerna själva emot input, och logik i `Form1.cs` går inte att testa. Modellen `Kundvagn` som används här finns i [översikten](../#exemplet-en-kundvagn).
+> Del 3 av [UI-arkitektur](index.md). **Bygger på:** [MVC](mvc.md) — men i WinForms tar kontrollerna själva emot input, och logik i `Form1.cs` går inte att testa. Modellen `Kundvagn` som används här finns i [översikten](index.md#exemplet-en-kundvagn).
 
 ## När du läst detta ska du kunna
 
@@ -76,7 +76,7 @@ public class KundvagnPresenter
 }
 ```
 
-Formuläret implementerar interfacet och gör bara det — läser och skriver kontroller. (Här byggs kontrollerna i kod för att exemplet ska bli komplett; i ett riktigt projekt gör du det i [designern](../../../gui/windows-forms/).)
+Formuläret implementerar interfacet och gör bara det — läser och skriver kontroller. (Här byggs kontrollerna i kod för att exemplet ska bli komplett; i ett riktigt projekt gör du det i [designern](../../gui/windows-forms.md).)
 
 ```csharp
 using System.ComponentModel;
@@ -198,4 +198,4 @@ Varianten ovan kallas **Passive View**: vyn har noll logik. Fowler beskriver ock
 
 ---
 
-← [Webb-MVC och Razor Pages](../webb-mvc/) · [MVVM](../mvvm/) →
+← [Webb-MVC och Razor Pages](webb-mvc.md) · [MVVM](mvvm.md) →

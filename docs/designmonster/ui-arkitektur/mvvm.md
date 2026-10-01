@@ -7,7 +7,7 @@ nav_order: 40
 
 # MVVM — WPF och MAUI
 
-> Del 4 av [UI-arkitektur](../). **Bygger på:** [MVP](../mvp/) — men låter databindningen göra synkningen som presentern skrev för hand. Modellen `Kundvagn` som används här finns i [översikten](../#exemplet-en-kundvagn).
+> Del 4 av [UI-arkitektur](index.md). **Bygger på:** [MVP](mvp.md) — men låter databindningen göra synkningen som presentern skrev för hand. Modellen `Kundvagn` som används här finns i [översikten](index.md#exemplet-en-kundvagn).
 
 ## När du läst detta ska du kunna
 
@@ -182,4 +182,4 @@ KundvagnWpf/                  (MAUI ser likadan ut, plus Platforms/ och Resource
 
 ---
 
-← [MVP](../mvp/) · [Komponentarkitektur](../komponenter/) →
+← [MVP](mvp.md) · [Komponentarkitektur](komponenter.md) →

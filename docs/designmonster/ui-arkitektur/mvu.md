@@ -7,7 +7,7 @@ nav_order: 70
 
 # MVU — Elm-arkitekturen
 
-> Del 7 av [UI-arkitektur](../). **Bygger på:** [Flux och Redux](../flux-redux/) — Redux lånade sina idéer härifrån, MVU tar dem hela vägen.
+> Del 7 av [UI-arkitektur](index.md). **Bygger på:** [Flux och Redux](flux-redux.md) — Redux lånade sina idéer härifrån, MVU tar dem hela vägen.
 
 ## När du läst detta ska du kunna
 
@@ -113,4 +113,4 @@ KundvagnMvu/
 
 ---
 
-← [Flux och Redux](../flux-redux/) · [Vilket ska jag välja?](../#vilket-ska-jag-välja) →
+← [Flux och Redux](flux-redux.md) · [Vilket ska jag välja?](index.md#vilket-ska-jag-välja) →

@@ -3,6 +3,10 @@ import sitemap from '@astrojs/sitemap';
 import expressiveCode from 'astro-expressive-code';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import { fileURLToPath } from 'node:url';
+import remarkDocLinks from './src/plugins/doc-links.mjs';
+
+const base = '/programmering-csharp';
 // Converts ```mermaid blocks to <pre class="mermaid"> before expressive-code sees them
 function remarkMermaid() {
   return (tree) => {
@@ -20,7 +24,7 @@ function remarkMermaid() {
 
 export default defineConfig({
   site: 'https://marcusjobb.github.io',
-  base: '/programmering-csharp',
+  base,
   output: 'static',
   integrations: [
     expressiveCode({
@@ -32,7 +36,11 @@ export default defineConfig({
     sitemap(),
   ],
   markdown: {
-    remarkPlugins: [remarkMermaid],
+    remarkPlugins: [
+      remarkMermaid,
+      // Relativa länkar räknas från källfilen och blir absoluta URL:er (se pluginet)
+      [remarkDocLinks, { docsDir: fileURLToPath(new URL('../docs', import.meta.url)), base }],
+    ],
     rehypePlugins: [
       rehypeSlug,
       [rehypeAutolinkHeadings, { behavior: 'wrap' }],

@@ -8,7 +8,7 @@ has_children: true
 
 # UI-arkitektur: från MVC till Flux
 
-Varje program med ett användargränssnitt måste lösa samma problem: användaren gör något, data ändras, och skärmen ska visa den nya datan. Det låter enkelt, men om du lägger allt i samma klass (eller samma `Form1.cs`) får du snabbt ett [God Object](../antipatterns/) där knapptryck, affärsregler och databasanrop är ihoptrasslade.
+Varje program med ett användargränssnitt måste lösa samma problem: användaren gör något, data ändras, och skärmen ska visa den nya datan. Det låter enkelt, men om du lägger allt i samma klass (eller samma `Form1.cs`) får du snabbt ett [God Object](../antipatterns.md) där knapptryck, affärsregler och databasanrop är ihoptrasslade.
 
 UI-arkitekturerna i den här avdelningen är olika svar på frågan *hur delar vi upp det där?* De har vuxit fram ur varandra under nästan 50 år, och varje nytt mönster är en reaktion på något som skavde i det förra. Förstår du *varför* de uppstod blir det mycket lättare att välja rätt — och att känna igen mönstret i ett ramverk du aldrig sett förut.
 
@@ -53,19 +53,19 @@ Håll de frågorna i huvudet medan du läser — de är nyckeln till [tabellen l
 
 ## Mönstren — läs dem i ordning
 
-1. [MVC](mvc/) — Smalltalk 1979, där allt började
-2. [Webb-MVC och Razor Pages](webb-mvc/) — MVC anpassat till HTTP
-3. [MVP](mvp/) — testbar logik i WinForms
-4. [MVVM](mvvm/) — databindning i WPF och MAUI
-5. [Komponentarkitektur](komponenter/) — Blazor och delad state med en scoped service
-6. [Flux och Redux](flux-redux/) — enkelriktat dataflöde, i Blazor via Fluxor
-7. [MVU](mvu/) — Elm-arkitekturen, rena funktioner hela vägen
+1. [MVC](mvc.md) — Smalltalk 1979, där allt började
+2. [Webb-MVC och Razor Pages](webb-mvc.md) — MVC anpassat till HTTP
+3. [MVP](mvp.md) — testbar logik i WinForms
+4. [MVVM](mvvm.md) — databindning i WPF och MAUI
+5. [Komponentarkitektur](komponenter.md) — Blazor och delad state med en scoped service
+6. [Flux och Redux](flux-redux.md) — enkelriktat dataflöde, i Blazor via Fluxor
+7. [MVU](mvu.md) — Elm-arkitekturen, rena funktioner hela vägen
 
 Varje sida börjar med vilket problem i det förra mönstret den löser, så det går också bra att hoppa in direkt.
 
 ## Exemplet: en kundvagn
 
-För att kunna jämföra använder alla mönster samma lilla domän: en kundvagn där man kan lägga till och ta bort varor. Det här är **modellen** — ren C#, ingen UI-kod. Den används av [MVC](mvc/), [MVP](mvp/) och [MVVM](mvvm/).
+För att kunna jämföra använder alla mönster samma lilla domän: en kundvagn där man kan lägga till och ta bort varor. Det här är **modellen** — ren C#, ingen UI-kod. Den används av [MVC](mvc.md), [MVP](mvp.md) och [MVVM](mvvm.md).
 
 ```csharp
 // Modellen: data + regler. Den vet ingenting om skärmar, knappar eller HTTP.
@@ -92,13 +92,13 @@ public class Kundvagn
 }
 ```
 
-Lägg märke till `event Action? Ändrad` — det är [Observer-mönstret](../gof/behavioral/observer/). Det är ryggraden i klassisk MVC, och det är exakt det som Flux och MVU senare gör sig av med.
+Lägg märke till `event Action? Ändrad` — det är [Observer-mönstret](../gof/behavioral/observer.md). Det är ryggraden i klassisk MVC, och det är exakt det som Flux och MVU senare gör sig av med.
 
 ## Fler du kommer stöta på
 
 - **MVI (Model-View-Intent)** — MVU-tanken från JavaScript-biblioteket Cycle.js (2015), mycket vanlig i Android-utveckling. *Intent* motsvarar meddelanden.
 - **Presentation Model** — Fowlers namn (2004) på det som blev MVVM. Dyker upp i äldre litteratur.
-- **Supervising Controller / Passive View** — de två varianterna av MVP (se [MVP](mvp/#passive-view-eller-supervising-controller)).
+- **Supervising Controller / Passive View** — de två varianterna av MVP (se [MVP](mvp.md#passive-view-eller-supervising-controller)).
 - **Atom-baserad state** (Jotai, Recoil, Signals i Angular/Solid) — i stället för en stor store har varje litet värde sin egen prenumeration, och härledda värden räknas om automatiskt.
 - **Static SSR med interaktiva öar** — i .NET 8+ kan Blazor rendera sidor som vanlig serverrenderad HTML (som MVC) och bara göra vissa komponenter interaktiva. Det suddar ut gränsen mellan webb-MVC och komponentarkitektur.
 
@@ -106,14 +106,14 @@ Lägg märke till `event Action? Ändrad` — det är [Observer-mönstret](../go
 
 | Mönster | Typisk plattform | Var bor state? | Hur når ändringen vyn? | Välj när | Undvik när |
 |---|---|---|---|---|---|
-| [MVC](mvc/) (klassisk) | Smalltalk, äldre GUI | Muterbar modell | Vyn lyssnar på modellen | Du vill förstå grunden | Stora appar — event-spaghetti |
-| [Webb-MVC](webb-mvc/) | ASP.NET MVC | Databas / tjänster | Ny HTML per förfrågan | Serverrenderade sajter, SEO, många sidor | Mycket interaktivitet i webbläsaren |
-| [Razor Pages](webb-mvc/#razor-pages--page-controller) | ASP.NET Core | Databas / tjänster | Ny HTML per förfrågan | Formulär- och CRUD-sidor, enklare än MVC | Du behöver ett API för andra klienter också |
-| [MVP](mvp/) | WinForms | Modell, presentern synkar | Presentern anropar vyn | WinForms där logiken ska vara testbar | Plattformen har bra databindning |
-| [MVVM](mvvm/) | WPF, MAUI, Avalonia | ViewModel | Databindning | XAML-plattformar | Plattform utan databindning |
-| [Komponenter](komponenter/) + scoped service | Blazor | Komponenten / tjänst | Re-render vid ändring | De flesta Blazor-appar | — börja alltid här i Blazor |
-| [Flux/Redux](flux-redux/) | Blazor (Fluxor), React | En central store | Vyn selectar ny state | Mycket delad state, spårbarhet, stort team | Små appar — boilerplaten kostar mer än den ger |
-| [MVU](mvu/) | Elm, Fabulous, MauiReactor | En enda immutabel modell | Vyn är en funktion av modellen | Du gillar funktionell stil och förutsägbarhet | Teamet är vant vid MVVM och verktygen saknas |
+| [MVC](mvc.md) (klassisk) | Smalltalk, äldre GUI | Muterbar modell | Vyn lyssnar på modellen | Du vill förstå grunden | Stora appar — event-spaghetti |
+| [Webb-MVC](webb-mvc.md) | ASP.NET MVC | Databas / tjänster | Ny HTML per förfrågan | Serverrenderade sajter, SEO, många sidor | Mycket interaktivitet i webbläsaren |
+| [Razor Pages](webb-mvc.md#razor-pages--page-controller) | ASP.NET Core | Databas / tjänster | Ny HTML per förfrågan | Formulär- och CRUD-sidor, enklare än MVC | Du behöver ett API för andra klienter också |
+| [MVP](mvp.md) | WinForms | Modell, presentern synkar | Presentern anropar vyn | WinForms där logiken ska vara testbar | Plattformen har bra databindning |
+| [MVVM](mvvm.md) | WPF, MAUI, Avalonia | ViewModel | Databindning | XAML-plattformar | Plattform utan databindning |
+| [Komponenter](komponenter.md) + scoped service | Blazor | Komponenten / tjänst | Re-render vid ändring | De flesta Blazor-appar | — börja alltid här i Blazor |
+| [Flux/Redux](flux-redux.md) | Blazor (Fluxor), React | En central store | Vyn selectar ny state | Mycket delad state, spårbarhet, stort team | Små appar — boilerplaten kostar mer än den ger |
+| [MVU](mvu.md) | Elm, Fabulous, MauiReactor | En enda immutabel modell | Vyn är en funktion av modellen | Du gillar funktionell stil och förutsägbarhet | Teamet är vant vid MVVM och verktygen saknas |
 
 Och om valet står mellan plattformar snarare än mönster:
 

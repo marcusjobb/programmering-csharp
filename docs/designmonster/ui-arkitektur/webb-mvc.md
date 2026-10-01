@@ -7,7 +7,7 @@ nav_order: 20
 
 # Webb-MVC — ASP.NET MVC
 
-> Del 2 av [UI-arkitektur](../). **Bygger på:** [MVC](../mvc/) — men på webben finns ingen vy som kan lyssna på modellen. Modellen `Kundvagn` som används här finns i [översikten](../#exemplet-en-kundvagn).
+> Del 2 av [UI-arkitektur](index.md). **Bygger på:** [MVC](mvc.md) — men på webben finns ingen vy som kan lyssna på modellen. Modellen `Kundvagn` som används här finns i [översikten](index.md#exemplet-en-kundvagn).
 
 ## När du läst detta ska du kunna
 
@@ -109,7 +109,7 @@ KundvagnWebb/
 └── Program.cs
 ```
 
-Ett komplett exempel med ett riktigt externt API hittar du i [MVC och API](../../../api/apimvc/) — den här sidan upprepar inte det.
+Ett komplett exempel med ett riktigt externt API hittar du i [MVC och API](../../api/apimvc.md) — den här sidan upprepar inte det.
 
 ## Razor Pages — Page Controller
 
@@ -168,4 +168,4 @@ KundvagnPages/
 
 ---
 
-← [MVC](../mvc/) · [MVP](../mvp/) →
+← [MVC](mvc.md) · [MVP](mvp.md) →

@@ -255,7 +255,7 @@ git commit -m "Mina ändringar"
 git push
 ```
 
-Om det uppstår en konflikt när du pullar — se [`git_konflikter.md`](git_konflikter.md).
+Om det uppstår en konflikt när du pullar — se [Git-konflikter](git-konflikter.md).
 
 ---
 
@@ -270,7 +270,7 @@ Du har inte gjort en commit ännu. Kör `git add .` och `git commit` innan `git 
 
 **"Updates were rejected" / "fetch first"**
 GitHub har ändringar som du inte har lokalt. Kör `git pull` och lös eventuella
-konflikter, sedan `git push`. Se [`git_konflikter.md`](git_konflikter.md) om det krånglar.
+konflikter, sedan `git push`. Se [Git-konflikter](git-konflikter.md) om det krånglar.
 
 **"nothing to commit, working tree clean"**
 Ingenting har ändrats sedan senaste commit. Det är inte ett fel — det är bra!

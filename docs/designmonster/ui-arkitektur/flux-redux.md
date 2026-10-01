@@ -7,7 +7,7 @@ nav_order: 60
 
 # Flux och Redux — Blazor med Fluxor
 
-> Del 6 av [UI-arkitektur](../). **Bygger på:** [komponentarkitektur](../komponenter/) — men när många delar ändrar samma state blir det svårt att veta *varför* skärmen visar det den visar.
+> Del 6 av [UI-arkitektur](index.md). **Bygger på:** [komponentarkitektur](komponenter.md) — men när många delar ändrar samma state blir det svårt att veta *varför* skärmen visar det den visar.
 
 ## När du läst detta ska du kunna
 
@@ -216,7 +216,7 @@ KundvagnFluxor/
 └── Program.cs                   ← AddFluxor(...)
 ```
 
-**Behöver du Fluxor?** Ofta inte. Mängden kod ovan jämfört med `KundvagnTjänst` på [förra sidan](../komponenter/#state-management-i-blazor--oftast-räcker-det-enkla) säger det mesta. Fluxor lönar sig när många komponenter läser och ändrar samma state, när du behöver kunna spåra *varför* state ändrades, eller när teamet redan kan Redux.
+**Behöver du Fluxor?** Ofta inte. Mängden kod ovan jämfört med `KundvagnTjänst` på [förra sidan](komponenter.md#state-management-i-blazor--oftast-räcker-det-enkla) säger det mesta. Fluxor lönar sig när många komponenter läser och ändrar samma state, när du behöver kunna spåra *varför* state ändrades, eller när teamet redan kan Redux.
 
 ## I React-världen efter Redux
 
@@ -232,4 +232,4 @@ Redux kritiserades för mycket boilerplate, och React-världen har gått vidare 
 
 ---
 
-← [Komponentarkitektur](../komponenter/) · [MVU](../mvu/) →
+← [Komponentarkitektur](komponenter.md) · [MVU](mvu.md) →
