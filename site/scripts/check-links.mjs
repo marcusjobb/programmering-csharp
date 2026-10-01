@@ -28,7 +28,8 @@ function* markdownFiles(dir) {
 }
 
 function parse(file) {
-  const text = fs.readFileSync(file, 'utf8').replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
+  // Frontmatter byts mot lika många tomrader, så att radnumren stämmer med filen
+  const text = fs.readFileSync(file, 'utf8').replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, (fm) => fm.replace(/[^\n]/g, ''));
   return parser.parse(text);
 }
 
