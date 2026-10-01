@@ -754,3 +754,25 @@ div.highlight pre.highlight,
 #pagefind-ui-container .pagefind-ui__result-link { color: var(--accent); font-weight: 600; }
 #pagefind-ui-container .pagefind-ui__result-excerpt { color: var(--text-muted); font-size: 0.875rem; }
 #pagefind-ui-container .pagefind-ui__message { color: var(--text-muted); font-size: 0.875rem; padding: 0.5rem 0; }
+
+/* -- Diagram (inline SVG i markdown) --
+   Anvands av sidorna under diagram/. Fargerna foljer temat via tokens ovan.
+   Klasser: box/hl/q1-q4 = ytor, line/dash = linjer, part/leader = namn pa delar. */
+.dg { display: block; width: 100%; max-width: 720px; height: auto; margin: 1.25rem auto; font-family: inherit; overflow: visible; }
+.dg text { fill: var(--text); font-size: 15px; }
+.dg .muted { fill: var(--text-muted); font-size: 13px; }
+.dg .title { font-weight: 700; }
+.dg .box { fill: var(--bg-elevated); stroke: var(--text-muted); stroke-width: 1.5; }
+.dg .hl { fill: var(--brand-soft); stroke: var(--brand); stroke-width: 1.5; }
+.dg .q1 { fill: var(--callout-danger-bg); stroke: var(--callout-danger-border); stroke-width: 1.5; }
+.dg .q2 { fill: var(--callout-note-bg); stroke: var(--callout-note-border); stroke-width: 1.5; }
+.dg .q3 { fill: var(--callout-warning-bg); stroke: var(--callout-warning-border); stroke-width: 1.5; }
+.dg .q4 { fill: var(--callout-tip-bg); stroke: var(--callout-tip-border); stroke-width: 1.5; }
+.dg .line { stroke: var(--text-muted); stroke-width: 1.5; fill: none; }
+.dg .strong { stroke: var(--text); }
+.dg .dash { stroke-dasharray: 6 4; }
+.dg .ink { fill: var(--text-muted); stroke: none; }
+.dg .solid { fill: var(--text); stroke: none; }
+.dg .part { fill: var(--brand); font-size: 13px; font-weight: 600; }
+.dg .leader { stroke: var(--brand); stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+.dg .dot { fill: var(--brand); }

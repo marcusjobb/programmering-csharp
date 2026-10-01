@@ -84,7 +84,7 @@ if (isRaining)
 }
 else
 {
-    Console.WriteLine("Lämna paraplyt hemma.");
+    Console.WriteLine("Lämna paraplyet hemma.");
 }
 
 Console.WriteLine("Gå ut.");
@@ -93,8 +93,8 @@ Console.WriteLine("Gå ut.");
 ### Output
 
 ```
-Ta med umbrella!
-Go ut.
+Ta med paraply!
+Gå ut.
 ```
 
 ## Loopar i flödesscheman
@@ -111,11 +111,11 @@ En loop är en pil som **går tillbaka** — slingan upprepas tills villkoret ä
     └──────┬──────┘
            │  ◄────────────────────────┐
     ┌──────▼──────┐                    │
-    │  i <= 5?    │──No──► END       │
+    │  i <= 5?    │──Nej─► SLUT        │
     └──────┬──────┘                    │
           Ja                           │
     ┌──────▼──────┐                    │
-    │ Write ut i  │                    │
+    │ Skriv ut i  │                    │
     └──────┬──────┘                    │
     ┌──────▼──────┐                    │
     │   i = i + 1 │────────────────────┘
@@ -126,10 +126,10 @@ Pseudokod:
 
 ```
 i = 1
-So long i <= 5
-  Write ut i
+Så länge i <= 5
+  Skriv ut i
   i = i + 1
-End so long
+Slut så länge
 ```
 
 C#:
