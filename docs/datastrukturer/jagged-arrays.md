@@ -29,9 +29,6 @@ triangel[2] = new int[] { 1, 2, 3 };
 triangel[3] = new int[] { 1, 2, 3, 4 };
 ```
 
-_OMG! Detta är ett monster_ 🤯
-_En icke-fyrkantig tvådimensionell array..._ 
-
 `new int[4][]` skapar bara den yttre arrayen — fyra platser som var och en ska innehålla en egen `int[]`. Lägg märke till att de fyra raderna sätts separat, och att var och en får precis så många element som den behöver. Det går inte att skriva `new int[4][4]` och förvänta sig samma sak som en riktig matris — de två hakparentespar-varianterna, `[,]` och `[][]`, är två helt olika datastrukturer.
 
 ## Loopa igenom en jagged array
@@ -48,8 +45,6 @@ for (int rad = 0; rad < triangel.Length; rad++)
 ```
 
 Lägg märke till skillnaden mot en riktig matris: inre loopens gräns är `triangel[rad].Length`, inte ett fast tal — varje rad frågas om sin **egen** längd, eftersom den kan skilja sig från de andra. Adressering sker också med två separata hakparenteser, `triangel[rad][kolumn]`, till skillnad från matrisens `matrix[rad, kolumn]` med ett gemensamt par.
-
-_Var är huvudvärkstabletterna?_ 😒
 
 ## När väljer man vilken?
 

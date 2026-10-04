@@ -32,7 +32,7 @@ Console.WriteLine(string.Join(", ", reversed));
 #### Förväntad output
 
 ```
-Capybara, Rabbit, Dog, Cat
+Capybara, Kanin, Hund, Katt
 ```
 
 #### Facit

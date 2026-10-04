@@ -1,115 +1,64 @@
 ---
-title: Plocka ut en del av en array och skapa en ny array av det.
-description: "I denna övning ska vi skapa en array med 10 heltal och sedan plocka ut de fem första talen från den ursprungliga arrayen för att skapa en ny array."
+title: Plocka ut en del av en array
+description: "Skapa en array med 10 heltal, och plocka ut de fem första talen till en ny array."
 parent: Array övningar
 nav_order: 10
 ---
-# Plocka ut en del av en array och skapa en ny array av det.
+# Plocka ut en del av en array
 
-I denna övning ska vi skapa en array med 10 heltal och sedan plocka ut de fem första talen från den ursprungliga arrayen för att skapa en ny array.
+Skriv ett program som skapar en array med 10 heltal, och plockar ut de fem första talen till en ny, separat array.
 
 ## Instruktioner
 
 1. Skapa en array med 10 heltal.
 2. Skapa en ny array som innehåller de fem första talen i den första arrayen.
-3. Skriv ut den nya arrayen.
+3. Skriv ut båda arrayerna.
 
-## Kodexempel
+## Kodmall
 
 ```csharp
-using System;
+int[] numbers = { 5, 2, 7, 1, 9, 3, 8, 4, 6, 10 };
 
-public class MainClass
-{
-    public static void Main(string[] args)
-    {
-        // Skapa en array med 10 heltal
-        int[] integer = { 5, 2, 7, 1, 9, 3, 8, 4, 6, 10 };
+// Skapa en ny array med de fem första talen från "numbers"
 
-        // Skriv ut den ursprungliga arrayen
-        Console.Write("Siffror: ");
-        PrintArray(integer);
 
-        // Skapa en ny array som innehåller de fem första talen i den första arrayen
-        int[] femForsta = new int[5];
-        Array.Copy(integer, femForsta, 5);
-
-        // Skriv ut den nya arrayen
-        Console.Write("De fem första talen: ");
-        PrintArray(femForsta);
-    }
-
-    private static void PrintArray(int[] array)
-    {
-        foreach (int num in array)
-        {
-            Console.Write(num + " ");
-        }
-        Console.WriteLine();
-    }
-}
+// Skriv ut båda arrayerna
 ```
 
-## Resultat
+#### Förväntad output
 
-```text
+```
 Siffror: 5 2 7 1 9 3 8 4 6 10
 De fem första talen: 5 2 7 1 9
 ```
 
-I det här exemplet skapar vi en array med 10 heltal och därefter kopierar vi de fem första talen till en ny array. Den ursprungliga arrayen och den nya arrayen skrivs sedan ut.
-
-Kom ihåg att det här bara är ett exempel på hur du kan lösa uppgiften. Det finns flera sätt att plocka ut en del av en array i C#.
-
-### Facit
+#### Facit
 
 <details markdown="block">
-    <summary>Klicka här för att se facit</summary>
+<summary>Klicka här för att se facit</summary>
 
 ```csharp
-using System;
+int[] numbers = { 5, 2, 7, 1, 9, 3, 8, 4, 6, 10 };
 
-public class MainClass
-{
-    public static void Main(string[] args)
-    {
-        // Skapa en array med 10 heltal
-        int[] integer = { 5, 2, 7, 1, 9, 3, 8, 4, 6, 10 };
+int[] firstFive = new int[5];
+Array.Copy(numbers, firstFive, 5);
 
-        // Skriv ut den ursprungliga arrayen
-        Console.Write("Siffror: ");
-        PrintArray(integer);
+Console.WriteLine("Siffror: " + string.Join(" ", numbers));
+Console.WriteLine("De fem första talen: " + string.Join(" ", firstFive));
+```
 
-        // Skapa en ny array som innehåller de fem första talen i den första arrayen
-        int[] femForsta = new int[5];
-        Array.Copy(integer, femForsta, 5);
+`Array.Copy(källa, mål, antal)` kopierar ett angivet antal element från början av källarrayen till målarrayen — här de fem första talen från `numbers` in i den nya, mindre `firstFive`.
 
-        // Skriv ut den nya arrayen
-        Console.Write("De fem första talen: ");
-        PrintArray(femForsta);
-    }
+Samma resultat går även att nå med LINQ:
 
-    private static void PrintArray(int[] array)
-    {
-        foreach (int num in array)
-        {
-            Console.Write(num + " ");
-        }
-        Console.WriteLine();
-    }
-}
+```csharp
+int[] firstFive = numbers.Take(5).ToArray();
 ```
 
 </details>
 
-I facit-lösningen ovan skapar vi först en array med 10 heltal. Sedan skriver vi ut den ursprungliga arrayen genom att använda hjälpmetoden `PrintArray`. Därefter skapar vi en ny array `femForsta` med en storlek på 5 och kopierar de fem första talen från den ursprungliga arrayen till den nya arrayen med hjälp av `Array.Copy`-metoden. Slutligen skriver vi ut den nya arrayen genom att använda `PrintArray` igen.
+## Obligatorisk dad-joke
 
-Det är viktigt att notera att detta bara är en av flera sätt att lösa uppgiften. Det finns andra metoder och tekniker som kan användas för att plocka ut en del av en array i C#. Använd gärna detta exempel som en grund och utforska olika sätt att lösa problemet på egen hand.
+Varför gick arrayen till terapeuten?
 
-Jag hoppas att denna artikel har varit till hjälp för dig att förstå hur man plockar ut en del av en array och skapar en ny array av det i C#. Om du har fler frågor eller behöver ytterligare hjälp, tveka inte att fråga!
-
-## Obligatorisk Dad-joke
-
-Varför gick arrayen till terapi?
-
-För att den hade för många olösta issues med indexering!
+Den hade för många olösta index att bearbeta.

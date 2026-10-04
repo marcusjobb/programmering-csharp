@@ -177,20 +177,8 @@ Se [Språkhistorik — C# 11](../grunder/sprakhistorik.md) för bakgrunden. Poä
 
 `<T>` är en platshållare för en typ som bestäms när klassen eller metoden används. Det ger dig en enda implementation som fungerar typsäkert för vilken typ som helst — istället för en klass per typ, eller att tappa typsäkerheten med `object`.
 
-Hela klasser kan vara generiska och då använda typen `T` 
+## Obligatorisk dad-joke
 
-```csharp
-class customer<T>
-{
+Varför är generics så bra på att hålla hemligheter?
 
-}
-```
-
-och metoder i sig kan också vara generiska
-
-```csharp
-public T DoSomething<T>(T inparam)
-{
-
-}
-```
+De vet inte vad `T` faktiskt är förrän precis i sista stund.
