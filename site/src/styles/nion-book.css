@@ -784,3 +784,10 @@ div.highlight pre.highlight,
   border-bottom: 1px solid var(--border);
 }
 .subpages-list .subpages-list { padding-left: 0.85rem; }
+
+/* Om sidan, Andra e-böcker, Licens — längst ner i vänstermenyn */
+.footer-list {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}

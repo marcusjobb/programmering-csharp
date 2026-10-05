@@ -20,6 +20,12 @@ const sections = allDocs
   .filter(e => e.data.parent === 'C# bok')
   .sort((a, b) => (a.data.nav_order ?? 99) - (b.data.nav_order ?? 99));
 
+// Sidor utan parent (Om sidan, Andra e-böcker, Licens) hör inte till något avsnitt.
+// De samlas i en liten grupp längst ner så att de går att hitta.
+const footerPages = allDocs
+  .filter(e => !e.data.parent && entryUrl(e) !== `${base}/`)
+  .sort((a, b) => (a.data.nav_order ?? 99) - (b.data.nav_order ?? 99));
+
 function getChildren(sectionTitle: string) {
   return allDocs
     .filter(e => e.data.parent === sectionTitle)
@@ -94,6 +100,23 @@ function getChildren(sectionTitle: string) {
       );
     })}
   </ul>
+
+  {footerPages.length > 0 && (
+    <ul class="module-list footer-list" aria-label="Om boken">
+      {footerPages.map(page => {
+        const pageUrl = entryUrl(page);
+        return (
+          <li>
+            <a class={`nav-link module-link${currentPath === pageUrl ? ' active' : ''}`}
+               href={pageUrl}
+               aria-current={currentPath === pageUrl ? 'page' : undefined}>
+              {page.data.title}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  )}
 </nav>
 
 <script>
