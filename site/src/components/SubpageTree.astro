@@ -1,0 +1,22 @@
+---
+// Rekursiv lista över en sidas undersidor (används i högermenyn, se Layout.astro)
+interface Props {
+  nodes: { entry: any; children: any[] }[];
+  base: string;
+}
+const { nodes, base } = Astro.props;
+
+function docUrl(e: any): string {
+  const id = e.id.replace(/\.mdx?$/, '').replace(/\/index$/, '').replace(/^index$/, '');
+  return id ? `${base}/${id}/` : `${base}/`;
+}
+---
+
+<ul class="toc-list subpages-list">
+  {nodes.map(n => (
+    <li class="toc-item">
+      <a class="toc-link" href={docUrl(n.entry)}>{n.entry.data.title}</a>
+      {n.children.length > 0 && <Astro.self nodes={n.children} base={base} />}
+    </li>
+  ))}
+</ul>

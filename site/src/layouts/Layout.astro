@@ -2,6 +2,7 @@
 import { ClientRouter } from 'astro:transitions';
 import { getCollection } from 'astro:content';
 import Sidebar from '../components/Sidebar.astro';
+import SubpageTree from '../components/SubpageTree.astro';
 import '../styles/nion-book.css';
 import { AUTHOR } from '../site.config';
 
@@ -39,6 +40,22 @@ function docUrl(e: any): string {
 }
 
 const siteOrigin = (Astro.site ? Astro.site.toString() : 'https://marcusjobb.github.io/').replace(/\/$/, '');
+
+// Undersidor i högermenyn: barn i den här sidans egen mapp (bara index-sidor har några).
+// Barn matchas på parent-titel. Är titeln en dubblett (t.ex. "Events" i flera avsnitt)
+// kräver vi dessutom att barnet ligger i den här sidans mapp, så att de inte hamnar under varandra.
+type SubNode = { entry: any; children: SubNode[] };
+const isIndexId = (id: string) => /(^|\/)index\.mdx?$/.test(id);
+const docsForTree = !isHome && entry && isIndexId(entry.id) ? await getCollection('docs') : [];
+function subpagesOf(e: any): SubNode[] {
+  const dir = e.id.replace(/\.mdx?$/, '').replace(/\/index$/, '');
+  const titleIsUnique = docsForTree.filter((d: any) => d.data.title === e.data.title).length === 1;
+  return docsForTree
+    .filter((c: any) => c.id !== e.id && c.data.parent === e.data.title && (titleIsUnique || c.id.startsWith(`${dir}/`)))
+    .sort((a: any, b: any) => (a.data.nav_order ?? 99) - (b.data.nav_order ?? 99))
+    .map((c: any) => ({ entry: c, children: isIndexId(c.id) ? subpagesOf(c) : [] }));
+}
+const subpages: SubNode[] = docsForTree.length > 0 ? subpagesOf(entry) : [];
 
 const breadcrumbItems: { name: string; url: string }[] = [
   { name: siteTitle, url: `${siteOrigin}${base}/` },
@@ -193,9 +210,19 @@ const jsonLd = {
     )}
   </main>
 
-  <aside class="toc" aria-label="På den här sidan" id="toc-aside">
-    <p class="toc-heading">På den här sidan</p>
-    <nav id="toc-nav"></nav>
+  <aside class="toc" aria-label="Sidans innehåll" id="toc-aside" data-has-subpages={subpages.length > 0 ? 'true' : 'false'}>
+    {subpages.length > 0 && (
+      <div class="subpages">
+        <p class="toc-heading">Undersidor</p>
+        <nav aria-label="Undersidor">
+          <SubpageTree nodes={subpages} base={base} />
+        </nav>
+      </div>
+    )}
+    <div id="toc-section">
+      <p class="toc-heading">På den här sidan</p>
+      <nav id="toc-nav"></nav>
+    </div>
   </aside>
 </div>
 
@@ -348,12 +375,20 @@ document.addEventListener('astro:page-load', () => {
   const prose = document.querySelector('.prose');
   const tocNav = document.getElementById('toc-nav');
   const tocAside = document.getElementById('toc-aside') as HTMLElement | null;
+  const tocSection = document.getElementById('toc-section') as HTMLElement | null;
+  const hasSubpages = tocAside?.dataset.hasSubpages === 'true';
   if (tocNav) tocNav.innerHTML = '';
   if (tocAside) tocAside.hidden = false;
+  if (tocSection) tocSection.hidden = false;
   if (!prose || !tocNav || !tocAside) return;
 
   const headings = prose.querySelectorAll('h2, h3');
-  if (headings.length < 2) { tocAside.hidden = true; return; }
+  if (headings.length < 2) {
+    // Rubrikerna räcker inte till en innehållsförteckning — men undersidorna ska synas ändå
+    if (tocSection) tocSection.hidden = true;
+    tocAside.hidden = !hasSubpages;
+    return;
+  }
 
   const ul = document.createElement('ul');
   ul.className = 'toc-list';

@@ -776,3 +776,11 @@ div.highlight pre.highlight,
 .dg .part { fill: var(--brand); font-size: 13px; font-weight: 600; }
 .dg .leader { stroke: var(--brand); stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
 .dg .dot { fill: var(--brand); }
+
+/* Undersidor i högermenyn */
+.subpages {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.subpages-list .subpages-list { padding-left: 0.85rem; }
