@@ -2,7 +2,7 @@
 title: Ordlista
 description: "Här finns några ordlistor med vanliga ord och uttryck som används inom IT världen, med korta förklaringar."
 parent: C# bok
-nav_order: 10
+nav_order: 985
 has_children: True
 ---
 # Ordlista
