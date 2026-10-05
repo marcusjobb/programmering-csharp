@@ -76,7 +76,7 @@ public class KundvagnPresenter
 }
 ```
 
-Formuläret implementerar interfacet och gör bara det — läser och skriver kontroller. (Här byggs kontrollerna i kod för att exemplet ska bli komplett; i ett riktigt projekt gör du det i [designern](../../gui/windows-forms.md).)
+Formuläret implementerar interfacet och gör bara det — läser och skriver kontroller. (Här byggs kontrollerna i kod för att exemplet ska bli komplett; i ett riktigt projekt gör du det i [designern](../../gui/windows-forms/index.md).)
 
 ```csharp
 using System.ComponentModel;

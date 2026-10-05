@@ -115,7 +115,7 @@ KundvagnBlazor/
 └── Program.cs
 ```
 
-Läs mer om grunderna i [Blazor](../../aspnetcore/blazor.md).
+Läs mer om grunderna i [Blazor](../../aspnetcore/blazor/index.md).
 
 ---
 
