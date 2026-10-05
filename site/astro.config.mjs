@@ -5,6 +5,7 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { fileURLToPath } from 'node:url';
 import remarkDocLinks from './src/plugins/doc-links.mjs';
+import remarkKramdownIal from './src/plugins/kramdown-ial.mjs';
 
 const base = '/programmering-csharp';
 // Converts ```mermaid blocks to <pre class="mermaid"> before expressive-code sees them
@@ -40,6 +41,8 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [
       remarkMermaid,
+      // Jekyll-markeringar som {: .important } och {: .btn } (se pluginet)
+      remarkKramdownIal,
       // Relativa länkar räknas från källfilen och blir absoluta URL:er (se pluginet)
       [remarkDocLinks, { docsDir: fileURLToPath(new URL('../docs', import.meta.url)), base }],
     ],
