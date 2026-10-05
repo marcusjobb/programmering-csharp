@@ -291,5 +291,3 @@ Här samlas allt: den gyllene regeln (`SELECT` först), en subquery som översä
 ---
 
 Föregående: [INSERT](insert.md) · [Tillbaka till översikten](index.md) · Nästa: [DELETE](delete.md)
-
-*Av Marcus Ackre Medina · Nion Education · marcus.medina@nionit.com*

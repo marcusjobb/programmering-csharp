@@ -396,5 +396,3 @@ Det här är en av de vanligaste buggarna i riktig SQL. Den syns inte förrän d
 ---
 
 Föregående: [SELECT](select.md) · [Tillbaka till översikten](index.md) · Nästa: [ORDER BY](order-by.md)
-
-*Av Marcus Ackre Medina · Nion Education · marcus.medina@nionit.com*

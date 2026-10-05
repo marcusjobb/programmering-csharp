@@ -258,5 +258,3 @@ Det är bra att veta, men skriv gärna `AND p.village_id IS NOT NULL` ändå. D�
 ---
 
 Föregående: [JOIN](join.md) · [Tillbaka till översikten](index.md) · Nästa: [COALESCE](coalesce.md)
-
-*Av Marcus Ackre Medina · Nion Education · marcus.medina@nionit.com*

@@ -238,5 +238,3 @@ Resultatet är 420 (500 − 80). Du kan räkna med aggregat precis som med vanli
 ---
 
 Föregående: [ORDER BY](order-by.md) · [Tillbaka till översikten](index.md) · Nästa: [GROUP BY](group-by.md)
-
-*Av Marcus Ackre Medina · Nion Education · marcus.medina@nionit.com*

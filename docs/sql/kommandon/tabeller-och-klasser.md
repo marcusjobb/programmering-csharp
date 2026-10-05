@@ -564,5 +564,3 @@ Kom ihåg det här när du börjar med Entity Framework. Där skrivs din LINQ om
 [Tillbaka till översikten](index.md)
 
 Du kunde redan klasser. Nu ser du att du har kunnat tänka i tabeller hela tiden. Snyggt jobbat! 💪
-
-*Av Marcus Ackre Medina · Nion Education · marcus.medina@nionit.com*

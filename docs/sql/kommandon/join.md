@@ -346,5 +346,3 @@ Någon gång kommer du att se en rapport där summorna är tre gånger för stor
 ---
 
 Föregående: [GROUP BY](group-by.md) · [Tillbaka till översikten](index.md) · Nästa: [Subquery](subquery.md)
-
-*Av Marcus Ackre Medina · Nion Education · marcus.medina@nionit.com*

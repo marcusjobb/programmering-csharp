@@ -266,5 +266,3 @@ Föregående: [UPDATE](update.md) · [Tillbaka till översikten](index.md)
 Vill du öva mer? Testa [SQL Island](https://sql-island.informatik.uni-kl.de/) och [SQL Murder Mystery](https://mystery.knightlab.com/), två spel som löses helt med SQL.
 
 Snyggt jobbat! Nu kan du läsa, filtrera, sortera, räkna, koppla ihop och ändra data. Det är grunden i nästan allt du kommer att göra med en databas. 💪
-
-*Av Marcus Ackre Medina · Nion Education · marcus.medina@nionit.com*

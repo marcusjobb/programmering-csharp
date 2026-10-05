@@ -93,5 +93,3 @@ Skriptet är skrivet för SQLite. I SQL Server skriver du `INT IDENTITY(1,1) PRI
 ---
 
 [Tillbaka till översikten](index.md)
-
-*Av Marcus Ackre Medina · Nion Education · marcus.medina@nionit.com*

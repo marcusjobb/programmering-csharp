@@ -297,5 +297,3 @@ Jämför med övning 2. Där var piloten med, eftersom hans hög hade 500. Nu f�
 ---
 
 Föregående: [Aggregatfunktioner](aggregat.md) · [Tillbaka till översikten](index.md) · Nästa: [JOIN](join.md)
-
-*Av Marcus Ackre Medina · Nion Education · marcus.medina@nionit.com*

@@ -80,5 +80,3 @@ När du har läst sidorna kan du testa dina kunskaper i två spel som löses hel
 | [SQL Murder Mystery](https://mystery.knightlab.com/) | Du löser ett mord genom att söka i polisens databas | Lite mer: flera `JOIN` i kedja, `GROUP BY`, `HAVING` |
 
 ---
-
-*Av Marcus Ackre Medina · Nion Education · marcus.medina@nionit.com*
