@@ -1,6 +1,7 @@
 ---
 title: APIer
 description: "Ett API (Application Programming Interface) är ett gränssnitt som låter din applikation prata med andra applikationer — eller låter andra prata med din."
+parent: C# bok
 nav_order: 120
 has_children: true
 ---

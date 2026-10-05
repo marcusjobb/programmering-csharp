@@ -1,6 +1,7 @@
 ---
 title: Testa din kod
 description: "Kod som aldrig testas är kod du hoppas fungerar. Kod som testas är kod du vet fungerar."
+parent: C# bok
 nav_order: 115
 has_children: true
 ---
