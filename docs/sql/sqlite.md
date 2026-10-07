@@ -34,6 +34,8 @@ SQLite är troligen den mest använda databasen i världen. Firefox, Android och
 
 ## Skapa en databas i C#
 
+> Vill du ha det steg för steg, med projektfil och NuGet förklarade? Läs [SQLite i C#](sqlite-i-csharp.md) och sedan [SQLite-handler](sqlite-handler.md).
+
 Installera paketet:
 
 ```bash
