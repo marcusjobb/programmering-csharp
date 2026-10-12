@@ -20,7 +20,7 @@ Besättningen på fraktskeppet **Kometen** visar hur båda sätten fungerar.
 | ![Raiko](bilder/manga/raiko.jpg) | **Raiko** | pirat, inte någon vän |
 | ![Mamo](bilder/manga/mamo.jpg) | **Mamo** | handlare med en kappa full av fickor |
 
-> Koden använder NuGet-paketet `Microsoft.Data.Sqlite`, samma som i [SQLite i C#](sqlite-i-csharp.md). Där står hur du skapar projektet och installerar paketet.
+> Kapitlen nedan använder SQLite som standardexempel. Vill du byta databas? Se [Välj din databas](#välj-din-databas) längst ner — API:et är detsamma, bara anslutningssträngen och klassnamnen skiljer sig.
 
 ## Kapitel 1 — Piratmetoden: kommunikation utan förväntat svar
 
@@ -231,30 +231,274 @@ Felmeddelandet talar om vilken parameter i SQL-satsen som saknar värde. Läs de
 
 **Använd alltid parametrar**, oavsett om värdet är text eller en siffra. Det skyddar mot [SQL injection](sql-injection.md), och du slipper tänka på citattecken och decimaltecken.
 
-## Testa själv
+## Välj din databas
 
-Vill du köra exemplen behöver databasen tabellerna och lite data. Kör den här koden en gång innan:
+SQL-koden är **identisk** oavsett databas. Det som ändras är tre saker:
+
+| | SQLite | MySQL | PostgreSQL | SQL Server |
+|---|---|---|---|---|
+| **NuGet-paket** | `Microsoft.Data.Sqlite` | `MySqlConnector` | `Npgsql` | `Microsoft.Data.SqlClient` |
+| **Connection-klass** | `SqliteConnection` | `MySqlConnection` | `NpgsqlConnection` | `SqlConnection` |
+| **Command-klass** | `SqliteCommand` | `MySqlCommand` | `NpgsqlCommand` | `SqlCommand` |
+| **Server krävs** | Nej | Ja | Ja | Ja |
+
+---
+
+### SQLite — filbaserad, kräver ingen server
+
+```bash
+dotnet add package Microsoft.Data.Sqlite
+```
+
+```xml
+<PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.0" />
+```
 
 ```csharp
+using Microsoft.Data.Sqlite;
+
+const string conn = "Data Source=Space.db";
+```
+
+---
+
+### MySQL — server eller Docker
+
+```bash
+dotnet add package MySqlConnector
+```
+
+```xml
+<PackageReference Include="MySqlConnector" Version="2.3.7" />
+```
+
+Starta en MySQL-server med Docker:
+
+```bash
+docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=hemligt --name mysql-space mysql
+```
+
+```csharp
+using MySqlConnector;
+
+const string conn = "Server=localhost;Database=space;User ID=root;Password=hemligt;";
+```
+
+---
+
+### PostgreSQL — server eller Docker
+
+```bash
+dotnet add package Npgsql
+```
+
+```xml
+<PackageReference Include="Npgsql" Version="8.0.3" />
+```
+
+Starta en PostgreSQL-server med Docker:
+
+```bash
+docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=hemligt --name postgres-space postgres
+```
+
+```csharp
+using Npgsql;
+
+const string conn = "Host=localhost;Database=space;Username=postgres;Password=hemligt;";
+```
+
+---
+
+### SQL Server — LocalDB (Windows) eller Docker
+
+```bash
+dotnet add package Microsoft.Data.SqlClient
+```
+
+```xml
+<PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+```
+
+**LocalDB** (Windows, kräver Visual Studio-installation):
+
+```csharp
+using Microsoft.Data.SqlClient;
+
+const string conn = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=space;Integrated Security=true;";
+```
+
+**Docker** (Linux, Mac, Windows):
+
+```bash
+docker run -d -p 1433:1433 \
+  -e SA_PASSWORD=HemligtL0senord! \
+  -e ACCEPT_EULA=Y \
+  --name sqlserver-space \
+  mcr.microsoft.com/mssql/server
+```
+
+```csharp
+using Microsoft.Data.SqlClient;
+
+const string conn = "Data Source=localhost;Initial Catalog=space;User ID=sa;Password=HemligtL0senord!;TrustServerCertificate=true;";
+```
+
+> **SQL Server:** kolumntypen `TEXT` heter `NVARCHAR(MAX)` i SQL Server. Setup-koden nedan visar rätt syntax.
+
+---
+
+## Testa själv
+
+Vill du köra exemplen behöver databasen tabellerna och lite data. Kör setup-koden en gång innan — välj rätt block för din databas.
+
+### SQLite
+
+```csharp
+using Microsoft.Data.Sqlite;
+
 using var setup = new SqliteConnection("Data Source=Space.db");
 setup.Open();
 using var c = setup.CreateCommand();
-c.CommandText = """
-    CREATE TABLE IF NOT EXISTS SpaceShips (Ship TEXT NOT NULL);
-    INSERT INTO SpaceShips VALUES ('Kometen'), ('PirateShip');
 
+c.CommandText = "CREATE TABLE IF NOT EXISTS SpaceShips (Ship TEXT NOT NULL)";
+c.ExecuteNonQuery();
+
+c.CommandText = "INSERT INTO SpaceShips VALUES ('Kometen'), ('PirateShip')";
+c.ExecuteNonQuery();
+
+c.CommandText = """
     CREATE TABLE IF NOT EXISTS MerchantItems (
         Merchant TEXT NOT NULL,
         Item     TEXT NOT NULL,
         Price    INTEGER
-    );
+    )
+    """;
+c.ExecuteNonQuery();
+
+c.CommandText = """
     INSERT INTO MerchantItems VALUES
         ('Mamo', 'Hyperdriftskristall', 500),
         ('Mamo', 'Snabbnudlar (12-pack)', 8),
         ('Mamo', 'Gratisprov', 0),
-        ('Okänd handlare', 'Begagnad robotarm', 120);
+        ('Okänd handlare', 'Begagnad robotarm', 120)
     """;
 c.ExecuteNonQuery();
 ```
 
-Handlarmetoden ger då tre rader. Den sista är förstås ett gratisprov.
+### MySQL
+
+```csharp
+using MySqlConnector;
+
+using var setup = new MySqlConnection("Server=localhost;Database=space;User ID=root;Password=hemligt;");
+setup.Open();
+using var c = setup.CreateCommand();
+
+c.CommandText = "CREATE TABLE IF NOT EXISTS SpaceShips (Ship TEXT NOT NULL)";
+c.ExecuteNonQuery();
+
+c.CommandText = "INSERT INTO SpaceShips VALUES ('Kometen'), ('PirateShip')";
+c.ExecuteNonQuery();
+
+c.CommandText = """
+    CREATE TABLE IF NOT EXISTS MerchantItems (
+        Merchant TEXT NOT NULL,
+        Item     TEXT NOT NULL,
+        Price    INT
+    )
+    """;
+c.ExecuteNonQuery();
+
+c.CommandText = """
+    INSERT INTO MerchantItems VALUES
+        ('Mamo', 'Hyperdriftskristall', 500),
+        ('Mamo', 'Snabbnudlar (12-pack)', 8),
+        ('Mamo', 'Gratisprov', 0),
+        ('Okänd handlare', 'Begagnad robotarm', 120)
+    """;
+c.ExecuteNonQuery();
+```
+
+### PostgreSQL
+
+```csharp
+using Npgsql;
+
+using var setup = new NpgsqlConnection("Host=localhost;Database=space;Username=postgres;Password=hemligt;");
+setup.Open();
+using var c = setup.CreateCommand();
+
+c.CommandText = "CREATE TABLE IF NOT EXISTS SpaceShips (Ship TEXT NOT NULL)";
+c.ExecuteNonQuery();
+
+c.CommandText = "INSERT INTO SpaceShips VALUES ('Kometen'), ('PirateShip')";
+c.ExecuteNonQuery();
+
+c.CommandText = """
+    CREATE TABLE IF NOT EXISTS MerchantItems (
+        Merchant TEXT NOT NULL,
+        Item     TEXT NOT NULL,
+        Price    INTEGER
+    )
+    """;
+c.ExecuteNonQuery();
+
+c.CommandText = """
+    INSERT INTO MerchantItems VALUES
+        ('Mamo', 'Hyperdriftskristall', 500),
+        ('Mamo', 'Snabbnudlar (12-pack)', 8),
+        ('Mamo', 'Gratisprov', 0),
+        ('Okänd handlare', 'Begagnad robotarm', 120)
+    """;
+c.ExecuteNonQuery();
+```
+
+### SQL Server
+
+```csharp
+using Microsoft.Data.SqlClient;
+
+// Skapa databasen om den inte finns (behövs bara en gång)
+using (var master = new SqlConnection("Data Source=localhost;Initial Catalog=master;User ID=sa;Password=HemligtL0senord!;TrustServerCertificate=true;"))
+{
+    master.Open();
+    using var mc = master.CreateCommand();
+    mc.CommandText = "IF NOT EXISTS (SELECT 1 FROM sys.databases WHERE name = 'space') CREATE DATABASE space";
+    mc.ExecuteNonQuery();
+}
+
+using var setup = new SqlConnection("Data Source=localhost;Initial Catalog=space;User ID=sa;Password=HemligtL0senord!;TrustServerCertificate=true;");
+setup.Open();
+using var c = setup.CreateCommand();
+
+c.CommandText = """
+    IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'SpaceShips')
+    CREATE TABLE SpaceShips (Ship NVARCHAR(MAX) NOT NULL)
+    """;
+c.ExecuteNonQuery();
+
+c.CommandText = "INSERT INTO SpaceShips VALUES ('Kometen'), ('PirateShip')";
+c.ExecuteNonQuery();
+
+c.CommandText = """
+    IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'MerchantItems')
+    CREATE TABLE MerchantItems (
+        Merchant NVARCHAR(MAX) NOT NULL,
+        Item     NVARCHAR(MAX) NOT NULL,
+        Price    INT
+    )
+    """;
+c.ExecuteNonQuery();
+
+c.CommandText = """
+    INSERT INTO MerchantItems VALUES
+        ('Mamo', 'Hyperdriftskristall', 500),
+        ('Mamo', 'Snabbnudlar (12-pack)', 8),
+        ('Mamo', 'Gratisprov', 0),
+        ('Okänd handlare', 'Begagnad robotarm', 120)
+    """;
+c.ExecuteNonQuery();
+```
+
+Handlarmetoden ger tre rader. Den sista är förstås ett gratisprov.

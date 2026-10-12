@@ -167,12 +167,15 @@ En **connection** (koppling) är vår linje till databasen. Strängen `"Data Sou
                 CREATE TABLE user (
                     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                     name TEXT NOT NULL
-                );
+                )
+            """;
+            command.ExecuteNonQuery();
 
+            command.CommandText = """
                 INSERT INTO user
                 VALUES (1, 'Brice'),
                        (2, 'Alexander'),
-                       (3, 'Nate');
+                       (3, 'Nate')
             """;
             int svar = command.ExecuteNonQuery(); // Detta är ingen fråga
             Console.WriteLine(svar); // 3 = 3 nya rader i tabellen
