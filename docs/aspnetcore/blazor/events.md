@@ -1,5 +1,5 @@
 ---
-title: Events
+title: Events i Blazor
 description: "@onclick, @oninput och resten av Blazors event-attribut kör C#-metoder direkt när något händer i webbläsaren — ingen JavaScript inblandad."
 parent: Blazor
 nav_order: 20

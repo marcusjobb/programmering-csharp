@@ -1,5 +1,5 @@
 ---
-title: Git
+title: Installera Git
 description: "Installera Git Git är ett versionhanteringssystem som används för att spara och hantera källkod. Det är ett av de mest använda versionhanteringssystemen i…"
 parent: Installation
 nav_order: 10

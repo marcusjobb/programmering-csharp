@@ -1,5 +1,5 @@
 ---
-title: Events
+title: Events i Windows Forms
 description: "I ett konsolprogram körs koden uppifrån och ned. I WinForms körs kod som svar på händelser — klick, textändringar, formulärets livscykel."
 parent: Windows Forms
 nav_order: 30
