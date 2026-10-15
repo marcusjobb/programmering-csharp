@@ -9,7 +9,7 @@ Underlag: `normalisering.md` (id-nummer som "n17" hänvisar dit). Strukturkarta 
    **Målet är att böckerna är lika bra**, inte bara lika långa: ett bra exempel, en bra övning eller en bra förklaring i den ena ska finnas i den andra, åt båda håll (fas 3B).
 3. **Ingen import mellan böckerna än.** Fas 1 flyttar, döper om och numrerar om sidor som redan finns. Inga texter kopieras från den ena boken till den andra.
 4. **Klart betyder** för varje punkt: `npm run check:links` och bygget går igenom i båda repona, och en commit per bok med en tydlig beskrivning. Bocka sedan punkten här.
-5. **Varje flytt eller namnbyte ändrar en URL.** Notera det i commit-meddelandet, och lägg en redirect om sidan funnits publicerat en tid (se D3).
+5. **Varje flytt eller namnbyte ändrar en URL.** Notera det i commit-meddelandet, och lägg en redirect i `redirects.json` (D3 beslutat: ja).
 6. **Python-boken senare:** masterindexet (F1-00) får en Pythonkolumn från början, så att Python bara ansluter till en färdig struktur.
 
 ## Beslut som behövs (Marcus)
@@ -31,7 +31,7 @@ Rekommendationen är redan inräknad i punkterna nedan, men de är inte bekräft
 ## Fas 0: Förberedelser (ingen strukturändring)
 
 - [x] **F0-01** Dubblettitlar i C#. *Klar 2026-10-15, ej incheckad.* Sidomenyn kopplar barn via titel, så bara titlar som har barn gav fel träd. Ändrat: `verktyg/installation/Gitinstallation.md` → "Installera Git", `gui/windows-forms/events.md` → "Events i Windows Forms", `aspnetcore/blazor/events.md` → "Events i Blazor". Verifierat: `check:links` 0 trasiga, bygge 350 sidor, Bankkonto-exemplet och Git-barnen ligger nu bara under rätt sida. **ER-diagram-dubbletten rörs inte här**: ingen av sidorna har barn, så det är ingen menybugg, och den löses i F2-16. Exempel, Testa dig själv och Datatyper är bladsidor och harmlösa. *(Källa 3 i "Saker jag hittade" var alltså överdriven.)*
-- [ ] **F0-02** Java: stavfelet `aualityassurance` blir `testa-din-kod` (mapp, URL och interna länkar). Görs här eftersom det ändå är en del av att få mappnamnen lika. Redirect enligt D3 (beslutat). *Källa: 4.*
+- [x] **F0-02** Java: `aualityassurance` → `testa-din-kod`. *Klar 2026-10-15, incheckad i programmering-java.* Inga andra sidor länkade dit. Gamla sex URL:er redirectar. Redirects ligger i `programmering-java/site/redirects.json` (läses av `astro.config.mjs`) och **ska fyllas på vid varje namnbyte i fas 1** (nyckel = gammal sökväg utan base, värde = ny fullständig sökväg med base). Verifierat: `check:links` 0 trasiga, bygge 143 sidor, redirect-HTML finns på de gamla adresserna.
 - [ ] **F0-03** Kontrollera att båda sidomenyerna (`Sidebar.astro`) sorterar på `nav_order` och kopplar `parent` på samma sätt. Om de skiljer sig, jämna ut det, annars blir samma `nav_order` olika ordning i böckerna.
 
 ## Fas 1: Struktur och ordning (bara index, ingen import)
