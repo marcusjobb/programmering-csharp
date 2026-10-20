@@ -33,7 +33,7 @@ public class Product
 }
 ```
 
-Entity Framework använder POCO-klasser för att mappa tabeller (se [Entiteter](../entityframework/entiteter.md)). Klassen vet ingenting om databasen — EF hanterar det åt dig.
+Entity Framework använder POCO-klasser för att mappa tabeller (se [Entiteter](../orm/entities.md)). Klassen vet ingenting om databasen — EF hanterar det åt dig.
 
 ## DTO — Data Transfer Object
 
@@ -176,7 +176,7 @@ app.MapPut("/users/{id:int}", (int id, UpdateUserRequest request, IUserRepositor
 });
 ```
 
-(`IUserRepository` är ett vanligt [Repository](../designmonster/repository-dependency-inversion.md). `IPasswordHasher<User>` följer med ASP.NET Core och registreras med `builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>()`.)
+(`IUserRepository` är ett vanligt [Repository](../design-patterns/repository-dependency-inversion.md). `IPasswordHasher<User>` följer med ASP.NET Core och registreras med `builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>()`.)
 
 Varför det är värt de extra klasserna:
 

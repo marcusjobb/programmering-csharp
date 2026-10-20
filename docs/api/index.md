@@ -21,10 +21,10 @@ Ett API (Application Programming Interface) är ett gränssnitt som låter din a
 
 4. [Endpoints](endpoints/)
 5. [Cors](cors/)
-6. [MVC och API](apimvc/)
+6. [MVC och API](api-mvc.md)
 
 ## Dokumentera API:et
 
 7. [Scalar och OpenAPI](scalar/)
 8. [Swagger och Swashbuckle](swagger/)
-9. [Testa dig själv](testa-dig-sjalv/)
+9. [Testa dig själv](test-yourself.md)

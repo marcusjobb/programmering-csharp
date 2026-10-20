@@ -13,10 +13,10 @@ AI-verktyg har förändrat hur vi skriver kod. Som programmerare möter du AI i 
 
 | Sektion | Innehåll |
 |---------|----------|
-| [AI-modeller](modeller/) | Översikt av Claude, ChatGPT, Gemini, Codex — vad de är och skiljer sig åt |
+| [AI-modeller](models/index.md) | Översikt av Claude, ChatGPT, Gemini, Codex — vad de är och skiljer sig åt |
 | [Prompting](prompting/) | Hur du kommunicerar effektivt med AI |
 | [AI-API](ai-api/) | Anropa AI:er programmatiskt från C# |
-| [Exempel](exempel/) | Chatbot, kodgenerator, beslutshjälpare |
+| [Exempel](examples/index.md) | Chatbot, kodgenerator, beslutshjälpare |
 
 ## Varför är detta relevant för en C#-utvecklare?
 

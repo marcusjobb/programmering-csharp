@@ -9,9 +9,9 @@ nav_order: 52
 
 **Verktyg:** .NET 10, NuGet-paketet `Microsoft.Data.Sqlite`
 
-I [SQLite i C#](sqlite-i-csharp.md) låg all databaskod i `Program.cs`. Det fungerar för ett litet exempel men blir snabbt rörigt. Nu flyttar vi databaskoden till en egen klass, `SQLiteHandler`. Då behöver `Program.cs` bara säga *vad* som ska hända, medan klassen vet *hur* det görs.
+I [SQLite i C#](sqlite-in-csharp.md) låg all databaskod i `Program.cs`. Det fungerar för ett litet exempel men blir snabbt rörigt. Nu flyttar vi databaskoden till en egen klass, `SQLiteHandler`. Då behöver `Program.cs` bara säga *vad* som ska hända, medan klassen vet *hur* det görs.
 
-> Läs gärna [SQLite i C#](sqlite-i-csharp.md) först. Där förklaras `SqliteConnection`, `ExecuteNonQuery`, `ExecuteScalar`, `ExecuteReader` och parametrar steg för steg. Här använder vi dem utan att förklara allt igen.
+> Läs gärna [SQLite i C#](sqlite-in-csharp.md) först. Där förklaras `SqliteConnection`, `ExecuteNonQuery`, `ExecuteScalar`, `ExecuteReader` och parametrar steg för steg. Här använder vi dem utan att förklara allt igen.
 
 ## 1. Skapa projektet
 
@@ -54,7 +54,7 @@ dotnet add package Microsoft.Data.Sqlite
 </Project>
 ```
 
-`<PropertyGroup>` innehåller projektets inställningar, och `<ItemGroup>` listar NuGet-paketen projektet behöver. Vad varje rad betyder och vilka paket som följer med automatiskt står i [SQLite i C#, avsnitt 3](sqlite-i-csharp.md#3-projektfilen-csproj).
+`<PropertyGroup>` innehåller projektets inställningar, och `<ItemGroup>` listar NuGet-paketen projektet behöver. Vad varje rad betyder och vilka paket som följer med automatiskt står i [SQLite i C#, avsnitt 3](sqlite-in-csharp.md#3-projektfilen-csproj).
 
 ## 3. Klassen och kopplingen
 
@@ -225,7 +225,7 @@ Varför blev det 6? Databasfilen finns kvar sedan förra körningen, så de tre 
 
 ## Före och efter
 
-| | [SQLite i C#](sqlite-i-csharp.md) | SQLite-handler |
+| | [SQLite i C#](sqlite-in-csharp.md) | SQLite-handler |
 |---|---|---|
 | Var finns SQL-koden? | i `Program.cs` | i klassen `SQLiteHandler` |
 | Koppling | en ny i varje metod | en, sparad i ett fält |

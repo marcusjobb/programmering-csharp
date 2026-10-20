@@ -11,13 +11,13 @@ När tabellerna blir fler blir det svårt att hålla dem i huvudet. Vilken tabel
 
 [dbdiagram.io](https://dbdiagram.io/) är ett gratis verktyg i webbläsaren. Du skriver tabellerna som text till vänster, och diagrammet ritas upp av sig självt till höger.
 
-Vi ritar hjältedatabasen från [Din första databas](forsta-databasen.md).
+Vi ritar hjältedatabasen från [Din första databas](first-database.md).
 
 ## 1. Kom igång
 
 Gå till [dbdiagram.io](https://dbdiagram.io/) och öppna appen. Vill du spara ditt diagram behöver du logga in.
 
-![dbdiagram.io med exempeldiagrammet](bilder/dbdiagram-start.png)
+![dbdiagram.io med exempeldiagrammet](images/dbdiagram-start.png)
 
 Rensa bort exemplet som ligger i textrutan till vänster, så börjar vi från noll.
 
@@ -51,7 +51,7 @@ Table City {
 }
 ```
 
-![Hero och City i diagrammet](bilder/dbdiagram-hero-city.png)
+![Hero och City i diagrammet](images/dbdiagram-hero-city.png)
 
 ## 4. Kopplingstabellen
 
@@ -68,7 +68,7 @@ Table HeroCity {
 }
 ```
 
-![Hero, City och HeroCity utan kopplingar](bilder/dbdiagram-tre-tabeller.png)
+![Hero, City och HeroCity utan kopplingar](images/dbdiagram-three-tables.png)
 
 ## 5. Rita kopplingarna
 
@@ -79,7 +79,7 @@ Ref: HeroCity.heroId > Hero.id [delete: cascade]
 Ref: HeroCity.cityId > City.id [delete: cascade]
 ```
 
-![Hela diagrammet med kopplingarna](bilder/dbdiagram-kopplingar.png)
+![Hela diagrammet med kopplingarna](images/dbdiagram-connections.png)
 
 `>` betyder *många-till-en*. Många rader i `HeroCity` kan peka på samma hjälte, och många kan peka på samma stad. `[delete: cascade]` är samma sak som `ON DELETE CASCADE` i SQL.
 
@@ -127,15 +127,15 @@ Ref: HeroCity.cityId > City.id [delete: cascade]
 
 Under **Export** kan dbdiagram skriva `CREATE TABLE`-satserna åt dig, för till exempel MySQL eller PostgreSQL. Men då måste man ha skapat ett konto på sidan. Jag rekommenderar att du hellre tar din DBML-kod och ber en AI omvandla den till vad du nu vill ha för språk, exempelvis SQLite eller varför inte C#.
 
-> ⚠️ **SQLite är lite speciellt.** Den exporterade koden lägger till främmande nycklar i efterhand med `ALTER TABLE ... ADD FOREIGN KEY`, och det stöder inte SQLite. För SQLite skriver vi dem direkt i `CREATE TABLE`, som vi gjorde i [Din första databas](forsta-databasen.md).
+> ⚠️ **SQLite är lite speciellt.** Den exporterade koden lägger till främmande nycklar i efterhand med `ALTER TABLE ... ADD FOREIGN KEY`, och det stöder inte SQLite. För SQLite skriver vi dem direkt i `CREATE TABLE`, som vi gjorde i [Din första databas](first-database.md).
 
 Till SQLite:
 
-![En AI omvandlar DBML till SQLite](bilder/dbdiagram-ai-sqlite.png)
+![En AI omvandlar DBML till SQLite](images/dbdiagram-ai-sqlite.png)
 
 Till C#:
 
-![En AI omvandlar DBML till C#-klasser](bilder/dbdiagram-ai-csharp.png)
+![En AI omvandlar DBML till C#-klasser](images/dbdiagram-ai-csharp.png)
 
 ## TL;DR
 

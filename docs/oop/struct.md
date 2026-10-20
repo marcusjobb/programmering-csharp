@@ -36,7 +36,7 @@ Ser nästan identisk ut med en klass — skillnaden ligger inte i syntaxen, utan
 
 ## Den avgörande skillnaden — värde, inte referens
 
-En `struct` är en **värdetyp**. Se [Värde- och referenstyper](../metoder/varde-och-referenstyper.md) för hela bakgrunden, men kärnan är:
+En `struct` är en **värdetyp**. Se [Värde- och referenstyper](../methods/value-and-reference-types.md) för hela bakgrunden, men kärnan är:
 
 ```csharp
 struct Point { public int X; public int Y; }
@@ -66,7 +66,7 @@ Structs är medvetet begränsade jämfört med klasser:
 | **Ingen arv** | En struct kan inte ärva från en annan struct eller class (bara implicit från `System.ValueType`) |
 | **Kan inte ärvas från** | Andra typer kan inte ärva en struct — `sealed` i praktiken, alltid |
 | **Kan implementera interfaces** | Det är tillåtet — en struct kan implementera `IComparable<T>` osv, bara inte ärva klasser |
-| **Kan inte vara `null`** | En struct har alltid ett värde — vill du tillåta "inget värde", använd `Point?` (nullable), se [Nullable typer](../variabler/nullable.md) |
+| **Kan inte vara `null`** | En struct har alltid ett värde — vill du tillåta "inget värde", använd `Point?` (nullable), se [Nullable typer](../variables/nullable.md) |
 
 ## Default-konstruktorn
 
@@ -92,7 +92,7 @@ object boxed = p;              // Boxing — kopia hamnar på heapen
 Point unboxed = (Point)boxed;  // Unboxing — kopieras tillbaka
 ```
 
-Boxing kostar prestanda (en heap-allokering du annars hade sluppit) och är en vanlig, osynlig källa till onödig belastning i kod som blandar structs med `object`, `ArrayList` eller icke-generiska API:er. Det är en av anledningarna till att generics (se [Generics](../datastrukturer/generics.md)) är att föredra — `List<Point>` boxar aldrig, `ArrayList` med `Point`-objekt gör det för varje element.
+Boxing kostar prestanda (en heap-allokering du annars hade sluppit) och är en vanlig, osynlig källa till onödig belastning i kod som blandar structs med `object`, `ArrayList` eller icke-generiska API:er. Det är en av anledningarna till att generics (se [Generics](../data-structures/generics.md)) är att föredra — `List<Point>` boxar aldrig, `ArrayList` med `Point`-objekt gör det för varje element.
 
 ## readonly struct
 

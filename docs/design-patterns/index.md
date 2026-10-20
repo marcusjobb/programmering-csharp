@@ -1,0 +1,13 @@
+---
+title: Designmönster
+description: "Ett designmönster är inte färdig kod — det är ett namngivet, återanvändbart svar på ett problem som dyker upp om och om igen i objektorienterad kod…"
+parent: C# bok
+nav_order: 85
+has_children: true
+---
+
+# Designmönster
+
+Ett designmönster är inte färdig kod — det är ett namngivet, återanvändbart svar på ett problem som dyker upp om och om igen i objektorienterad kod. Fördelen är lika mycket språket som lösningen: säger du "det här borde vara en Strategy" till en annan utvecklare förstår de direkt vad du menar, utan att du behöver förklara hela designen.
+
+Den här avdelningen börjar med [Factory och Strategy](factory-strategy.md) och [Repository och Dependency Inversion](repository-dependency-inversion.md) — två mönster valda för att de bygger direkt på det du redan kan: interfaces, [komposition över arv](../oop/composition-before-inheritance.md) och [generics](../data-structures/generics.md). [UI-arkitektur: från MVC till Flux](ui-architecture/index.md) visar hur samma idéer används för att dela upp program med ett användargränssnitt — MVC, MVP, MVVM, Flux/Redux och MVU. Därefter går [GoF-mönster](gof/index.md) igenom hela den klassiska katalogen (Gang of Four — 23 mönster), och [Antipatterns](anti-patterns.md) tar upp de vanligaste sätten det går fel när mönster missbrukas eller saknas helt.

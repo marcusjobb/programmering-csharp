@@ -7,7 +7,7 @@ nav_order: 39
 
 # Class, struct eller record — vilken?
 
-Du har nu läst om alla fyra — [Klasser](klasser.md), [Struct](struct.md) och [Records](records.md) — separat. Den här sidan samlar dem i en beslutstabell.
+Du har nu läst om alla fyra — [Klasser](classes.md), [Struct](struct.md) och [Records](records.md) — separat. Den här sidan samlar dem i en beslutstabell.
 
 ## De fyra alternativen
 
@@ -57,8 +57,8 @@ struct RGB { public byte R, G, B; }  // Litet, enkelt, sällan behöver Equals/w
 |---|---|---|
 | `Person` (i [Records](records.md)) | Data som jämförs på innehåll, ska inte muteras | `record` |
 | `Point` (i [Struct](struct.md)) | Litet värde, kopieras billigt | `struct` eller `record struct` |
-| `Konto` (i [Undantagshantering](../undantagshantering/egna-exceptions.md)) | Har beteende och muterbart tillstånd (`TaUt`) | `class` |
-| `Kronor` (i [Egna datatyper](egna-datatyper.md)) | Litet numeriskt värde med aritmetik | `record struct` |
+| `Konto` (i [Undantagshantering](../exceptions/custom-exceptions.md)) | Har beteende och muterbart tillstånd (`TaUt`) | `class` |
+| `Kronor` (i [Egna datatyper](custom-types.md)) | Litet numeriskt värde med aritmetik | `record struct` |
 
 ## TL;DR
 

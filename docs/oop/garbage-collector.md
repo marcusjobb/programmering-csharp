@@ -68,7 +68,7 @@ I de allra flesta C#-program behöver du inte tänka på minne alls. GC sköter 
 using var file = File.OpenRead("data.txt");  // stängs automatiskt
 ```
 
-Se [Destruktor och Finalizer](destruktor.md) för detaljer.
+Se [Destruktor och Finalizer](destructor.md) för detaljer.
 
 ## Manuellt anropa GC (gör inte detta i produktion)
 

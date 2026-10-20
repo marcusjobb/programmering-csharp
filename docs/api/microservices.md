@@ -73,11 +73,11 @@ public class OrdersController : ControllerBase
 }
 ```
 
-`OrderService` känner inte till hur `UserService` lagrar sina användare internt — den frågar bara via ett HTTP-anrop, precis som den skulle fråga någon annans publika API. Det är samma [Dependency Inversion](../designmonster/repository-dependency-inversion.md)-tänk som inom en enda applikation, bara flyttat till nätverksnivå: bero på ett kontrakt (API:et), inte på implementationen bakom det.
+`OrderService` känner inte till hur `UserService` lagrar sina användare internt — den frågar bara via ett HTTP-anrop, precis som den skulle fråga någon annans publika API. Det är samma [Dependency Inversion](../design-patterns/repository-dependency-inversion.md)-tänk som inom en enda applikation, bara flyttat till nätverksnivå: bero på ett kontrakt (API:et), inte på implementationen bakom det.
 
 ## Varför inte bara börja med microservices?
 
-Det låter mer skalbart, men priset betalas direkt: nätverksanrop kan misslyckas på sätt ett vanligt metodanrop aldrig gör (tidsgränser, tillfälligt nedkopplad tjänst), det är svårare att testa hela flödet lokalt, och att hålla flera databaser konsekventa med varandra är ett helt eget problem (se [ACID och transaktioner](../sql/transaktioner.md) för vad du normalt får gratis i en delad databas, och som microservices måste lösa manuellt).
+Det låter mer skalbart, men priset betalas direkt: nätverksanrop kan misslyckas på sätt ett vanligt metodanrop aldrig gör (tidsgränser, tillfälligt nedkopplad tjänst), det är svårare att testa hela flödet lokalt, och att hålla flera databaser konsekventa med varandra är ett helt eget problem (se [ACID och transaktioner](../sql/transactions.md) för vad du normalt får gratis i en delad databas, och som microservices måste lösa manuellt).
 
 Tumregeln de flesta erfarna utvecklare landar på: **börja med en monolit.** Dela upp den i microservices först när du faktiskt känner smärtan av att den är en enda enhet — olika delar som behöver skalas olika mycket, olika team som krockar i samma kodbas. Att dela upp för tidigt kostar komplexitet du inte har nytta av än.
 
