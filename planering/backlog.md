@@ -40,7 +40,7 @@ Rekommendationen är redan inräknad i punkterna nedan, men de är inte bekräft
 
 - [x] **F0-04** C#: alla mappar, filer och bilder till engelska namn. *Klar 2026-10-20, commit a66634d.* 306 sidor och 54 bilder fick nya namn, 464 länkar skrevs om, 306 redirects i `site/redirects.json` (läses av `astro.config.mjs`). D1 tillämpad: `entityframework`→`orm`, `aspnetcore`→`web`, `gui/windows-forms`→`gui/desktop`. Inga sidor flyttades mellan kapitel. `check:links` 0 trasiga, bygget 351 sidor.
 - [x] **F0-05** Java: samma omdöpning med C#-bokens kapitelnamn. *Klar 2026-10-21, commit 5121f00.* 172 filer bytte sökväg (inklusive bilderna), 98 länkar skrevs om, 120 redirects (de sex från F0-02 pekar nu på `testing/`). `java/`→`basics/`, `loop/`→`loops/`, `datastructures/`→`data-structures/`. Jekyll-rester i `docs/` (`_config.yml`, `_layouts`, `assets/` m.fl.) är orörda. Bygget 143 sidor.
-- [ ] **F0-06** Bilder kopieras inte till publiceringen. `docs/**/*.png` hamnar inte i `site/dist` och `pages.yml` har inget kopieringssteg, så bildlänkar (t.ex. `/sql/images/...png`) pekar troligen på ingenting live. Gäller båda böckerna. Bekräfta på den publicerade sajten, åtgärda sedan (kopieringssteg i bygget eller symlink i `site/public`).
+- [ ] **F0-06** Bilder kopieras inte till publiceringen. `docs/**/*.png` hamnar inte i `site/dist` och `pages.yml` har inget kopieringssteg, så bildlänkar (t.ex. `/sql/images/...png`) pekar troligen på ingenting live. Gäller båda böckerna. **Bekräftat 2026-10-21:** `…/programmering-csharp/sql/bilder/dbdiagram-start.png` och motsvarande i Java ger 404 live (före omdöpningen). Åtgärda: kopieringssteg i bygget eller symlink i `site/public`.
 
 ## Fas 1: Struktur och ordning (bara index, ingen import)
 
