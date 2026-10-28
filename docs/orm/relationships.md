@@ -15,6 +15,42 @@ Relationer är det som gör en samling tabeller till en databas — utan dem har
 - Välja rätt delete behavior för din situation
 - Undvika cirkulära referenser vid JSON-serialisering
 
+## Översikt
+
+Alla tre relationstyper på ett ställe — som ett ER-diagram. Resten av sidan visar hur var och en modelleras i C#.
+
+```mermaid
+erDiagram
+    Teacher ||--o{ Student : "ansvarar för"
+    Student ||--o| StudentCard : "har"
+    Student }o--o{ Course : "läser"
+
+    Teacher {
+        int Id PK
+        string Name
+    }
+    Student {
+        int Id PK
+        int TeacherId FK
+        string Name
+    }
+    StudentCard {
+        int Id PK
+        int StudentId FK
+        string CardNumber
+    }
+    Course {
+        int Id PK
+        string Title
+    }
+```
+
+`Teacher ||--o{ Student` — en lärare har noll eller fler studenter (en-till-många).
+`Student ||--o| StudentCard` — varje student har noll eller ett studentkort (en-till-en).
+`Student }o--o{ Course` — en student kan läsa många kurser, en kurs har många studenter (många-till-många).
+
+---
+
 ## En-till-många
 
 Den vanligaste relationen. En lärare har många studenter, men varje student har bara en klassföreståndare:
