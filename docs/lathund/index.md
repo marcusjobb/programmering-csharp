@@ -31,7 +31,3 @@ Alla lathundar läser connection strings från `appsettings.json`. Lösenord hö
 ```
 
 Två understreck i en miljövariabel motsvarar ett nivåsteg i JSON: `ConnectionStrings__SqlServer`.
-
----
-
-Samma innehåll finns för Java, med JDBC, JPA/Hibernate och MongoDB Java-drivern.

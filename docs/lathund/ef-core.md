@@ -2,11 +2,13 @@
 title: "Lathund: Entity Framework Core"
 description: "Entity Framework Core i lathundsform: installation per databas, connection string, CRUD, transaktioner, migrationer, relationer med Fluent API och seeding."
 parent: Lathund
-nav_order: 10
+nav_order: 111
 ---
 # Lathund: Entity Framework Core
 
 Den här sidan är en snabbreferens. Förklaringarna finns i [Entity Framework](../orm/index.md). Här hittar du kommandona och mönstren när du väl vet vad du letar efter.
+
+Läs mer: [Entity Framework](../orm/index.md) och [Seeding](../orm/seeding.md).
 
 ## Skapa projektet
 
@@ -82,9 +84,17 @@ export ConnectionStrings__SqlServer="Server=localhost,1433;Database=Webshop;User
 
 ## Databasen
 
-**SQL Server med LocalDB** (Windows och Visual Studio): LocalDB följer med Visual Studio. Använd connection string `LocalDb`.
+Välj den databas du använder. Varje alternativ har sin egen connection string, som du lägger i `appsettings.json`.
 
-**SQL Server i Docker:**
+<details>
+<summary>SQL Server med LocalDB (Windows och Visual Studio)</summary>
+
+LocalDB följer med Visual Studio. Ingen installation behövs. Använd connection string `LocalDb`.
+
+</details>
+
+<details>
+<summary>SQL Server i Docker</summary>
 
 ```bash
 docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<starkt lösenord>" -p 1433:1433 --name sql1 -d mcr.microsoft.com/mssql/server:2022-latest
@@ -92,13 +102,23 @@ docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<starkt lösenord>" -p 1433:
 
 Lösenordet måste vara minst 8 tecken och innehålla stora och små bokstäver, siffror och ett specialtecken.
 
-**MySQL i Docker:**
+</details>
+
+<details>
+<summary>MySQL i Docker</summary>
 
 ```bash
 docker run --name mysql1 -e MYSQL_ROOT_PASSWORD=<lösenord> -p 3306:3306 -d mysql:8.4
 ```
 
-**SQLite** kräver ingen server. Filen skapas när du kör migrationerna.
+</details>
+
+<details>
+<summary>SQLite (ingen server)</summary>
+
+Ingen server behövs. Filen `webshop.db` skapas i projektmappen när du kör migrationerna.
+
+</details>
 
 ## DbContext
 
@@ -284,12 +304,3 @@ EF Core har också `HasData` i `OnModelCreating`. Då blir startdatan en del av 
 | **Change tracking** | EF Core håller reda på vilka objekt som lagts till, ändrats eller tagits bort |
 | **LINQ** | Frågespråket i C# som EF Core översätter till SQL |
 | **Scaffold** | Skapa modellklasser från en befintlig databas |
-
-## Tips och tricks
-
-- Använd `FirstOrDefault` när raden kanske inte finns.
-- Lägg till `.AsNoTracking()` när du bara läser och inte ska ändra något.
-- `ToQueryString()` visar SQL-frågan utan att köra den.
-- Undvik `Find` i en loop. Hämta en lista en gång i stället.
-- Glöm inte `SaveChanges()`. Det är den vanligaste orsaken till att ingenting sparas.
-- Lägg lösenord i user secrets eller miljövariabler, aldrig i `appsettings.json`.

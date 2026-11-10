@@ -2,11 +2,13 @@
 title: "Lathund: ADO.NET med SQLite"
 description: "ADO.NET med SQLite i lathundsform: connection, command, parametrar, CRUD, transaktioner och seeding utan ORM."
 parent: Lathund
-nav_order: 20
+nav_order: 101
 ---
 # Lathund: ADO.NET med SQLite
 
 ADO.NET är lägsta lagret. Du skriver SQL själv och hanterar anslutningen själv. EF Core gör samma saker bakom kulisserna, så det är bra att kunna det här först. Se även [SQLite i C#](../sql/sqlite-in-csharp.md).
+
+Läs mer: [SQLite i C#](../sql/sqlite-in-csharp.md) och [SQL-injektion](../sql/sql-injection.md).
 
 ## Skapa projektet
 
@@ -185,10 +187,3 @@ if (antal == 0)
 | **DataReader** | Läser rader ett i taget, framåt |
 | **ExecuteNonQuery** | Kör en sats som inte returnerar rader |
 | **Transaction** | Flera ändringar som lyckas eller ångras tillsammans |
-
-## Tips och tricks
-
-- Använd alltid parametrar.
-- Glöm inte `using`. En öppen anslutning kan låsa filen för andra program.
-- `ExecuteScalar()` returnerar ett enda värde, till exempel `SELECT COUNT(*)`.
-- Radera `webshop.db` om du vill börja om från början.
