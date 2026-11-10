@@ -9,11 +9,11 @@ school: Nion Education
 date: "2026-09-30"
 updated: "2026-09-30"
 parent: Övrigt
-nav_order: 20
+nav_order: 43
 ---
 # allows ref struct
 
-> **🥷 Ninjakod-varning**
+> **Ninjakod-varning**
 >
 > Det här är avancerad teknik för prestanda-kritisk kod. Du behöver förstå `Span<T>`, `ref struct` och generiska constraints innan detta ger mening. För daglig YH-kod behöver du inte detta — men du kan stöta på det i open source och bibliotekskod.
 

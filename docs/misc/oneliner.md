@@ -2,7 +2,7 @@
 title: Funktionell kodning
 description: "C# är primärt objektorienterat, men har starkt stöd för funktionell stil. Funktionell kodning handlar om att beskriva vad som ska göras, inte hur — med…"
 parent: Övrigt
-nav_order: 10
+nav_order: 30
 ---
 # Funktionell kodning
 

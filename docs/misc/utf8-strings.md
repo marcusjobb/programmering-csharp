@@ -9,11 +9,11 @@ school: Nion Education
 date: "2026-09-30"
 updated: "2026-09-30"
 parent: Övrigt
-nav_order: 38
+nav_order: 40
 ---
 # UTF-8 string literals
 
-> 🥷 **Ninjastoff** — används vid lågnivåprogrammering, nätverk och prestandakritisk nätverkskommunikation. Sällan nödvändigt i vanlig applikationskod.
+> **Ninjastoff** — används vid lågnivåprogrammering, nätverk och prestandakritisk nätverkskommunikation. Sällan nödvändigt i vanlig applikationskod.
 
 Suffixet `u8` på en sträng ger dig en `ReadOnlySpan<byte>` med UTF-8-kodad data — direkt inbakad i assemblyt, noll allocation, noll konvertering vid körning.
 

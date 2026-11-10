@@ -9,11 +9,11 @@ school: Nion Education
 date: "2026-09-30"
 updated: "2026-09-30"
 parent: Övrigt
-nav_order: 37
+nav_order: 42
 ---
 # Generisk matematik
 
-> 🥷 **Ninjastoff** — behövs för matematikbibliotek, räkneintensiv kod och generiska algoritmer. Sällan nödvändigt i vardaglig applikationskod.
+> **Ninjastoff** — behövs för matematikbibliotek, räkneintensiv kod och generiska algoritmer. Sällan nödvändigt i vardaglig applikationskod.
 
 C# 11 introducerade statiska abstrakta interface-members — och använde dem direkt för att lösa ett gammalt problem: du kunde inte skriva en generisk metod som adderar `T + T` utan att veta om `T` är `int`, `double` eller något annat.
 

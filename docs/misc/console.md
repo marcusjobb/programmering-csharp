@@ -1,5 +1,5 @@
 ---
-title: "Konsol-I/O"
+title: "Enkla utskrifter"
 description: "Det här kapitlet är din introduktion till att prata med datorn! Vi ska lära oss hur man får C-Sharp att visa text och siffror på skärmen. Tänk dig det som…"
 parent: "Övrigt"
 nav_order: 10
@@ -7,14 +7,14 @@ nav_order: 10
 
 # Enkla utskrifter
 
-## 🧠 Syfte
+## Syfte
 
 Det här kapitlet är din introduktion till att prata med datorn!  Vi ska lära oss hur man får C-Sharp att
 visa text och siffror på skärmen.  Tänk dig det som att lära din dator att prata –  först enkla
 meningar, sen mer komplexa konversationer!  Det är grundläggande, men superviktigt för allt framtida
 programmerande.
 
-## 💻 Koden
+## Koden
 
 ```csharp
 
@@ -35,7 +35,7 @@ public class HelloWorld
 
 ```
 
-## 📋 Förklaring
+## Förklaring
 
 Låt oss bryta ner koden steg för steg.  Det är enklare än du tror!
 
@@ -96,7 +96,7 @@ Detta diagram visar flödet av programmet.
 **Proffstips:**  Använd alltid meningsfulla namn för dina variabler (som `age`, `name`, `price`), så blir koden lättare att förstå.  String interpolation (`$"..."`) är mycket mer läsbart än att använda "+".
 
 
-## 📚 Sammanfattning
+## Sammanfattning
 
 * Vi lärde oss hur man använder `Console.WriteLine` för att skriva ut text till konsolen.
 * Vi lärde oss att använda variabler för att lagra data.
@@ -104,7 +104,7 @@ Detta diagram visar flödet av programmet.
 
 Du har tagit ditt första steg in i C-Sharp-världen!  Snyggt jobbat!
 
-## 😄 Obligatoriskt pappaskämt
+## Obligatoriskt pappaskämt
 
 Vad kallar man en programmerare som inte kan sova?  En stack overflow!
 

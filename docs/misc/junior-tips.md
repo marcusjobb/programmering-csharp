@@ -9,7 +9,7 @@ school: Nion Education
 date: "2026-09-30"
 updated: "2026-09-30"
 parent: Övrigt
-nav_order: 30
+nav_order: 25
 ---
 # 10 tips för juniorer
 

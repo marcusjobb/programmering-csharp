@@ -9,11 +9,11 @@ school: Nion Education
 date: "2026-09-30"
 updated: "2026-09-30"
 parent: Övrigt
-nav_order: 35
+nav_order: 41
 ---
 # Inline arrays
 
-> 🥷 **Ninjastoff** — används i prestandakritisk systemkod. Normalt inte nödvändigt i applikationskod.
+> **Ninjastoff** — används i prestandakritisk systemkod. Normalt inte nödvändigt i applikationskod.
 
 En inline array är en fast-storleks buffer som lever på stacken — ingen heap-allokering, ingen GC-press, ingen `unsafe`. Precis som `Span<T>` men som en struct du kan definiera själv.
 

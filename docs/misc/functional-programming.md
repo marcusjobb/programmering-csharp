@@ -2,7 +2,7 @@
 title: Funktionell programmering
 description: "C# är objektorienterat i grunden, men LINQ, lambdas och immutable data lånar rakt av från funktionell programmering — ett annat sätt att tänka på kod."
 parent: Övrigt
-nav_order: 20
+nav_order: 31
 ---
 # Funktionell programmering
 
