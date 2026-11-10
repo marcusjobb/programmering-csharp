@@ -1,6 +1,6 @@
 ---
 title: "Lathund: Blazor"
-description: "Blazor i lathundsform: skapa en Blazor Web App med interaktiv server, komponenter, parametrar, dependency injection, formulär och tester med bUnit."
+description: "Blazor: skapa en Blazor Web App med interaktiv server, komponenter, parametrar, dependency injection, formulär och tester med bUnit."
 parent: Lathund
 nav_order: 132
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Lathund: Markdown"
-description: "Markdown i lathundsform för README-filer och dokumentation i C#-projekt: rubriker, listor, länkar, tabeller och kodblock."
+description: "Markdown för README-filer och dokumentation i C#-projekt: rubriker, listor, länkar, tabeller och kodblock."
 parent: Lathund
 nav_order: 974
 ---

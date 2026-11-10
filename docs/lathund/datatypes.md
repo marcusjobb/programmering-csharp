@@ -1,6 +1,6 @@
 ---
 title: "Lathund: datatyper"
-description: "Vanliga datatyper i C# i lathundsform: tal, text, bool, nullbara typer och samlingar, med omfång och exempel."
+description: "Vanliga datatyper i C#: tal, text, bool, nullbara typer och samlingar, med omfång och exempel."
 parent: Lathund
 nav_order: 26
 ---

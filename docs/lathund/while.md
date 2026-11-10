@@ -1,6 +1,6 @@
 ---
 title: "Lathund: while"
-description: "while-loopen i C# i lathundsform: villkor, break, continue, nästlade loopar och vanliga misstag."
+description: "while-loopen i C#: villkor, break, continue, nästlade loopar och vanliga misstag."
 parent: Lathund
 nav_order: 51
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Lathund: switch"
-description: "switch-sats och switch-uttryck i C# i lathundsform: case, break, default, when, jämförelser och vanliga misstag."
+description: "switch-sats och switch-uttryck i C#: case, break, default, when, jämförelser och vanliga misstag."
 parent: Lathund
 nav_order: 32
 ---

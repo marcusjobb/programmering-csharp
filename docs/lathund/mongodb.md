@@ -1,6 +1,6 @@
 ---
 title: "Lathund: MongoDB"
-description: "MongoDB i C# i lathundsform: Docker, Atlas, Compass, connection string i JSON, CRUD, transaktioner med replica set och seeding."
+description: "MongoDB i C#: Docker, Atlas, Compass, connection string i JSON, CRUD, transaktioner med replica set och seeding."
 parent: Lathund
 nav_order: 121
 ---

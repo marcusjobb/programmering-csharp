@@ -1,6 +1,6 @@
 ---
 title: "Lathund: Git Flow"
-description: "Git Flow i lathundsform: branchstrukturen main, develop och feature-grenar, pull requests, hotfix och de vanligaste kommandona."
+description: "Git Flow: branchstrukturen main, develop och feature-grenar, pull requests, hotfix och de vanligaste kommandona."
 parent: Lathund
 nav_order: 972
 ---

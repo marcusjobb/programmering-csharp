@@ -1,6 +1,6 @@
 ---
 title: "Lathund: for"
-description: "for-loopen i C# i lathundsform: initiering, villkor, steg, nästlade loopar, break, continue och vanliga misstag."
+description: "for-loopen i C#: initiering, villkor, steg, nästlade loopar, break, continue och vanliga misstag."
 parent: Lathund
 nav_order: 53
 ---

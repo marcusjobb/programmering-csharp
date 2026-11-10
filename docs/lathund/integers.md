@@ -1,6 +1,6 @@
 ---
 title: "Lathund: heltal (int)"
-description: "Heltal i C# i lathundsform: intervall, omvandling från och till text, aritmetik, jämförelser och de vanligaste misstagen."
+description: "Heltal i C#: intervall, omvandling från och till text, aritmetik, jämförelser och de vanligaste misstagen."
 parent: Lathund
 nav_order: 22
 ---

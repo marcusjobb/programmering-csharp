@@ -1,6 +1,6 @@
 ---
 title: "Lathund: ASP.NET Core Web API"
-description: "ASP.NET Core Web API i lathundsform: skapa solution och projekt, projektreferenser, controllers, Program.cs, Entity Framework-migrationer och tester."
+description: "ASP.NET Core Web API: skapa solution och projekt, projektreferenser, controllers, Program.cs, Entity Framework-migrationer och tester."
 parent: Lathund
 nav_order: 131
 ---

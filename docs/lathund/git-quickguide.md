@@ -1,6 +1,6 @@
 ---
 title: "Lathund: Git"
-description: "Git i lathundsform: att skapa och klona ett repository, arbeta med grenar, skicka upp ändringar, ångra och hantera fjärrrepositoryn."
+description: "Git: att skapa och klona ett repository, arbeta med grenar, skicka upp ändringar, ångra och hantera fjärrrepositoryn."
 parent: Lathund
 nav_order: 971
 ---

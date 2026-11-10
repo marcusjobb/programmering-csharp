@@ -1,6 +1,6 @@
 ---
 title: "Lathund: do-while"
-description: "do-while-loopen i C# i lathundsform: efterkontroll, jämförelse med while, break, continue och vanliga misstag."
+description: "do-while-loopen i C#: efterkontroll, jämförelse med while, break, continue och vanliga misstag."
 parent: Lathund
 nav_order: 52
 ---

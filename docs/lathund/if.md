@@ -1,6 +1,6 @@
 ---
 title: "Lathund: if-satsen"
-description: "if, else och else if i C# i lathundsform: syntax, jämförelser, exempel och de vanligaste misstagen."
+description: "if, else och else if i C#: syntax, jämförelser, exempel och de vanligaste misstagen."
 parent: Lathund
 nav_order: 31
 ---

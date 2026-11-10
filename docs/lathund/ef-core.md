@@ -1,6 +1,6 @@
 ---
 title: "Lathund: Entity Framework Core"
-description: "Entity Framework Core i lathundsform: installation per databas, connection string, CRUD, transaktioner, migrationer, relationer med Fluent API och seeding."
+description: "Entity Framework Core: installation per databas, connection string, CRUD, transaktioner, migrationer, relationer med Fluent API och seeding."
 parent: Lathund
 nav_order: 111
 ---

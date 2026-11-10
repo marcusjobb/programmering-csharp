@@ -1,6 +1,6 @@
 ---
 title: "Lathund: ADO.NET med SQLite"
-description: "ADO.NET med SQLite i lathundsform: connection, command, parametrar, CRUD, transaktioner och seeding utan ORM."
+description: "ADO.NET med SQLite: connection, command, parametrar, CRUD, transaktioner och seeding utan ORM."
 parent: Lathund
 nav_order: 101
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Lathund: strängar (string)"
-description: "Strängar i C# i lathundsform: sammanfogning, längd, sökning, utskärning, ersättning och delning, samt de vanligaste misstagen."
+description: "Strängar i C#: sammanfogning, längd, sökning, utskärning, ersättning och delning, samt de vanligaste misstagen."
 parent: Lathund
 nav_order: 25
 ---
