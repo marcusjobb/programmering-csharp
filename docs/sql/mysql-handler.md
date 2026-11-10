@@ -236,4 +236,4 @@ foreach (var (id, namn, pris, lager) in db.GetProducts())
 
 Det här är **separation of concerns** i praktiken — varje fil har ett ansvar.
 
-> **Nästa projekt:** i [DBMarketplace](../../CLO26/) bygger vi vidare på samma mönster med flera tabeller, transaktioner och MySQL-roller.
+> **Nästa projekt:** i DBMarketplace bygger vi vidare på samma mönster med flera tabeller, transaktioner och MySQL-roller.
